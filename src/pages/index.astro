@@ -26,7 +26,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
             <span class="text-gray-900">Digital Health For Your</span>
-            <span class="bg-gradient-to-r from-primary-700 to-accent-500 bg-clip-text text-transparent">
+            <span class="animated-gradient-text">
               Business
             </span>
           </h1>
@@ -478,5 +478,26 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
   .animate-scroll {
     animation: scroll 30s linear infinite;
+  }
+
+  .animated-gradient-text {
+    background: linear-gradient(90deg, #1e40af, #0891b2, #8b5cf6, #1e40af);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 </style>
