@@ -1,0 +1,471 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rocket, Clock, DollarSign, Users, TrendingUp } from 'lucide-astro';
+---
+
+<BaseLayout title="Team Riley Web - Digital Health For Your Business">
+  <Navigation />
+
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50">
+    <!-- Background decoration -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
+      <div class="absolute top-20 right-20 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-40 w-64 h-64 bg-primary-300 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left column - Copy -->
+        <div class="space-y-8">
+          <div class="inline-flex items-center px-4 py-2 bg-primary-50 border-l-4 border-primary-500 rounded-r-lg">
+            <span class="text-sm font-semibold text-primary-700">Digital Growth Partner</span>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+            Digital Health For Your
+            <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+              Business
+            </span>
+          </h1>
+
+          <p class="text-xl text-gray-600 leading-relaxed max-w-xl">
+            We help health and wellness brands grow their online presence with beautiful, mobile-first websites that convert visitors into clients.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#get-started"
+               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-500 rounded-xl shadow-medium hover:shadow-large hover:scale-105 transition-all duration-200">
+              Get Started Today
+              <ArrowRight class="ml-2 w-5 h-5" />
+            </a>
+            <a href="#pricing"
+               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-700 bg-white border-2 border-primary-200 rounded-xl hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
+              View Pricing
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="flex items-center gap-6 pt-4">
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="w-5 h-5 text-green-500" />
+              <span class="text-sm font-medium text-gray-700">No Setup Fees</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="w-5 h-5 text-green-500" />
+              <span class="text-sm font-medium text-gray-700">Launch in 8 Weeks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column - Image -->
+        <div class="relative lg:block">
+          <div class="relative">
+            <!-- Decorative elements -->
+            <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary-500 rounded-2xl opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-300 rounded-full opacity-20"></div>
+
+            <!-- Image placeholder with gradient overlay -->
+            <div class="relative rounded-2xl overflow-hidden shadow-large bg-gradient-to-br from-primary-100 to-primary-200">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
+                   alt="Digital workspace"
+                   class="w-full h-auto mix-blend-overlay opacity-90"
+                   loading="eager" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Section -->
+  <section class="py-12 bg-white border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
+        Trusted by Leading Health & Wellness Brands
+      </p>
+
+      <!-- Logo scroll animation -->
+      <div class="relative overflow-hidden" x-data="{
+        logos: ['Life2Health', 'DOM', 'DSM MD', 'Wellness Co', 'Health Plus', 'Vitality', 'Pure Life', 'MedCare']
+      }">
+        <div class="flex space-x-12 animate-scroll">
+          <template x-for="(logo, index) in logos.concat(logos)" :key="index">
+            <div class="flex-shrink-0 flex items-center justify-center w-32 h-16 text-gray-400 font-semibold text-lg">
+              <span x-text="logo"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem/Solution Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center px-4 py-2 bg-red-50 border-l-4 border-red-400 rounded-r-lg mb-6">
+        <span class="text-sm font-semibold text-red-700">The Challenge</span>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Tired of Online Struggles?
+      </h2>
+
+      <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">
+        Being invisible online means lost revenue. Your potential clients are searching for health solutions right now, but they're finding your competitors instead.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-16">
+        <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow border-t-4 border-primary-500">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 mx-auto">
+            <TrendingUp class="w-7 h-7 text-primary-600" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Increase Visibility</h3>
+          <p class="text-gray-600">Get found by the right people at the right time with SEO-optimized pages.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow border-t-4 border-primary-500">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 mx-auto">
+            <Users class="w-7 h-7 text-primary-600" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Convert Visitors</h3>
+          <p class="text-gray-600">Turn browsers into buyers with compelling design and clear calls-to-action.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-medium transition-shadow border-t-4 border-primary-500">
+          <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 mx-auto">
+          <Shield class="w-7 h-7 text-primary-600" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Build Trust</h3>
+          <p class="text-gray-600">Professional design that establishes credibility and authority in your field.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-primary-50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+          <span class="text-sm font-semibold text-primary-700">Simple Pricing</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Choose Your Plan
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          All plans include unlimited updates and no setup fees. Cancel anytime.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Silver Plan -->
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-300 transition-all hover:shadow-medium">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Silver</h3>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl font-bold text-gray-900">$199</span>
+              <span class="text-gray-600">/month</span>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">1-5 Pages</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">$500 Setup</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">Unlimited Updates</span>
+            </li>
+          </ul>
+
+          <a href="#get-started"
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-700 bg-primary-50 border-2 border-primary-200 rounded-xl hover:bg-primary-100 transition-colors">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Gold Plan (Featured) -->
+        <div class="relative bg-gradient-to-br from-primary-600 to-primary-500 rounded-2xl p-8 shadow-large transform md:scale-105">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-yellow-400 text-yellow-900 text-sm font-bold rounded-full shadow-medium">
+            POPULAR
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Gold</h3>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl font-bold text-white">$199</span>
+              <span class="text-primary-100">/month</span>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+              <span class="text-white">1-5 Pages</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+              <span class="text-white">$500 Setup</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+              <span class="text-white">Unlimited Updates</span>
+            </li>
+          </ul>
+
+          <a href="#get-started"
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-700 bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-medium">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Platinum Plan -->
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-300 transition-all hover:shadow-medium">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Platinum</h3>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl font-bold text-gray-900">$199</span>
+              <span class="text-gray-600">/month</span>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">1-5 Pages</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">$500 Setup</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">Unlimited Updates</span>
+            </li>
+          </ul>
+
+          <a href="#get-started"
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-700 bg-primary-50 border-2 border-primary-200 rounded-xl hover:bg-primary-100 transition-colors">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Everything You Need
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Professional features that help your business stand out online.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <Rocket class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Launch in 8 Weeks or Less</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Get your site up and running fast with our streamlined process.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <DollarSign class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">No Set-Up Fees</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Pay one simple monthly rate with no hidden costs or surprises.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <Smartphone class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Mobile-First Design</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Optimized for mobile devices where most visitors browse.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <Zap class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Lightning Fast</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Optimized performance keeps visitors engaged and improves SEO.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <Globe class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">SEO Optimized</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Built for search engines to help customers find you easily.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white p-6 rounded-xl shadow-soft hover:shadow-medium transition-shadow">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+            <Palette class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Custom Design</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Unique, brand-aligned designs that set you apart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-primary-50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+          <span class="text-sm font-semibold text-primary-700">Simple Process</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          How It Works
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          From idea to launch in three simple steps.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Step 1 -->
+        <div class="relative text-center">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl shadow-medium mb-6">
+            <span class="text-3xl font-bold text-white">1</span>
+            <!-- Connector line -->
+            <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Complete the Form</h3>
+          <p class="text-gray-600">Tell us about your business, goals, and design preferences.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative text-center">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl shadow-medium mb-6">
+            <span class="text-3xl font-bold text-white">2</span>
+            <!-- Connector line -->
+            <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">We Build Your Site</h3>
+          <p class="text-gray-600">Our team creates your custom website in just 1 week.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl shadow-medium mb-6">
+            <span class="text-3xl font-bold text-white">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Launch & Grow</h3>
+          <p class="text-gray-600">Go live and start attracting customers with unlimited updates.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <a href="#get-started"
+           class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-500 rounded-xl shadow-medium hover:shadow-large hover:scale-105 transition-all duration-200">
+          Start Your Project Today
+          <ArrowRight class="ml-2 w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Company -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-4">Team Riley Wellness</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Digital health solutions for growing wellness businesses.
+          </p>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Web Design</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">SEO</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Maintenance</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Consulting</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-primary-400 transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Portfolio</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-primary-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="tel:2256144765" class="hover:text-primary-400 transition-colors">
+                225-614-4765
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hello@teamriley.com" class="hover:text-primary-400 transition-colors">
+                hello@teamriley.com
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-gray-500">
+          &copy; 2026 Team Riley Wellness. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="hover:text-primary-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-primary-400 transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+</style>
