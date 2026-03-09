@@ -96,11 +96,29 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <!-- Trust indicators -->
           <div class="flex items-center gap-6 pt-4">
             <div class="flex items-center gap-2">
-              <CheckCircle2 class="w-5 h-5 text-green-600" />
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#checkGradient1)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="checkGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <span class="text-sm font-medium text-gray-700">No Setup Fees</span>
             </div>
             <div class="flex items-center gap-2">
-              <CheckCircle2 class="w-5 h-5 text-green-600" />
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#checkGradient2)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="checkGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <span class="text-sm font-medium text-gray-700">Launch in 8 Weeks</span>
             </div>
           </div>
@@ -149,45 +167,111 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     </div>
   </section>
 
-  <!-- Problem/Solution Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-white via-gray-50 to-white relative">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-transparent to-accent-50/30"></div>
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-500/10 to-orange-500/10 border-l-4 border-red-500 rounded-r-lg mb-6 backdrop-blur-sm">
-        <span class="text-sm font-semibold text-red-600">The Challenge</span>
-      </div>
+  <!-- Unlimited Updates Feature Section -->
+  <section class="py-20 md:py-32 bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
+    </div>
 
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Tired of Online Struggles?
-      </h2>
-
-      <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-12">
-        Being invisible online means lost revenue. Your potential clients are searching for health solutions right now, but they're finding your competitors instead.
-      </p>
-
-      <div class="grid md:grid-cols-3 gap-8 mt-16">
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-medium hover:shadow-large transition-all border-t-4 border-primary-700 hover:scale-105 duration-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-700 to-primary-800 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow">
-            <TrendingUp class="w-7 h-7 text-white" />
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Big Statement -->
+        <div>
+          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
+            <span class="text-sm font-bold text-primary-800 uppercase tracking-wider">Never Pay Per Change</span>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-3">Increase Visibility</h3>
-          <p class="text-gray-700">Get found by the right people at the right time with SEO-optimized pages.</p>
+
+          <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span class="animated-gradient-text">Unlimited</span>
+            <br/>
+            <span class="text-gray-900">Updates</span>
+            <br/>
+            <span class="text-gray-900">Forever</span>
+          </h2>
+
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            Your website should grow with your business. Make changes anytime, as many times as you want—no hourly rates, no surprise bills, no limits.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
+                <CheckCircle2 class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">Content Updates</h4>
+                <p class="text-gray-700">Change text, images, and pages whenever you need</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
+                <CheckCircle2 class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">Design Improvements</h4>
+                <p class="text-gray-700">Refresh layouts and styling to stay modern</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
+                <CheckCircle2 class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">New Features</h4>
+                <p class="text-gray-700">Add functionality as your needs evolve</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
+                <CheckCircle2 class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">Performance Optimization</h4>
+                <p class="text-gray-700">Keep your site fast and secure with regular updates</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-medium hover:shadow-large transition-all border-t-4 border-primary-700 hover:scale-105 duration-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-700 to-primary-800 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow">
-            <Users class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-3">Convert Visitors</h3>
-          <p class="text-gray-700">Turn browsers into buyers with compelling design and clear calls-to-action.</p>
-        </div>
+        <!-- Right: Visual Stats -->
+        <div class="relative">
+          <!-- Big number display -->
+          <div class="bg-white border-2 border-gray-200 rounded-3xl p-12 shadow-2xl">
+            <div class="text-center mb-8">
+              <div class="inline-flex items-baseline gap-2">
+                <span class="text-8xl md:text-9xl font-black bg-gradient-to-r from-primary-700 via-accent-500 to-secondary-500 bg-clip-text text-transparent">
+                  ∞
+                </span>
+              </div>
+              <p class="text-2xl font-bold text-gray-900 mt-4">Changes Per Month</p>
+              <p class="text-gray-600 mt-2">No limits. No extra charges.</p>
+            </div>
 
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-medium hover:shadow-large transition-all border-t-4 border-primary-700 hover:scale-105 duration-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-700 to-primary-800 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow">
-          <Shield class="w-7 h-7 text-white" />
+            <div class="border-t border-gray-200 pt-8 space-y-6">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">Average Response Time</span>
+                <span class="text-2xl font-bold text-gray-900">24hrs</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">Pages You Can Update</span>
+                <span class="text-2xl font-bold text-gray-900">All</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">Additional Fees</span>
+                <span class="text-2xl font-bold text-primary-700">$0</span>
+              </div>
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-3">Build Trust</h3>
-          <p class="text-gray-700">Professional design that establishes credibility and authority in your field.</p>
+
+          <!-- Floating badge -->
+          <div class="absolute -top-6 -right-6 bg-gradient-to-br from-primary-700 to-primary-800 text-white px-6 py-3 rounded-full shadow-2xl transform rotate-12">
+            <p class="text-sm font-bold">Included Forever</p>
+          </div>
         </div>
       </div>
     </div>
@@ -208,13 +292,15 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           Choose Your Plan
         </h2>
         <p class="text-xl text-gray-200 max-w-2xl mx-auto">
-          All plans include unlimited updates and no setup fees. Cancel anytime.
+          All plans include unlimited updates. Cancel anytime.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
         <!-- Silver Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-primary-600 transition-all hover:shadow-xl backdrop-blur-sm">
+        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-primary-600 transition-all hover:shadow-xl backdrop-blur-sm overflow-hidden group">
+          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
           <div class="mb-8">
             <h3 class="text-2xl font-bold text-white mb-2">Silver</h3>
             <div class="flex items-baseline gap-2">
@@ -242,18 +328,21 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
              class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 border-2 border-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all">
             Get Started
           </a>
+          </div>
         </div>
 
         <!-- Gold Plan (Featured) -->
-        <div class="relative bg-gradient-to-br from-accent-500 via-primary-600 to-primary-700 rounded-2xl p-8 shadow-2xl transform md:scale-105 ring-2 ring-accent-400/50">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg">
+        <div class="relative bg-gradient-to-br from-accent-500 via-primary-600 to-primary-700 rounded-2xl p-8 shadow-2xl transform md:scale-105 ring-2 ring-accent-400/50 overflow-visible">
+          <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
             POPULAR
           </div>
+          <div class="relative z-10">
 
           <div class="mb-8">
             <h3 class="text-2xl font-bold text-white mb-2">Gold</h3>
             <div class="flex items-baseline gap-2">
-              <span class="text-5xl font-bold text-white">$199</span>
+              <span class="text-5xl font-bold text-white">$399</span>
               <span class="text-gray-100">/month</span>
             </div>
           </div>
@@ -261,7 +350,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
               <CheckCircle2 class="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
-              <span class="text-white font-medium">1-5 Pages</span>
+              <span class="text-white font-medium">5-15 Pages</span>
             </li>
             <li class="flex items-start gap-3">
               <CheckCircle2 class="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
@@ -277,14 +366,17 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
              class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-900 bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl">
             Get Started
           </a>
+          </div>
         </div>
 
         <!-- Platinum Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-accent-500 transition-all hover:shadow-xl backdrop-blur-sm">
+        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-accent-500 transition-all hover:shadow-xl backdrop-blur-sm overflow-hidden group">
+          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
           <div class="mb-8">
             <h3 class="text-2xl font-bold text-white mb-2">Platinum</h3>
             <div class="flex items-baseline gap-2">
-              <span class="text-5xl font-bold text-white">$199</span>
+              <span class="text-5xl font-bold text-white">$599</span>
               <span class="text-gray-400">/month</span>
             </div>
           </div>
@@ -292,7 +384,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
               <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">1-5 Pages</span>
+              <span class="text-gray-200">15+ Pages</span>
             </li>
             <li class="flex items-start gap-3">
               <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
@@ -308,6 +400,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
              class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-accent-600 to-accent-500 border-2 border-accent-500 rounded-xl hover:from-accent-500 hover:to-accent-400 transition-all">
             Get Started
           </a>
+          </div>
         </div>
       </div>
     </div>
@@ -599,5 +692,41 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
   .animate-float-slower {
     animation: float 15s ease-in-out infinite;
+  }
+
+  /* Shimmer effect for pricing cards */
+  .shimmer-overlay {
+    background: linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    background-size: 400% 400%;
+    animation: shimmer-diagonal 12s linear infinite;
+  }
+
+  .shimmer-overlay-gold {
+    background: linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(255, 255, 255, 0.12) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    background-size: 400% 400%;
+    animation: shimmer-diagonal 12s linear infinite;
+  }
+
+  @keyframes shimmer-diagonal {
+    0% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
   }
 </style>
