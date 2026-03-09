@@ -1,0 +1,29 @@
+---
+import { ArrowRight } from 'lucide-astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaHref: string;
+  variant?: 'default' | 'footer';
+}
+
+const { title, subtitle, ctaText, ctaHref, variant = 'default' } = Astro.props;
+---
+
+<div class="relative bg-gradient-to-r from-primary-800/50 via-primary-700/30 to-primary-800/50 backdrop-blur-sm rounded-3xl p-10 md:p-16 lg:p-20 border border-primary-700/30 overflow-hidden">
+  <div class={`absolute inset-0 ${variant === 'footer' ? 'shimmer-overlay-footer' : 'shimmer-overlay'}`}></div>
+  <div class="relative z-10 text-center">
+    <h3 class={`font-bold text-white mb-6 ${variant === 'footer' ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-3xl md:text-4xl'}`}>
+      {title}
+    </h3>
+    <p class={`text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed ${variant === 'footer' ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}>
+      {subtitle}
+    </p>
+    <a href={ctaHref} class={`btn ${variant === 'footer' ? 'btn-secondary btn-xl' : 'btn-secondary btn-lg'} rounded-2xl`}>
+      {ctaText}
+      <ArrowRight class="w-6 h-6" />
+    </a>
+  </div>
+</div>

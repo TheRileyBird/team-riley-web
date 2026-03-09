@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Footer from '../components/Footer.astro';
+import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield } from 'lucide-astro';
+---
+
+<BaseLayout title="Services - Team Riley" description="Professional web design and development services for health and wellness businesses">
+  <Navigation />
+
+  <Hero
+    badge="What We Offer"
+    title='<span class="animated-gradient-text">Complete Digital Solutions</span> <span class="text-gray-900">For Health & Wellness</span>'
+    subtitle="From custom design to ongoing support, we provide everything you need to grow your online presence and attract more clients."
+    primaryCTA={{ text: 'Get Started', href: '#get-started' }}
+    secondaryCTA={{ text: 'View Pricing', href: '/pricing' }}
+    imageSrc="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
+    imageAlt="Team collaborating on web design"
+  />
+
+  <!-- Services Grid -->
+  <section class="py-20 md:py-28 bg-white relative overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        badge="Our Services"
+        title="Everything Your Business Needs Online"
+        subtitle="Professional services designed specifically for health and wellness brands"
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
+            <Rocket class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Custom Web Design</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Unique, brand-aligned designs that set you apart from competitors and resonate with your target audience.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Mobile-first responsive design</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Brand identity integration</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>User experience optimization</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+            <Code class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Development</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Clean, modern code built on the latest web technologies for fast, secure, and scalable websites.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Lightning-fast performance</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>SEO-optimized structure</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Secure & reliable hosting</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mb-6">
+            <Zap class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Performance Optimization</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Fast loading speeds that keep visitors engaged and improve your search engine rankings.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Image optimization</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Code minification</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>CDN integration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+            <Globe class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">SEO & Marketing</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Get found by potential clients with search engine optimization built into every page.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Keyword optimization</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Meta tags & schema markup</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Analytics integration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-orange-600 to-red-700 rounded-xl flex items-center justify-center mb-6">
+            <Smartphone class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Mobile Optimization</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Perfect experience on every device, from phones to tablets to desktops.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Touch-friendly interfaces</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Adaptive layouts</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Fast mobile loading</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-pink-600 to-rose-700 rounded-xl flex items-center justify-center mb-6">
+            <Shield class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Ongoing Support</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Unlimited updates and maintenance included with every plan. No hourly rates, ever.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Content updates</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Security monitoring</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-600 mt-0.5">✓</span>
+              <span>Technical support</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

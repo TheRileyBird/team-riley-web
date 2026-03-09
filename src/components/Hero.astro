@@ -1,0 +1,173 @@
+---
+interface Props {
+  badge?: string;
+  title: string;
+  subtitle: string;
+  primaryCTA?: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+  imageSrc?: string;
+  imageAlt?: string;
+  showTrustIndicators?: boolean;
+}
+
+const {
+  badge,
+  title,
+  subtitle,
+  primaryCTA,
+  secondaryCTA,
+  imageSrc,
+  imageAlt,
+  showTrustIndicators = false
+} = Astro.props;
+
+import { ArrowRight } from 'lucide-astro';
+---
+
+<section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-20 right-20 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-40 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-20 w-80 h-80 bg-primary-700 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- EKG Monitor Pattern (hidden on mobile/tablet) -->
+  <div class="absolute inset-0 pointer-events-none hidden lg:block">
+    <svg class="absolute w-full h-full opacity-20" preserveAspectRatio="none" viewBox="0 0 1200 800">
+      <defs>
+        <linearGradient id="ekg-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#0891b2;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <path d="M 0 400 L 200 400 L 225 350 L 250 450 L 275 380 L 300 400 L 1200 400"
+            stroke="url(#ekg-gradient)"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="ekg-line" />
+    </svg>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left column - Copy -->
+      <div class="space-y-8">
+        {badge && (
+          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg">
+            <span class="text-sm font-semibold text-primary-800">{badge}</span>
+          </div>
+        )}
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <Fragment set:html={title} />
+        </h1>
+
+        <p class="text-xl text-gray-700 leading-relaxed max-w-xl">
+          {subtitle}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          {primaryCTA && (
+            <a href={primaryCTA.href} class="btn btn-primary btn-lg">
+              {primaryCTA.text}
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          )}
+          {secondaryCTA && (
+            <a href={secondaryCTA.href} class="btn btn-secondary btn-lg">
+              {secondaryCTA.text}
+            </a>
+          )}
+        </div>
+
+        <!-- Trust indicators -->
+        {showTrustIndicators && (
+          <div class="flex items-center gap-6 pt-4">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#checkGradient1)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="checkGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span class="text-sm text-gray-700 font-medium">Launch in 8 Weeks</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#checkGradient2)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="checkGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span class="text-sm text-gray-700 font-medium">No Set-Up Fees</span>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Right column - Visual -->
+      {imageSrc && (
+        <div class="relative lg:block">
+          <div class="relative">
+            <!-- Decorative elements -->
+            <div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-accent-400 to-accent-500 rounded-full opacity-20"></div>
+
+            <!-- Image placeholder with gradient overlay -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 via-violet-600 to-purple-700">
+              <img src={imageSrc}
+                   alt={imageAlt}
+                   class="w-full h-auto mix-blend-overlay opacity-90"
+                   loading="eager" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-blue-700/40 via-violet-600/30 to-purple-600/20"></div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ekg-line {
+    animation: ekg-pulse 3s ease-in-out infinite, ekg-fade 3s ease-in-out infinite;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+  }
+
+  @keyframes ekg-pulse {
+    0% {
+      stroke-dashoffset: 1200;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -1200;
+    }
+  }
+
+  @keyframes ekg-fade {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>

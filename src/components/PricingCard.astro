@@ -1,0 +1,77 @@
+---
+import { CheckCircle2 } from 'lucide-astro';
+
+interface Props {
+  name: string;
+  price: string;
+  features: string[];
+  featured?: boolean;
+  featuredLabel?: string;
+  variant?: 'silver' | 'gold' | 'platinum';
+}
+
+const {
+  name,
+  price,
+  features,
+  featured = false,
+  featuredLabel = 'MOST POPULAR',
+  variant = 'silver'
+} = Astro.props;
+
+const cardClasses = {
+  silver: 'bg-white border-2 border-gray-200 hover:border-primary-600',
+  gold: 'bg-gradient-to-br from-blue-700 via-primary-700 to-violet-600',
+  platinum: 'bg-white border-2 border-gray-200 hover:border-secondary-500'
+};
+
+const textClasses = {
+  silver: { title: 'text-gray-900', price: 'text-gray-900', priceUnit: 'text-gray-600', feature: 'text-gray-700', icon: 'text-primary-600' },
+  gold: { title: 'text-white', price: 'text-white', priceUnit: 'text-gray-100', feature: 'text-white font-medium', icon: 'text-white' },
+  platinum: { title: 'text-gray-900', price: 'text-gray-900', priceUnit: 'text-gray-600', feature: 'text-gray-700', icon: 'text-secondary-600' }
+};
+
+const hoverClasses = variant === 'gold' ? 'hover:scale-110' : 'hover:scale-105';
+const scaleClass = variant === 'gold' ? 'md:scale-105' : '';
+const buttonVariant = variant === 'gold' ? 'btn-secondary' : 'btn-primary';
+---
+
+<div class={`relative ${cardClasses[variant]} rounded-2xl p-8 shadow-2xl transform ${scaleClass} ${hoverClasses} ${variant === 'gold' ? 'ring-2 ring-accent-400/50' : ''} overflow-${variant === 'gold' ? 'visible' : 'hidden'} transition-${variant === 'gold' ? 'transform' : 'all'} duration-300 group`}>
+  {variant === 'gold' && (
+    <>
+      <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
+      {featured && (
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
+          {featuredLabel}
+        </div>
+      )}
+    </>
+  )}
+
+  {variant !== 'gold' && (
+    <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  )}
+
+  <div class="relative z-10">
+    <div class="mb-8">
+      <h3 class={`text-2xl font-bold ${textClasses[variant].title} mb-2`}>{name}</h3>
+      <div class="flex items-baseline gap-2">
+        <span class={`text-5xl font-bold ${textClasses[variant].price}`}>{price}</span>
+        <span class={textClasses[variant].priceUnit}>/month</span>
+      </div>
+    </div>
+
+    <ul class="space-y-4 mb-8">
+      {features.map((feature) => (
+        <li class="flex items-start gap-3">
+          <CheckCircle2 class={`w-6 h-6 ${textClasses[variant].icon} flex-shrink-0 mt-0.5`} />
+          <span class={textClasses[variant].feature}>{feature}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a href="#get-started" class={`btn ${buttonVariant} w-full`}>
+      Get Started
+    </a>
+  </div>
+</div>

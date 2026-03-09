@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Footer from '../components/Footer.astro';
+import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
+---
+
+<BaseLayout title="About Us - Team Riley" description="Learn about Team Riley and our mission to help health and wellness businesses thrive online">
+  <Navigation />
+
+  <Hero
+    badge="Our Story"
+    title='<span class="text-gray-900">Building Better Health &</span> <span class="animated-gradient-text">Wellness Websites</span>'
+    subtitle="We're a team of designers and developers passionate about helping health and wellness brands grow their online presence and connect with more clients."
+    primaryCTA={{ text: 'Get Started', href: '#get-started' }}
+    secondaryCTA={{ text: 'View Our Work', href: '/portfolio' }}
+    imageSrc="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+    imageAlt="Team collaboration"
+  />
+
+  <!-- Mission Section -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        badge="Our Mission"
+        title="Empowering Health & Wellness Brands"
+        subtitle="We believe every health and wellness business deserves a website that works as hard as they do"
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
+            <Heart class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Client-First Approach</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Your success is our success. We partner with you to understand your unique goals and create solutions that drive real results.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+            <Target class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Results-Driven</h3>
+          <p class="text-gray-700 leading-relaxed">
+            We focus on what matters most—converting visitors into clients and helping your business grow online.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+            <Award class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Quality Craftsmanship</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Every website we build is crafted with attention to detail, modern design principles, and clean code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        badge="Why Team Riley"
+        title="What Makes Us Different"
+        subtitle="We're not just building websites—we're building long-term partnerships"
+      />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Benefits List -->
+        <div class="space-y-6">
+          <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-600 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Users class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Health & Wellness Expertise</h4>
+              <p class="text-gray-700">We specialize in health and wellness, understanding your industry's unique needs and challenges.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-600 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Zap class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Fast Turnaround</h4>
+              <p class="text-gray-700">Launch your new website in just 8 weeks with our streamlined process and efficient workflow.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-600 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Shield class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h4>
+              <p class="text-gray-700">Unlimited updates and maintenance included—no hourly rates, no surprise bills.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stats -->
+        <div class="relative">
+          <div class="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 shadow-2xl">
+            <div class="space-y-10">
+              <div class="text-center border-b border-white/20 pb-8">
+                <div class="text-6xl font-bold text-white mb-2">500+</div>
+                <p class="text-xl text-gray-200">Businesses Helped</p>
+              </div>
+
+              <div class="text-center border-b border-white/20 pb-8">
+                <div class="text-6xl font-bold text-white mb-2">8wks</div>
+                <p class="text-xl text-gray-200">Average Launch Time</p>
+              </div>
+
+              <div class="text-center">
+                <div class="text-6xl font-bold text-white mb-2">24hr</div>
+                <p class="text-xl text-gray-200">Response Time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        badge="Our Team"
+        title="Meet The People Behind Team Riley"
+        subtitle="A dedicated team of designers, developers, and strategists committed to your success"
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+              alt="Team member"
+              class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-1">Joshua Riley</h4>
+          <p class="text-primary-700 font-semibold mb-3">Founder & Lead Developer</p>
+          <p class="text-gray-700">Passionate about creating beautiful, high-performing websites for health and wellness brands.</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
+              alt="Team member"
+              class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-1">Sarah Mitchell</h4>
+          <p class="text-primary-700 font-semibold mb-3">Design Director</p>
+          <p class="text-gray-700">Specializes in creating intuitive user experiences that convert visitors into loyal clients.</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80"
+              alt="Team member"
+              class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-1">Michael Chen</h4>
+          <p class="text-primary-700 font-semibold mb-3">SEO Specialist</p>
+          <p class="text-gray-700">Expert in helping health businesses rank higher and attract more qualified leads online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

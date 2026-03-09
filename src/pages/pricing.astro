@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import PricingCard from '../components/PricingCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Pricing - Team Riley" description="Simple, transparent pricing for professional web design and development services">
+  <Navigation />
+
+  <Hero
+    badge="Simple Pricing"
+    title='<span class="text-gray-900">Choose The Plan That</span> <span class="animated-gradient-text">Fits Your Business</span>'
+    subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
+    primaryCTA={{ text: 'Get Started', href: '#get-started' }}
+    showTrustIndicators={true}
+  />
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-100 rounded-3xl p-10 md:p-16 lg:p-20 relative overflow-visible shadow-lg">
+        <SectionHeader
+          badge="Simple Pricing"
+          title="Choose Your Plan"
+          subtitle="All plans include unlimited updates. Cancel anytime."
+        />
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
+          <PricingCard
+            name="Silver"
+            price="$199"
+            features={[
+              '1-5 Pages',
+              '$500 Setup',
+              'Unlimited Updates'
+            ]}
+            variant="silver"
+          />
+
+          <PricingCard
+            name="Gold"
+            price="$399"
+            features={[
+              '5-15 Pages',
+              '$500 Setup',
+              'Unlimited Updates'
+            ]}
+            variant="gold"
+            featured={true}
+          />
+
+          <PricingCard
+            name="Platinum"
+            price="$599"
+            features={[
+              '15+ Pages',
+              '$500 Setup',
+              'Unlimited Updates'
+            ]}
+            variant="platinum"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about our pricing and services"
+      />
+
+      <div class="space-y-6">
+        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
+          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+            What's included in "Unlimited Updates"?
+            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Unlimited updates means you can request as many changes to your website as you need—content updates, image changes, new pages, feature additions, and more. There are no hourly rates and no surprise bills.
+          </p>
+        </details>
+
+        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
+          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+            Can I upgrade or downgrade my plan?
+            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Yes! You can upgrade or downgrade your plan at any time. The change will take effect on your next billing cycle.
+          </p>
+        </details>
+
+        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
+          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+            What happens if I cancel?
+            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            You can cancel anytime with no penalties. Your site will remain live until the end of your billing period, and you'll own all the content you created.
+          </p>
+        </details>
+
+        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
+          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+            Do you offer custom quotes?
+            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Yes! If you need more than 15 pages or have specific requirements, contact us for a custom quote tailored to your needs.
+          </p>
+        </details>
+
+        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
+          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+            How long does it take to launch?
+            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Most sites launch within 8 weeks. We'll work with you to create a timeline that fits your needs and goals.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
