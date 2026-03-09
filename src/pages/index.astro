@@ -75,12 +75,12 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="#get-started"
-               class="btn-shimmer-dark inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl shadow-large hover:shadow-2xl transition-all duration-200">
+               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl shadow-large hover:shadow-2xl hover:scale-105 transition-all duration-200">
               Get Started Today
               <ArrowRight class="ml-2 w-5 h-5" />
             </a>
             <a href="#pricing"
-               class="btn-shimmer-outline inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-700 rounded-xl hover:text-primary-800 transition-all duration-200">
+               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-700 bg-white border-2 border-primary-300 rounded-xl hover:bg-primary-50 hover:border-primary-400 transition-all duration-200">
               View Pricing
             </a>
           </div>
@@ -364,7 +364,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           </ul>
 
           <a href="#get-started"
-             class="btn-shimmer-dark block w-full text-center px-6 py-3 text-base font-semibold text-white rounded-xl transition-all shadow-medium hover:shadow-lg">
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all shadow-medium">
             Get Started
           </a>
           </div>
@@ -402,7 +402,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           </ul>
 
           <a href="#get-started"
-             class="btn-shimmer-light block w-full text-center px-6 py-3 text-base font-semibold text-primary-900 rounded-xl transition-all shadow-lg hover:shadow-xl">
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-900 bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl">
             Get Started
           </a>
           </div>
@@ -436,7 +436,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           </ul>
 
           <a href="#get-started"
-             class="btn-shimmer-dark block w-full text-center px-6 py-3 text-base font-semibold text-white rounded-xl transition-all shadow-medium hover:shadow-lg">
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all shadow-medium">
             Get Started
           </a>
           </div>
@@ -571,7 +571,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
       <!-- CTA -->
       <div class="text-center mt-16">
         <a href="#get-started"
-           class="btn-shimmer-dark inline-flex items-center px-8 py-4 text-base font-semibold text-white rounded-xl shadow-large hover:shadow-2xl transition-all duration-200">
+           class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl shadow-large hover:shadow-2xl hover:scale-105 transition-all duration-200">
           Start Your Project Today
           <ArrowRight class="ml-2 w-5 h-5" />
         </a>
@@ -787,53 +787,6 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     }
     100% {
       stroke-dashoffset: -242.78px;
-    }
-  }
-
-  /* Button Shimmer Styles */
-  .btn-shimmer-dark {
-    background: linear-gradient(90deg, #1e40af, #0891b2, #8b5cf6, #1e40af);
-    background-size: 300% 100%;
-    animation: btn-shimmer 6s ease infinite;
-  }
-
-  .btn-shimmer-light {
-    background: linear-gradient(90deg, #ffffff, #f0f9ff, #faf5ff, #ffffff);
-    background-size: 300% 100%;
-    animation: btn-shimmer 6s ease infinite;
-  }
-
-  .btn-shimmer-outline {
-    position: relative;
-    background: white;
-    z-index: 1;
-  }
-
-  .btn-shimmer-outline::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(90deg, #1e40af, #0891b2, #8b5cf6, #1e40af);
-    background-size: 300% 100%;
-    animation: btn-shimmer 6s ease infinite;
-    border-radius: inherit;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-  }
-
-  @keyframes btn-shimmer {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
     }
   }
 </style>
