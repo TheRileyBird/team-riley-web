@@ -828,41 +828,52 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
   /* Stripe-style feature table */
   .features-table {
     position: relative;
+    overflow: hidden;
+  }
+
+  .features-table > .grid {
+    position: relative;
   }
 
   .feature-cell {
     position: relative;
-    padding: 2rem 2.5rem;
-    transition: background-color 0.2s ease;
+    padding: 3rem 2.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .feature-cell:hover {
-    background-color: rgba(249, 250, 251, 0.8);
+    background-color: rgba(248, 250, 252, 0.6);
   }
 
-  /* Horizontal dashed lines between rows - fading to edges */
-  .features-table > .grid:first-child {
-    position: relative;
-  }
-
+  /* Horizontal dashed line between rows - fading to white at edges */
   .features-table > .grid:first-child::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 10%;
-    right: 10%;
+    left: 0;
+    right: 0;
     height: 1px;
-    background: linear-gradient(
+    background: repeating-linear-gradient(
       90deg,
-      transparent 0%,
-      rgba(203, 213, 225, 0.6) 15%,
-      rgba(203, 213, 225, 0.6) 85%,
-      transparent 100%
+      rgba(203, 213, 225, 0.5) 0px,
+      rgba(203, 213, 225, 0.5) 8px,
+      transparent 8px,
+      transparent 16px
     );
-    background-size: 8px 1px;
-    background-repeat: repeat-x;
-    mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 12%,
+      rgba(255, 255, 255, 1) 88%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 12%,
+      rgba(255, 255, 255, 1) 88%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   /* Vertical dashed lines between columns - fading at top/bottom */
@@ -870,19 +881,31 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     .feature-cell:not(:last-child)::after {
       content: '';
       position: absolute;
-      top: 15%;
-      bottom: 15%;
+      top: 0;
+      bottom: 0;
       right: 0;
       width: 1px;
-      background: linear-gradient(
+      background: repeating-linear-gradient(
         180deg,
-        transparent 0%,
-        rgba(203, 213, 225, 0.5) 20%,
-        rgba(203, 213, 225, 0.5) 80%,
-        transparent 100%
+        rgba(203, 213, 225, 0.5) 0px,
+        rgba(203, 213, 225, 0.5) 8px,
+        transparent 8px,
+        transparent 16px
       );
-      background-size: 1px 6px;
-      background-repeat: repeat-y;
+      mask-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 12%,
+        rgba(255, 255, 255, 1) 88%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 12%,
+        rgba(255, 255, 255, 1) 88%,
+        rgba(255, 255, 255, 0) 100%
+      );
     }
 
     /* Remove right border on last column items */
