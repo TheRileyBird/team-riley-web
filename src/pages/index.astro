@@ -54,14 +54,6 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z"/>
         </svg>
       </div>
-
-      <!-- Pulsing heartbeat dot -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
-        <div class="relative">
-          <div class="w-4 h-4 bg-primary-700 rounded-full animate-ping"></div>
-          <div class="absolute inset-0 w-4 h-4 bg-primary-700 rounded-full animate-pulse"></div>
-        </div>
-      </div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -277,7 +269,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <div class="bg-white border-2 border-gray-200 rounded-3xl p-12 shadow-2xl">
             <div class="text-center mb-8">
               <div class="inline-flex justify-center items-center">
-                <svg class="w-80 h-48 md:w-96 md:h-56" viewBox="-10 -10 207.3 113.7" preserveAspectRatio="xMidYMid meet">
+                <svg class="w-full max-w-2xl h-40 md:h-48" viewBox="20 20 147.3 53.7" preserveAspectRatio="xMidYMid meet">
                   <defs>
                     <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1">
@@ -329,61 +321,57 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-primary-700 via-primary-800 to-primary-900 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-500 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
-    </div>
+  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center px-4 py-2 bg-white/10 border-l-4 border-white rounded-r-lg mb-6 backdrop-blur-sm">
-          <span class="text-xs font-bold text-white tracking-wider uppercase">Simple Pricing</span>
+        <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
+          <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Choose Your Plan
         </h2>
-        <p class="text-xl text-gray-200 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
           All plans include unlimited updates. Cancel anytime.
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
         <!-- Silver Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-primary-600 transition-all duration-500 hover:shadow-xl hover:scale-110 backdrop-blur-sm overflow-hidden group">
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-600 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
           <div class="mb-8">
-            <h3 class="text-2xl font-bold text-white mb-2">Silver</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Silver</h3>
             <div class="flex items-baseline gap-2">
-              <span class="text-5xl font-bold text-white">$199</span>
-              <span class="text-gray-400">/month</span>
+              <span class="text-5xl font-bold text-gray-900">$199</span>
+              <span class="text-gray-600">/month</span>
             </div>
           </div>
 
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">1-5 Pages</span>
+              <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">1-5 Pages</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">$500 Setup</span>
+              <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">$500 Setup</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">Unlimited Updates</span>
+              <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">Unlimited Updates</span>
             </li>
           </ul>
 
           <a href="#get-started"
-             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 border-2 border-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all">
+             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all shadow-medium">
             Get Started
           </a>
           </div>
         </div>
 
         <!-- Gold Plan (Featured) -->
-        <div class="relative bg-gradient-to-br from-accent-500 via-primary-600 to-primary-700 rounded-2xl p-8 shadow-2xl transform md:scale-105 hover:scale-110 ring-2 ring-accent-400/50 overflow-visible transition-transform duration-300">
+        <div class="relative bg-gradient-to-br from-primary-700 to-primary-600 rounded-2xl p-8 shadow-2xl transform md:scale-105 hover:scale-110 ring-2 ring-accent-400/50 overflow-visible transition-transform duration-300">
           <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
             MOST POPULAR
@@ -421,29 +409,29 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
         </div>
 
         <!-- Platinum Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-accent-500 transition-all duration-300 hover:shadow-xl hover:scale-110 backdrop-blur-sm overflow-hidden group">
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
           <div class="mb-8">
-            <h3 class="text-2xl font-bold text-white mb-2">Platinum</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Platinum</h3>
             <div class="flex items-baseline gap-2">
-              <span class="text-5xl font-bold text-white">$599</span>
-              <span class="text-gray-400">/month</span>
+              <span class="text-5xl font-bold text-gray-900">$599</span>
+              <span class="text-gray-600">/month</span>
             </div>
           </div>
 
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">15+ Pages</span>
+              <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">15+ Pages</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">$500 Setup</span>
+              <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">$500 Setup</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
-              <span class="text-gray-200">Unlimited Updates</span>
+              <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">Unlimited Updates</span>
             </li>
           </ul>
 
@@ -473,7 +461,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Feature 1 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <Rocket class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Launch in 8 Weeks or Less</h3>
@@ -482,7 +470,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Feature 2 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <DollarSign class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">No Set-Up Fees</h3>
@@ -491,7 +479,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Feature 3 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <Smartphone class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Mobile-First Design</h3>
@@ -500,7 +488,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Feature 4 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <Zap class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Lightning Fast</h3>
@@ -509,7 +497,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Feature 5 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <Globe class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">SEO Optimized</h3>
@@ -518,7 +506,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Feature 6 -->
         <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
             <Palette class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Custom Design</h3>
@@ -676,6 +664,12 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .animated-gradient-bg {
+    background: linear-gradient(90deg, #1e40af, #0891b2, #8b5cf6, #1e40af);
+    background-size: 300% 100%;
     animation: gradient-shift 8s ease infinite;
   }
 
