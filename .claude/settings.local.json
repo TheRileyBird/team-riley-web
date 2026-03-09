@@ -5,7 +5,9 @@
       "Bash(npm create:*)",
       "Bash(npm init -y)",
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(bd create:*)",
+      "Bash(open http://localhost:4321)"
     ]
   }
 }
