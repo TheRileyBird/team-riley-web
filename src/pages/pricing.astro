@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
-import Hero from '../components/Hero.astro';
+import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PricingCard from '../components/PricingCard.astro';
 import Footer from '../components/Footer.astro';
@@ -10,12 +10,11 @@ import Footer from '../components/Footer.astro';
 <BaseLayout title="Pricing - Team Riley" description="Simple, transparent pricing for professional web design and development services">
   <Navigation />
 
-  <Hero
+  <PageHeader
     badge="Simple Pricing"
     title='<span class="text-gray-900">Choose The Plan That</span> <span class="animated-gradient-text">Fits Your Business</span>'
     subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
     primaryCTA={{ text: 'Get Started', href: '#get-started' }}
-    showTrustIndicators={true}
   />
 
   <!-- Pricing Section -->

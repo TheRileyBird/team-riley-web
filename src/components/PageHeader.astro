@@ -1,0 +1,64 @@
+---
+interface Props {
+  badge?: string;
+  title: string;
+  subtitle: string;
+  primaryCTA?: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+}
+
+const {
+  badge,
+  title,
+  subtitle,
+  primaryCTA,
+  secondaryCTA
+} = Astro.props;
+
+import { ArrowRight } from 'lucide-astro';
+---
+
+<section class="relative pt-20 pb-12 md:pt-24 md:pb-16 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+  <!-- Background decoration -->
+  <!--<div class="absolute inset-0 opacity-5">-->
+  <!--  <div class="absolute top-20 right-20 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>-->
+  <!--  <div class="absolute bottom-20 right-40 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>-->
+  <!--  <div class="absolute top-1/2 left-20 w-80 h-80 bg-primary-700 rounded-full blur-3xl"></div>-->
+  <!--</div>-->
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      {badge && (
+        <div class="flex justify-center">
+          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg">
+            <span class="text-sm font-semibold text-primary-800">{badge}</span>
+          </div>
+        </div>
+      )}
+
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <Fragment set:html={title} />
+      </h1>
+
+      <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+
+      {(primaryCTA || secondaryCTA) && (
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          {primaryCTA && (
+            <a href={primaryCTA.href} class="btn btn-primary btn-lg">
+              {primaryCTA.text}
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          )}
+          {secondaryCTA && (
+            <a href={secondaryCTA.href} class="btn btn-secondary btn-lg">
+              {secondaryCTA.text}
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

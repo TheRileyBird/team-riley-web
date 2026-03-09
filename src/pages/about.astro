@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
-import Hero from '../components/Hero.astro';
+import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Footer from '../components/Footer.astro';
 import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
@@ -10,14 +10,12 @@ import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
 <BaseLayout title="About Us - Team Riley" description="Learn about Team Riley and our mission to help health and wellness businesses thrive online">
   <Navigation />
 
-  <Hero
+  <PageHeader
     badge="Our Story"
     title='<span class="text-gray-900">Building Better Health &</span> <span class="animated-gradient-text">Wellness Websites</span>'
     subtitle="We're a team of designers and developers passionate about helping health and wellness brands grow their online presence and connect with more clients."
     primaryCTA={{ text: 'Get Started', href: '#get-started' }}
     secondaryCTA={{ text: 'View Our Work', href: '/portfolio' }}
-    imageSrc="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-    imageAlt="Team collaboration"
   />
 
   <!-- Mission Section -->
