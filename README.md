@@ -1,2 +1,3 @@
-# team-riley-web
-# team-riley-web
+# Astro Website
+
+Health insurance website built with Astro, Tailwind CSS, and Alpine.js.
