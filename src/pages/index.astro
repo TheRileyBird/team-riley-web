@@ -321,7 +321,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-8" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 20px 50px -12px rgba(0, 0, 0, 0.25);">
+  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-gray-200 relative overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-8" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 20px 50px -12px rgba(0, 0, 0, 0.25);">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
@@ -446,71 +446,71 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
   </section>
 
   <!-- Features Grid -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-300 relative">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-50/40 via-transparent to-accent-50/30"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Everything You Need
         </h2>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Professional features that help your business stand out online.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <Rocket class="w-6 h-6 text-white" />
+      <!-- Stripe-style feature table -->
+      <div class="features-table relative">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Rocket class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Launch in 8 Weeks</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Get your site up and running fast with our streamlined process.</p>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Launch in 8 Weeks or Less</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Get your site up and running fast with our streamlined process.</p>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <DollarSign class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">No Set-Up Fees</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Pay one simple monthly rate with no hidden costs or surprises.</p>
+          </div>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Smartphone class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Mobile-First Design</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Optimized for mobile devices where most visitors browse.</p>
+          </div>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <DollarSign class="w-6 h-6 text-white" />
+        <!-- Row 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Zap class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Lightning Fast</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Optimized performance keeps visitors engaged and improves SEO.</p>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">No Set-Up Fees</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Pay one simple monthly rate with no hidden costs or surprises.</p>
-        </div>
 
-        <!-- Feature 3 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <Smartphone class="w-6 h-6 text-white" />
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Globe class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">SEO Optimized</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Built for search engines to help customers find you easily.</p>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Mobile-First Design</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Optimized for mobile devices where most visitors browse.</p>
-        </div>
 
-        <!-- Feature 4 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <Zap class="w-6 h-6 text-white" />
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Palette class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Custom Design</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Unique, brand-aligned designs that set you apart.</p>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Lightning Fast</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Optimized performance keeps visitors engaged and improves SEO.</p>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <Globe class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">SEO Optimized</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Built for search engines to help customers find you easily.</p>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="group bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-medium hover:shadow-large transition-all hover:-translate-y-1 duration-200 border border-gray-200">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-lg animated-gradient-bg">
-            <Palette class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Custom Design</h3>
-          <p class="text-gray-700 text-sm leading-relaxed">Unique, brand-aligned designs that set you apart.</p>
         </div>
       </div>
     </div>
@@ -787,6 +787,72 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     }
     100% {
       stroke-dashoffset: -242.78px;
+    }
+  }
+
+  /* Stripe-style feature table */
+  .features-table {
+    position: relative;
+  }
+
+  .feature-cell {
+    position: relative;
+    padding: 2rem 2.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .feature-cell:hover {
+    background-color: rgba(249, 250, 251, 0.8);
+  }
+
+  /* Horizontal dashed lines between rows - fading to edges */
+  .features-table > .grid:first-child {
+    position: relative;
+  }
+
+  .features-table > .grid:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(203, 213, 225, 0.6) 15%,
+      rgba(203, 213, 225, 0.6) 85%,
+      transparent 100%
+    );
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+    mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+  }
+
+  /* Vertical dashed lines between columns - fading at top/bottom */
+  @media (min-width: 768px) {
+    .feature-cell:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      bottom: 15%;
+      right: 0;
+      width: 1px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(203, 213, 225, 0.5) 20%,
+        rgba(203, 213, 225, 0.5) 80%,
+        transparent 100%
+      );
+      background-size: 1px 6px;
+      background-repeat: repeat-y;
+    }
+
+    /* Remove right border on last column items */
+    .feature-cell:nth-child(3n)::after {
+      display: none;
     }
   }
 </style>
