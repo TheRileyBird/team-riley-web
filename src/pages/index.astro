@@ -74,13 +74,11 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#get-started"
-               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl shadow-large hover:shadow-2xl hover:scale-105 transition-all duration-200">
+            <a href="#get-started" class="btn btn-primary btn-lg">
               Get Started Today
-              <ArrowRight class="ml-2 w-5 h-5" />
+              <ArrowRight class="w-5 h-5" />
             </a>
-            <a href="#pricing"
-               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-700 bg-white border-2 border-primary-300 rounded-xl hover:bg-primary-50 hover:border-primary-400 transition-all duration-200">
+            <a href="#pricing" class="btn btn-secondary btn-lg">
               View Pricing
             </a>
           </div>
@@ -372,21 +370,22 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-20 md:py-28 bg-white relative overflow-visible">
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
-          <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
+  <section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-100 rounded-3xl p-10 md:p-16 lg:p-20 relative overflow-visible shadow-lg">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
+            <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Choose Your Plan
+          </h2>
+          <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+            All plans include unlimited updates. Cancel anytime.
+          </p>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Choose Your Plan
-        </h2>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-          All plans include unlimited updates. Cancel anytime.
-        </p>
-      </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
         <!-- Silver Plan -->
         <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-600 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -414,8 +413,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </li>
           </ul>
 
-          <a href="#get-started"
-             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all shadow-medium">
+          <a href="#get-started" class="btn btn-primary w-full">
             Get Started
           </a>
           </div>
@@ -452,15 +450,14 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </li>
           </ul>
 
-          <a href="#get-started"
-             class="block w-full text-center px-6 py-3 text-base font-semibold text-primary-900 bg-white rounded-xl hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl">
+          <a href="#get-started" class="btn btn-secondary w-full">
             Get Started
           </a>
           </div>
         </div>
 
         <!-- Platinum Plan -->
-        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
           <div class="mb-8">
@@ -486,12 +483,12 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </li>
           </ul>
 
-          <a href="#get-started"
-             class="block w-full text-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-500 transition-all shadow-medium">
+          <a href="#get-started" class="btn btn-primary w-full">
             Get Started
           </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -699,10 +696,9 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
       <!-- CTA -->
       <div class="text-center mt-16">
-        <a href="#get-started"
-           class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl shadow-large hover:shadow-2xl hover:scale-105 transition-all duration-200">
+        <a href="#get-started" class="btn btn-primary btn-lg">
           Start Your Project Today
-          <ArrowRight class="ml-2 w-5 h-5" />
+          <ArrowRight class="w-5 h-5" />
         </a>
       </div>
     </div>
@@ -728,10 +724,9 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
             Join dozens of health and wellness brands already thriving online with Team Riley.
           </p>
-          <a href="#get-started"
-             class="inline-flex items-center px-10 py-5 text-lg font-semibold text-primary-900 bg-white rounded-2xl hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105">
+          <a href="#get-started" class="btn btn-secondary btn-xl rounded-2xl">
             Start Your Project
-            <ArrowRight class="ml-3 w-6 h-6" />
+            <ArrowRight class="w-6 h-6" />
           </a>
         </div>
       </div>
@@ -1195,5 +1190,75 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
   .group:hover .step-badge {
     transform: scale(1.1);
+  }
+
+  /* Button Components */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* Primary Button - Dark blue gradient */
+  .btn-primary {
+    background: linear-gradient(to right, #1e40af, #1e3a8a);
+    color: white;
+    border-radius: 0.75rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  /* Secondary Button - White with border */
+  .btn-secondary {
+    background: white;
+    color: #1e40af;
+    border: 2px solid #cbd5e1;
+    border-radius: 0.75rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.85;
+  }
+
+  /* Outline Button - Transparent with border */
+  .btn-outline {
+    background: transparent;
+    color: #1e40af;
+    border: 2px solid #cbd5e1;
+    border-radius: 0.75rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .btn-outline:hover {
+    background: rgba(30, 64, 175, 0.05);
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-lg {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  .btn-xl {
+    padding: 1.5rem 3rem;
+    font-size: 1.25rem;
   }
 </style>
