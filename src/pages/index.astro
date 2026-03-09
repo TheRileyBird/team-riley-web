@@ -535,36 +535,71 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Step 1 -->
-        <div class="relative text-center">
-          <div class="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-2xl shadow-xl mb-6">
-            <span class="text-3xl font-bold text-white">1</span>
-            <!-- Connector line -->
-            <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-gradient-to-r from-primary-700 to-transparent"></div>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Complete the Form</h3>
-          <p class="text-gray-700">Tell us about your business, goals, and design preferences.</p>
+      <!-- Connected Steps Container -->
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Continuous connecting line (desktop) -->
+        <div class="hidden md:block absolute top-10 left-[calc(16.67%-10px)] right-[calc(16.67%-10px)] h-1">
+          <div class="absolute inset-0 bg-gray-200 rounded-full"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 rounded-full process-line-animate"></div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="relative text-center">
-          <div class="relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-2xl shadow-xl mb-6">
-            <span class="text-3xl font-bold text-white">2</span>
-            <!-- Connector line -->
-            <div class="hidden md:block absolute top-1/2 left-full w-full h-1 bg-gradient-to-r from-primary-700 to-transparent"></div>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">We Build Your Site</h3>
-          <p class="text-gray-700">Our team creates your custom website in just 1 week.</p>
-        </div>
+        <div class="grid md:grid-cols-3 gap-8 md:gap-4">
+          <!-- Step 1 -->
+          <div class="relative flex flex-col items-center text-center group">
+            <!-- Mobile connector line (vertical) -->
+            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-700 to-primary-600 rounded-full"></div>
 
-        <!-- Step 3 -->
-        <div class="text-center">
-          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-2xl shadow-xl mb-6">
-            <span class="text-3xl font-bold text-white">3</span>
+            <div class="relative z-10">
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/20 to-primary-800/20 rounded-full blur-sm group-hover:from-primary-600/30 group-hover:to-primary-800/30 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+                <span class="text-3xl font-bold text-white">1</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Complete the Form</h3>
+              <p class="text-gray-700">Tell us about your business, goals, and design preferences.</p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Launch & Grow</h3>
-          <p class="text-gray-700">Go live and start attracting customers with unlimited updates.</p>
+
+          <!-- Step 2 -->
+          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
+            <!-- Mobile connector line (vertical) -->
+            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-600 to-primary-700 rounded-full"></div>
+
+            <div class="relative z-10">
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/20 to-accent-500/20 rounded-full blur-sm group-hover:from-primary-600/30 group-hover:to-accent-500/30 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-600 to-accent-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+                <span class="text-3xl font-bold text-white">2</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">We Build Your Site</h3>
+              <p class="text-gray-700">Our team creates your custom website in just 1 week.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
+            <div class="relative z-10">
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-accent-500/20 to-secondary-500/20 rounded-full blur-sm group-hover:from-accent-500/30 group-hover:to-secondary-500/30 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-accent-500 to-secondary-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+                <span class="text-3xl font-bold text-white">3</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Launch & Grow</h3>
+              <p class="text-gray-700">Go live and start attracting customers with unlimited updates.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -853,6 +888,21 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     /* Remove right border on last column items */
     .feature-cell:nth-child(3n)::after {
       display: none;
+    }
+  }
+
+  /* Process line animation */
+  .process-line-animate {
+    background-size: 200% 100%;
+    animation: process-flow 3s ease-in-out infinite;
+  }
+
+  @keyframes process-flow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 </style>
