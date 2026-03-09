@@ -197,9 +197,16 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
           <div class="space-y-4">
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
-                <CheckCircle2 class="w-5 h-5 text-white" />
-              </div>
+              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#unlimitedGradient1)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="unlimitedGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <div>
                 <h4 class="text-lg font-bold text-gray-900 mb-1">Content Updates</h4>
                 <p class="text-gray-700">Change text, images, and pages whenever you need</p>
@@ -207,9 +214,16 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
-                <CheckCircle2 class="w-5 h-5 text-white" />
-              </div>
+              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#unlimitedGradient2)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="unlimitedGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <div>
                 <h4 class="text-lg font-bold text-gray-900 mb-1">Design Improvements</h4>
                 <p class="text-gray-700">Refresh layouts and styling to stay modern</p>
@@ -217,9 +231,16 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
-                <CheckCircle2 class="w-5 h-5 text-white" />
-              </div>
+              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#unlimitedGradient3)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="unlimitedGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <div>
                 <h4 class="text-lg font-bold text-gray-900 mb-1">New Features</h4>
                 <p class="text-gray-700">Add functionality as your needs evolve</p>
@@ -227,9 +248,16 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full flex items-center justify-center mt-1">
-                <CheckCircle2 class="w-5 h-5 text-white" />
-              </div>
+              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="url(#unlimitedGradient4)" />
+                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="unlimitedGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <div>
                 <h4 class="text-lg font-bold text-gray-900 mb-1">Performance Optimization</h4>
                 <p class="text-gray-700">Keep your site fast and secure with regular updates</p>
@@ -240,13 +268,41 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
         <!-- Right: Visual Stats -->
         <div class="relative">
+          <!-- Floating badge -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-primary-700 to-primary-800 text-white text-sm font-bold rounded-full shadow-2xl z-20 whitespace-nowrap">
+            Included Forever
+          </div>
+
           <!-- Big number display -->
           <div class="bg-white border-2 border-gray-200 rounded-3xl p-12 shadow-2xl">
             <div class="text-center mb-8">
-              <div class="inline-flex items-baseline gap-2">
-                <span class="text-8xl md:text-9xl font-black bg-gradient-to-r from-primary-700 via-accent-500 to-secondary-500 bg-clip-text text-transparent">
-                  ∞
-                </span>
+              <div class="inline-flex justify-center items-center">
+                <svg class="w-80 h-48 md:w-96 md:h-56" viewBox="-10 -10 207.3 113.7" preserveAspectRatio="xMidYMid meet">
+                  <defs>
+                    <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1">
+                        <animate attributeName="stop-color" values="#1d4ed8; #0891b2; #8b5cf6; #1d4ed8" dur="8s" repeatCount="indefinite" />
+                      </stop>
+                      <stop offset="50%" style="stop-color:#0891b2;stop-opacity:1">
+                        <animate attributeName="stop-color" values="#0891b2; #8b5cf6; #1d4ed8; #0891b2" dur="8s" repeatCount="indefinite" />
+                      </stop>
+                      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1">
+                        <animate attributeName="stop-color" values="#8b5cf6; #1d4ed8; #0891b2; #8b5cf6" dur="8s" repeatCount="indefinite" />
+                      </stop>
+                    </linearGradient>
+                    <filter id="infinityGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path id="infinity-outline-bg" opacity="0.15" fill="none" stroke="url(#infinityGradient)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+                  <path stroke="url(#infinityGradient)" id="infinity-outline" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" filter="url(#infinityGlow)"
+                        d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+                </svg>
               </div>
               <p class="text-2xl font-bold text-gray-900 mt-4">Changes Per Month</p>
               <p class="text-gray-600 mt-2">No limits. No extra charges.</p>
@@ -267,21 +323,16 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
               </div>
             </div>
           </div>
-
-          <!-- Floating badge -->
-          <div class="absolute -top-6 -right-6 bg-gradient-to-br from-primary-700 to-primary-800 text-white px-6 py-3 rounded-full shadow-2xl transform rotate-12">
-            <p class="text-sm font-bold">Included Forever</p>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-primary-900 via-primary-800 to-primary-900 relative overflow-hidden">
+  <section id="pricing" class="py-20 md:py-28 bg-gradient-to-b from-primary-700 via-primary-800 to-primary-900 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-400 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-500 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
@@ -298,7 +349,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
         <!-- Silver Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-primary-600 transition-all hover:shadow-xl backdrop-blur-sm overflow-hidden group">
+        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-primary-600 transition-all duration-500 hover:shadow-xl hover:scale-110 backdrop-blur-sm overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
           <div class="mb-8">
@@ -311,15 +362,15 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">1-5 Pages</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">$500 Setup</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">Unlimited Updates</span>
             </li>
           </ul>
@@ -332,10 +383,10 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
         </div>
 
         <!-- Gold Plan (Featured) -->
-        <div class="relative bg-gradient-to-br from-accent-500 via-primary-600 to-primary-700 rounded-2xl p-8 shadow-2xl transform md:scale-105 ring-2 ring-accent-400/50 overflow-visible">
+        <div class="relative bg-gradient-to-br from-accent-500 via-primary-600 to-primary-700 rounded-2xl p-8 shadow-2xl transform md:scale-105 hover:scale-110 ring-2 ring-accent-400/50 overflow-visible transition-transform duration-300">
           <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
-            POPULAR
+            MOST POPULAR
           </div>
           <div class="relative z-10">
 
@@ -370,7 +421,7 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
         </div>
 
         <!-- Platinum Plan -->
-        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-accent-500 transition-all hover:shadow-xl backdrop-blur-sm overflow-hidden group">
+        <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 rounded-2xl p-8 hover:border-accent-500 transition-all duration-300 hover:shadow-xl hover:scale-110 backdrop-blur-sm overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
           <div class="mb-8">
@@ -383,15 +434,15 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">15+ Pages</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">$500 Setup</span>
             </li>
             <li class="flex items-start gap-3">
-              <CheckCircle2 class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
               <span class="text-gray-200">Unlimited Updates</span>
             </li>
           </ul>
@@ -727,6 +778,21 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     }
     100% {
       background-position: 0% 0%;
+    }
+  }
+
+  #infinity-outline {
+    stroke-dasharray: 90px, 152.78px;
+    stroke-dashoffset: 0;
+    animation: infinity-draw 7s linear infinite;
+  }
+
+  @keyframes infinity-draw {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -242.78px;
     }
   }
 </style>
