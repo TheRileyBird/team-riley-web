@@ -551,9 +551,9 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
             <div class="relative z-10">
               <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/20 to-primary-800/20 rounded-full blur-sm group-hover:from-primary-600/30 group-hover:to-primary-800/30 transition-all duration-300"></div>
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-300/20 to-primary-500/20 rounded-full blur-sm group-hover:from-primary-300/30 group-hover:to-primary-500/30 transition-all duration-300"></div>
               <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white step-badge">
                 <span class="text-3xl font-bold text-white">1</span>
               </div>
             </div>
@@ -571,9 +571,9 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 
             <div class="relative z-10">
               <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/20 to-accent-500/20 rounded-full blur-sm group-hover:from-primary-600/30 group-hover:to-accent-500/30 transition-all duration-300"></div>
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-500/20 to-primary-600/20 rounded-full blur-sm group-hover:from-primary-500/30 group-hover:to-primary-600/30 transition-all duration-300"></div>
               <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-600 to-accent-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white step-badge">
                 <span class="text-3xl font-bold text-white">2</span>
               </div>
             </div>
@@ -588,9 +588,9 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
           <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
             <div class="relative z-10">
               <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-accent-500/20 to-secondary-500/20 rounded-full blur-sm group-hover:from-accent-500/30 group-hover:to-secondary-500/30 transition-all duration-300"></div>
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/20 to-primary-800/20 rounded-full blur-sm group-hover:from-primary-600/30 group-hover:to-primary-800/30 transition-all duration-300"></div>
               <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-accent-500 to-secondary-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white">
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-700 to-primary-800 rounded-full shadow-xl flex items-center justify-center ring-4 ring-white step-badge">
                 <span class="text-3xl font-bold text-white">3</span>
               </div>
             </div>
@@ -926,6 +926,24 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+
+  /* Step badge hover pulse animation */
+  .step-badge {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .group:hover .step-badge {
+    animation: shadow-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes shadow-pulse {
+    0%, 100% {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow: 0 20px 40px -8px rgba(30, 64, 175, 0.4), 0 8px 16px -4px rgba(30, 64, 175, 0.25);
     }
   }
 </style>
