@@ -144,16 +144,125 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
         Trusted by Leading Health & Wellness Brands
       </p>
 
-      <!-- Logo scroll animation -->
-      <div class="relative overflow-hidden" x-data="{
-        logos: ['Life2Health', 'DOM', 'DSM MD', 'Wellness Co', 'Health Plus', 'Vitality', 'Pure Life', 'MedCare']
-      }">
-        <div class="flex space-x-12 animate-scroll">
-          <template x-for="(logo, index) in logos.concat(logos)" :key="index">
-            <div class="flex-shrink-0 flex items-center justify-center w-32 h-16 text-gray-500 font-semibold text-lg">
-              <span x-text="logo"></span>
-            </div>
-          </template>
+      <!-- Logo marquee with hover pause -->
+      <div class="logo-marquee-container relative overflow-hidden">
+        <!-- Fade edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+
+        <div class="logo-marquee-track flex">
+          <!-- First set of logos -->
+          <div class="logo-marquee-content flex items-center gap-16 px-8">
+            <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-32 h-12" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="25" r="12" fill="#10B981"/>
+                <path d="M15 25 L18 28 L25 21" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="38" y="30" fill="#10B981" font-family="system-ui" font-weight="700" font-size="14">Life2Health</text>
+              </svg>
+            </a>
+            <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="12" width="26" height="26" rx="4" fill="#3B82F6"/>
+                <text x="10" y="32" fill="white" font-family="system-ui" font-weight="800" font-size="16">D</text>
+                <text x="38" y="32" fill="#3B82F6" font-family="system-ui" font-weight="700" font-size="16">DSM MD</text>
+              </svg>
+            </a>
+            <a href="https://domwellness.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-24 h-12" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="18" stroke="#8B5CF6" stroke-width="4" fill="none"/>
+                <circle cx="25" cy="25" r="8" fill="#8B5CF6"/>
+                <text x="50" y="32" fill="#8B5CF6" font-family="system-ui" font-weight="800" font-size="18">DOM</text>
+              </svg>
+            </a>
+            <a href="https://wellnessco.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-36 h-12" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35 Q20 10 30 25 Q40 40 50 25" stroke="#06B6D4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <text x="58" y="32" fill="#06B6D4" font-family="system-ui" font-weight="600" font-size="14">Wellness Co</text>
+              </svg>
+            </a>
+            <a href="https://healthplus.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-32 h-12" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="20" width="24" height="10" rx="2" fill="#EF4444"/>
+                <rect x="15" y="13" width="10" height="24" rx="2" fill="#EF4444"/>
+                <text x="40" y="32" fill="#EF4444" font-family="system-ui" font-weight="700" font-size="14">Health Plus</text>
+              </svg>
+            </a>
+            <a href="https://vitality.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15 L22 35 L32 15" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <text x="40" y="32" fill="#F59E0B" font-family="system-ui" font-weight="700" font-size="14">Vitality</text>
+              </svg>
+            </a>
+            <a href="https://purelife.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="25" r="14" fill="#22C55E" opacity="0.3"/>
+                <circle cx="20" cy="25" r="8" fill="#22C55E"/>
+                <text x="40" y="32" fill="#22C55E" font-family="system-ui" font-weight="600" font-size="14">Pure Life</text>
+              </svg>
+            </a>
+            <a href="https://medcare.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 25 C10 18 16 12 25 12 C30 12 34 15 36 20 C38 15 42 12 47 12 C56 12 62 18 62 25 C62 35 36 45 36 45 C36 45 10 35 10 25Z" fill="#EC4899"/>
+                <text x="68" y="32" fill="#EC4899" font-family="system-ui" font-weight="700" font-size="12">MedCare</text>
+              </svg>
+            </a>
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="logo-marquee-content flex items-center gap-16 px-8" aria-hidden="true">
+            <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-32 h-12" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="25" r="12" fill="#10B981"/>
+                <path d="M15 25 L18 28 L25 21" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="38" y="30" fill="#10B981" font-family="system-ui" font-weight="700" font-size="14">Life2Health</text>
+              </svg>
+            </a>
+            <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="12" width="26" height="26" rx="4" fill="#3B82F6"/>
+                <text x="10" y="32" fill="white" font-family="system-ui" font-weight="800" font-size="16">D</text>
+                <text x="38" y="32" fill="#3B82F6" font-family="system-ui" font-weight="700" font-size="16">DSM MD</text>
+              </svg>
+            </a>
+            <a href="https://domwellness.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-24 h-12" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="18" stroke="#8B5CF6" stroke-width="4" fill="none"/>
+                <circle cx="25" cy="25" r="8" fill="#8B5CF6"/>
+                <text x="50" y="32" fill="#8B5CF6" font-family="system-ui" font-weight="800" font-size="18">DOM</text>
+              </svg>
+            </a>
+            <a href="https://wellnessco.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-36 h-12" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 35 Q20 10 30 25 Q40 40 50 25" stroke="#06B6D4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <text x="58" y="32" fill="#06B6D4" font-family="system-ui" font-weight="600" font-size="14">Wellness Co</text>
+              </svg>
+            </a>
+            <a href="https://healthplus.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-32 h-12" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="20" width="24" height="10" rx="2" fill="#EF4444"/>
+                <rect x="15" y="13" width="10" height="24" rx="2" fill="#EF4444"/>
+                <text x="40" y="32" fill="#EF4444" font-family="system-ui" font-weight="700" font-size="14">Health Plus</text>
+              </svg>
+            </a>
+            <a href="https://vitality.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15 L22 35 L32 15" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <text x="40" y="32" fill="#F59E0B" font-family="system-ui" font-weight="700" font-size="14">Vitality</text>
+              </svg>
+            </a>
+            <a href="https://purelife.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="25" r="14" fill="#22C55E" opacity="0.3"/>
+                <circle cx="20" cy="25" r="8" fill="#22C55E"/>
+                <text x="40" y="32" fill="#22C55E" font-family="system-ui" font-weight="600" font-size="14">Pure Life</text>
+              </svg>
+            </a>
+            <a href="https://medcare.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+              <svg class="w-28 h-12" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 25 C10 18 16 12 25 12 C30 12 34 15 36 20 C38 15 42 12 47 12 C56 12 62 18 62 25 C62 35 36 45 36 45 C36 45 10 35 10 25Z" fill="#EC4899"/>
+                <text x="68" y="32" fill="#EC4899" font-family="system-ui" font-weight="700" font-size="12">MedCare</text>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -680,7 +789,22 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
 </BaseLayout>
 
 <style>
-  @keyframes scroll {
+  /* Logo Marquee Styles */
+  .logo-marquee-container {
+    position: relative;
+  }
+
+  .logo-marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  .logo-marquee-container:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
     0% {
       transform: translateX(0);
     }
@@ -689,8 +813,21 @@ import { ArrowRight, Zap, Smartphone, CheckCircle2, Palette, Globe, Shield, Rock
     }
   }
 
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
+  /* Brand logo grayscale and hover effects */
+  .brand-logo {
+    filter: grayscale(100%) brightness(0.7);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .brand-logo:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .brand-logo svg {
+    transition: all 0.3s ease;
   }
 
   .animated-gradient-text {
