@@ -195,18 +195,25 @@
   display: flex;
   width: fit-content;
   animation: marquee 40s linear infinite;
+  /* GPU acceleration for smoother animation on mobile */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.logo-marquee-container:hover .logo-marquee-track {
-  animation-play-state: paused;
+/* Only pause on hover for devices that support hover (not touch) */
+@media (hover: hover) and (pointer: fine) {
+  .logo-marquee-container:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -219,18 +226,29 @@
   max-width: 200px;
 }
 
-.brand-logo:hover {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
-  transform: scale(1.05);
+/* Only apply hover effects on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .brand-logo:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .brand-logo img {
   display: block;
-  height: 48px;
+  height: 32px;
   width: auto;
-  max-width: 200px;
+  max-width: 140px;
   object-fit: contain;
+}
+
+/* Larger logos on tablet and desktop */
+@media (min-width: 768px) {
+  .brand-logo img {
+    height: 48px;
+    max-width: 200px;
+  }
 }
 
 .brand-logo svg {
