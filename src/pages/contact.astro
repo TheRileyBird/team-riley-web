@@ -95,8 +95,11 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
               </div>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true" id="contact-form" class="space-y-6">
+            <form name="contact" method="POST" action="/contact" data-netlify="true" netlify-honeypot="bot-field" id="contact-form" class="space-y-6">
               <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
 
               <!-- Success Message (hidden by default) -->
               <div id="success-message" class="hidden p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-500 rounded-xl">
@@ -357,7 +360,8 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
           body: body.toString()
         });
 
-        if (response.ok) {
+        // Netlify Forms returns 200 or 303 redirect on success
+        if (response.ok || response.status === 303) {
           // Show success message
           successMessage.classList.remove('hidden');
           formFields.classList.add('hidden');
@@ -368,9 +372,11 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
           // Reset form
           form.reset();
         } else {
-          throw new Error('Form submission failed');
+          console.error('Form submission failed:', response.status, response.statusText);
+          throw new Error(`Form submission failed with status ${response.status}`);
         }
       } catch (error) {
+        console.error('Form submission error:', error);
         // Show error message
         errorMessage.classList.remove('hidden');
         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
