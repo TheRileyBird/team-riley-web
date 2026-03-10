@@ -126,8 +126,15 @@
 }
 
 .btn-xl {
-  padding: 1.5rem 3rem;
-  font-size: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 640px) {
+  .btn-xl {
+    padding: 1.5rem 3rem;
+    font-size: 1.25rem;
+  }
 }
 
 /* Shimmer effects for pricing cards and CTA sections */
