@@ -12,8 +12,8 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
 
   <PageHeader
     badge="Get In Touch"
-    title='<span class="text-gray-900">Let&#39;s Build Something</span> <span class="animated-gradient-text">Amazing Together</span>'
-    subtitle="Have questions about our services? Ready to start your project? We'd love to hear from you."
+    title='<span class="text-gray-900">Let&#39;s</span> <span class="animated-gradient-text">Grow Together</span>'
+    subtitle="Ready to start your project? We'd love to hear from you."
   />
 
   <!-- Contact Section -->
@@ -30,7 +30,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
         <div>
           <div class="mb-16">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-              Ways To <span class="animated-gradient-text">Reach Us</span>
+              Say <span class="animated-gradient-text">Hello</span>
             </h2>
             <p class="text-xl text-gray-300 max-w-2xl">
               Choose the method that works best for you
@@ -51,6 +51,26 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
                 </a>
               </div>
             </div>
+
+            <!-- Schedule Call -->
+            <button
+              data-cal-link="joshua-riley/intro-call"
+              data-cal-namespace="intro-call"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300 w-full text-left">
+              <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">Schedule a Call</h4>
+                <p class="text-gray-300 mb-3">Pick a time that works for you</p>
+                <span class="text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                  Book Free 30-Minute Consultation
+                </span>
+              </div>
+            </button>
 
             <!-- Phone -->
             <!-- <div class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
