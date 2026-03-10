@@ -84,7 +84,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
 
         <!-- Right: Contact Form -->
         <div>
-          <div id="contact-form" class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl">
+          <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center">
                 <MessageSquare class="w-6 h-6 text-white" />
@@ -308,6 +308,26 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
     const successMessage = document.getElementById('success-message') as HTMLElement;
     const errorMessage = document.getElementById('error-message') as HTMLElement;
     const formFields = document.getElementById('form-fields') as HTMLElement;
+    const phoneInput = document.getElementById('phone') as HTMLInputElement;
+
+    // Phone number formatter
+    phoneInput?.addEventListener('input', (e) => {
+      const input = e.target as HTMLInputElement;
+      const value = input.value.replace(/\D/g, ''); // Remove all non-digits
+      let formatted = '';
+
+      if (value.length > 0) {
+        formatted = '(' + value.substring(0, 3);
+      }
+      if (value.length >= 4) {
+        formatted += ') ' + value.substring(3, 6);
+      }
+      if (value.length >= 7) {
+        formatted += '-' + value.substring(6, 10);
+      }
+
+      input.value = formatted;
+    });
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
