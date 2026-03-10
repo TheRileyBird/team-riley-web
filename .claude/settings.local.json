@@ -10,7 +10,17 @@
       "Bash(open http://localhost:4321)",
       "Bash(bd close:*)",
       "mcp__netlify__netlify-project-services-reader",
-      "Bash(netlify domains:add:*)"
+      "Bash(netlify domains:add:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(git add:*)",
+      "Bash(npm run build:*)",
+      "Bash(netlify deploy:*)",
+      "mcp__netlify__netlify-coding-rules",
+      "WebSearch",
+      "Bash(netlify status:*)",
+      "mcp__netlify__netlify-project-services-updater",
+      "Bash(netlify api:*)"
     ]
   }
 }
