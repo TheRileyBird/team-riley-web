@@ -20,14 +20,14 @@ const {
 } = Astro.props;
 
 const cardClasses = {
-  silver: 'bg-white md:border-2 md:border-gray-200 hover:border-primary-600',
+  silver: 'bg-white border-2 border-gray-200 hover:border-primary-600',
   gold: 'bg-gradient-to-br from-blue-700 via-primary-700 to-violet-600',
-  platinum: 'bg-white md:border-2 md:border-gray-200 hover:border-secondary-500'
+  platinum: 'bg-white border-2 border-gray-200 hover:border-secondary-500'
 };
 
 const textClasses = {
   silver: { title: 'text-gray-900', price: 'text-gray-900', priceUnit: 'text-gray-600', feature: 'text-gray-700', icon: 'text-primary-600' },
-  gold: { title: 'text-white', price: 'text-white', priceUnit: 'text-gray-100', feature: 'text-white font-medium', icon: 'text-white' },
+  gold: { title: 'text-white', price: 'text-white', priceUnit: 'text-gray-100', feature: 'text-white font-medium', icon: 'text-yellow-500' },
   platinum: { title: 'text-gray-900', price: 'text-gray-900', priceUnit: 'text-gray-600', feature: 'text-gray-700', icon: 'text-secondary-600' }
 };
 
@@ -36,10 +36,10 @@ const scaleClass = variant === 'gold' ? 'md:scale-105' : '';
 const buttonVariant = variant === 'gold' ? 'btn-secondary' : 'btn-primary';
 ---
 
-<div class={`relative ${cardClasses[variant]} md:rounded-2xl p-8 md:shadow-2xl transform ${scaleClass} ${hoverClasses} ${variant === 'gold' ? 'md:ring-2 md:ring-accent-400/50' : ''} overflow-${variant === 'gold' ? 'visible' : 'hidden'} transition-${variant === 'gold' ? 'transform' : 'all'} duration-300 group`}>
+<div class={`relative ${cardClasses[variant]} rounded-2xl p-8 shadow-2xl transform ${scaleClass} ${hoverClasses} ${variant === 'gold' ? 'ring-2 ring-accent-400/50' : ''} overflow-${variant === 'gold' ? 'visible' : 'hidden'} transition-${variant === 'gold' ? 'transform' : 'all'} duration-300 group`}>
   {variant === 'gold' && (
     <>
-      <div class="absolute inset-0 shimmer-overlay-gold md:rounded-2xl"></div>
+      <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
       {featured && (
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
           {featuredLabel}
