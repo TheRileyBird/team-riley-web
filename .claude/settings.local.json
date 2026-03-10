@@ -1,26 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:insuranceagentlaunch.com)",
       "Bash(npm create:*)",
       "Bash(npm init -y)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+
       "Bash(bd create:*)",
-      "Bash(open http://localhost:4321)",
       "Bash(bd close:*)",
+
+      "Bash(open http://localhost:4321)",
+
       "mcp__netlify__netlify-project-services-reader",
+      "mcp__netlify__netlify-project-services-updater",
       "Bash(netlify domains:add:*)",
+      "Bash(netlify deploy:*)",
+      "mcp__netlify__netlify-coding-rules",
+      "Bash(netlify status:*)",
+      "Bash(netlify api:*)",
+
       "Bash(curl:*)",
       "Bash(ls:*)",
       "Bash(git add:*)",
-      "Bash(npm run build:*)",
-      "Bash(netlify deploy:*)",
-      "mcp__netlify__netlify-coding-rules",
-      "WebSearch",
-      "Bash(netlify status:*)",
-      "mcp__netlify__netlify-project-services-updater",
-      "Bash(netlify api:*)"
+      "WebSearch"
     ]
   }
 }
