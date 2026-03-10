@@ -12,54 +12,11 @@ import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
 
   <PageHeader
     badge="Our Story"
-    title='<span class="text-gray-900">Building Better Health &</span> <span class="animated-gradient-text">Wellness Websites</span>'
+    title='<span class="animated-gradient-text">Empowering</span> Health & Wellness Brands'
     subtitle="We're a team of designers and developers passionate about helping health and wellness brands grow their online presence and connect with more clients."
     primaryCTA={{ text: 'Get Started', href: '#get-started' }}
     secondaryCTA={{ text: 'View Our Work', href: '/portfolio' }}
   />
-
-  <!-- Mission Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeader
-        badge="Our Mission"
-        title="Empowering Health & Wellness Brands"
-        subtitle="We believe every health and wellness business deserves a website that works as hard as they do"
-      />
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
-            <Heart class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Client-First Approach</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Your success is our success. We partner with you to understand your unique goals and create solutions that drive real results.
-          </p>
-        </div>
-
-        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
-            <Target class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Results-Driven</h3>
-          <p class="text-gray-700 leading-relaxed">
-            We focus on what matters most—converting visitors into clients and helping your business grow online.
-          </p>
-        </div>
-
-        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
-            <Award class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Quality Craftsmanship</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Every website we build is crafted with attention to detail, modern design principles, and clean code.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Why Choose Us Section -->
   <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
@@ -71,14 +28,14 @@ import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
-          <span class="text-xs font-bold text-primary-300 tracking-wider uppercase">Why Team Riley</span>
-        </div>
+        <!--<div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">-->
+        <!--  <span class="text-xs font-bold text-primary-300 tracking-wider uppercase">Why Team Riley</span>-->
+        <!--</div>-->
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          What Makes Us Different
+          What Makes Us <span class="animated-gradient-text">Different</span>
         </h2>
         <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-          We're not just building websites—we're building long-term partnerships
+          We're not just building websites—we're building long-term partnerships.
         </p>
       </div>
 
@@ -136,6 +93,49 @@ import { Heart, Target, Award, Users, Zap, Shield } from 'lucide-astro';
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        badge="Our Mission"
+        title='<span class="animated-gradient-text">Better Health</span> <span class="text-gray-900">For Your Business</span>'
+        subtitle="We believe every health and wellness business deserves a website that works as hard as they do"
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
+            <Heart class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Client-First Approach</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Your success is our success. We partner with you to understand your unique goals and create solutions that drive real results.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+            <Target class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Results-Driven</h3>
+          <p class="text-gray-700 leading-relaxed">
+            We focus on what matters most—converting visitors into clients and helping your business grow online.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+            <Award class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Quality Craftsmanship</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Every website we build is crafted with attention to detail, modern design principles, and clean code.
+          </p>
         </div>
       </div>
     </div>
