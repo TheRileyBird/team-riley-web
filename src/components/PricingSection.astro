@@ -1,0 +1,133 @@
+---
+import { CheckCircle2 } from 'lucide-astro';
+
+interface Props {
+  showHeader?: boolean;
+}
+
+const { showHeader = true } = Astro.props;
+---
+
+<section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-50 rounded-b-3xl p-10 md:p-16 lg:p-20 relative overflow-visible shadow-lg">
+      {showHeader && (
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
+            <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Choose Your Plan
+          </h2>
+          <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+            All plans include unlimited updates. Cancel anytime.
+          </p>
+        </div>
+      )}
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
+        <!-- Silver Plan -->
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-600 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
+          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Silver</h3>
+              <div class="flex items-baseline gap-2">
+                <span class="text-5xl font-bold text-gray-900">$199</span>
+                <span class="text-gray-600">/month</span>
+              </div>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">1-5 Pages</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">$500 Setup</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">Unlimited Updates</span>
+              </li>
+            </ul>
+
+            <a href="#get-started" class="btn btn-primary w-full">
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Gold Plan (Featured) -->
+        <div class="relative bg-gradient-to-br from-blue-50 via-primary-50 to-white rounded-2xl p-8 shadow-2xl transform md:scale-105 hover:scale-110 ring-2 ring-accent-400/50 overflow-visible transition-transform duration-300">
+          <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
+            MOST POPULAR
+          </div>
+          <div class="relative z-10">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Gold</h3>
+              <div class="flex items-baseline gap-2">
+                <span class="text-5xl font-bold text-gray-900">$399</span>
+                <span class="text-gray-600">/month</span>
+              </div>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-gray-900 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-900 font-medium">5-15 Pages</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-gray-900 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-900 font-medium">$500 Setup</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-gray-900 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-900 font-medium">Unlimited Updates</span>
+              </li>
+            </ul>
+
+            <a href="#get-started" class="btn btn-secondary w-full">
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Platinum Plan -->
+        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden group">
+          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Platinum</h3>
+              <div class="flex items-baseline gap-2">
+                <span class="text-5xl font-bold text-gray-900">$599</span>
+                <span class="text-gray-600">/month</span>
+              </div>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">15+ Pages</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">$500 Setup</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" />
+                <span class="text-gray-700">Unlimited Updates</span>
+              </li>
+            </ul>
+
+            <a href="#get-started" class="btn btn-primary w-full">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
