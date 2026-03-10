@@ -9,8 +9,8 @@ const { showHeader = true } = Astro.props;
 ---
 
 <section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-50 rounded-b-3xl p-10 md:p-16 lg:p-20 relative overflow-visible shadow-lg">
+  <div class="relative max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+    <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-50 rounded-b-3xl p-4 sm:p-10 md:p-16 lg:p-20 relative overflow-visible shadow-lg">
       {showHeader && (
         <div class="text-center mb-16">
           <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
@@ -27,7 +27,7 @@ const { showHeader = true } = Astro.props;
 
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative pt-6">
         <!-- Silver Plan -->
-        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-600 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
+        <div class="relative bg-gradient-to-br from-slate-100 via-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary-600 transition-all duration-300 hover:shadow-xl hover:scale-110 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
             <div class="mb-8">
@@ -96,7 +96,7 @@ const { showHeader = true } = Astro.props;
         </div>
 
         <!-- Platinum Plan -->
-        <div class="relative bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden group">
+        <div class="relative bg-gradient-to-br from-indigo-50 via-slate-50 to-violet-50 border-2 border-gray-200 rounded-2xl p-8 hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden group">
           <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative z-10">
             <div class="mb-8">
