@@ -28,6 +28,7 @@
 
 /* Button Components */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +37,31 @@
   transition: all 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Shine Effect for all buttons */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-12deg) translateX(-100%);
+  opacity: 0;
+  transition: all 0.7s ease;
+}
+
+.btn:hover::after {
+  opacity: 1;
+  transform: skewX(-12deg) translateX(400%);
+}
+
+/* Ensure button content stays above shine */
+.btn > * {
+  position: relative;
+  z-index: 10;
 }
 
 /* Primary Button - Dark blue gradient */
@@ -50,6 +76,7 @@
 
 .btn-primary:hover {
   opacity: 0.9;
+  transform: scale(1.05);
 }
 
 /* Secondary Button - White with border */
@@ -64,6 +91,7 @@
 
 .btn-secondary:hover {
   opacity: 0.85;
+  transform: scale(1.05);
 }
 
 /* Outline Button - Transparent with border */
@@ -78,6 +106,12 @@
 
 .btn-outline:hover {
   background: rgba(30, 64, 175, 0.05);
+  transform: scale(1.05);
+}
+
+/* Custom shine effect for outline buttons - light gray */
+.btn-outline::after {
+  background: linear-gradient(to right, transparent, rgba(148, 163, 184, 0.4), transparent);
 }
 
 /* Button sizes */

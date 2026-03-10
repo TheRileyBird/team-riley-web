@@ -33,7 +33,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
           <div class="space-y-8">
             <!-- Email -->
             <div class="flex items-start gap-6 p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 transition-all duration-300 hover:shadow-lg">
-              <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div class="w-14 h-14 bg-gradient-to-br from-teal-600 to-primary-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail class="w-7 h-7 text-white" />
               </div>
               <div>
@@ -61,7 +61,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
 
             <!-- Office Hours -->
             <div class="flex items-start gap-6 p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 transition-all duration-300 hover:shadow-lg">
-              <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-700 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Clock class="w-7 h-7 text-white" />
               </div>
               <div>
@@ -214,15 +214,17 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
               </div>
 
               <!-- Submit Button -->
-              <button
-                type="submit"
-                id="submit-btn"
-                class="w-full btn btn-primary btn-lg"
-              >
-                <span id="submit-text">Send Message</span>
-                <span id="submit-loading" class="hidden">Sending...</span>
-                <Send class="w-5 h-5" id="submit-icon" />
-              </button>
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full btn btn-primary btn-lg"
+                >
+                  <span id="submit-text">Send Message</span>
+                  <span id="submit-loading" class="hidden">Sending...</span>
+                  <Send class="w-5 h-5" id="submit-icon" />
+                </button>
+              </div>
 
               <p class="text-sm text-gray-600 text-center">
                 By submitting this form, you agree to our privacy policy
