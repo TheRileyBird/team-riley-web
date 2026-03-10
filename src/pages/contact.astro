@@ -14,59 +14,66 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
     badge="Get In Touch"
     title='<span class="text-gray-900">Let&#39;s Build Something</span> <span class="animated-gradient-text">Amazing Together</span>'
     subtitle="Have questions about our services? Ready to start your project? We'd love to hear from you."
-    primaryCTA={{ text: 'Start Project', href: '#contact-form' }}
   />
 
   <!-- Contact Section -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16">
         <!-- Left: Contact Info -->
         <div>
-          <SectionHeader
-            badge="Contact Information"
-            title="Multiple Ways To Reach Us"
-            subtitle="Choose the method that works best for you"
-            centered={false}
-          />
+          <div class="mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+              Ways To <span class="animated-gradient-text">Reach Us</span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-2xl">
+              Choose the method that works best for you
+            </p>
+          </div>
 
           <div class="space-y-8">
             <!-- Email -->
-            <div class="flex items-start gap-6 p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 transition-all duration-300 hover:shadow-lg">
+            <div class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
               <div class="w-14 h-14 bg-gradient-to-br from-teal-600 to-primary-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail class="w-7 h-7 text-white" />
               </div>
               <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2">Email Us</h4>
-                <p class="text-gray-700 mb-3">We typically respond within 24 hours</p>
-                <a href="mailto:hello@teamriley.com" class="text-primary-700 font-semibold hover:text-primary-800 transition-colors">
+                <h4 class="text-xl font-bold text-white mb-2">Email Us</h4>
+                <p class="text-gray-300 mb-3">We typically respond within 24 hours</p>
+                <a href="mailto:hello@teamriley.com" class="text-primary-400 font-semibold hover:text-primary-300 transition-colors">
                   hello@teamriley.com
                 </a>
               </div>
             </div>
 
             <!-- Phone -->
-            <div class="flex items-start gap-6 p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 transition-all duration-300 hover:shadow-lg">
+            <div class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
               <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Phone class="w-7 h-7 text-white" />
               </div>
               <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2">Call Us</h4>
-                <p class="text-gray-700 mb-3">Monday - Friday, 9am - 5pm CST</p>
-                <a href="tel:2256144765" class="text-primary-700 font-semibold hover:text-primary-800 transition-colors">
+                <h4 class="text-xl font-bold text-white mb-2">Call Us</h4>
+                <p class="text-gray-300 mb-3">Monday - Friday, 9am - 5pm CST</p>
+                <a href="tel:2256144765" class="text-primary-400 font-semibold hover:text-primary-300 transition-colors">
                   (225) 614-4765
                 </a>
               </div>
             </div>
 
             <!-- Office Hours -->
-            <div class="flex items-start gap-6 p-6 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-600 transition-all duration-300 hover:shadow-lg">
+            <div class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
               <div class="w-14 h-14 bg-gradient-to-br from-purple-700 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Clock class="w-7 h-7 text-white" />
               </div>
               <div>
-                <h4 class="text-xl font-bold text-gray-900 mb-2">Office Hours</h4>
-                <div class="space-y-1 text-gray-700">
+                <h4 class="text-xl font-bold text-white mb-2">Office Hours</h4>
+                <div class="space-y-1 text-gray-300">
                   <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                   <p>Saturday - Sunday: Closed</p>
                 </div>
@@ -235,7 +242,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from 'lucide-astro';
       </div>
     </div>
   </section>
-
+  
   <!-- FAQ Section -->
   <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
