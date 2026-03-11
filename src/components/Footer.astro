@@ -1,5 +1,19 @@
 ---
 import { ArrowRight } from '@lucide/astro';
+
+interface Props {
+  ctaBadge?: string;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaButtonText?: string;
+}
+
+const {
+  ctaBadge,
+  ctaTitle = 'Ready to Grow Your Business?',
+  ctaSubtitle = 'Join 500+ health and wellness businesses already thriving online with Team Riley.',
+  ctaButtonText = 'Start Your Project'
+} = Astro.props;
 ---
 
 <footer class="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-gray-300 pt-32 md:pt-40 pb-16 overflow-hidden">
@@ -15,18 +29,23 @@ import { ArrowRight } from '@lucide/astro';
     <div class="relative bg-gradient-to-r from-primary-800/50 via-primary-700/30 to-primary-800/50 backdrop-blur-sm rounded-3xl p-10 md:p-16 lg:p-20 border border-primary-700/30 overflow-hidden">
       <div class="absolute inset-0 shimmer-overlay-footer"></div>
       <div class="relative z-10 text-center">
+        {ctaBadge && (
+          <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+            <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">{ctaBadge}</span>
+          </div>
+        )}
         <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Ready to Grow Your Business?
+          {ctaTitle}
         </h3>
         <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-          Join 500+ health and wellness businesses already thriving online with Team Riley.
+          {ctaSubtitle}
         </p>
         <button
           data-cal-link="joshua-riley/intro-call"
           data-cal-namespace="intro-call"
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
           class="btn btn-secondary btn-xl rounded-2xl">
-          Start Your Project
+          {ctaButtonText}
           <ArrowRight class="w-6 h-6" />
         </button>
       </div>

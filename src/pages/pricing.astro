@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from '../components/PricingSection.astro';
+import ServicePricingSection from '../components/ServicePricingSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -18,6 +19,197 @@ import Footer from '../components/Footer.astro';
 
   <!-- Pricing Section -->
   <PricingSection showHeader={false} />
+
+  <!-- SEO Services -->
+  <ServicePricingSection
+    serviceName="Search Engine"
+    serviceHighlight="Optimization"
+    description="Rank higher in Google and get found by clients actively searching for your services"
+    subDescription="Monthly performance reports · Keyword research · Local SEO · Content creation · Technical optimization"
+    theme="dark"
+    blurColors={{ top: 'bg-primary-600', bottom: 'bg-cyan-500' }}
+    additionalNote="Additional locations: $300/month each"
+    tiers={[
+      {
+        name: 'Silver',
+        price: '$1,000',
+        priceUnit: '/month',
+        description: 'Perfect for single-location practices',
+        features: [
+          'Up to 3 locations',
+          'Up to 100 keywords tracked',
+          '6 SEO blog posts/year',
+          '4 specialty pages/year'
+        ],
+        setupFee: '$500 one-time setup fee'
+      },
+      {
+        name: 'Gold',
+        price: '$1,800',
+        priceUnit: '/month',
+        description: 'Most popular for growing practices',
+        features: [
+          'Up to 6 locations',
+          'Up to 250 keywords tracked',
+          '14 SEO blog posts/year',
+          '10 specialty pages/year'
+        ],
+        setupFee: '$500 one-time setup fee',
+        featured: true
+      },
+      {
+        name: 'Platinum',
+        price: '$3,200',
+        priceUnit: '/month',
+        description: 'Enterprise-level SEO strategy',
+        features: [
+          'Up to 9 locations',
+          'Up to 500 keywords tracked',
+          '24 SEO blog posts/year',
+          '20 specialty pages/year'
+        ],
+        setupFee: '$500 one-time setup fee'
+      }
+    ]}
+  />
+
+  <!-- PPC Management -->
+  <ServicePricingSection
+    serviceName="PPC"
+    serviceHighlight="Management"
+    description="Google, Bing, and YouTube ads that target the right clients at the right time"
+    subDescription="Campaign setup · Keyword research · Ad copywriting · Bid optimization · Monthly reporting"
+    theme="light"
+    tiers={[
+      {
+        name: 'Silver',
+        price: '25%',
+        priceUnit: 'mgmt fee',
+        description: 'Start driving qualified traffic',
+        features: [
+          '$1,400 min. monthly ad spend',
+          '$350 minimum management fee',
+          'Google & Bing campaigns',
+          'Monthly performance reports'
+        ],
+        setupFee: '$500 one-time setup fee'
+      },
+      {
+        name: 'Gold',
+        price: '20%',
+        priceUnit: 'mgmt fee',
+        description: 'Optimized campaign management',
+        features: [
+          '$2,400 min. monthly ad spend',
+          '$480 minimum management fee',
+          'Advanced audience targeting',
+          'A/B testing & optimization'
+        ],
+        setupFee: '$500 one-time setup fee',
+        featured: true
+      },
+      {
+        name: 'Platinum',
+        price: '15%',
+        priceUnit: 'mgmt fee',
+        description: 'Enterprise PPC strategy',
+        features: [
+          '$4,000 min. monthly ad spend',
+          '$600 minimum management fee',
+          'Multi-platform campaigns',
+          'Dedicated account manager'
+        ],
+        setupFee: '$500 one-time setup fee'
+      }
+    ]}
+  />
+
+  <!-- Social Advertising -->
+  <ServicePricingSection
+    serviceName="Social"
+    serviceHighlight="Advertising"
+    description="Facebook and Instagram ads that reach your ideal clients where they spend their time"
+    subDescription="Audience targeting · Creative design · Campaign management · Conversion tracking · Performance analytics"
+    theme="dark"
+    blurColors={{ top: 'bg-purple-600', bottom: 'bg-pink-500' }}
+    tiers={[
+      {
+        name: 'Silver',
+        price: '30%',
+        priceUnit: 'mgmt fee',
+        description: 'Build your social presence',
+        features: [
+          '$1,400 min. monthly ad spend',
+          '$420 minimum management fee',
+          'Facebook & Instagram ads',
+          'Audience research & targeting'
+        ],
+        setupFee: '$1,000 one-time setup fee'
+      },
+      {
+        name: 'Gold',
+        price: '25%',
+        priceUnit: 'mgmt fee',
+        description: 'Strategic social campaigns',
+        features: [
+          '$2,400 min. monthly ad spend',
+          '$600 minimum management fee',
+          'Advanced lookalike audiences',
+          'Creative testing & optimization'
+        ],
+        setupFee: '$1,000 one-time setup fee',
+        featured: true
+      },
+      {
+        name: 'Platinum',
+        price: '20%',
+        priceUnit: 'mgmt fee',
+        description: 'Full-scale social strategy',
+        features: [
+          '$4,000 min. monthly ad spend',
+          '$800 minimum management fee',
+          'Multi-platform campaigns',
+          'Conversion rate optimization'
+        ],
+        setupFee: '$1,000 one-time setup fee'
+      }
+    ]}
+  />
+
+  <!-- Branding & Design -->
+  <ServicePricingSection
+    serviceName="Branding &"
+    serviceHighlight="Design"
+    description="Professional logo design and brand identity that makes your practice stand out"
+    subDescription="Logo design · Brand guidelines · Color palettes · Typography · Marketing materials"
+    theme="light"
+    tiers={[
+      {
+        name: 'Logo & Branding',
+        price: '$150',
+        priceUnit: '/hour',
+        description: 'Complete brand identity package',
+        features: [
+          '10 hour minimum project',
+          'Custom logo design',
+          'Brand style guide',
+          'Multiple revisions included'
+        ]
+      },
+      {
+        name: 'Graphic Design',
+        price: '$150',
+        priceUnit: '/hour',
+        description: 'Custom graphics and visuals',
+        features: [
+          '4 hour minimum project',
+          'Social media graphics',
+          'Print materials',
+          'Marketing collateral'
+        ]
+      }
+    ]}
+  />
 
   <!-- FAQ Section -->
   <section class="py-20 md:py-28 bg-white">

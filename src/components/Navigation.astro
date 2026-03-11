@@ -1,5 +1,5 @@
 ---
-import { Menu, X } from '@lucide/astro';
+import {ArrowRight, Menu, X} from '@lucide/astro';
 
 const currentPath = Astro.url.pathname;
 
@@ -30,6 +30,7 @@ const isActive = (path: string) => {
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/services" class={`text-sm font-medium transition-colors ${isActive('/services') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Services</a>
+        <a href="/platform" class={`text-sm font-medium transition-colors ${isActive('/platform') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Platform</a>
         <a href="/pricing" class={`text-sm font-medium transition-colors ${isActive('/pricing') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Pricing</a>
         <a href="/portfolio" class={`text-sm font-medium transition-colors ${isActive('/portfolio') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Portfolio</a>
         <a href="/about" class={`text-sm font-medium transition-colors ${isActive('/about') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>About</a>
@@ -44,6 +45,7 @@ const isActive = (path: string) => {
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
           class="btn btn-primary btn-sm">
           Get Started
+          <ArrowRight class="w-4 h-4" />
         </button>
       </div>
 
@@ -66,6 +68,7 @@ const isActive = (path: string) => {
        class="md:hidden border-t border-gray-100 bg-white">
     <div class="px-4 py-6 space-y-4">
       <a href="/services" class={`block text-base font-medium ${isActive('/services') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Services</a>
+      <a href="/platform" class={`block text-base font-medium ${isActive('/platform') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Platform</a>
       <a href="/pricing" class={`block text-base font-medium ${isActive('/pricing') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Pricing</a>
       <a href="/portfolio" class={`block text-base font-medium ${isActive('/portfolio') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Portfolio</a>
       <a href="/about" class={`block text-base font-medium ${isActive('/about') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>About</a>
@@ -76,6 +79,7 @@ const isActive = (path: string) => {
         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
         class="btn btn-primary btn-sm w-full justify-center">
         Get Started
+        <ArrowRight class="w-4 h-4" />
       </button>
     </div>
   </div>

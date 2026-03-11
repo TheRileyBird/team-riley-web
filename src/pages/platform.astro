@@ -1,0 +1,384 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Footer from '../components/Footer.astro';
+import {
+  Database, Users, Layout, Mail, MessageSquare, Zap,
+  Calendar, Star, MessageCircle, Lock, Bot, Sparkles,
+  ArrowRight, CheckCircle2, TrendingUp, Clock, Target
+} from '@lucide/astro';
+---
+
+<BaseLayout
+  title="AI-Powered Business Platform - Team Riley"
+  description="Complete CRM and marketing automation platform built specifically for health and wellness businesses"
+>
+  <Navigation />
+
+  <PageHeader
+    badge="AI-Powered Platform"
+    title='<span class="animated-gradient-text">Grow Your Practice</span> <span class="text-gray-900">On Autopilot</span>'
+    subtitle="Everything you need to attract, convert, and retain clients—powered by AI that works 24/7 for your health and wellness business."
+    primaryCTA={{ text: 'Schedule Demo', href: '/contact' }}
+    secondaryCTA={{ text: 'View Pricing', href: '/pricing' }}
+  />
+
+  <!-- AI Features Hero -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-purple-900/50 border-l-4 border-purple-500 rounded-r-lg mb-6">
+          <Bot class="w-4 h-4 text-purple-300 mr-2" />
+          <span class="text-sm font-bold text-purple-300 uppercase tracking-wider">AI-Powered Automation</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Your <span class="animated-gradient-text">AI Assistant</span> Never Sleeps
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          While you focus on helping clients get healthy, our AI handles calls, qualifies leads, books appointments, and follows up—automatically.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center mb-6">
+            <Bot class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">AI Phone Agent</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Never miss a call again. Our AI answers questions, qualifies leads, and books appointments 24/7—sounding natural and professional every time.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
+            <Sparkles class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Smart Follow-Up</h3>
+          <p class="text-gray-300 leading-relaxed">
+            AI-powered sequences that know when to reach out, what to say, and how to nurture leads from inquiry to paying client automatically.
+          </p>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+            <TrendingUp class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Intelligent Insights</h3>
+          <p class="text-gray-300 leading-relaxed">
+            AI analyzes your data to identify trends, predict client needs, and suggest the best times to reach out for maximum conversion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        title='<span class="animated-gradient-text">Complete</span> Business Management'
+        subtitle="Everything you need to run and grow your health and wellness practice—all in one place"
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI Agents (Featured) -->
+        <div class="group p-8 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl border-2 border-purple-500 shadow-xl relative overflow-hidden">
+          <div class="absolute top-4 right-4">
+            <span class="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full uppercase">AI-Powered</span>
+          </div>
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center mb-6">
+            <Bot class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">AI Agents</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Your virtual receptionist that handles calls, qualifies leads, and books appointments—automatically.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+              <span>24/7 AI call answering</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+              <span>Lead qualification & scoring</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+              <span>Intelligent appointment booking</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CRM -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
+            <Database class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Smart CRM</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Track every lead and client interaction in one organized system built for health practitioners.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Visual pipelines (lead → booked → client)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Complete contact database</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Activity tracking & notes</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Reporting & Analytics -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-teal-700 rounded-xl flex items-center justify-center mb-6">
+            <TrendingUp class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Reporting & Analytics</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Track business metrics, conversion rates, and revenue with real-time dashboards.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Lead & conversion tracking</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Revenue & performance reports</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Campaign analytics & insights</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Email + SMS -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
+            <Mail class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Email + SMS Marketing</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Reach clients where they are with automated email and text campaigns.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Automated nurture sequences</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Appointment reminders</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Follow-up campaigns</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Automations -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+            <Zap class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Workflow Automations</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Set it and forget it—automations handle repetitive tasks so you don't have to.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Trigger-based workflows</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Lead follow-up sequences</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Client onboarding automation</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Calendar -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+            <Calendar class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Smart Scheduling</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Let clients book appointments 24/7 with automatic reminders to reduce no-shows.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Online booking system</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Automated SMS reminders</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Calendar sync integration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Reputation Management -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+            <Star class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Reputation Management</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Build trust with automated Google review requests and response management.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Automated review requests</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Review monitoring</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Response templates</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Unified Inbox -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center mb-6">
+            <MessageCircle class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Unified Inbox</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Manage all client communication from one place—no more switching apps.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>SMS, email, Facebook messages</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Call logging & recording</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Team collaboration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Membership Areas -->
+        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300">
+          <div class="w-14 h-14 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
+            <Lock class="w-7 h-7 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Client Portal</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Deliver courses, training materials, and exclusive content to clients securely.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Gated content & courses</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Video hosting & streaming</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <CheckCircle2 class="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+              <span>Progress tracking</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        title='Built For <span class="animated-gradient-text">Health & Wellness</span>'
+        subtitle="Stop cobbling together different tools. Get everything you need in one platform designed for practitioners like you."
+      />
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Clock class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">Save 10+ Hours Per Week</h4>
+              <p class="text-gray-700">Automation handles follow-ups, reminders, and admin tasks so you can focus on what you do best—helping clients.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <TrendingUp class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">Convert More Leads</h4>
+              <p class="text-gray-700">Never miss an opportunity. AI responds instantly to inquiries and follows up automatically until they book.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-violet-700 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Target class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-900 mb-2">Everything In One Place</h4>
+              <p class="text-gray-700">Stop switching between tools. Manage leads, clients, marketing, and operations from a single dashboard.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+            <img
+              src="/images/services-2.jpg"
+              alt="Platform dashboard"
+              class="w-full h-full object-cover aspect-[4/3]"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer
+    ctaBadge="Ready to Grow?"
+    ctaTitle="See The Platform In Action"
+    ctaSubtitle="Schedule a personalized demo and we'll show you how our AI-powered platform can transform your practice."
+    ctaButtonText="Schedule Your Demo"
+  />
+</BaseLayout>

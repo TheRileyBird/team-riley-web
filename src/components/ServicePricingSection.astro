@@ -1,0 +1,135 @@
+---
+import { CheckCircle2 } from '@lucide/astro';
+
+interface Tier {
+  name: string;
+  price: string;
+  priceUnit: string;
+  description: string;
+  features: string[];
+  setupFee?: string;
+  featured?: boolean;
+}
+
+interface Props {
+  serviceName: string;
+  serviceHighlight: string;
+  description: string;
+  subDescription: string;
+  tiers: Tier[];
+  theme?: 'light' | 'dark';
+  additionalNote?: string;
+  blurColors?: { top: string; bottom: string };
+}
+
+const {
+  serviceName,
+  serviceHighlight,
+  description,
+  subDescription,
+  tiers,
+  theme = 'light',
+  additionalNote,
+  blurColors = { top: 'bg-primary-600', bottom: 'bg-cyan-500' }
+} = Astro.props;
+
+const isDark = theme === 'dark';
+---
+
+<section class={`py-20 md:py-28 ${isDark ? 'bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden' : 'bg-gradient-to-b from-white to-gray-50'}`}>
+  {isDark && (
+    <div class="absolute inset-0 opacity-10">
+      <div class={`absolute top-1/4 left-1/4 w-96 h-96 ${blurColors.top} rounded-full blur-3xl`}></div>
+      <div class={`absolute bottom-1/4 right-1/4 w-96 h-96 ${blurColors.bottom} rounded-full blur-3xl`}></div>
+    </div>
+  )}
+
+  <div class={`${isDark ? 'relative' : ''} max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
+    <div class="text-center mb-16">
+      <h2 class={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>
+        {serviceName} <span class="animated-gradient-text">{serviceHighlight}</span>
+      </h2>
+      <p class={`text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto mb-6`}>
+        {description}
+      </p>
+      <p class={isDark ? 'text-gray-400' : 'text-gray-600'}>{subDescription}</p>
+    </div>
+
+    <div class={`grid ${tiers.length === 2 ? 'md:grid-cols-2 max-w-4xl' : 'md:grid-cols-3'} gap-8 ${tiers.length === 2 ? 'mx-auto' : ''} ${additionalNote ? 'mb-8' : ''}`}>
+      {tiers.map((tier, index) => {
+        const isSilver = tier.name === 'Silver';
+        const isGold = tier.name === 'Gold' || tier.featured;
+        const isPlatinum = tier.name === 'Platinum';
+
+        // Color schemes based on tier and theme
+        const checkmarkColor = isDark
+          ? (isGold ? 'text-yellow-400' : 'text-primary-400')
+          : (isSilver ? 'text-slate-600' : isGold ? 'text-yellow-500' : 'text-violet-500');
+
+        const textColor = isDark
+          ? (isGold ? 'text-gray-200' : 'text-gray-300')
+          : (isGold ? 'text-gray-900 font-medium' : 'text-gray-700');
+
+        const cardBg = isDark
+          ? (isGold ? 'bg-gradient-to-br from-primary-900/50 to-purple-900/50' : 'bg-gradient-to-br from-gray-800/50 to-gray-900/50')
+          : (isSilver ? 'bg-gradient-to-br from-slate-50 via-gray-100 to-white' : isGold ? 'bg-gradient-to-br from-blue-50 via-primary-50 to-white' : 'bg-gradient-to-br from-indigo-100 via-slate-50 to-violet-100');
+
+        const borderColor = isDark
+          ? (isGold ? 'border-primary-500' : 'border-gray-700 hover:border-primary-500')
+          : (isGold ? 'border-primary-500' : 'border-gray-200 hover:border-primary-600 hover:border-secondary-500'.split(' ')[index]);
+
+        const hoverScale = isGold ? 'hover:scale-110' : isSilver ? 'hover:scale-110' : 'hover:scale-105';
+        const baseScale = isGold ? 'md:scale-105' : '';
+
+        return (
+          <div
+            class={`relative ${cardBg} rounded-2xl p-8 border-2 ${borderColor} ${baseScale} ${hoverScale} transition-all duration-300 ${isGold ? 'shadow-2xl ring-2 ring-accent-400/50' : 'hover:shadow-xl'} overflow-${isGold ? 'visible' : 'hidden'} group`}
+          >
+            {isGold && !isDark && (
+              <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
+            )}
+            {!isGold && (
+              <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            )}
+            {isGold && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
+                MOST POPULAR
+              </div>
+            )}
+            <div class="relative z-10">
+              <div class="mb-8">
+                <h4 class={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{tier.name}</h4>
+                <p class={`${isDark ? (isGold ? 'text-gray-200' : 'text-gray-300') : 'text-gray-600'} mb-4`}>{tier.description}</p>
+                <div class="flex items-baseline gap-2 mb-4">
+                  <span class={`text-5xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{tier.price}</span>
+                  <span class={isDark ? (isGold ? 'text-gray-200' : 'text-gray-300') : 'text-gray-600'}>{tier.priceUnit}</span>
+                </div>
+                <ul class="space-y-4 mb-6">
+                  {tier.features.map(feature => (
+                    <li class="flex items-start gap-3">
+                      <CheckCircle2 class={`w-6 h-6 ${checkmarkColor} flex-shrink-0 mt-0.5`} />
+                      <span class={textColor}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {tier.setupFee && (
+                  <p class={`text-sm ${isDark ? (isGold ? 'text-gray-300' : 'text-gray-400') : 'text-gray-600'} mb-4`}>{tier.setupFee}</p>
+                )}
+              </div>
+              <button
+                data-cal-link="joshua-riley/intro-call"
+                data-cal-namespace="intro-call"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class={`btn ${isGold ? 'btn-secondary' : 'btn-primary'} w-full`}>
+                Get Started
+              </button>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+    {additionalNote && (
+      <p class={`text-center ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{additionalNote}</p>
+    )}
+  </div>
+</section>
