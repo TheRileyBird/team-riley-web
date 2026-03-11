@@ -13,12 +13,13 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
   <PageHeader
     badge="Our Story"
     title='<span class="animated-gradient-text">Health</span> is Our Mission'
-    subtitle="We're a team of designers and developers passionate about helping health and wellness brands grow their online presence and connect with more clients."
+    subtitle="We help health and wellness brands grow their online presence and connect with more clients."
     primaryCTA={{ text: 'Get Started', href: '#get-started' }}
     secondaryCTA={{ text: 'View Our Work', href: '/portfolio' }}
   />
 
-  <!-- Why Choose Us Section -->
+
+  <!-- Team Section -->
   <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
     <!-- Background decoration -->
     <div class="absolute inset-0 opacity-10">
@@ -27,14 +28,77 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+          title='Meet The <span class="animated-gradient-text">Team</span>'
+          subtitle="A dedicated team of health nuts committed to your success"
+          theme="dark"
+      />
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6">
+            <img
+                src="/images/joshua-riley.png"
+                alt="Joshua Riley"
+                class="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-1">Joshua Riley</h4>
+          <p class="text-primary-400 font-semibold mb-3">Founder & Lead Developer</p>
+          <p class="text-gray-300">Passionate about creating beautiful, high-performing websites for health and wellness brands.</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6">
+            <img
+                src="/images/rachael-riley-3.png"
+                alt="Rachael Riley"
+                class="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-800/50 to-transparent"></div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-1">Rachael Riley</h4>
+          <p class="text-primary-400 font-semibold mb-3">Marketing Director</p>
+          <p class="text-gray-300">Specializes in creating intuitive user experiences that convert visitors into loyal clients.</p>
+        </div>
+
+        <!-- Team Member 3 - The Client -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-primary-600 to-accent-500 flex items-center justify-center aspect-square shadow-md">
+            <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <svg class="relative z-10 w-48 h-48 text-white group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z"/>
+            </svg>
+            <div class="absolute bottom-0 left-0 right-0 bg-white/10 backdrop-blur-sm py-4 z-10">
+              <p class="text-3xl font-bold text-white text-center tracking-wider">YOU</p>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-1">You</h4>
+          <p class="text-primary-400 font-semibold mb-3">The Visionary</p>
+          <p class="text-gray-300">Your business, your vision, your success—we're here to bring it all to life online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <!--<div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">-->
-        <!--  <span class="text-xs font-bold text-primary-300 tracking-wider uppercase">Why Team Riley</span>-->
-        <!--</div>-->
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           What Makes Us <span class="animated-gradient-text">Different</span>
         </h2>
-        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
           We're not just building websites—we're building long-term partnerships.
         </p>
       </div>
@@ -42,33 +106,33 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left: Benefits List -->
         <div class="space-y-6">
-          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-500/50 hover:shadow-lg transition-all duration-300">
             <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center flex-shrink-0">
               <Users class="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 class="text-lg font-bold text-white mb-2">Health & Wellness Expertise</h4>
-              <p class="text-gray-300">We specialize in health and wellness, understanding your industry's unique needs and challenges.</p>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Health & Wellness Expertise</h4>
+              <p class="text-gray-700">We specialize in health and wellness, understanding your industry's unique needs and challenges.</p>
             </div>
           </div>
 
-          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-500/50 hover:shadow-lg transition-all duration-300">
             <div class="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
               <Zap class="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 class="text-lg font-bold text-white mb-2">Fast Turnaround</h4>
-              <p class="text-gray-300">Launch your new website in just 2 weeks with our streamlined process and efficient workflow.</p>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Fast Turnaround</h4>
+              <p class="text-gray-700">Launch your new website in just 2 weeks with our streamlined process and efficient workflow.</p>
             </div>
           </div>
 
-          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+          <div class="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-primary-500/50 hover:shadow-lg transition-all duration-300">
             <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-violet-700 rounded-lg flex items-center justify-center flex-shrink-0">
               <Shield class="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 class="text-lg font-bold text-white mb-2">Ongoing Support</h4>
-              <p class="text-gray-300">Unlimited updates and maintenance included—no hourly rates, no surprise bills.</p>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h4>
+              <p class="text-gray-700">Unlimited updates and maintenance included—no hourly rates, no surprise bills.</p>
             </div>
           </div>
         </div>
@@ -77,9 +141,9 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
         <div class="relative">
           <div class="relative overflow-hidden rounded-3xl shadow-2xl">
             <img
-              src="/images/team-collaboration.jpg"
+              src="/images/family-2.jpg"
               alt="Team collaboration"
-              class="w-full h-full object-cover aspect-[4/3]"
+              class="w-full h-full object-cover object-[50%_35%] aspect-[4/3]"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
 
@@ -110,9 +174,8 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
   <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
-        badge="Our Mission"
-        title='<span class="animated-gradient-text">Better Health</span> <span class="text-gray-900">For Your Business</span>'
-        subtitle="We believe every health and wellness business deserves a website that works as hard as they do"
+          title='<span class="animated-gradient-text">Better Health</span> <span class="text-gray-900">For Your Business</span>'
+          subtitle="We believe every health and wellness business deserves a website that works as hard as they do"
       />
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -144,65 +207,6 @@ import { Heart, Target, Award, Users, Zap, Shield } from '@lucide/astro';
           <p class="text-gray-700 leading-relaxed">
             Every website we build is crafted with attention to detail, modern design principles, and clean code.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeader
-        badge="Our Team"
-        title='Meet The <span class="animated-gradient-text">Team</span>'
-        subtitle="A dedicated team of designers, developers, and strategists committed to your success"
-      />
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Team Member 1 -->
-        <div class="group">
-          <div class="relative overflow-hidden rounded-2xl mb-6">
-            <img
-              src="/images/joshua-riley.png"
-              alt="Joshua Riley"
-              class="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-1">Joshua Riley</h4>
-          <p class="text-primary-700 font-semibold mb-3">Founder & Lead Developer</p>
-          <p class="text-gray-700">Passionate about creating beautiful, high-performing websites for health and wellness brands.</p>
-        </div>
-
-        <!-- Team Member 2 -->
-        <div class="group">
-          <div class="relative overflow-hidden rounded-2xl mb-6">
-            <img
-              src="/images/rachael-riley-3.png"
-              alt="Rachael Riley"
-              class="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-800/50 to-transparent"></div>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-1">Rachael Riley</h4>
-          <p class="text-primary-700 font-semibold mb-3">Marketing Director</p>
-          <p class="text-gray-700">Specializes in creating intuitive user experiences that convert visitors into loyal clients.</p>
-        </div>
-
-        <!-- Team Member 3 - The Client -->
-        <div class="group">
-          <div class="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-primary-600 to-accent-500 flex items-center justify-center aspect-square shadow-md">
-            <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <svg class="relative z-10 w-48 h-48 text-white group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z"/>
-            </svg>
-            <div class="absolute bottom-0 left-0 right-0 bg-white/10 backdrop-blur-sm py-4 z-10">
-              <p class="text-3xl font-bold text-white text-center tracking-wider">YOU</p>
-            </div>
-          </div>
-          <h4 class="text-xl font-bold text-gray-900 mb-1">You</h4>
-          <p class="text-primary-700 font-semibold mb-3">The Visionary</p>
-          <p class="text-gray-700">Your business, your vision, your success—we're here to bring it all to life online.</p>
         </div>
       </div>
     </div>
