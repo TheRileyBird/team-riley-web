@@ -124,7 +124,7 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
   </section>
 
   <!-- Category Navigation -->
-  <section class="py-8 bg-white md:sticky md:top-16 z-40">
+  <section id="category-nav" class="py-8 bg-white md:sticky md:top-16 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap justify-center gap-4">
         <a href="#medical" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 text-primary-700 rounded-full font-medium hover:bg-primary-100 transition-colors">
@@ -506,3 +506,34 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
 
   <Footer />
 </BaseLayout>
+
+<script>
+  // Make sticky navigation stop at holistic section
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('category-nav');
+    const holisticSection = document.getElementById('holistic');
+
+    if (!nav || !holisticSection) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // When holistic section enters viewport from top, remove sticky
+          if (entry.isIntersecting && entry.boundingClientRect.top < window.innerHeight) {
+            nav.classList.remove('md:sticky');
+          } else if (!entry.isIntersecting && entry.boundingClientRect.top > 0) {
+            // When scrolling back up, restore sticky
+            nav.classList.add('md:sticky');
+          }
+        });
+      },
+      {
+        // Trigger when the top of holistic section reaches the bottom of the sticky nav
+        rootMargin: '-80px 0px 0px 0px',
+        threshold: 0
+      }
+    );
+
+    observer.observe(holisticSection);
+  });
+</script>
