@@ -20,7 +20,8 @@
       "Bash(ls:*)",
       "Bash(git add:*)",
       "WebSearch",
-      "WebFetch(domain:teamrileyweb.com)"
+      "WebFetch(domain:teamrileyweb.com)",
+      "Bash(bd sync:*)"
     ]
   }
 }
