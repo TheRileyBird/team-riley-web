@@ -6,12 +6,9 @@
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
       "Bash(npm run build:*)",
-
       "Bash(bd create:*)",
       "Bash(bd close:*)",
-
       "Bash(open http://localhost:4321)",
-
       "mcp__netlify__netlify-project-services-reader",
       "mcp__netlify__netlify-project-services-updater",
       "Bash(netlify domains:add:*)",
@@ -19,11 +16,11 @@
       "mcp__netlify__netlify-coding-rules",
       "Bash(netlify status:*)",
       "Bash(netlify api:*)",
-
       "Bash(curl:*)",
       "Bash(ls:*)",
       "Bash(git add:*)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:teamrileyweb.com)"
     ]
   }
 }
