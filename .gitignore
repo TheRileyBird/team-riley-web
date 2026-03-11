@@ -3,3 +3,6 @@ dist/
 
 # Local Netlify folder
 .netlify
+
+# Netlify deployment artifacts
+deploy-*.zip
