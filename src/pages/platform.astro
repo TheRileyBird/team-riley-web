@@ -9,6 +9,8 @@ import {
   Calendar, Star, MessageCircle, Lock, Bot, Sparkles,
   ArrowRight, CheckCircle2, TrendingUp, Clock, Target
 } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import services2 from '../assets/images/services-2.jpg';
 ---
 
 <BaseLayout
@@ -363,8 +365,8 @@ import {
 
         <div class="relative">
           <div class="relative overflow-hidden rounded-3xl shadow-2xl">
-            <img
-              src="/images/services-2.jpg"
+            <Image
+              src={services2}
               alt="Platform dashboard"
               class="w-full h-full object-cover aspect-[4/3]"
             />

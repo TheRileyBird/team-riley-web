@@ -5,6 +5,16 @@ import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Footer from '../components/Footer.astro';
 import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Sparkles } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import dsmMdOffice from '../assets/images/dsm-md-office.jpg';
+import sleepLab from '../assets/images/sleep-lab.jpg';
+import pharmacyPills from '../assets/images/pharmacy-pills.jpg';
+import virtualExercise from '../assets/images/virtual-exercise.jpg';
+import supportivTreatment from '../assets/images/supportiv-treatment.jpg';
+import lovemoreYoga from '../assets/images/lovemore-yoga.jpg';
+import midwifeBirth from '../assets/images/midwife-birth.jpg';
+import manHiking from '../assets/images/man-hiking.jpg';
+import domLukeCoaching from '../assets/images/dom-luke-coaching.jpg';
 ---
 
 <BaseLayout title="Portfolio - Team Riley" description="View our portfolio of health and wellness websites designed to convert visitors into clients">
@@ -161,8 +171,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- DSM MD -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/dsm-md-office.jpg"
+            <Image
+              src={dsmMdOffice}
               alt="Dental sleep medicine practice"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -191,8 +201,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Sleep Labs -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/sleep-lab.jpg"
+            <Image
+              src={sleepLab}
               alt="Sleep disorders clinic"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -221,8 +231,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Galleria Medical Pharmacy -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/pharmacy-pills.jpg"
+            <Image
+              src={pharmacyPills}
               alt="Medical pharmacy"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -269,8 +279,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Lovitt Life -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-secondary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/virtual-exercise.jpg"
+            <Image
+              src={virtualExercise}
               alt="Virtual exercise program"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -299,8 +309,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- SupportIV -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-secondary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/supportiv-treatment.jpg"
+            <Image
+              src={supportivTreatment}
               alt="IV therapy and wellness services"
               class="w-full h-full object-cover object-[50%_15%] group-hover:scale-105 transition-transform duration-300"
             />
@@ -329,8 +339,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Love More Yoga -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-secondary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/lovemore-yoga.jpg"
+            <Image
+              src={lovemoreYoga}
               alt="Yoga class and wellness center"
               class="w-full h-full object-cover object-[50%_55%] group-hover:scale-105 transition-transform duration-300"
             />
@@ -377,8 +387,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Grace Midwifery Collective -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/midwife-birth.jpg"
+            <Image
+              src={midwifeBirth}
               alt="Midwifery and doula services"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -407,8 +417,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Masculine Confidence Framework -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/man-hiking.jpg"
+            <Image
+              src={manHiking}
               alt="Men's coaching and development"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -437,8 +447,8 @@ import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Spa
         <!-- Dom Luke -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
-            <img
-              src="/images/dom-luke-coaching.jpg"
+            <Image
+              src={domLukeCoaching}
               alt="Holistic business coaching"
               class="w-full h-full object-cover object-[50%_45%] group-hover:scale-105 transition-transform duration-300"
             />
