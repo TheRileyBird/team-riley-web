@@ -1,0 +1,185 @@
+---
+import { CheckCircle2 } from '@lucide/astro';
+
+interface Tier {
+  name: string;
+  price: string;
+  priceUnit: string;
+  description: string;
+  features: string[];
+  setupFee?: string;
+  featured?: boolean;
+  additionalNote?: string;
+}
+
+interface Props {
+  serviceName: string;
+  serviceHighlight: string;
+  description: string;
+  subDescription: string;
+  theme?: 'light' | 'dark';
+  blurColors?: { top: string; bottom: string };
+  tiers: Tier[];
+  reverse?: boolean;
+  additionalNote?: string;
+}
+
+const {
+  serviceName,
+  serviceHighlight,
+  description,
+  subDescription,
+  theme = 'light',
+  blurColors,
+  tiers,
+  reverse = false,
+  additionalNote
+} = Astro.props;
+
+const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHighlight.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<section
+  x-data="{ showPricing: false }"
+  class={`py-20 md:py-28 relative overflow-hidden ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
+>
+  {blurColors && (
+    <div class="absolute inset-0 pointer-events-none">
+      <div class={`absolute top-0 left-0 w-96 h-96 ${blurColors.top} opacity-20 blur-3xl rounded-full`}></div>
+      <div class={`absolute bottom-0 right-0 w-96 h-96 ${blurColors.bottom} opacity-20 blur-3xl rounded-full`}></div>
+    </div>
+  )}
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+      <!-- Service Description Column -->
+      <div class={`${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
+        <h2 class={`text-4xl md:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          {serviceName} <span class="animated-gradient-text">{serviceHighlight}</span>
+        </h2>
+        <p class={`text-xl mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+          {description}
+        </p>
+        <p class={`text-base ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+          {subDescription}
+        </p>
+      </div>
+
+      <!-- Features & Pricing Column -->
+      <div class={`${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
+        <div class={`rounded-2xl p-8 ${theme === 'dark' ? 'bg-gray-800/50 border border-gray-700' : 'bg-gray-50 border border-gray-200'}`}>
+          <h3 class={`text-2xl font-bold mb-6 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+            What's Included
+          </h3>
+
+          <!-- Feature list from first tier (filter out ad spend/mgmt fee lines) -->
+          <ul class="space-y-4 mb-8">
+            {tiers[0].features.filter((feature) => !feature.includes('min. monthly ad spend') && !feature.includes('minimum management fee')).map((feature) => (
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class={`w-6 h-6 flex-shrink-0 mt-0.5 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`} />
+                <span class={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Toggle Pricing Button -->
+          <button
+            @click="showPricing = true; document.body.style.overflow = 'hidden'"
+            class="w-full btn btn-primary mb-4"
+          >
+            See Pricing
+          </button>
+
+          {additionalNote && (
+            <p class={`text-sm text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+              {additionalNote}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing Modal -->
+  <div
+    x-show="showPricing"
+    x-cloak
+    @click.self="showPricing = false; document.body.style.overflow = ''"
+    @keydown.escape.window="showPricing = false; document.body.style.overflow = ''"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+  >
+    <div
+      class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+      x-show="showPricing"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+    >
+      <button
+        @click="showPricing = false; document.body.style.overflow = ''"
+        class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
+        aria-label="Close"
+      >
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+        {serviceName} {serviceHighlight} Pricing
+      </h3>
+
+      <div class={`grid gap-8 ${tiers.length === 2 ? 'md:grid-cols-2' : tiers.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-1'} mb-6`}>
+        {tiers.map((tier) => (
+          <div class={`relative rounded-2xl p-6 border-2 ${tier.featured ? 'border-primary-600 shadow-xl' : 'border-gray-200'}`}>
+            {tier.featured && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg whitespace-nowrap">
+                MOST POPULAR
+              </div>
+            )}
+
+            <div class="mb-6">
+              <h4 class="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h4>
+              <div class="flex items-baseline gap-2 mb-2">
+                <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
+                <span class="text-gray-600">{tier.priceUnit}</span>
+              </div>
+              <p class="text-gray-600 text-sm">{tier.description}</p>
+            </div>
+
+            <ul class="space-y-3 mb-6">
+              {tier.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.featured ? 'text-yellow-500' : 'text-primary-600'}`} />
+                  <span class="text-gray-700 text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {tier.setupFee && (
+              <p class="text-sm text-gray-600 mb-4">{tier.setupFee}</p>
+            )}
+
+            <button
+              data-cal-link="joshua-riley/intro-call"
+              data-cal-namespace="intro-call"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              class={`w-full ${tier.featured ? 'btn btn-secondary' : 'btn btn-primary'}`}
+            >
+              Get Started
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {additionalNote && (
+        <p class="text-center text-gray-600 text-sm">
+          {additionalNote}
+        </p>
+      )}
+    </div>
+  </div>
+</section>

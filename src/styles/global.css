@@ -14,7 +14,31 @@
   animation: gradient-shift 8s ease infinite;
 }
 
+/* Hero Image Gradient Overlay */
+.hero-gradient-overlay {
+  background: linear-gradient(135deg,
+    rgba(30, 64, 175, 0.4),
+    rgba(8, 145, 178, 0.3),
+    rgba(139, 92, 246, 0.4),
+    rgba(30, 64, 175, 0.4)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift-diagonal 8s ease infinite;
+}
+
 @keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-diagonal {
   0% {
     background-position: 0% 50%;
   }

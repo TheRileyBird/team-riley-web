@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from '../components/PricingSection.astro';
-import ServicePricingSection from '../components/ServicePricingSection.astro';
+import ServiceColumnSection from '../components/ServiceColumnSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -20,8 +20,198 @@ import Footer from '../components/Footer.astro';
   <!-- Pricing Section -->
   <PricingSection showHeader={false} />
 
+  <!-- Team Riley AI -->
+  <section class="py-20 md:py-28 relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-600 opacity-20 blur-3xl rounded-full"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Service Description Column -->
+        <div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Team Riley <span class="animated-gradient-text">AI</span>
+          </h2>
+          <p class="text-xl mb-6 text-gray-300">
+            AI-powered platform that automates your business operations and customer engagement
+          </p>
+          <p class="text-base text-gray-400">
+            Smart automation · AI agents · Intelligent workflows · 24/7 customer support · Analytics dashboard
+          </p>
+        </div>
+
+        <!-- Pricing Column -->
+        <div>
+          <div class="rounded-2xl p-8 bg-gray-800/50 border border-gray-700">
+            <div class="mb-6">
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-5xl font-bold text-white">$297</span>
+                <span class="text-gray-400">/month</span>
+              </div>
+              <p class="text-sm text-gray-400 mb-6">$500 one-time setup fee</p>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-6 text-white">What's Included</h3>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">AI-Powered Platform Access</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">Smart Automation & Workflows</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">Intelligent Customer Engagement</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">24/7 AI Support Agents</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">Advanced Analytics Dashboard</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">Integration with Your Website</span>
+              </li>
+            </ul>
+
+            <button
+              data-cal-link="joshua-riley/intro-call"
+              data-cal-namespace="intro-call"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              class="w-full btn btn-primary"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Management -->
+  <ServiceColumnSection
+    serviceName="Social Media"
+    serviceHighlight="Management"
+    description="Consistent, engaging social media content that builds your brand and connects with your audience"
+    subDescription="Content creation · Strategic planning · Community engagement · Performance tracking · Brand storytelling"
+    theme="light"
+    reverse={true}
+    tiers={[
+      {
+        name: 'Basic',
+        price: '$199',
+        priceUnit: '/month',
+        description: 'Perfect for consistent content',
+        features: [
+          '4 Posts Per Month (Stories, Posts, Carousels)',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)'
+        ],
+        setupFee: '$99 one-time setup fee',
+        additionalNote: 'Additional Post: $50'
+      },
+      {
+        name: 'Essential',
+        price: '$299',
+        priceUnit: '/month',
+        description: 'Ideal for busy professionals',
+        features: [
+          '6 Posts Per Month (Stories, Posts, Carousels, Reels)',
+          '1 Reel Per Month',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)'
+        ],
+        setupFee: '$149 one-time setup fee',
+        featured: true,
+        additionalNote: 'Additional Post: $50'
+      },
+      {
+        name: 'Essential Plus',
+        price: '$499',
+        priceUnit: '/month',
+        description: 'Consistent and engaging presence',
+        features: [
+          '10 Posts Per Month (Stories, Posts, Carousels, Reels)',
+          '3 Reels Per Month',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)'
+        ],
+        setupFee: '$149 one-time setup fee',
+        additionalNote: 'Additional Post: $50'
+      },
+      {
+        name: 'Strategist',
+        price: '$740',
+        priceUnit: '/month',
+        description: 'For growing businesses',
+        features: [
+          '12 Posts Per Month (Stories, Posts, Carousels, Reels)',
+          '5 Reels Per Month',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)',
+          'Direct Slack Channel for Instant Communication'
+        ],
+        setupFee: '$375 one-time setup fee',
+        additionalNote: 'Additional Post: $50'
+      },
+      {
+        name: 'Influencer',
+        price: '$2,500',
+        priceUnit: '/month',
+        description: 'High-performing content strategy',
+        features: [
+          '20 Posts Per Month (Stories, Posts, Carousels, Reels)',
+          'Up to 8 Reels Per Month',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)',
+          'Monthly Content Strategy Plan',
+          'Direct Slack Channel for Instant Communication'
+        ],
+        setupFee: '$750 one-time setup fee',
+        additionalNote: 'Additional Post: $50'
+      },
+      {
+        name: 'Influencer Plus',
+        price: '$3,500',
+        priceUnit: '/month',
+        description: 'Premium content production',
+        features: [
+          '20 Posts Per Month (Stories, Posts, Carousels, Reels)',
+          'Up to 10 Reels Per Month',
+          'Custom branded graphics and captions',
+          'Profile Optimization (Bio, Links, Branding)',
+          'Monthly Content Strategy Plan',
+          'Direct Slack Channel for Instant Communication',
+          'Monthly 2 hour Photo/Video Shoot'
+        ],
+        setupFee: '$750 one-time setup fee',
+        additionalNote: 'Additional Post: $50'
+      }
+    ]}
+  />
+
   <!-- SEO Services -->
-  <ServicePricingSection
+  <ServiceColumnSection
     serviceName="Search Engine"
     serviceHighlight="Optimization"
     description="Rank higher in Google and get found by clients actively searching for your services"
@@ -29,6 +219,7 @@ import Footer from '../components/Footer.astro';
     theme="dark"
     blurColors={{ top: 'bg-primary-600', bottom: 'bg-cyan-500' }}
     additionalNote="Additional locations: $300/month each"
+    reverse={false}
     tiers={[
       {
         name: 'Silver',
@@ -74,12 +265,13 @@ import Footer from '../components/Footer.astro';
   />
 
   <!-- PPC Management -->
-  <ServicePricingSection
+  <ServiceColumnSection
     serviceName="PPC"
     serviceHighlight="Management"
     description="Google, Bing, and YouTube ads that target the right clients at the right time"
     subDescription="Campaign setup · Keyword research · Ad copywriting · Bid optimization · Monthly reporting"
     theme="light"
+    reverse={true}
     tiers={[
       {
         name: 'Silver',
@@ -125,13 +317,14 @@ import Footer from '../components/Footer.astro';
   />
 
   <!-- Social Advertising -->
-  <ServicePricingSection
+  <ServiceColumnSection
     serviceName="Social"
     serviceHighlight="Advertising"
     description="Facebook and Instagram ads that reach your ideal clients where they spend their time"
     subDescription="Audience targeting · Creative design · Campaign management · Conversion tracking · Performance analytics"
     theme="dark"
     blurColors={{ top: 'bg-purple-600', bottom: 'bg-pink-500' }}
+    reverse={false}
     tiers={[
       {
         name: 'Silver',
@@ -177,12 +370,13 @@ import Footer from '../components/Footer.astro';
   />
 
   <!-- Branding & Design -->
-  <ServicePricingSection
+  <ServiceColumnSection
     serviceName="Branding &"
     serviceHighlight="Design"
     description="Professional logo design and brand identity that makes your practice stand out"
     subDescription="Logo design · Brand guidelines · Color palettes · Typography · Marketing materials"
     theme="light"
+    reverse={true}
     tiers={[
       {
         name: 'Logo & Branding',
