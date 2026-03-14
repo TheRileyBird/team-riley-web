@@ -1,3 +1,3 @@
 # Astro Website
 
-Health insurance website built with Astro, Tailwind CSS, and Alpine.js.
+Team Riley website built with Astro, Tailwind CSS, and Alpine.js.
