@@ -135,6 +135,84 @@ This project uses the following technologies:
 
 ---
 
+## Model Context Protocols (MCPs)
+
+This project has the following MCPs configured for enhanced AI capabilities:
+
+### Claude Memory (`claude-mem`)
+
+**Purpose**: Persistent cross-session memory database for tracking solutions, patterns, and decisions.
+
+**Key Features**:
+- 3-layer workflow: `search()` → `timeline()` → `get_observations()`
+- Semantic search across project history
+- Automatic observation logging of important decisions
+
+**Usage**:
+```bash
+# Search for past solutions
+claude-mem search "how did we handle authentication"
+
+# Save important decisions
+claude-mem save "Decided to use Tailwind's custom color palette for brand consistency"
+```
+
+**Best Practices**:
+- Search before implementing to avoid duplicating solved problems
+- Save architectural decisions and patterns
+- Use for context recovery after conversation compaction
+
+### Netlify MCP (`netlify`)
+
+**Purpose**: Deployment and hosting management for the Team Riley website.
+
+**Key Features**:
+- Deploy site directly from CLI
+- Manage environment variables
+- Configure visitor access controls
+- Manage forms and submissions
+- Handle extensions and integrations
+
+**Usage**:
+```bash
+# Deploy the site
+netlify deploy --dir=dist --prod
+
+# Manage environment variables
+netlify env:set KEY=value
+
+# Check deploy status
+netlify deploy:list
+```
+
+**Important Rules**:
+- ALWAYS call `netlify-coding-rules` before writing serverless functions
+- Never assume new site creation - use `netlify link` to connect to existing site
+- Deploy directory must be absolute path (default: repo root)
+
+### Astro Docs (`astro-docs`)
+
+**Purpose**: Search official Astro framework documentation for guidance.
+
+**Key Features**:
+- Fast semantic search of Astro docs
+- Up-to-date framework guidance
+- Integration and API references
+
+**Usage**:
+```bash
+# Search for specific features
+astro-docs search "image optimization"
+astro-docs search "content collections"
+```
+
+**Best Practices**:
+- Search docs before implementing Astro features
+- Verify syntax and best practices
+- Check for framework updates and new features
+
+---
+
 ## Project Structure
 
 ```

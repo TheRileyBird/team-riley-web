@@ -21,8 +21,7 @@
       "Bash(git add:*)",
       "WebSearch",
       "WebFetch(domain:teamrileyweb.com)",
-      "Bash(bd sync:*)",
-      "Bash(tree:*)"
+      "Bash(bd sync:*)"
     ]
   }
 }
