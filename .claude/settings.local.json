@@ -21,7 +21,10 @@
       "Bash(git add:*)",
       "WebSearch",
       "WebFetch(domain:teamrileyweb.com)",
-      "Bash(bd sync:*)"
+      "Bash(bd sync:*)",
+      "Bash(bd doctor:*)",
+      "Bash(bd dolt status:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
