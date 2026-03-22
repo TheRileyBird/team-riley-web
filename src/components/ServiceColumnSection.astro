@@ -163,6 +163,10 @@ const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHi
               <p class="text-sm text-gray-600 mb-4">{tier.setupFee}</p>
             )}
 
+            {tier.additionalNote && (
+              <p class="text-sm text-gray-600 mb-4">{tier.additionalNote}</p>
+            )}
+
             <button
               data-cal-link="joshua-riley/intro-call"
               data-cal-namespace="intro-call"
