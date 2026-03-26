@@ -336,14 +336,87 @@ import Footer from '../components/Footer.astro';
     ]}
   />
 
+  <!-- eCommerce Management -->
+  <ServiceColumnSection
+    serviceName="eCommerce"
+    serviceHighlight="Management"
+    description="Complete online store management that transforms your eCommerce operation into a revenue-generating machine"
+    subDescription="Store maintenance · Product management · Conversion optimization · Performance tracking · Strategic support"
+    theme="light"
+    reverse={true}
+    tiers={[
+      {
+        name: 'Silver',
+        price: '$399',
+        priceUnit: '/month',
+        description: 'Best for new or low-volume stores',
+        features: [
+          'Basic store maintenance (themes, plugins, updates)',
+          'Product uploads (up to ~25/mo)',
+          'Basic reporting',
+          'Email support'
+        ],
+        setupFee: '$500 one-time setup fee'
+      },
+      {
+        name: 'Gold',
+        price: '$699',
+        priceUnit: '/month',
+        description: 'Best for stores doing consistent sales',
+        features: [
+          'Everything in Silver',
+          'Product management (up to ~75/mo)',
+          'Conversion tweaks (CRO light)',
+          'App + integration management',
+          'Monthly performance reporting',
+          'Basic email/SMS campaign support'
+        ],
+        setupFee: '$750 one-time setup fee',
+        featured: true
+      },
+      {
+        name: 'Platinum',
+        price: '$1,200',
+        priceUnit: '/month',
+        description: 'Best for serious e-comm businesses',
+        features: [
+          'Everything in Gold',
+          'Advanced CRO (landing pages, A/B testing)',
+          'Funnel optimization',
+          'Product + collection strategy',
+          'Weekly reporting / insights',
+          'Priority support'
+        ],
+        setupFee: '$1,000 one-time setup fee'
+      },
+      {
+        name: 'Enterprise',
+        price: '$2,500–$5,000',
+        priceUnit: '/month',
+        description: 'Best for $50k–$250k+/mo stores',
+        features: [
+          'Full store management',
+          'CRO + revenue optimization',
+          'Offer strategy',
+          'Lifecycle marketing oversight (email/SMS)',
+          'Team coordination (ads, creatives, etc.)',
+          'Slack-level access / fast response'
+        ],
+        setupFee: '$1,500+ one-time setup fee',
+        additionalNote: 'Optional add-on: 1–3% of revenue once threshold is reached'
+      }
+    ]}
+  />
+
   <!-- Branding & Design -->
   <ServiceColumnSection
     serviceName="Branding &"
     serviceHighlight="Design"
     description="Professional logo design and brand identity that makes your practice stand out"
     subDescription="Logo design · Brand guidelines · Color palettes · Typography · Marketing materials"
-    theme="light"
-    reverse={true}
+    theme="dark"
+    blurColors={{ top: 'bg-orange-600', bottom: 'bg-red-500' }}
+    reverse={false}
     tiers={[
       {
         name: 'Logo & Branding',
