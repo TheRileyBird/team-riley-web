@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
+import ClientReviewMessages from '../components/ClientReviewMessages.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Footer from '../components/Footer.astro';
-import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Heart, Sparkles } from '@lucide/astro';
+import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Sparkles } from '@lucide/astro';
 import { Image } from 'astro:assets';
 import dsmMdOffice from '../assets/images/dsm-md-office.jpg';
 import sleepLab from '../assets/images/sleep-lab.jpg';
@@ -15,16 +16,94 @@ import lovemoreYoga from '../assets/images/lovemore-yoga.jpg';
 import midwifeBirth from '../assets/images/midwife-birth.jpg';
 import manHiking from '../assets/images/man-hiking.jpg';
 import domLukeCoaching from '../assets/images/dom-luke-coaching.jpg';
+
+const clientReviews = [
+  {
+    client: 'Client Review',
+    text: 'You are life-changing.',
+    side: 'right',
+    top: '23rem',
+  },
+  {
+    client: 'Client Review',
+    text: 'Thank you for making this process so easy.',
+    side: 'left',
+    top: '47rem',
+  },
+  {
+    client: 'DSM-MD',
+    text: 'The new site finally explains what we do in a way patients can understand right away.',
+    side: 'right',
+    top: '76rem',
+  },
+  {
+    client: 'Sleep Labs',
+    text: 'Our booking flow feels cleaner, faster, and much easier for patients to use.',
+    side: 'left',
+    top: '107rem',
+  },
+  {
+    client: 'Galleria Medical Pharmacy',
+    text: 'We look more professional online, and the whole process felt organized from day one.',
+    side: 'right',
+    top: '134rem',
+  },
+  {
+    client: 'Lovitt Life',
+    text: 'You took a complicated membership offer and made it feel simple for our clients.',
+    side: 'left',
+    top: '166rem',
+  },
+  {
+    client: 'SupportIV',
+    text: 'The website finally matches the quality of care our team provides in person.',
+    side: 'right',
+    top: '194rem',
+  },
+  {
+    client: 'Love More Yoga',
+    text: 'It feels calm, polished, and completely aligned with the experience we want people to have.',
+    side: 'left',
+    top: '226rem',
+  },
+  {
+    client: 'Grace Midwifery Collective',
+    text: 'You listened deeply and turned our work into something families can trust immediately.',
+    side: 'right',
+    top: '258rem',
+  },
+  {
+    client: 'Masculine Confidence Framework',
+    text: 'The message is sharper, the design is stronger, and the whole brand feels elevated.',
+    side: 'left',
+    top: '290rem',
+  },
+  {
+    client: 'Dom Luke',
+    text: 'This is the first time my website has felt like it actually represents my work.',
+    side: 'right',
+    top: '324rem',
+  },
+  {
+    client: 'Wellness Practice Client',
+    text: 'I thought this would be overwhelming, but you made every step clear and manageable.',
+    side: 'left',
+    top: '356rem',
+  },
+];
 ---
 
 <BaseLayout title="Portfolio - Team Riley" description="View our portfolio of health and wellness websites designed to convert visitors into clients">
   <Navigation />
 
-  <PageHeader
-    badge="Our Work"
-    title='<span class="animated-gradient-text">Healthy Websites</span> <span class="text-gray-900"><br class="hidden lg:block">That Drive Results</span>'
-    subtitle="Explore our portfolio of custom-designed websites built for health and wellness businesses like yours."
-  />
+  <main class="relative overflow-hidden">
+    <ClientReviewMessages reviews={clientReviews} />
+
+    <PageHeader
+      badge="Our Work"
+      title='<span class="animated-gradient-text">Healthy Websites</span> <span class="text-gray-900"><br class="hidden lg:block">That Drive Results</span>'
+      subtitle="Explore our portfolio of custom-designed websites built for health and wellness businesses like yours."
+    />
 
   <!-- Category Navigation -->
   <section id="category-nav" class="py-8 bg-white md:sticky md:top-16 z-40">
@@ -513,6 +592,8 @@ import domLukeCoaching from '../assets/images/dom-luke-coaching.jpg';
       </div>
     </div>
   </section>
+
+  </main>
 
   <Footer />
 </BaseLayout>
