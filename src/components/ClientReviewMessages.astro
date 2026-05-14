@@ -28,13 +28,6 @@ const positionedReviews = reviews.map((review, index) => ({
       ]}
       style={`--message-index: ${index}; --message-top: ${review.top};`}
     >
-      <button
-        type="button"
-        class="floating-review-close"
-        aria-label={`Close review from ${review.client}`}
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
       <span class="floating-review-client">{review.client}</span>
       <p>{review.text}</p>
     </article>
@@ -65,25 +58,6 @@ const positionedReviews = reviews.map((review, index) => ({
     messages.forEach((message) => {
       message.classList.add('floating-review-message-animated');
       observer.observe(message);
-    });
-
-    document.addEventListener('click', (event) => {
-      const closeButton = event.target.closest('.floating-review-close');
-
-      if (!closeButton) return;
-
-      const message = closeButton.closest('.floating-review-message');
-
-      if (!message) return;
-
-      message.classList.add('is-dismissed');
-      message.addEventListener(
-        'transitionend',
-        () => {
-          message.setAttribute('hidden', '');
-        },
-        { once: true }
-      );
     });
   };
 
@@ -117,7 +91,6 @@ const positionedReviews = reviews.map((review, index) => ({
       width: min(31vw, 360px);
       border-radius: 1.5625rem;
       padding: 0.75rem 1.25rem;
-      pointer-events: auto;
       box-shadow:
         0 18px 42px rgba(15, 23, 42, 0.16),
         0 1px 0 rgba(255, 255, 255, 0.42) inset;
@@ -149,48 +122,6 @@ const positionedReviews = reviews.map((review, index) => ({
       transform: translate3d(0, 0, 0) scale(1);
     }
 
-    .floating-review-message.is-dismissed {
-      opacity: 0;
-      transform: translate3d(var(--message-dismiss-x), -0.75rem, 0) scale(0.96);
-      transition-delay: 0ms;
-      pointer-events: none;
-    }
-
-    .floating-review-close {
-      position: absolute;
-      top: -0.55rem;
-      display: grid;
-      place-items: center;
-      width: 1.35rem;
-      height: 1.35rem;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.86);
-      color: #ffffff;
-      font: inherit;
-      font-size: 1rem;
-      line-height: 1;
-      cursor: pointer;
-      opacity: 0.88;
-      transform: translateY(0) scale(1);
-      transition:
-        opacity 180ms ease,
-        transform 180ms ease,
-        background-color 180ms ease;
-      pointer-events: auto;
-    }
-
-    .floating-review-message:hover .floating-review-close {
-      opacity: 1;
-      transform: translateY(0) scale(1.04);
-    }
-
-    .floating-review-close:hover,
-    .floating-review-close:focus-visible {
-      background: rgba(15, 23, 42, 0.95);
-      outline: none;
-    }
-
     .floating-review-message p {
       margin: 0;
       font-size: 0.98rem;
@@ -210,7 +141,6 @@ const positionedReviews = reviews.map((review, index) => ({
 
     .floating-review-message-left {
       --message-start-x: -54px;
-      --message-dismiss-x: -120vw;
       --review-tail-color: var(--review-received-color);
       left: 25px;
       background: var(--review-received-color);
@@ -219,7 +149,6 @@ const positionedReviews = reviews.map((review, index) => ({
 
     .floating-review-message-right {
       --message-start-x: 54px;
-      --message-dismiss-x: 120vw;
       --review-tail-color: var(--review-sent-color);
       right: 25px;
       background: var(--review-sent-color);
@@ -232,16 +161,8 @@ const positionedReviews = reviews.map((review, index) => ({
       transform-origin: center;
     }
 
-    .floating-review-message-left .floating-review-close {
-      left: -0.55rem;
-    }
-
     .floating-review-message-right::after {
       right: -1.02rem;
-    }
-
-    .floating-review-message-right .floating-review-close {
-      right: -0.55rem;
     }
   }
 
