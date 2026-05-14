@@ -105,11 +105,8 @@ const positionedReviews = reviews.map((review, index) => ({
       content: '';
       position: absolute;
       bottom: 0;
-      width: 1.3125rem;
-      height: 1.5625rem;
-      background-color: var(--review-tail-color);
-      -webkit-mask: url("data:image/svg+xml,%3Csvg width='21' height='25' viewBox='0 0 21 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 25C7.8 25 14.5 19.8 17.4 12.5C19.4 7.6 20.5 3.4 21 0V25H0Z' fill='black'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
-      mask: url("data:image/svg+xml,%3Csvg width='21' height='25' viewBox='0 0 21 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 25C7.8 25 14.5 19.8 17.4 12.5C19.4 7.6 20.5 3.4 21 0V25H0Z' fill='black'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      width: 0;
+      height: 0;
     }
 
     .floating-review-message-animated {
@@ -156,13 +153,15 @@ const positionedReviews = reviews.map((review, index) => ({
     }
 
     .floating-review-message-left::after {
-      left: -0.5rem;
-      transform: scaleX(-1);
-      transform-origin: center;
+      left: -0.55rem;
+      border-right: 0.9rem solid var(--review-tail-color);
+      border-top: 0.9rem solid transparent;
     }
 
     .floating-review-message-right::after {
-      right: -0.5rem;
+      right: -0.55rem;
+      border-left: 0.9rem solid var(--review-tail-color);
+      border-top: 0.9rem solid transparent;
     }
   }
 
