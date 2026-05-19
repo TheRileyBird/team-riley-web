@@ -3,7 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PricingSection from '../components/PricingSection.astro';
-import { ArrowRight, Zap, Smartphone, Palette, Globe, Shield, Rocket, Clock, DollarSign, Users, TrendingUp } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import { ArrowRight, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
+import careptSite from '../assets/sites/carept.png';
+import cfcSite from '../assets/sites/cfc.png';
+import dsmmdSite from '../assets/sites/dsmmd.png';
+import lovemoreSite from '../assets/sites/lovemore.png';
+import garrettSite from '../assets/sites/garrett.png';
+import dailywisdomSite from '../assets/sites/dailywisdom.png';
+import life2healthSite from '../assets/sites/life2health.png';
+import domlukeSite from '../assets/sites/domluke.png';
+import nazarethSite from '../assets/sites/nazareth.png';
+import graceSite from '../assets/sites/grace.png';
 ---
 
 <BaseLayout title="Team Riley Web - Digital Health For Your Business">
@@ -69,7 +80,7 @@ import { ArrowRight, Zap, Smartphone, Palette, Globe, Shield, Rocket, Clock, Dol
               View Our Work
               <ArrowRight class="w-5 h-5" />
             </a>
-            <a href="#pricing" class="btn btn-secondary btn-lg">
+            <a href="/pricing" class="btn btn-secondary btn-lg">
               View Pricing
             </a>
           </div>
@@ -120,6 +131,387 @@ import { ArrowRight, Zap, Smartphone, Palette, Globe, Shield, Rocket, Clock, Dol
                    loading="eager" />
               <div class="absolute inset-0 hero-gradient-overlay"></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visibility Gap Section -->
+  <section class="py-20 lg:py-0 bg-gray-950 relative overflow-hidden lg:min-h-[680px]">
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/40 to-transparent"></div>
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-16 right-10 w-80 h-80 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="portfolio-scroll-gallery relative lg:absolute lg:inset-y-0 lg:left-0 lg:w-[44vw] h-[440px] md:h-[520px] lg:h-full overflow-hidden">
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-950 to-transparent z-10"></div>
+      <div class="grid grid-cols-2 gap-4 md:gap-5 p-4 md:p-5 -mt-10">
+        <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
+          <Image src={nazarethSite} alt="CarePT website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={cfcSite} alt="DSM MD website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={dailywisdomSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={lovemoreSite} alt="Daily Wisdom website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={nazarethSite} alt="Nazareth website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={careptSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" aria-hidden="true" />
+        </div>
+        <div class="portfolio-scroll-column portfolio-scroll-column-down space-y-4 md:space-y-5 pt-16">
+          <Image src={life2healthSite} alt="Life2Health website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={domlukeSite} alt="Dom Luke website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={graceSite} alt="Grace Midwifery Collective website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={dsmmdSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={garrettSite} alt="Garrett website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" />
+          <Image src={life2healthSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-lg" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 lg:mt-0">
+      <div class="lg:ml-[50%] lg:min-h-[680px] lg:py-28 flex items-center">
+        <div>
+          <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+            <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">Managed For You</span>
+          </div>
+
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Your presence online should
+            <span class="animated-gradient-text"> build trust</span>
+          </h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8 max-w-3xl">
+            We promise health and wellness business owners a world-class digital presence that reflects the true quality of care you deliver, so you can stop being the best-kept secret in their market and start being the most visible, most trusted, and most booked practice in your area.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="aurora-light-section py-20 md:py-28 bg-white relative overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center mb-14">
+        <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
+          <span class="text-sm font-semibold text-primary-800">The Problem</span>
+        </div>
+        <h2 class="max-w-3xl mx-auto text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Your Digital Presence Doesn’t Match Your <span class="animated-gradient-text">Level of Care</span>
+          <!--Great care is not enough if <span class="animated-gradient-text">clients cannot find you</span>-->
+        </h2>
+        <p class="text-xl text-gray-700 leading-relaxed mb-3">
+          Most health businesses don’t have a service problem.<br>They have a visibility, trust, and positioning problem.
+        </p>
+        <p class="text-xl text-gray-700 leading-relaxed mb-3">
+          Every day, potential patients search online, compare options, and choose competitors with: better websites, better branding, better Google presence, and better reviews. Even when your actual care is far superior.
+        </p>
+        <p class="text-xl text-gray-700 leading-relaxed font-bold">
+          Team Riley fixes the disconnect between the quality of your work and the way your business appears online.
+        </p>
+      </div>
+
+      <!--<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">-->
+      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
+      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Visibility Problem</h3>-->
+      <!--    <p class="text-gray-600">Potential patients search daily and choose competitors because they show up first.</p>-->
+      <!--  </div>-->
+      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
+      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Referral Ceiling</h3>-->
+      <!--    <p class="text-gray-600">Referral-only growth is hard to scale and creates feast-or-famine revenue cycles.</p>-->
+      <!--  </div>-->
+      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
+      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Time Problem</h3>-->
+      <!--    <p class="text-gray-600">DIY marketing drains hours each week from clinical work, family, and wellbeing.</p>-->
+      <!--  </div>-->
+      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
+      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Bad Agency Problem</h3>-->
+      <!--    <p class="text-gray-600">Generic agencies over-promise, under-deliver, and fail to produce measurable patient flow.</p>-->
+      <!--  </div>-->
+      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50 md:col-span-2 lg:col-span-2">-->
+      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Competitor Gap</h3>-->
+      <!--    <p class="text-gray-600">Less-skilled competitors who invest in digital are taking more of the available patient pool every month.</p>-->
+      <!--  </div>-->
+      <!--</div>-->
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+    <!-- Gradient blurs -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary-500 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-400 rounded-full blur-[100px]"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-violet-400 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- Dot pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.03] text-white" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+    <!-- Geometric shapes -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Top left decorative circles -->
+      <div class="absolute -top-20 -left-20 w-80 h-80 animate-float-very-slow">
+        <div class="absolute inset-0 border-2 border-primary-400/20 rounded-full"></div>
+        <div class="absolute inset-8 border border-primary-400/15 rounded-full"></div>
+        <div class="absolute inset-16 border border-primary-400/10 rounded-full"></div>
+      </div>
+
+      <!-- Bottom right decorative circles -->
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 animate-float-very-slow" style="animation-delay: -10s;">
+        <div class="absolute inset-0 border-2 border-violet-400/20 rounded-full"></div>
+        <div class="absolute inset-10 border border-violet-400/15 rounded-full"></div>
+        <div class="absolute inset-20 border border-violet-400/10 rounded-full"></div>
+      </div>
+
+      <!-- Subtle connecting lines (horizontal accent) -->
+      <svg class="absolute top-20 left-0 w-full h-1 opacity-10" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="process-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:transparent" />
+            <stop offset="20%" style="stop-color:#3b82f6" />
+            <stop offset="50%" style="stop-color:#8b5cf6" />
+            <stop offset="80%" style="stop-color:#3b82f6" />
+            <stop offset="100%" style="stop-color:transparent" />
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#process-line-grad)" stroke-width="2" stroke-dasharray="8 8"/>
+      </svg>
+      <svg class="absolute bottom-20 left-0 w-full h-1 opacity-10" preserveAspectRatio="none">
+        <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#process-line-grad)" stroke-width="2" stroke-dasharray="8 8"/>
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+          <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">The Solution</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          We build the system, then keep it moving.
+        </h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          A simple path from invisible online to easier to find, easier to trust, and easier to book.
+        </p>
+      </div>
+
+      <!-- Connected Steps Container -->
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Continuous connecting line (desktop) -->
+        <div class="hidden md:block absolute top-10 left-[calc(16.67%-10px)] right-[calc(16.67%-10px)] h-1">
+          <div class="absolute inset-0 bg-gray-700 rounded-full"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-primary-400 to-primary-500 rounded-full process-line-animate"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 md:gap-4">
+          <!-- Step 1 -->
+          <div class="relative flex flex-col items-center text-center group">
+            <!-- Mobile connector line (vertical) -->
+            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-500 to-primary-400 rounded-full"></div>
+
+            <div class="relative z-10">
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-400/30 to-primary-600/30 rounded-full blur-sm group-hover:from-primary-400/40 group-hover:to-primary-600/40 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-secondary-300 to-primary-500 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
+                <span class="text-3xl font-bold text-white">1</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
+              <h3 class="text-xl font-bold text-white mb-3">Complete the Form</h3>
+              <p class="text-gray-300">Tell us about your practice, goals, and the patients you want to reach.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
+            <!-- Mobile connector line (vertical) -->
+            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-400 to-primary-500 rounded-full"></div>
+
+            <div class="relative z-10">
+              <!-- Rotating dashed circle -->
+              <svg class="absolute -inset-8 w-36 h-36 animate-rotate-slow" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" class="text-primary-400/25" />
+              </svg>
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-500/30 to-primary-600/30 rounded-full blur-sm group-hover:from-primary-500/40 group-hover:to-primary-600/40 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
+                <span class="text-3xl font-bold text-white">2</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
+              <h3 class="text-xl font-bold text-white mb-3">We Build Your Growth System</h3>
+              <p class="text-gray-300">We create the website, messaging, and digital foundation your market should see.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
+            <div class="relative z-10">
+              <!-- Outer ring -->
+              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/30 to-primary-800/30 rounded-full blur-sm group-hover:from-primary-600/40 group-hover:to-primary-800/40 transition-all duration-300"></div>
+              <!-- Number circle -->
+              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-700 to-secondary-700 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
+                <span class="text-3xl font-bold text-white">3</span>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
+              <h3 class="text-xl font-bold text-white mb-3">Launch & Stay Current</h3>
+              <p class="text-gray-300">Go live with a managed presence that keeps improving as your practice grows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <button
+          data-cal-link="joshua-riley/intro-call"
+          data-cal-namespace="intro-call"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          class="btn btn-primary btn-lg shadow-xl">
+          Start Your Project Today
+          <ArrowRight class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Client Logos Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm font-semibold text-gray-600 uppercase tracking-wider mb-8">
+        Trusted by Hundreds of Smart Business Owners
+      </p>
+    </div>
+
+    <!-- Logo marquee with hover pause - Full width -->
+    <div class="logo-marquee-container relative overflow-hidden w-full">
+      <!-- Fade edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+
+      <div class="logo-marquee-track flex">
+        <!-- First set of logos -->
+        <div class="logo-marquee-content flex items-center gap-8 md:gap-16 px-4 md:px-8">
+          <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/life2health.png" alt="Life2Health" loading="lazy" />
+          </a>
+          <a href="https://domluke.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/dom.gif" alt="DOM" loading="lazy" />
+          </a>
+          <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/dsm-md.webp" alt="DSM MD" loading="lazy" />
+          </a>
+          <a href="https://galleriamedpharmacy.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/galleria-medical-pharmacy.png" alt="Galleria Medical Pharmacy" loading="lazy" />
+          </a>
+          <a href="https://lovemoremcc.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/lovemore.webp" alt="LoveMore" loading="lazy" />
+          </a>
+          <a href="https://supportivwellness.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/support-iv.webp" alt="SupportIV" loading="lazy" />
+          </a>
+          <a href="https://gracemidwiferycollective.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
+            <img src="/images/logos/gmc.png" alt="Grace Midwifery Collective" loading="lazy" />
+          </a>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="logo-marquee-content flex items-center gap-8 md:gap-16 px-4 md:px-8" aria-hidden="true">
+          <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/life2health.png" alt="Life2Health" loading="lazy" />
+          </a>
+          <a href="https://domluke.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/dom.gif" alt="DOM" loading="lazy" />
+          </a>
+          <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/dsm-md.webp" alt="DSM MD" loading="lazy" />
+          </a>
+          <a href="https://galleriamedpharmacy.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/galleria-medical-pharmacy.png" alt="Galleria Medical Pharmacy" loading="lazy" />
+          </a>
+          <a href="https://lovemoremcc.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/lovemore.webp" alt="LoveMore" loading="lazy" />
+          </a>
+          <a href="https://supportivwellness.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/support-iv.webp" alt="SupportIV" loading="lazy" />
+          </a>
+          <a href="https://gracemidwiferycollective.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
+            <img src="/images/logos/gmc.png" alt="Grace Midwifery Collective" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Six-Part Promise Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-200 relative overflow-hidden">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <span class="animated-gradient-text">Remarkable</span> Features
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          We create professional brands that build trust.
+        </p>
+      </div>
+
+      <!-- Stripe-style feature table -->
+      <div class="features-table relative">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Rocket class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Conversion-Optimized Website</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">A stunning website that works 24/7 to turn visitors into booked appointments.</p>
+          </div>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <DollarSign class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Social Media Management</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Consistent, on-brand content that builds trust without the owner's daily involvement.</p>
+          </div>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Smartphone class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Local SEO Strategy</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Search strategy built to help health businesses show up in local results.</p>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Zap class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Patient Flow AI</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Systems that keep calendars full more predictably and systematically.</p>
+          </div>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Globe class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Digital Presence That Stays Current</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Unlimited updates keep your website and message from falling behind the market.</p>
+          </div>
+
+          <div class="feature-cell group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
+              <Palette class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-base font-semibold text-gray-900 mb-2">Fractional Marketing Partner</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">A true growth partner who understands health and wellness businesses exclusively.</p>
           </div>
         </div>
       </div>
@@ -287,288 +679,6 @@ import { ArrowRight, Zap, Smartphone, Palette, Globe, Shield, Rocket, Clock, Dol
     </div>
   </section>
 
-  <!-- Client Logos Section -->
-  <section class="py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-sm font-semibold text-gray-600 uppercase tracking-wider mb-8">
-        Trusted by Hundreds of Smart Business Owners
-      </p>
-    </div>
-
-    <!-- Logo marquee with hover pause - Full width -->
-    <div class="logo-marquee-container relative overflow-hidden w-full">
-        <!-- Fade edges -->
-        <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
-
-        <div class="logo-marquee-track flex">
-          <!-- First set of logos -->
-          <div class="logo-marquee-content flex items-center gap-8 md:gap-16 px-4 md:px-8">
-            <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/life2health.png" alt="Life2Health" loading="lazy" />
-            </a>
-            <a href="https://domluke.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/dom.gif" alt="DOM" loading="lazy" />
-            </a>
-            <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/dsm-md.webp" alt="DSM MD" loading="lazy" />
-            </a>
-            <a href="https://galleriamedpharmacy.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/galleria-medical-pharmacy.png" alt="Galleria Medical Pharmacy" loading="lazy" />
-            </a>
-            <a href="https://lovemoremcc.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/lovemore.webp" alt="LoveMore" loading="lazy" />
-            </a>
-            <a href="https://supportivwellness.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/support-iv.webp" alt="SupportIV" loading="lazy" />
-            </a>
-            <a href="https://gracemidwiferycollective.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0">
-              <img src="/images/logos/gmc.png" alt="Grace Midwifery Collective" loading="lazy" />
-            </a>
-          </div>
-          <!-- Duplicate set for seamless loop -->
-          <div class="logo-marquee-content flex items-center gap-8 md:gap-16 px-4 md:px-8" aria-hidden="true">
-            <a href="https://life2health.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/life2health.png" alt="Life2Health" loading="lazy" />
-            </a>
-            <a href="https://domluke.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/dom.gif" alt="DOM" loading="lazy" />
-            </a>
-            <a href="https://dsmmd.com" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/dsm-md.webp" alt="DSM MD" loading="lazy" />
-            </a>
-            <a href="https://galleriamedpharmacy.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/galleria-medical-pharmacy.png" alt="Galleria Medical Pharmacy" loading="lazy" />
-            </a>
-            <a href="https://lovemoremcc.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/lovemore.webp" alt="LoveMore" loading="lazy" />
-            </a>
-            <a href="https://supportivwellness.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/support-iv.webp" alt="SupportIV" loading="lazy" />
-            </a>
-            <a href="https://gracemidwiferycollective.com/" target="_blank" rel="noopener noreferrer" class="brand-logo flex-shrink-0" tabindex="-1">
-              <img src="/images/logos/gmc.png" alt="Grace Midwifery Collective" loading="lazy" />
-            </a>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- Features Grid -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-200 relative overflow-hidden">
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          <span class="animated-gradient-text">Remarkable</span> Features
-        </h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          We create professional brands that build trust.
-        </p>
-      </div>
-
-      <!-- Stripe-style feature table -->
-      <div class="features-table relative">
-        <!-- Row 1 -->
-        <div class="grid grid-cols-1 md:grid-cols-3">
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <Rocket class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">Launch in 2 Weeks</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Get your site up and running fast with our streamlined process.</p>
-          </div>
-
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <DollarSign class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">No Set-Up Fees</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Pay one simple monthly rate with no hidden costs or surprises.</p>
-          </div>
-
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <Smartphone class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">Mobile-First Design</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Optimized for mobile devices where most visitors browse.</p>
-          </div>
-        </div>
-
-        <!-- Row 2 -->
-        <div class="grid grid-cols-1 md:grid-cols-3">
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <Zap class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">Lightning Fast</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Optimized performance keeps visitors engaged and improves SEO.</p>
-          </div>
-
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <Globe class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">SEO Optimized</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Built for search engines to help customers find you easily.</p>
-          </div>
-
-          <div class="feature-cell group">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-primary-600 to-primary-700">
-              <Palette class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="text-base font-semibold text-gray-900 mb-2">Custom Design</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Unique, brand-aligned designs that set you apart.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process Section -->
-  <section id="process" class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
-    <!-- Gradient blurs -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary-500 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-400 rounded-full blur-[100px]"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-violet-400 rounded-full blur-[150px]"></div>
-    </div>
-
-    <!-- Dot pattern overlay -->
-    <div class="absolute inset-0 opacity-[0.03] text-white" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 1px); background-size: 32px 32px;"></div>
-
-    <!-- Geometric shapes -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Top left decorative circles -->
-      <div class="absolute -top-20 -left-20 w-80 h-80 animate-float-very-slow">
-        <div class="absolute inset-0 border-2 border-primary-400/20 rounded-full"></div>
-        <div class="absolute inset-8 border border-primary-400/15 rounded-full"></div>
-        <div class="absolute inset-16 border border-primary-400/10 rounded-full"></div>
-      </div>
-
-      <!-- Bottom right decorative circles -->
-      <div class="absolute -bottom-24 -right-24 w-96 h-96 animate-float-very-slow" style="animation-delay: -10s;">
-        <div class="absolute inset-0 border-2 border-violet-400/20 rounded-full"></div>
-        <div class="absolute inset-10 border border-violet-400/15 rounded-full"></div>
-        <div class="absolute inset-20 border border-violet-400/10 rounded-full"></div>
-      </div>
-
-      <!-- Subtle connecting lines (horizontal accent) -->
-      <svg class="absolute top-20 left-0 w-full h-1 opacity-10" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="process-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:transparent" />
-            <stop offset="20%" style="stop-color:#3b82f6" />
-            <stop offset="50%" style="stop-color:#8b5cf6" />
-            <stop offset="80%" style="stop-color:#3b82f6" />
-            <stop offset="100%" style="stop-color:transparent" />
-          </linearGradient>
-        </defs>
-        <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#process-line-grad)" stroke-width="2" stroke-dasharray="8 8"/>
-      </svg>
-      <svg class="absolute bottom-20 left-0 w-full h-1 opacity-10" preserveAspectRatio="none">
-        <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#process-line-grad)" stroke-width="2" stroke-dasharray="8 8"/>
-      </svg>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
-          <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">Simple Process</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          How It Works
-        </h2>
-        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-          From idea to launch in three simple steps.
-        </p>
-      </div>
-
-      <!-- Connected Steps Container -->
-      <div class="relative max-w-5xl mx-auto">
-        <!-- Continuous connecting line (desktop) -->
-        <div class="hidden md:block absolute top-10 left-[calc(16.67%-10px)] right-[calc(16.67%-10px)] h-1">
-          <div class="absolute inset-0 bg-gray-700 rounded-full"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-primary-400 to-primary-500 rounded-full process-line-animate"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 md:gap-4">
-          <!-- Step 1 -->
-          <div class="relative flex flex-col items-center text-center group">
-            <!-- Mobile connector line (vertical) -->
-            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-500 to-primary-400 rounded-full"></div>
-
-            <div class="relative z-10">
-              <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-primary-400/30 to-primary-600/30 rounded-full blur-sm group-hover:from-primary-400/40 group-hover:to-primary-600/40 transition-all duration-300"></div>
-              <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-secondary-300 to-primary-500 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
-                <span class="text-3xl font-bold text-white">1</span>
-              </div>
-            </div>
-
-            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
-              <h3 class="text-xl font-bold text-white mb-3">Complete the Form</h3>
-              <p class="text-gray-300">Tell us about your business, goals, and design preferences.</p>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
-            <!-- Mobile connector line (vertical) -->
-            <div class="md:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-[calc(100%+2rem)] bg-gradient-to-b from-primary-400 to-primary-500 rounded-full"></div>
-
-            <div class="relative z-10">
-              <!-- Rotating dashed circle -->
-              <svg class="absolute -inset-8 w-36 h-36 animate-rotate-slow" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" class="text-primary-400/25" />
-              </svg>
-              <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-primary-500/30 to-primary-600/30 rounded-full blur-sm group-hover:from-primary-500/40 group-hover:to-primary-600/40 transition-all duration-300"></div>
-              <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
-                <span class="text-3xl font-bold text-white">2</span>
-              </div>
-            </div>
-
-            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-0">
-              <h3 class="text-xl font-bold text-white mb-3">We Build Your Site</h3>
-              <p class="text-gray-300">Our team creates your custom website in just 1 week.</p>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="relative flex flex-col items-center text-center group md:mt-0 mt-8">
-            <div class="relative z-10">
-              <!-- Outer ring -->
-              <div class="absolute -inset-2 bg-gradient-to-br from-primary-600/30 to-primary-800/30 rounded-full blur-sm group-hover:from-primary-600/40 group-hover:to-primary-800/40 transition-all duration-300"></div>
-              <!-- Number circle -->
-              <div class="relative w-20 h-20 bg-gradient-to-br from-primary-700 to-secondary-700 rounded-full shadow-xl flex items-center justify-center ring-4 ring-gray-900 step-badge">
-                <span class="text-3xl font-bold text-white">3</span>
-              </div>
-            </div>
-
-            <div class="mt-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
-              <h3 class="text-xl font-bold text-white mb-3">Launch & Grow</h3>
-              <p class="text-gray-300">Go live and start attracting customers with unlimited updates.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="text-center mt-16">
-        <button
-          data-cal-link="joshua-riley/intro-call"
-          data-cal-namespace="intro-call"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-          class="btn btn-primary btn-lg shadow-xl">
-          Start Your Project Today
-          <ArrowRight class="w-5 h-5" />
-        </button>
-      </div>
-    </div>
-  </section>
-
   <!-- Pricing Section -->
   <PricingSection />
   
@@ -607,6 +717,30 @@ import { ArrowRight, Zap, Smartphone, Palette, Globe, Shield, Rocket, Clock, Dol
 
   <Footer />
 </BaseLayout>
+
+<script>
+  const gallery = document.querySelector('.portfolio-scroll-gallery');
+  const upColumn = document.querySelector('.portfolio-scroll-column-up');
+  const downColumn = document.querySelector('.portfolio-scroll-column-down');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function updatePortfolioScroll() {
+    if (!gallery || !upColumn || !downColumn || reduceMotion.matches) return;
+
+    const rect = gallery.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1);
+    const travel = 280;
+    const offset = (progress - 0.5) * travel;
+
+    upColumn.style.transform = `translateY(${-offset}px)`;
+    downColumn.style.transform = `translateY(${offset}px)`;
+  }
+
+  updatePortfolioScroll();
+  window.addEventListener('scroll', updatePortfolioScroll, { passive: true });
+  window.addEventListener('resize', updatePortfolioScroll);
+</script>
 
 <!-- Calendly script -->
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
