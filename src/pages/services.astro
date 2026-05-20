@@ -39,7 +39,7 @@ const failedEfforts = [
   ['Paying for SEO with no measurable growth', 'because nobody fixed the foundation first'],
   ['Trying to “look professional” online', 'instead of building actual authority and trust'],
   ['Waiting until things slow down to fix marketing', 'when visibility should have been built months earlier'],
-  ['Watching less-qualified competitors dominate online', 'simply because they present themselves better'],
+  ['Watching less-qualified competitors dominate', 'simply because they present themselves better'],
 ];
 
 const patientQuestions = [
@@ -150,15 +150,15 @@ const planIncludes = [
           </div>
 
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 mb-6">
-            Your Practice Is Not Losing Patients Because You Are Bad.
+            Your clinical expertise is <span class="animated-gradient-text">world-class</span>.
           </h1>
 
           <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-snug mb-6">
-            You are losing them because your digital presence does not match your level of care.
+            Your digital presence should be, too.
           </h2>
 
           <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mb-6">
-            Most health businesses do not have a patient problem. They have a visibility, trust, and positioning problem.
+            Most health businesses have a digital presence does not match their level of expertise.
           </p>
 
           <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
@@ -177,9 +177,9 @@ const planIncludes = [
           </div>
 
           <div class="flex flex-wrap gap-3 text-sm font-semibold text-gray-700">
-            <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Unlimited Updates</span>
-            <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Health & Wellness Specialists</span>
             <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Websites Starting at $199/mo</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Unlimited Updates</span>
+            <!--<span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Health & Wellness Specialists</span>-->
           </div>
         </div>
       </div>
@@ -187,13 +187,13 @@ const planIncludes = [
   </section>
 
   <!-- Wrong Problem Section -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="aurora-light-section py-20 md:py-28 bg-white relative overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center mb-12">
         <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
           <span class="text-sm font-semibold text-primary-800">You Are Solving The Wrong Problem</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Most health businesses think they need more marketing.</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Most health businesses think they need more training.</h2>
         <p class="text-2xl font-bold text-gray-800 mb-6">Usually, that is not true.</p>
         <p class="text-xl text-gray-700 leading-relaxed">What they actually need is the digital infrastructure that makes patients trust them faster and take the next step with less friction.</p>
       </div>
@@ -254,24 +254,39 @@ const planIncludes = [
   </section>
 
   <!-- Reframe Section -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
+  <section class="py-20 md:py-28 bg-gradient-to-br from-white via-blue-50 to-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-40">
+      <div class="absolute -top-24 right-12 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-12 w-80 h-80 bg-accent-300 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
         <div>
           <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-            <span class="text-sm font-semibold text-primary-800">The Reframe</span>
+            <span class="text-sm font-semibold text-primary-800">The First Impression</span>
           </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Your website is not a brochure.</h2>
-          <p class="text-2xl font-bold text-gray-800 mb-6">It is either building trust, creating authority, converting visitors, and attracting ideal patients, or quietly pushing people away.</p>
-          <p class="text-xl text-gray-700 leading-relaxed">Patients make emotional decisions long before they ever contact you. Your digital presence answers their biggest questions before you ever speak to them.</p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            Your website is the
+            <span class="animated-gradient-text"> first impression.</span>
+          </h2>
+          <p class="text-2xl font-bold text-gray-800 leading-snug mb-6">
+            It is either building trust, creating authority, converting visitors, and attracting ideal patients, or quietly pushing people away.
+          </p>
+          <p class="text-xl text-gray-700 leading-relaxed">
+            Patients make emotional decisions long before they ever contact you. Your digital presence answers their biggest questions before you ever speak to them.
+          </p>
         </div>
 
-        <div class="rounded-2xl bg-gray-950 p-8 border border-gray-800 shadow-2xl">
-          <ul class="space-y-5">
+        <div class="rounded-2xl bg-gray-950 p-4 md:p-6 border border-gray-800 shadow-2xl">
+          <div class="grid gap-3">
             {patientQuestions.map((question) => (
-              <li class="flex gap-4 text-white text-lg"><ShieldCheck class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" /> {question}</li>
+              <div class="flex gap-4 rounded-xl bg-white/5 border border-white/10 p-4 text-white text-lg">
+                <ShieldCheck class="w-6 h-6 text-accent-300 flex-shrink-0 mt-0.5" />
+                <span>{question}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
