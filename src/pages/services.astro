@@ -143,14 +143,14 @@ const plans = [
   <Navigation />
 
   <!-- Hero Section -->
-  <section class="relative py-20 md:py-28 lg:py-0 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 lg:min-h-[760px]">
+  <section class="relative pb-0 pt-20 md:py-28 lg:py-0 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 lg:min-h-[760px] flex flex-col lg:block">
     <div class="absolute inset-0 opacity-5">
       <div class="absolute top-16 right-20 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
       <div class="absolute bottom-10 left-16 w-80 h-80 bg-accent-400 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="portfolio-scroll-gallery relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
-      <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-blue-50 to-transparent z-10"></div>
+    <div class="portfolio-scroll-gallery order-2 relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-blue-50 to-transparent z-10"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-50 to-transparent z-10"></div>
       <div class="grid grid-cols-2 gap-4 md:gap-5 p-1 md:p-3 -mt-10">
         <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
@@ -170,7 +170,7 @@ const plans = [
       </div>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:min-h-[760px] lg:py-28 lg:mr-[50%] flex items-center">
         <div>
           <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-8">

@@ -149,15 +149,15 @@ const planIncludes = [
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="max-w-3xl mx-auto rounded-2xl border border-gray-200 bg-gray-50 p-8">
-      <h3 class="text-xl text-center font-bold text-gray-900 mb-5">All plans include:</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {planIncludes.map((item) => (
-            <div class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> {item}</div>
-        ))}
+      <div class="max-w-3xl mt-8 lg:mt-16 mx-auto rounded-2xl border border-gray-200 bg-gray-50 p-8">
+        <h3 class="text-xl text-center font-bold text-gray-900 mb-5">All plans include:</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {planIncludes.map((item) => (
+              <div class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> {item}</div>
+          ))}
+        </div>
       </div>
     </div>
+
   </div>
 </section>

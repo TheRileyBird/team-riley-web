@@ -5,100 +5,60 @@ import PageHeader from '../components/PageHeader.astro';
 import ClientReviewMessages from '../components/ClientReviewMessages.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Footer from '../components/Footer.astro';
-import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Sparkles } from '@lucide/astro';
+import { ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Sparkles, Scale } from '@lucide/astro';
 import { Image } from 'astro:assets';
 import dsmMdOffice from '../assets/images/dsm-md-office.jpg';
 import sleepLab from '../assets/images/sleep-lab.jpg';
-import pharmacyPills from '../assets/images/pharmacy-pills.jpg';
 import virtualExercise from '../assets/images/virtual-exercise.jpg';
 import supportivTreatment from '../assets/images/supportiv-treatment.jpg';
 import lovemoreYoga from '../assets/images/lovemore-yoga.jpg';
 import midwifeBirth from '../assets/images/midwife-birth.jpg';
 import manHiking from '../assets/images/man-hiking.jpg';
 import domLukeCoaching from '../assets/images/dom-luke-coaching.jpg';
+import cfcSite from '../assets/sites/cfc.png';
+import nazarethSite from '../assets/sites/nazareth.png';
 
 const clientReviews = [
   {
-    client: 'Client Review',
-    text: 'You are life-changing.',
-    side: 'right',
-    top: '23rem',
+    client: 'CFC-Skincare',
+    text: 'You are life changing 😂',
   },
   {
-    client: 'Client Review',
-    text: 'Thank you for making this process so easy.',
-    side: 'left',
-    top: '64rem',
+    client: 'Grace Midwifery',
+    text: 'It really looks good, thank you for making this so easy for us.',
   },
   {
     client: 'DSM-MD',
-    text: 'The new site finally explains what we do in a way patients can understand right away.',
-    side: 'right',
-    top: '77rem',
-  },
-  {
-    client: 'Sleep Labs',
-    text: 'Our booking flow feels cleaner, faster, and much easier for patients to use.',
-    side: 'left',
-    top: '80rem',
-  },
-  {
-    client: 'Galleria Medical Pharmacy',
-    text: 'We look more professional online, and the whole process felt organized from day one.',
-    side: 'right',
-    top: '134rem',
-  },
-  {
-    client: 'Lovitt Life',
-    text: 'You took a complicated membership offer and made it feel simple for our clients.',
-    side: 'left',
-    top: '166rem',
-  },
-  {
-    client: 'SupportIV',
-    text: 'The website finally matches the quality of care our team provides in person.',
-    side: 'right',
-    top: '194rem',
+    text: ' Everything looks amazing.',
   },
   {
     client: 'Love More Yoga',
-    text: 'It feels calm, polished, and completely aligned with the experience we want people to have.',
-    side: 'left',
-    top: '244rem',
-  },
-  {
-    client: 'Grace Midwifery Collective',
-    text: 'You listened deeply and turned our work into something families can trust immediately.',
-    side: 'right',
-    top: '282rem',
-  },
-  {
-    client: 'Masculine Confidence Framework',
-    text: 'The message is sharper, the design is stronger, and the whole brand feels elevated.',
-    side: 'left',
-    top: '318rem',
-  },
-  {
-    client: 'Dom Luke',
-    text: 'This is the first time my website has felt like it actually represents my work.',
-    side: 'right',
-    top: '350rem',
-  },
-  {
-    client: 'Wellness Practice Client',
-    text: 'I thought this would be overwhelming, but you made every step clear and manageable.',
-    side: 'left',
-    top: '382rem',
+    text: 'Dude, the website looks so awesome. Great work.',
   },
 ];
+
+const sectionReviewPositions = [
+  { top: '1rem' },
+  { bottom: '1.5rem' },
+];
+
+const getSectionReviews = (start: number, count: number) =>
+  clientReviews.slice(start, start + count).map((review, index) => {
+    const globalIndex = start + index;
+    const position = sectionReviewPositions[index] ?? { top: '0rem' };
+
+    return {
+      ...review,
+      side: globalIndex % 2 === 0 ? 'right' : 'left',
+      ...position,
+    };
+  });
 ---
 
 <BaseLayout title="Portfolio - Team Riley" description="View our portfolio of health and wellness websites designed to convert visitors into clients">
   <Navigation />
 
   <main class="relative overflow-hidden">
-    <ClientReviewMessages reviews={clientReviews} />
-
     <PageHeader
       badge="Our Work"
       title='<span class="animated-gradient-text">Healthy Websites</span> <span class="text-gray-900"><br class="hidden lg:block">That Drive Results</span>'
@@ -121,12 +81,17 @@ const clientReviews = [
           <Sparkles class="w-4 h-4" />
           Holistic & Emotional
         </a>
+        <a href="#medical-legal" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors">
+          <Scale class="w-4 h-4" />
+          Medical-Legal
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Medical & Clinical Health Section -->
-  <section id="medical" class="pb-20 md:pb-28 bg-white scroll-mt-32">
+  <section id="medical" class="relative overflow-hidden pb-20 md:pb-28 bg-white scroll-mt-32">
+    <ClientReviewMessages reviews={getSectionReviews(0, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
         <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center">
@@ -137,9 +102,9 @@ const clientReviews = [
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Healthcare Providers</h2>
         </div>
       </div>
-      <p class="text-lg text-gray-600 mb-12 max-w-3xl">Websites designed for medical clinics, practices, and pharmacies with HIPAA compliance, patient portals, and secure booking systems.</p>
+      <p class="text-lg text-gray-600 mb-12 max-w-3xl">Websites designed for clinical practices, health-adjacent brands, and authority-driven firms that need trust, clarity, and conversion built in.</p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
         <!-- DSM MD -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
@@ -200,30 +165,30 @@ const clientReviews = [
           </div>
         </div>
 
-        <!-- Galleria Medical Pharmacy -->
+        <!-- CFC Skincare -->
         <div class="group relative overflow-hidden rounded-2xl border border-gray-200 hover:border-primary-400 transition-all duration-300 hover:shadow-2xl">
           <div class="relative overflow-hidden aspect-video">
             <Image
-              src={pharmacyPills}
-              alt="Medical pharmacy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              src={cfcSite}
+              alt="CFC Skincare website"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6">
-              <span class="inline-block px-3 py-1 bg-primary-600 text-white text-sm font-semibold rounded-full mb-3">Pharmacy</span>
-              <h3 class="text-2xl font-bold text-white mb-2">Galleria Medical Pharmacy</h3>
+              <span class="inline-block px-3 py-1 bg-primary-600 text-white text-sm font-semibold rounded-full mb-3">Clinical Skincare</span>
+              <h3 class="text-2xl font-bold text-white mb-2">CFC Skincare</h3>
             </div>
           </div>
           <div class="p-6 bg-white">
             <p class="text-gray-700 leading-relaxed mb-4">
-              A comprehensive pharmacy website with prescription transfer capabilities, medication information, and delivery services.
+              A nurse practitioner-founded skincare system that bridges clinical efficacy and clean beauty with a fast, results-focused routine.
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Rx Transfer</span>
-              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Drug Database</span>
-              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Delivery</span>
+              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Clean Beauty</span>
+              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Clinical Positioning</span>
+              <span class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">Product Sales</span>
             </div>
-            <a href="https://galleriamedpharmacy.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+            <a href="https://www.cfcskincare.shop/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
               View Live Site
               <ExternalLink class="w-4 h-4" />
             </a>
@@ -234,7 +199,8 @@ const clientReviews = [
   </section>
 
   <!-- Physical Wellness Section -->
-  <section id="physical" class="py-20 md:py-28 bg-gradient-to-b from-secondary-300/10 to-white scroll-mt-32">
+  <section id="physical" class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-secondary-300/10 to-white scroll-mt-32">
+    <ClientReviewMessages reviews={getSectionReviews(2, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
         <div class="w-14 h-14 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl flex items-center justify-center">
@@ -341,8 +307,118 @@ const clientReviews = [
     </div>
   </section>
 
+
+    <!-- Featured Testimonial - Lovitt Life -->
+    <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+      <ClientReviewMessages reviews={getSectionReviews(6, 2)} />
+      <!-- Background decoration -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header - Above Grid -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
+            <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">Client Success Story</span>
+          </div>
+
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            <span class="animated-gradient-text">Transforming</span> Virtual Fitness
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-4">
+                <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient1)" />
+                  <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs>
+                    <linearGradient id="testimonialGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div>
+                  <h4 class="text-lg font-bold text-white mb-1">The Challenge</h4>
+                  <p class="text-gray-300">Matt had a professional platform to deliver virtual fitness programs specifically designed for busy dads, but his website didn't match the quality of his offer.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient2)" />
+                  <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs>
+                    <linearGradient id="testimonialGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div>
+                  <h4 class="text-lg font-bold text-white mb-1">The Solution</h4>
+                  <p class="text-gray-300">A custom redesign with clear marketing, in-depth knowledge-base and an intuitive user experience that keeps members engaged and coming back.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient3)" />
+                  <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs>
+                    <linearGradient id="testimonialGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div>
+                  <h4 class="text-lg font-bold text-white mb-1">The Results</h4>
+                  <p class="text-gray-300">A thriving online fitness community with streamlined member onboarding and retention that allows Matt to scale his impact beyond geographical limits.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mb-8">
+              <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Video Streaming</span>
+              <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Membership Portal</span>
+              <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Progress Tracking</span>
+            </div>
+
+            <a href="https://lovittlife.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+              Visit Lovitt Life
+              <ExternalLink class="w-4 h-4" />
+            </a>
+          </div>
+
+          <!-- Right: Video Testimonial -->
+          <div class="relative">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 mx-auto max-w-sm max-h-[500px]">
+              <video
+                  class="w-full h-full object-contain cursor-pointer max-h-[500px]"
+                  controls
+                  controlsList="nodownload"
+                  preload="auto"
+                  playsinline
+              >
+                <source src="/videos/lovitt-review.mp4" type="video/mp4">
+                <source src="/videos/lovitt-review.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <!-- Decorative element -->
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full opacity-20 -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <!-- Holistic & Emotional Wellness Section -->
-  <section id="holistic" class="py-20 md:py-28 bg-gradient-to-b from-primary-50/50 to-white scroll-mt-32">
+  <section id="holistic" class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-primary-50/50 to-white scroll-mt-32">
+    <ClientReviewMessages reviews={getSectionReviews(4, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
         <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center">
@@ -449,119 +525,72 @@ const clientReviews = [
     </div>
   </section>
 
-  <!-- Featured Testimonial - Lovitt Life -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
+  <!-- Medical-Legal Section -->
+  <section id="medical-legal" class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 scroll-mt-32">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute -top-20 right-10 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-10 w-80 h-80 bg-accent-500 rounded-full blur-3xl"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header - Above Grid -->
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
-          <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">Client Success Story</span>
+      <div class="max-w-7xl mx-auto items-center flex flex-col text-center">
+        <div class="items-center gap-4 mb-4">
+          <div class="flex flex-col items-center">
+            <div class="w-14 h-14 mb-3 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-large">
+              <Scale class="w-7 h-7 text-gray-950" />
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Authority for High-Stakes Legal Work</h2>
+          </div>
         </div>
-
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          <span class="animated-gradient-text">Transforming</span> Virtual Fitness
-        </h2>
+        <p class="text-lg text-gray-300 mb-12 max-w-xl">
+          A focused digital presence for firms whose work sits at the intersection of medicine, injury, and complex litigation.
+        </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-4">
-              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient1)" />
-                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                  <linearGradient id="testimonialGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div>
-                <h4 class="text-lg font-bold text-white mb-1">The Challenge</h4>
-                <p class="text-gray-300">Matt had a professional platform to deliver virtual fitness programs specifically designed for busy dads, but his website didn't match the quality of his offer.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient2)" />
-                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                  <linearGradient id="testimonialGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div>
-                <h4 class="text-lg font-bold text-white mb-1">The Solution</h4>
-                <p class="text-gray-300">A custom redesign with clear marketing, in-depth knowledge-base and an intuitive user experience that keeps members engaged and coming back.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <svg class="flex-shrink-0 w-8 h-8 mt-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="url(#testimonialGradient3)" />
-                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                  <linearGradient id="testimonialGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div>
-                <h4 class="text-lg font-bold text-white mb-1">The Results</h4>
-                <p class="text-gray-300">A thriving online fitness community with streamlined member onboarding and retention that allows Matt to scale his impact beyond geographical limits.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Video Streaming</span>
-            <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Membership Portal</span>
-            <span class="px-4 py-2 bg-primary-500/20 text-primary-300 text-sm font-semibold rounded-full border border-primary-500/30">Progress Tracking</span>
-          </div>
-
-          <a href="https://lovittlife.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            Visit Lovitt Life
-            <ExternalLink class="w-4 h-4" />
-          </a>
+      <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-0 overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl">
+        <div class="relative min-h-[320px] lg:min-h-[520px] overflow-hidden bg-gray-100">
+          <Image
+            src={nazarethSite}
+            alt="Nazareth Law Firm website"
+            class="w-full h-full object-cover object-top"
+          />
         </div>
 
-        <!-- Right: Video Testimonial -->
-        <div class="relative">
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 mx-auto max-w-sm max-h-[500px]">
-            <video
-                class="w-full h-full object-contain cursor-pointer max-h-[500px]"
-                controls
-                controlsList="nodownload"
-                preload="auto"
-                playsinline
-            >
-              <source src="/videos/lovitt-review.mp4" type="video/mp4">
-              <source src="/videos/lovitt-review.mov" type="video/quicktime">
-              Your browser does not support the video tag.
-            </video>
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <div class="w-14 h-14 rounded-2xl bg-gray-950 flex items-center justify-center mb-8 shadow-medium">
+            <Scale class="w-7 h-7 text-white" />
           </div>
-          <!-- Decorative element -->
-          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full opacity-20 -z-10"></div>
+          <span class="text-sm font-bold text-primary-700 uppercase tracking-wider mb-3">Legal Advocacy</span>
+          <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-5">Nazareth Law Firm</h3>
+          <p class="text-xl font-semibold text-gray-800 mb-5">Neil F. Nazareth, Principal Attorney</p>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            With over two decades of experience, Neil F. Nazareth has dedicated his career to representing victims of mesothelioma and maritime accidents.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-8">
+            Recognized annually as a Louisiana Super Lawyer since 2013, Neil has secured over $50 million in compensation for individual clients in complex asbestos and maritime litigation cases.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Mesothelioma</span>
+            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Maritime Accidents</span>
+            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Asbestos Litigation</span>
+            <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">$50M+ Recovered</span>
+          </div>
+          <a href="https://nazarethlawfirm.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary-700 font-semibold hover:text-primary-800 transition-colors">
+            View Live Site
+            <ExternalLink class="w-4 h-4" />
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Process Highlight -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
+  <section class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-gray-100 to-white">
+    <ClientReviewMessages reviews={getSectionReviews(8, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
         badge="Our Process"
-        title="Every Project Gets The Same Care"
+        title="Dedicated Care for Every Project"
         subtitle="Here's what you can expect when you work with us"
       />
 

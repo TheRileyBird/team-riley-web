@@ -4,6 +4,7 @@ interface ReviewMessage {
   text: string;
   side?: 'left' | 'right';
   top?: string;
+  bottom?: string;
 }
 
 interface Props {
@@ -15,7 +16,8 @@ const { reviews } = Astro.props;
 const positionedReviews = reviews.map((review, index) => ({
   ...review,
   side: review.side ?? (index % 2 === 0 ? 'right' : 'left'),
-  top: review.top ?? `${24 + index * 34}rem`,
+  top: review.top ?? (review.bottom ? 'auto' : `${24 + index * 34}rem`),
+  bottom: review.bottom ?? 'auto',
 }));
 ---
 
@@ -26,7 +28,7 @@ const positionedReviews = reviews.map((review, index) => ({
         'floating-review-message',
         review.side === 'right' ? 'floating-review-message-right' : 'floating-review-message-left',
       ]}
-      style={`--message-index: ${index}; --message-top: ${review.top};`}
+      style={`--message-index: ${index}; --message-top: ${review.top}; --message-bottom: ${review.bottom};`}
     >
       <span class="floating-review-client">{review.client}</span>
       <p>{review.text}</p>
@@ -88,6 +90,7 @@ const positionedReviews = reviews.map((review, index) => ({
     .floating-review-message {
       position: absolute;
       top: var(--message-top);
+      bottom: var(--message-bottom);
       width: min(31vw, 360px);
       border-radius: 1.5625rem;
       padding: 0.75rem 1.25rem;
