@@ -162,12 +162,24 @@ const planIncludes = [
           </div>
         </div>
 
-        <div class="relative">
-          <div class="grid grid-cols-2 gap-4">
-            <Image src={careptSite} alt="CarePT website preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-            <Image src={dsmmdSite} alt="DSM MD website preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl mt-10" />
-            <Image src={lovemoreSite} alt="LoveMore website preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-            <Image src={life2healthSite} alt="Life2Health website preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl mt-10" />
+        <div class="portfolio-scroll-gallery relative h-[460px] md:h-[560px] overflow-hidden">
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-blue-50 to-transparent z-10"></div>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-50 to-transparent z-10"></div>
+          <div class="grid grid-cols-2 gap-4 md:gap-5 p-1 -mt-10">
+            <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
+              <Image src={careptSite} alt="CarePT website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={dsmmdSite} alt="DSM MD website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={lovemoreSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={cfcSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={careptSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
+            </div>
+            <div class="portfolio-scroll-column portfolio-scroll-column-down space-y-4 md:space-y-5 pt-16">
+              <Image src={life2healthSite} alt="Life2Health website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={graceSite} alt="Grace Midwifery Collective website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={cfcSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={lovemoreSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+              <Image src={life2healthSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </div>
@@ -774,3 +786,27 @@ const planIncludes = [
 
   <Footer />
 </BaseLayout>
+
+<script>
+  const gallery = document.querySelector('.portfolio-scroll-gallery');
+  const upColumn = document.querySelector('.portfolio-scroll-column-up');
+  const downColumn = document.querySelector('.portfolio-scroll-column-down');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function updatePortfolioScroll() {
+    if (!gallery || !upColumn || !downColumn || reduceMotion.matches) return;
+
+    const rect = gallery.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1);
+    const travel = 240;
+    const offset = (progress - 0.5) * travel;
+
+    upColumn.style.transform = `translateY(${-offset}px)`;
+    downColumn.style.transform = `translateY(${offset}px)`;
+  }
+
+  updatePortfolioScroll();
+  window.addEventListener('scroll', updatePortfolioScroll, { passive: true });
+  window.addEventListener('resize', updatePortfolioScroll);
+</script>
