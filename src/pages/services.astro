@@ -3,15 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import PricingSection from "../components/PricingSection.astro";
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import careptSite from '../assets/sites/carept.png';
 import dsmmdSite from '../assets/sites/dsmmd.png';
 import lovemoreSite from '../assets/sites/lovemore.png';
 import life2healthSite from '../assets/sites/life2health.png';
+import domlukeSite from '../assets/sites/domluke.png';
+import nazarethSite from '../assets/sites/nazareth.png';
+import garrettSite from '../assets/sites/garrett.png';
 import graceSite from '../assets/sites/grace.png';
 import cfcSite from '../assets/sites/cfc.png';
-import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle } from '@lucide/astro';
+import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus } from '@lucide/astro';
 
 const wrongProblemNeeds = [
   'a website that builds trust instantly',
@@ -51,12 +55,12 @@ const patientQuestions = [
 ];
 
 const solutionSignals = [
-  'patient psychology',
-  'trust-based design',
-  'premium positioning',
-  'local visibility',
-  'authority-building',
-  'conversion strategy',
+  'Patient psychology',
+  'Trust-based design',
+  'Premium positioning',
+  'Local visibility',
+  'Authority-building',
+  'Conversion strategy',
 ];
 
 const services = [
@@ -70,13 +74,46 @@ const services = [
 ];
 
 const businessTypes = [
-  'med spa',
-  'chiropractic clinic',
-  'wellness studio',
-  'functional medicine practice',
-  'therapy practice',
-  'private-pay medical business',
-  'yoga or holistic wellness brand',
+  {
+    label: 'Med Spa',
+    detail: 'Premium aesthetics, injectables, skin care, and membership-driven patient journeys.',
+    icon: Syringe,
+  },
+  {
+    label: 'Chiropractic Clinic',
+    detail: 'Local search visibility and trust-building experiences for care plans and recurring visits.',
+    icon: Bone,
+  },
+  {
+    label: 'Wellness Studio',
+    detail: 'A polished brand presence for classes, packages, communities, and ongoing engagement.',
+    icon: Dumbbell,
+  },
+  {
+    label: 'Functional Medicine Practice',
+    detail: 'Clear positioning for complex care models, premium offers, and high-intent patients.',
+    icon: HeartPulse,
+  },
+  {
+    label: 'Therapy Practice',
+    detail: 'Calm, credible design that helps people feel safe before they schedule.',
+    icon: Brain,
+  },
+  {
+    label: 'Private-Pay Medical Business',
+    detail: 'Conversion-focused messaging for patients making out-of-pocket decisions.',
+    icon: WalletCards,
+  },
+  {
+    label: 'Yoga or Holistic Wellness Brand',
+    detail: 'Warm, distinctive digital presence for values-led wellness businesses.',
+    icon: Flower2,
+  },
+  {
+    label: 'Dental or Specialty Clinic',
+    detail: 'Authority-building websites for practices that need to look as advanced as their care.',
+    icon: SmilePlus,
+  },
 ];
 
 const plans = [
@@ -100,15 +137,6 @@ const plans = [
     fit: 'For scaling and premium positioning',
   },
 ];
-
-const planIncludes = [
-  'Hosting',
-  'Ongoing support',
-  'Unlimited updates',
-  'SEO foundations',
-  'Mobile optimization',
-  'Strategy guidance',
-];
 ---
 
 <BaseLayout title="Services - Team Riley" description="Professional web design and development services for health and wellness businesses">
@@ -128,14 +156,14 @@ const planIncludes = [
         <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
           <Image src={careptSite} alt="CarePT website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={dsmmdSite} alt="DSM MD website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={lovemoreSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+          <Image src={nazarethSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={cfcSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={careptSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
+          <Image src={garrettSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
         </div>
         <div class="portfolio-scroll-column portfolio-scroll-column-down space-y-4 md:space-y-5 pt-16">
           <Image src={life2healthSite} alt="Life2Health website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={graceSite} alt="Grace Midwifery Collective website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={cfcSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
+          <Image src={domlukeSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={lovemoreSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={life2healthSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
         </div>
@@ -195,10 +223,10 @@ const planIncludes = [
         </div>
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Most health businesses think they need more training.</h2>
         <p class="text-2xl font-bold text-gray-800 mb-6">Usually, that is not true.</p>
-        <p class="text-xl text-gray-700 leading-relaxed">What they actually need is the digital infrastructure that makes patients trust them faster and take the next step with less friction.</p>
+        <p class="max-w-3xl mx-auto text-xl text-gray-700 leading-relaxed">What they actually need is the digital infrastructure that makes patients trust them faster and take the next step with less friction.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <div class="rounded-xl border border-gray-200 bg-gray-50 p-8">
           <h3 class="text-xl font-bold text-gray-900 mb-5">They need:</h3>
           <ul class="space-y-3">
@@ -261,20 +289,20 @@ const planIncludes = [
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+      <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-10 lg:gap-16 items-center">
         <div>
-          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-            <span class="text-sm font-semibold text-primary-800">The First Impression</span>
-          </div>
+          <!--<div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">-->
+          <!--  <span class="text-sm font-semibold text-primary-800">The First Impression</span>-->
+          <!--</div>-->
           <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-            Your website is the
+            Your website is your
             <span class="animated-gradient-text"> first impression.</span>
           </h2>
           <p class="text-2xl font-bold text-gray-800 leading-snug mb-6">
             It is either building trust, creating authority, converting visitors, and attracting ideal patients, or quietly pushing people away.
           </p>
           <p class="text-xl text-gray-700 leading-relaxed">
-            Patients make emotional decisions long before they ever contact you. Your digital presence answers their biggest questions before you ever speak to them.
+            Patients make decisions long before they ever contact you. Your digital presence answers their biggest questions before you ever speak to them.
           </p>
         </div>
 
@@ -315,7 +343,7 @@ const planIncludes = [
         </button>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         <div class="rounded-xl border border-white/10 bg-white/5 p-8">
           <h3 class="text-xl font-bold text-white mb-5">We understand:</h3>
           <ul class="space-y-3">
@@ -336,85 +364,89 @@ const planIncludes = [
     </div>
   </section>
 
-  <!-- Fit Section -->
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-        <span class="text-sm font-semibold text-primary-800">This Is For You If</span>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-10">You run a health or wellness business that has outgrown its online presence.</h2>
-      <div class="flex flex-wrap justify-center gap-3 mb-10">
-        {businessTypes.map((type) => (
-          <span class="rounded-full bg-gray-100 border border-gray-200 px-5 py-3 text-gray-800 font-semibold">{type}</span>
-        ))}
-      </div>
-      <p class="text-xl text-gray-700 max-w-3xl mx-auto">And you know your digital presence no longer reflects the level of care you provide.</p>
+  <!-- Audience Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-50">
+      <div class="absolute top-12 right-12 w-80 h-80 bg-primary-200 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-16 w-72 h-72 bg-accent-300 rounded-full blur-3xl"></div>
     </div>
-  </section>
 
-  <!-- Social Proof Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">The best practices usually are not the most visible.</h2>
-        <p class="text-xl text-gray-700">Until they fix their digital presence.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <blockquote class="rounded-2xl bg-white border border-gray-200 p-8 shadow-soft">
-          <p class="text-xl text-gray-800 leading-relaxed mb-6">“We finally have a website and brand presence that actually reflects the quality of care we provide. Patients regularly mention the website before they even walk in.”</p>
-          <footer class="font-bold text-gray-900">Practice Owner</footer>
-        </blockquote>
-        <blockquote class="rounded-2xl bg-white border border-gray-200 p-8 shadow-soft">
-          <p class="text-xl text-gray-800 leading-relaxed mb-6">“Before Team Riley, our marketing felt random. Now everything feels cohesive and professional.”</p>
-          <footer class="font-bold text-gray-900">Wellness Brand Founder</footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center mb-14">
         <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-          <span class="text-sm font-semibold text-primary-800">Simple, Predictable Pricing</span>
+          <span class="text-sm font-semibold text-primary-800">This Is For You If</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Choose the level of support your practice needs.</h2>
-        <p class="text-xl text-gray-700">$500 setup fee. All plans include the essentials.</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+          We know <span class="animated-gradient-text">Health & Wellness</span>
+        </h2>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          This is built for practices and wellness brands that know their digital presence no longer reflects the level of care they provide.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 mb-12">
-        {plans.map((plan) => (
-          <div class={`rounded-2xl border-2 p-8 shadow-soft ${plan.featured ? 'border-accent-400 bg-blue-50 md:scale-105' : 'border-gray-200 bg-gray-50'}`}>
-            {plan.featured && <p class="text-sm font-bold text-primary-700 uppercase tracking-wider mb-3">Most Popular</p>}
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-            <p class="text-5xl font-bold text-gray-900 mb-4">{plan.price}</p>
-            <p class="text-lg font-semibold text-gray-800">{plan.pages}</p>
-            <p class="text-gray-600 mt-2">{plan.fit}</p>
+      <div class="max-w-6xl mx-auto overflow-hidden rounded-3xl border border-gray-200 bg-white/90 shadow-xl backdrop-blur-sm">
+        <!--<div class="h-1.5 animated-gradient-bg"></div>-->
+        <div class="grid md:grid-cols-2 md:divide-x divide-gray-200">
+          <div class="divide-y divide-gray-200">
+            {businessTypes.slice(0, 4).map((type) => {
+              const Icon = type.icon;
+              return (
+              <div class="group relative p-6 md:p-7 transition-colors duration-300 hover:bg-primary-50/80">
+                <div class="flex gap-4">
+                  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-600 via-accent-500 to-secondary-500 flex items-center justify-center shadow-medium flex-shrink-0">
+                    <Icon class="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-800 transition-colors">{type.label}</h3>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">{type.detail}</p>
+                  </div>
+                </div>
+              </div>
+            )})}
           </div>
-        ))}
-      </div>
-
-      <div class="rounded-2xl border border-gray-200 bg-gray-50 p-8">
-        <h3 class="text-xl font-bold text-gray-900 mb-5">All plans include:</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {planIncludes.map((item) => (
-            <div class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> {item}</div>
-          ))}
+          <div class="divide-y divide-gray-200 border-t border-gray-200 md:border-t-0">
+            {businessTypes.slice(4).map((type) => {
+              const Icon = type.icon;
+              return (
+              <div class="group relative p-6 md:p-7 transition-colors duration-300 hover:bg-primary-50/80">
+                <div class="flex gap-4">
+                  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-600 via-accent-500 to-secondary-500 flex items-center justify-center shadow-medium flex-shrink-0">
+                    <Icon class="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-800 transition-colors">{type.label}</h3>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">{type.detail}</p>
+                  </div>
+                </div>
+              </div>
+            )})}
+          </div>
         </div>
       </div>
+
+      <p class="text-center text-2xl md:text-3xl font-bold text-gray-900 mt-14 max-w-5xl mx-auto">
+        Your care is world-class, your online presence should be too.
+      </p>
     </div>
   </section>
 
   <!-- Objection Handling Section -->
   <section class="py-20 md:py-28 bg-gray-950">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">This is not about “doing more marketing.”</h2>
-      <p class="text-xl text-gray-300 leading-relaxed mb-10">It is about finally building a digital presence that matches your expertise, builds trust automatically, positions you correctly, attracts better-fit patients, and works consistently over time.</p>
-      <div class="inline-flex items-center gap-3 rounded-2xl bg-white p-6 text-left shadow-2xl">
-        <TrendingUp class="w-10 h-10 text-primary-700 flex-shrink-0" />
-        <p class="text-xl font-bold text-gray-900">One new patient per month often covers the entire investment.</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">This is not about “doing more.”</h2>
+      <p class="max-w-3xl mx-auto text-xl text-gray-300 leading-relaxed mb-10">It is about finally building a digital presence that matches your expertise, builds trust automatically, positions you correctly, attracts better-fit patients, and works consistently over time.</p>
+      <div class="relative inline-flex max-w-5xl items-center gap-2 rounded-3xl bg-white p-2 text-left shadow-2xl">
+        <div class="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-r from-primary-600 via-accent-400 to-secondary-500 opacity-75 blur-lg"></div>
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-[1.35rem] bg-gradient-to-br from-white via-blue-50 to-violet-50 p-6 md:p-8 border border-white">
+          <div class="flex items-center justify-center flex-shrink-0">
+            <TrendingUp class="w-10 h-10 text-slate-950" />
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-gray-900 text-center leading-tight">
+              One new patient per month often covers the entire investment.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -422,13 +454,9 @@ const planIncludes = [
   <!-- Final Close Section -->
   <section class="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-white to-blue-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-        <span class="text-sm font-semibold text-primary-800">Final Close</span>
-      </div>
-      <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">You already built the hard part.</h2>
+      <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">You did the hard part.</h2>
       <div class="text-2xl md:text-3xl font-bold text-gray-800 space-y-2 mb-8">
         <p>You built the skills.</p>
-        <p>The reputation.</p>
         <p>The patient outcomes.</p>
         <p>The years of experience.</p>
       </div>
@@ -441,15 +469,15 @@ const planIncludes = [
         Book Your Digital Health Checkup
         <ArrowRight class="w-5 h-5" />
       </button>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        No pressure. No generic sales pitch. Just a strategic conversation about where your digital presence is helping and where it is quietly costing you patients.
-      </p>
+      <!--<p class="text-gray-600 max-w-2xl mx-auto">-->
+      <!--  No pressure. No generic sales pitch. Just a strategic conversation about where your digital presence is helping and where it is quietly costing you patients.-->
+      <!--</p>-->
     </div>
   </section>
 
   <PageHeader
     badge="What We Offer"
-    title='<span class="text-gray-900">We Know</span> <span class="animated-gradient-text">Health & Wellness</span>'
+    title='<span class="text-gray-900">We Got</span> <span class="animated-gradient-text">You Covered</span>'
     subtitle="From custom design to ongoing support, we provide everything you need to grow your online presence and attract more clients."
   />
 
@@ -798,6 +826,10 @@ const planIncludes = [
       </div>
     </div>
   </section>
+
+
+  <!-- Pricing Section -->
+  <PricingSection />
 
   <Footer />
 </BaseLayout>

@@ -6,11 +6,20 @@ interface Props {
 }
 
 const { showHeader = true } = Astro.props;
+
+const planIncludes = [
+  'Hosting',
+  'Ongoing support',
+  'Unlimited updates',
+  'SEO foundations',
+  'Mobile optimization',
+  'Strategy guidance',
+];
 ---
 
 <section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
   <div class="relative max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-    <div class="backdrop-blur-sm bg-gradient-to-b from-white to-gray-50 lg:rounded-b-3xl p-4 sm:p-10 md:p-16 lg:p-20 relative overflow-visible lg:shadow-lg">
+    <div class="p-4 sm:p-10 md:p-16 lg:p-20 relative overflow-visible">
       {showHeader && (
         <div class="text-center mb-16">
           <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
@@ -20,7 +29,7 @@ const { showHeader = true } = Astro.props;
             Choose Your Plan
           </h2>
           <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-            All plans include unlimited updates. Cancel anytime.
+            All plans include unlimited updates.
           </p>
         </div>
       )}
@@ -139,6 +148,15 @@ const { showHeader = true } = Astro.props;
             </button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto rounded-2xl border border-gray-200 bg-gray-50 p-8">
+      <h3 class="text-xl text-center font-bold text-gray-900 mb-5">All plans include:</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {planIncludes.map((item) => (
+            <div class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> {item}</div>
+        ))}
       </div>
     </div>
   </div>
