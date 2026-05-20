@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PricingSection from '../components/PricingSection.astro';
 import { Image } from 'astro:assets';
-import { ArrowRight, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
+import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
 import careptSite from '../assets/sites/carept.png';
 import cfcSite from '../assets/sites/cfc.png';
 import dsmmdSite from '../assets/sites/dsmmd.png';
@@ -191,7 +191,7 @@ import graceSite from '../assets/sites/grace.png';
   <!-- Problem Section -->
   <section class="aurora-light-section py-20 md:py-28 bg-white relative overflow-hidden">
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center mb-14">
+      <div class="max-w-4xl mx-auto text-center mb-12">
         <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
           <span class="text-sm font-semibold text-primary-800">The Problem</span>
         </div>
@@ -210,28 +210,26 @@ import graceSite from '../assets/sites/grace.png';
         </p>
       </div>
 
-      <!--<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">-->
-      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
-      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Visibility Problem</h3>-->
-      <!--    <p class="text-gray-600">Potential patients search daily and choose competitors because they show up first.</p>-->
-      <!--  </div>-->
-      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
-      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Referral Ceiling</h3>-->
-      <!--    <p class="text-gray-600">Referral-only growth is hard to scale and creates feast-or-famine revenue cycles.</p>-->
-      <!--  </div>-->
-      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
-      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Time Problem</h3>-->
-      <!--    <p class="text-gray-600">DIY marketing drains hours each week from clinical work, family, and wellbeing.</p>-->
-      <!--  </div>-->
-      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">-->
-      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Bad Agency Problem</h3>-->
-      <!--    <p class="text-gray-600">Generic agencies over-promise, under-deliver, and fail to produce measurable patient flow.</p>-->
-      <!--  </div>-->
-      <!--  <div class="border border-gray-200 rounded-xl p-6 bg-gray-50 md:col-span-2 lg:col-span-2">-->
-      <!--    <h3 class="text-lg font-bold text-gray-900 mb-2">The Competitor Gap</h3>-->
-      <!--    <p class="text-gray-600">Less-skilled competitors who invest in digital are taking more of the available patient pool every month.</p>-->
-      <!--  </div>-->
-      <!--</div>-->
+      <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div class="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-8 shadow-soft">
+          <h3 class="text-xl font-bold text-gray-900 mb-5">Patients are choosing competitors with:</h3>
+          <ul class="space-y-3">
+            <li class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> better websites</li>
+            <li class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> better branding</li>
+            <li class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> better Google presence</li>
+            <li class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> better reviews and social proof</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-8 shadow-soft">
+          <h3 class="text-xl font-bold text-gray-900 mb-5">Even strong practices lose ground when they are:</h3>
+          <ul class="space-y-3">
+            <li class="flex gap-3 text-gray-700"><XCircle class="w-5 h-5 text-secondary-600 flex-shrink-0 mt-0.5" /> hard to find online</li>
+            <li class="flex gap-3 text-gray-700"><XCircle class="w-5 h-5 text-secondary-600 flex-shrink-0 mt-0.5" /> represented by a dated website</li>
+            <li class="flex gap-3 text-gray-700"><XCircle class="w-5 h-5 text-secondary-600 flex-shrink-0 mt-0.5" /> unclear about what makes them different</li>
+            <li class="flex gap-3 text-gray-700"><XCircle class="w-5 h-5 text-secondary-600 flex-shrink-0 mt-0.5" /> inconsistent across search, social, and booking</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
