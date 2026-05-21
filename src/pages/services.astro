@@ -149,10 +149,10 @@ const plans = [
       <div class="absolute bottom-10 left-16 w-80 h-80 bg-accent-400 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="portfolio-scroll-gallery order-2 relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
+    <div class="portfolio-scroll-gallery order-2 relative w-full max-w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
       <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-blue-50 to-transparent z-10"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-50 to-transparent z-10"></div>
-      <div class="grid grid-cols-2 gap-4 md:gap-5 p-1 md:p-3 -mt-10">
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 px-4 sm:px-6 md:p-3 -mt-10">
         <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
           <Image src={careptSite} alt="CarePT website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
           <Image src={dsmmdSite} alt="DSM MD website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
@@ -198,9 +198,9 @@ const plans = [
               data-cal-link="joshua-riley/intro-call"
               data-cal-namespace="intro-call"
               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-              class="btn btn-primary btn-lg">
-              Book Your Digital Health Checkup
-              <ArrowRight class="w-5 h-5" />
+              class="btn btn-primary btn-lg w-full max-w-full !whitespace-normal text-center leading-snug sm:w-auto sm:!whitespace-nowrap">
+              <span>Book Your Digital Health Checkup</span>
+              <ArrowRight class="w-5 h-5 flex-shrink-0" />
             </button>
           </div>
 
