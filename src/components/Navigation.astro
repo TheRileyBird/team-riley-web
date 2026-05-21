@@ -11,7 +11,8 @@ const isActive = (path: string) => {
 };
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100" data-mobile-nav>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+     x-data="{ mobileMenuOpen: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
@@ -50,23 +51,21 @@ const isActive = (path: string) => {
 
       <!-- Mobile menu button -->
       <button
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="mobile-navigation"
-        aria-expanded="false"
-        data-mobile-toggle
+        @click="mobileMenuOpen = !mobileMenuOpen"
         class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors">
-        <Menu class="w-6 h-6" data-menu-icon />
-        <X class="hidden w-6 h-6" data-close-icon />
+        <Menu class="w-6 h-6" x-show="!mobileMenuOpen" />
+        <X class="w-6 h-6" x-show="mobileMenuOpen" x-cloak />
       </button>
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div
-       id="mobile-navigation"
-       data-mobile-menu
-       class="hidden md:hidden border-t border-gray-100 bg-white">
+  <div x-show="mobileMenuOpen"
+       x-cloak
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       class="md:hidden border-t border-gray-100 bg-white">
     <div class="px-4 py-6 space-y-4">
       <a href="/services" class={`block text-base font-medium ${isActive('/services') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Services</a>
       <a href="/platform" class={`block text-base font-medium ${isActive('/platform') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Platform</a>
@@ -85,47 +84,6 @@ const isActive = (path: string) => {
     </div>
   </div>
 </nav>
-
-<script>
-  document.querySelectorAll('[data-mobile-nav]').forEach((nav) => {
-    const toggle = nav.querySelector('[data-mobile-toggle]');
-    const menu = nav.querySelector('[data-mobile-menu]');
-    const menuIcon = nav.querySelector('[data-menu-icon]');
-    const closeIcon = nav.querySelector('[data-close-icon]');
-
-    if (!(toggle instanceof HTMLButtonElement) || !(menu instanceof HTMLElement) || !(menuIcon instanceof HTMLElement) || !(closeIcon instanceof HTMLElement)) {
-      return;
-    }
-
-    const setOpen = (open: boolean) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-      menu.classList.toggle('hidden', !open);
-      menuIcon.classList.toggle('hidden', open);
-      closeIcon.classList.toggle('hidden', !open);
-    };
-
-    toggle.addEventListener('click', () => {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-    });
-
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => setOpen(false));
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 768px)').matches) {
-        setOpen(false);
-      }
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        setOpen(false);
-      }
-    });
-  });
-</script>
 
 <style>
   [x-cloak] {
