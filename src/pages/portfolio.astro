@@ -15,7 +15,8 @@ import lovemoreYoga from '../assets/images/lovemore-yoga.jpg';
 import midwifeBirth from '../assets/images/midwife-birth.jpg';
 import manHiking from '../assets/images/man-hiking.jpg';
 import domLukeCoaching from '../assets/images/dom-luke-coaching.jpg';
-import cfcSite from '../assets/sites/cfc.png';
+import lovittReviewPoster from '../assets/images/lovitt-review-poster.png';
+import cfcSite from '../assets/sites/cfc.jpg';
 import nazarethSite from '../assets/sites/nazareth.png';
 
 const clientReviews = [
@@ -38,8 +39,8 @@ const clientReviews = [
 ];
 
 const sectionReviewPositions = [
-  { top: '1rem' },
-  { bottom: '1.5rem' },
+  { top: '-1rem' },
+  { bottom: '-1.5rem' },
 ];
 
 const getSectionReviews = (start: number, count: number) =>
@@ -65,32 +66,32 @@ const getSectionReviews = (start: number, count: number) =>
       subtitle="Explore our portfolio of custom-designed websites built for health and wellness businesses like yours."
     />
 
-  <!-- Category Navigation -->
-  <section id="category-nav" class="hidden lg:block py-8 bg-white md:sticky md:top-16 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#medical" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 text-primary-700 rounded-full font-medium hover:bg-primary-100 transition-colors">
-          <Stethoscope class="w-4 h-4" />
-          Medical & Clinical
-        </a>
-        <a href="#physical" class="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary-300/20 text-secondary-700 rounded-full font-medium hover:bg-secondary-300/30 transition-colors">
-          <Dumbbell class="w-4 h-4" />
-          Physical Wellness
-        </a>
-        <a href="#holistic" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 text-primary-700 rounded-full font-medium hover:bg-primary-100 transition-colors">
-          <Sparkles class="w-4 h-4" />
-          Holistic & Emotional
-        </a>
-        <a href="#medical-legal" class="inline-flex items-center gap-2 px-5 py-2.5 bg-green-100 text-gray-800 rounded-full font-medium hover:bg-green-200 transition-colors">
-          <Scale class="w-4 h-4" />
-          Medical-Legal
-        </a>
-      </div>
-    </div>
-  </section>
+  <!--&lt;!&ndash; Category Navigation &ndash;&gt;-->
+  <!--<section id="category-nav" class="hidden lg:block py-8 bg-white md:sticky md:top-16 z-40">-->
+  <!--  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">-->
+  <!--    <div class="flex flex-wrap justify-center gap-4">-->
+  <!--      <a href="#medical" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 text-primary-700 rounded-full font-medium hover:bg-primary-100 transition-colors">-->
+  <!--        <Stethoscope class="w-4 h-4" />-->
+  <!--        Medical & Clinical-->
+  <!--      </a>-->
+  <!--      <a href="#physical" class="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary-300/20 text-secondary-700 rounded-full font-medium hover:bg-secondary-300/30 transition-colors">-->
+  <!--        <Dumbbell class="w-4 h-4" />-->
+  <!--        Physical Wellness-->
+  <!--      </a>-->
+  <!--      <a href="#holistic" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-50 text-primary-700 rounded-full font-medium hover:bg-primary-100 transition-colors">-->
+  <!--        <Sparkles class="w-4 h-4" />-->
+  <!--        Holistic & Emotional-->
+  <!--      </a>-->
+  <!--      <a href="#medical-legal" class="inline-flex items-center gap-2 px-5 py-2.5 bg-green-100 text-gray-800 rounded-full font-medium hover:bg-green-200 transition-colors">-->
+  <!--        <Scale class="w-4 h-4" />-->
+  <!--        Medical-Legal-->
+  <!--      </a>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</section>-->
 
   <!-- Medical & Clinical Health Section -->
-  <section id="medical" class="relative overflow-hidden pb-20 md:pb-28 bg-white scroll-mt-32">
+  <section id="medical" class="relative overflow-visible pb-20 md:pb-28 bg-white scroll-mt-32">
     <ClientReviewMessages reviews={getSectionReviews(0, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
@@ -111,7 +112,7 @@ const getSectionReviews = (start: number, count: number) =>
             <Image
                 src={cfcSite}
                 alt="CFC Skincare website"
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-cover object-[50%_45%] group-hover:scale-105 transition-transform duration-300"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -199,7 +200,7 @@ const getSectionReviews = (start: number, count: number) =>
   </section>
 
   <!-- Physical Wellness Section -->
-  <section id="physical" class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-secondary-300/10 to-white scroll-mt-32">
+  <section id="physical" class="relative overflow-visible py-20 md:py-28 bg-gradient-to-b from-secondary-300/10 to-white scroll-mt-32">
     <ClientReviewMessages reviews={getSectionReviews(2, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
@@ -403,6 +404,7 @@ const getSectionReviews = (start: number, count: number) =>
                   controlsList="nodownload"
                   preload="auto"
                   playsinline
+                  poster={lovittReviewPoster.src}
               >
                 <source src="/videos/lovitt-review.mp4" type="video/mp4">
                 <source src="/videos/lovitt-review.mov" type="video/quicktime">
@@ -417,7 +419,7 @@ const getSectionReviews = (start: number, count: number) =>
     </section>
 
   <!-- Holistic & Emotional Wellness Section -->
-  <section id="holistic" class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-primary-50/50 to-white scroll-mt-32">
+  <section id="holistic" class="relative overflow-visible py-20 md:py-28 bg-gradient-to-b from-primary-50/50 to-white scroll-mt-32">
     <ClientReviewMessages reviews={getSectionReviews(4, 2)} />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4 mb-4">
@@ -655,33 +657,33 @@ const getSectionReviews = (start: number, count: number) =>
     </a>
   </div>
 </div>
-<script>
-  // Make sticky navigation stop at holistic section
-  document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.getElementById('category-nav');
-    const holisticSection = document.getElementById('holistic');
+<!--<script>-->
+<!--  // Make sticky navigation stop at holistic section-->
+<!--  document.addEventListener('DOMContentLoaded', () => {-->
+<!--    const nav = document.getElementById('category-nav');-->
+<!--    const holisticSection = document.getElementById('holistic');-->
 
-    if (!nav || !holisticSection) return;
+<!--    if (!nav || !holisticSection) return;-->
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // When holistic section enters viewport from top, remove sticky
-          if (entry.isIntersecting && entry.boundingClientRect.top < window.innerHeight) {
-            nav.classList.remove('md:sticky');
-          } else if (!entry.isIntersecting && entry.boundingClientRect.top > 0) {
-            // When scrolling back up, restore sticky
-            nav.classList.add('md:sticky');
-          }
-        });
-      },
-      {
-        // Trigger when the top of holistic section reaches the bottom of the sticky nav
-        rootMargin: '-80px 0px 0px 0px',
-        threshold: 0
-      }
-    );
+<!--    const observer = new IntersectionObserver(-->
+<!--      (entries) => {-->
+<!--        entries.forEach((entry) => {-->
+<!--          // When holistic section enters viewport from top, remove sticky-->
+<!--          if (entry.isIntersecting && entry.boundingClientRect.top < window.innerHeight) {-->
+<!--            nav.classList.remove('md:sticky');-->
+<!--          } else if (!entry.isIntersecting && entry.boundingClientRect.top > 0) {-->
+<!--            // When scrolling back up, restore sticky-->
+<!--            nav.classList.add('md:sticky');-->
+<!--          }-->
+<!--        });-->
+<!--      },-->
+<!--      {-->
+<!--        // Trigger when the top of holistic section reaches the bottom of the sticky nav-->
+<!--        rootMargin: '-80px 0px 0px 0px',-->
+<!--        threshold: 0-->
+<!--      }-->
+<!--    );-->
 
-    observer.observe(holisticSection);
-  });
-</script>
+<!--    observer.observe(holisticSection);-->
+<!--  });-->
+<!--</script>-->
