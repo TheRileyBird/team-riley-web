@@ -131,7 +131,7 @@ This project uses the following technologies:
 - **Interactivity**: Alpine.js v3.15+
 - **Icons**: Lucide Astro v0.577+
 - **TypeScript**: Strict mode (extends `astro/tsconfigs/strict`)
-- **Booking**: Cal.com integration
+- **Booking**: Team Riley Web booking widget
 
 ---
 
@@ -365,21 +365,19 @@ Use global CSS classes from `src/styles/global.css`:
 
 ---
 
-## Cal.com Integration
+## Booking Integration
 
-All "Get Started" and booking CTAs use Cal.com:
+All "Get Started" and booking CTAs link to the home-page booking section:
 
 ```astro
 <button
-  data-cal-link="joshua-riley/intro-call"
-  data-cal-namespace="intro-call"
-  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+  onclick="window.location.href='/#book-a-call'"
   class="btn btn-primary">
   Get Started
 </button>
 ```
 
-The Cal.com script is loaded in `BaseLayout.astro` and configured with brand colors.
+The booking iframe and resize script are encapsulated in `BookingWidget.astro`.
 
 ---
 

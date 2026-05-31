@@ -40,9 +40,7 @@ const isActive = (path: string) => {
       <!-- CTA Button -->
       <div class="hidden md:block">
         <button
-          data-cal-link="joshua-riley/intro-call"
-          data-cal-namespace="intro-call"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          onclick="window.location.href='/#book-a-call'"
           class="btn btn-primary btn-sm">
           Get Started
           <ArrowRight class="w-4 h-4" />
@@ -74,9 +72,7 @@ const isActive = (path: string) => {
       <a href="/about" class={`block text-base font-medium ${isActive('/about') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>About</a>
       <a href="/contact" class={`block text-base font-medium ${isActive('/contact') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Contact</a>
       <button
-        data-cal-link="joshua-riley/intro-call"
-        data-cal-namespace="intro-call"
-        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        onclick="window.location.href='/#book-a-call'"
         class="btn btn-primary btn-sm w-full justify-center">
         Get Started
         <ArrowRight class="w-4 h-4" />
