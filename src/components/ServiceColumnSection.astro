@@ -167,12 +167,12 @@ const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHi
               <p class="text-sm text-gray-600 mb-4">{tier.additionalNote}</p>
             )}
 
-            <button
-              onclick="window.location.href='/#book-a-call'"
+            <a href="/#book-a-call"
+              data-booking-modal-open
               class={`w-full ${tier.featured ? 'btn btn-secondary' : 'btn btn-primary'}`}
             >
               Get Started
-            </button>
+            </a>
           </div>
         ))}
       </div>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import BookingModal from '../components/BookingModal.astro';
 
 interface Props {
   title: string;
@@ -40,6 +41,7 @@ const { title, description = "Team Riley Web - Digital Health For Your Business"
     <!-- End Google Tag Manager (noscript) -->
 
     <slot />
+    <BookingModal />
 
     <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a14e7d9ee7b17216c7ee4b7"></script>
     <script

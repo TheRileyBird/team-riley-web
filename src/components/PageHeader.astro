@@ -40,19 +40,13 @@ import { ArrowRight } from '@lucide/astro';
       {(primaryCTA || secondaryCTA) && (
         <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
           {primaryCTA && primaryCTA.href && primaryCTA.text && (
-            primaryCTA.href === '#get-started' ? (
-              <button
-                onclick="window.location.href='/#book-a-call'"
-                class="btn btn-primary btn-lg">
-                {primaryCTA.text}
-                <ArrowRight class="w-5 h-5" />
-              </button>
-            ) : (
-              <a href={primaryCTA.href} class="btn btn-primary btn-lg">
-                {primaryCTA.text}
-                <ArrowRight class="w-5 h-5" />
-              </a>
-            )
+            <a
+              href={primaryCTA.href}
+              data-booking-modal-open={primaryCTA.href.endsWith('#book-a-call') ? true : undefined}
+              class="btn btn-primary btn-lg">
+              {primaryCTA.text}
+              <ArrowRight class="w-5 h-5" />
+            </a>
           )}
           {secondaryCTA && secondaryCTA.href && secondaryCTA.text && (
             <a href={secondaryCTA.href} class="btn btn-secondary btn-lg">

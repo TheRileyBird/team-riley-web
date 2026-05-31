@@ -39,12 +39,12 @@ const isActive = (path: string) => {
 
       <!-- CTA Button -->
       <div class="hidden md:block">
-        <button
-          onclick="window.location.href='/#book-a-call'"
+        <a href="/#book-a-call"
+          data-booking-modal-open
           class="btn btn-primary btn-sm">
           Get Started
           <ArrowRight class="w-4 h-4" />
-        </button>
+        </a>
       </div>
 
       <!-- Mobile menu button -->
@@ -71,12 +71,12 @@ const isActive = (path: string) => {
       <a href="/portfolio" class={`block text-base font-medium ${isActive('/portfolio') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Portfolio</a>
       <a href="/about" class={`block text-base font-medium ${isActive('/about') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>About</a>
       <a href="/contact" class={`block text-base font-medium ${isActive('/contact') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Contact</a>
-      <button
-        onclick="window.location.href='/#book-a-call'"
+      <a href="/#book-a-call"
+        data-booking-modal-open
         class="btn btn-primary btn-sm w-full justify-center">
         Get Started
         <ArrowRight class="w-4 h-4" />
-      </button>
+      </a>
     </div>
   </div>
 </nav>

@@ -46,15 +46,15 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
               <div>
                 <h4 class="text-xl font-bold text-white mb-2">Email Us</h4>
                 <p class="text-gray-300 mb-3">We typically respond within 24 hours</p>
-                <a href="mailto:hello@teamriley.com" class="text-primary-400 font-semibold hover:text-primary-300 transition-colors">
-                  hello@teamriley.com
+                <a href="mailto:hello@teamrileyweb.com" class="text-primary-400 font-semibold hover:text-primary-300 transition-colors">
+                  hello@teamrileyweb.com
                 </a>
               </div>
             </div>
 
             <!-- Schedule Call -->
-            <button
-              onclick="window.location.href='/#book-a-call'"
+            <a href="/#book-a-call"
+              data-booking-modal-open
               class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300 w-full text-left">
               <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
                   Book Free 30-Minute Consultation
                 </span>
               </div>
-            </button>
+            </a>
 
             <!-- Phone -->
             <!-- <div class="flex items-start gap-6 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary-500/50 transition-all duration-300">
@@ -138,7 +138,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
                   </svg>
                   <h4 class="text-xl font-bold text-red-900">Something went wrong</h4>
                 </div>
-                <p class="text-red-800">Please try again or email us directly at hello@teamriley.com</p>
+                <p class="text-red-800">Please try again or email us directly at hello@teamrileyweb.com</p>
               </div>
 
               <div id="form-fields">

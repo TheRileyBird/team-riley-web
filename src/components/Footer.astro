@@ -40,12 +40,12 @@ const {
         <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
           {ctaSubtitle}
         </p>
-        <button
-          onclick="window.location.href='/#book-a-call'"
+        <a href="/#book-a-call"
+          data-booking-modal-open
           class="btn btn-secondary btn-xl rounded-2xl">
           {ctaButtonText}
           <ArrowRight class="w-6 h-6" />
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -156,8 +156,8 @@ const {
             </a>
           </li>
           <li>
-            <button
-              onclick="window.location.href='/#book-a-call'"
+            <a href="/#book-a-call"
+              data-booking-modal-open
               class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-4 group text-lg text-left w-full">
               <span class="w-14 h-14 bg-gray-800 group-hover:bg-primary-700 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0">
                 <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@ const {
                 </svg>
               </span>
               Book a Call
-            </button>
+            </a>
           </li>
         </ul>
       </div>

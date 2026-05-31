@@ -4,6 +4,6 @@ import alpinejs from '@astrojs/alpinejs';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://teamriley.com',
+  site: 'https://teamrileyweb.com',
   integrations: [tailwind(), alpinejs(), sitemap()],
 });

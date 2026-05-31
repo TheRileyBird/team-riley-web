@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PricingSection from '../components/PricingSection.astro';
-import BookingWidget from '../components/BookingWidget.astro';
 import { Image } from 'astro:assets';
 import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
 import careptSite from '../assets/sites/carept.png';
@@ -362,12 +361,12 @@ import graceSite from '../assets/sites/grace.png';
 
       <!-- CTA -->
       <div class="text-center mt-16">
-        <button
-          onclick="window.location.href='/#book-a-call'"
+        <a href="/#book-a-call"
+          data-booking-modal-open
           class="btn btn-primary btn-lg shadow-xl">
           Start Your Project Today
           <ArrowRight class="w-5 h-5" />
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -675,25 +674,6 @@ import graceSite from '../assets/sites/grace.png';
   <!-- Pricing Section -->
   <PricingSection />
   
-  <!-- Booking Section -->
-  <section id="book-a-call" class="py-20 md:py-28 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-          <span class="text-sm font-semibold text-primary-800">Book a Call</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Need <span class="animated-gradient-text">First Aid</span>?
-        </h2>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-          Let's discuss how we can help your business grow stronger.
-        </p>
-      </div>
-
-      <BookingWidget />
-    </div>
-  </section>
-
   <Footer />
 </BaseLayout>
 

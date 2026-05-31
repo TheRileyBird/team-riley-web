@@ -116,11 +116,11 @@ const isDark = theme === 'dark';
                   <p class={`text-sm ${isDark ? (isGold ? 'text-gray-300' : 'text-gray-400') : 'text-gray-600'} mb-4`}>{tier.setupFee}</p>
                 )}
               </div>
-              <button
-                onclick="window.location.href='/#book-a-call'"
+              <a href="/#book-a-call"
+                data-booking-modal-open
                 class={`btn ${isGold ? 'btn-secondary' : 'btn-primary'} w-full`}>
                 Get Started
-              </button>
+              </a>
             </div>
           </div>
         );

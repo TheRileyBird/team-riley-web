@@ -100,7 +100,7 @@ Real optimization results:
 ### Current Setup
 
 - **Sitemap Integration**: `@astrojs/sitemap` configured in `astro.config.mjs`
-- **Site URL**: `https://teamriley.com` (required for sitemap generation)
+- **Site URL**: `https://teamrileyweb.com` (required for sitemap generation)
 - **Robots.txt**: Dynamically generated via `src/pages/robots.txt.ts`
 - **HTML Sitemap**: `/sitemap` page for human visitors
 
@@ -348,7 +348,7 @@ Use global CSS classes from `src/styles/global.css`:
 
 - **Company Name**: Team Riley
 - **Platform Name**: Client Growth AI (rebranded from "Patient Flow AI" on 2026-03-13)
-- **Website**: https://teamriley.com
+- **Website**: https://teamrileyweb.com
 - **Contact Email**: Use `@teamrileyweb.com` domain
 
 ### Brand Colors
@@ -367,17 +367,18 @@ Use global CSS classes from `src/styles/global.css`:
 
 ## Booking Integration
 
-All "Get Started" and booking CTAs link to the home-page booking section:
+All "Get Started" and booking CTAs use semantic links that open the shared booking modal:
 
 ```astro
-<button
-  onclick="window.location.href='/#book-a-call'"
+<a
+  href="/#book-a-call"
+  data-booking-modal-open
   class="btn btn-primary">
   Get Started
-</button>
+</a>
 ```
 
-The booking iframe and resize script are encapsulated in `BookingWidget.astro`.
+The site-owned responsive modal is rendered by `BookingModal.astro`. The booking iframe and resize script are encapsulated in `BookingWidget.astro`.
 
 ---
 
