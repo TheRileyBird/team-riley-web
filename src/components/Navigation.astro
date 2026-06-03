@@ -11,8 +11,18 @@ const isActive = (path: string) => {
 };
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
-     x-data="{ mobileMenuOpen: false }">
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-transparent transition-[border-color,box-shadow] duration-200"
+  x-data="{
+    mobileMenuOpen: false,
+    scrolled: false,
+    init() {
+      this.scrolled = window.scrollY > 8;
+    }
+  }"
+  @scroll.window="scrolled = window.scrollY > 8"
+  :class="scrolled ? 'border-gray-100 shadow-sm' : 'border-transparent'"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
