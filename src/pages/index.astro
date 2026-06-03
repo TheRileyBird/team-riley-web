@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PricingSection from '../components/PricingSection.astro';
+import ShaderBackground from '@/components/ui/ShaderBackground.astro';
 import { Image } from 'astro:assets';
 import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
 import careptSite from '../assets/sites/carept.png';
@@ -21,117 +22,43 @@ import graceSite from '../assets/sites/grace.png';
   <Navigation />
 
   <!-- Hero Section -->
-  <section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-20 right-20 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 right-40 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
-      <div class="absolute top-1/2 left-20 w-80 h-80 bg-primary-700 rounded-full blur-3xl"></div>
-    </div>
+  <section class="relative min-h-[760px] overflow-hidden bg-slate-50 pt-28 pb-24 md:pt-36 md:pb-32">
+    <ShaderBackground />
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-gray-950"></div>
 
-    <!-- EKG Monitor Pattern (hidden on mobile/tablet) -->
-    <div class="absolute inset-0 pointer-events-none hidden lg:block">
-      <svg class="absolute w-full h-full opacity-20" preserveAspectRatio="none" viewBox="0 0 1200 800">
-        <defs>
-          <!-- Gradient for EKG line color -->
-          <linearGradient id="ekg-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#0891b2;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-          </linearGradient>
+    <div class="relative z-10 mx-auto flex min-h-[560px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+      <div class="inline-flex items-center rounded-full border border-primary-200 bg-white/80 px-4 py-2 shadow-soft backdrop-blur-md">
+        <span class="text-sm font-semibold text-primary-800">Digital Growth Partner</span>
+      </div>
 
-          <!-- Mask for fade effect -->
-          <mask id="ekg-mask">
-            <rect class="ekg-fade-mask" x="0" y="0" width="1200" height="800" fill="white"/>
-          </mask>
-        </defs>
+      <h1 class="mt-8 text-5xl font-bold leading-tight text-gray-950 md:text-6xl lg:text-7xl">
+        <span class="animated-gradient-text">Digital Health</span>
+        <span> For Your Business</span>
+      </h1>
 
-        <g mask="url(#ekg-mask)">
-          <!-- Single centered EKG Line with spikes in middle -->
-          <path class="ekg-line" d="M0,400 L450,400 L470,380 L490,420 L510,340 L530,400 L550,400 L1200,400"
-                stroke="url(#ekg-gradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <p class="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-slate-700 md:text-2xl">
+        We help health and wellness brands grow their online presence with world-class websites that convert visitors into clients.
+      </p>
 
-          <!-- Center grid line (subtle) -->
-          <line x1="0" y1="400" x2="1200" y2="400" stroke="currentColor" class="text-primary-300" stroke-width="0.5" stroke-dasharray="10,10" opacity="0.3"/>
-        </g>
-      </svg>
+      <div class="mt-10 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row">
+        <a href="/portfolio" class="btn btn-primary btn-lg">
+          View Our Work
+          <ArrowRight class="w-5 h-5" />
+        </a>
+        <a href="/pricing" class="btn btn-secondary btn-lg border-white/25 bg-white/95">
+          View Pricing
+        </a>
+      </div>
 
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Left column - Copy -->
-        <div class="space-y-8">
-          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg">
-            <span class="text-sm font-semibold text-primary-800">Digital Growth Partner</span>
-          </div>
-
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span class="animated-gradient-text">Digital Health</span>
-            <span class="text-gray-900"> For Your Business</span>
-          </h1>
-
-          <p class="text-xl text-gray-700 leading-relaxed max-w-xl">
-            We help health and wellness brands grow their online presence with world-class websites that convert visitors into clients.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/portfolio" class="btn btn-primary btn-lg">
-              View Our Work
-              <ArrowRight class="w-5 h-5" />
-            </a>
-            <a href="/pricing" class="btn btn-secondary btn-lg">
-              View Pricing
-            </a>
-          </div>
-
-          <!-- Trust indicators -->
-          <div class="flex items-center gap-6 pt-4">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="url(#checkGradient1)" />
-                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                  <linearGradient id="checkGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span class="text-sm font-medium text-gray-700">Unlimited Updates</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="url(#checkGradient2)" />
-                <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <defs>
-                  <linearGradient id="checkGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span class="text-sm font-medium text-gray-700">Launch in 2 Weeks</span>
-            </div>
-          </div>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 text-slate-700 sm:flex-row sm:gap-8">
+        <div class="flex items-center gap-2">
+          <CheckCircle2 class="h-5 w-5 text-primary-700" />
+          <span class="text-sm font-medium">Unlimited Updates</span>
         </div>
-
-        <!-- Right column - Image (hidden on mobile) -->
-        <div class="relative hidden lg:block">
-          <div class="relative">
-            <!-- Decorative elements -->
-            <div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl opacity-20 animate-pulse"></div>
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-accent-400 to-accent-500 rounded-full opacity-20"></div>
-
-            <!-- Image placeholder with animated gradient overlay -->
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-300 via-violet-400 to-purple-300">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                   alt="Professional team collaborating with technology"
-                   class="w-full h-auto mix-blend-overlay opacity-90"
-                   loading="eager" />
-              <div class="absolute inset-0 hero-gradient-overlay"></div>
-            </div>
-          </div>
+        <div class="flex items-center gap-2">
+          <CheckCircle2 class="h-5 w-5 text-primary-700" />
+          <span class="text-sm font-medium">Launch in 2 Weeks</span>
         </div>
       </div>
     </div>
