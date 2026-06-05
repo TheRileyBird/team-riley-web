@@ -1,0 +1,734 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import { Image } from 'astro:assets';
+import {
+  ArrowRight,
+  Bot,
+  CalendarCheck,
+  CalendarDays,
+  CheckCircle2,
+  CircleHelp,
+  Globe,
+  HeartHandshake,
+  Mail,
+  Monitor,
+  Palette,
+  Quote,
+  RefreshCw,
+  Search,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Star,
+  TrendingUp,
+} from '@lucide/astro';
+import founderImage from '../assets/images/JoshuaRiley2.png';
+import facialTreatmentImage from '../assets/images/med-spa-facial-treatment.jpg';
+import maskTreatmentImage from '../assets/images/med-spa-mask-treatment.jpg';
+import modernClinicImage from '../assets/images/med-spa-modern-clinic.jpg';
+
+const painCards = [
+  {
+    icon: CalendarDays,
+    title: 'Your calendar has gaps you cannot explain.',
+    copy: 'You are good at what you do. You should be fully booked, but referrals are inconsistent and you have no reliable system to fill every slot.',
+  },
+  {
+    icon: Smartphone,
+    title: 'Your social media is an afterthought.',
+    copy: 'You post when you have time, which means you post inconsistently. Your competitors are showing up every day while you are in the treatment room doing the actual work.',
+  },
+  {
+    icon: Monitor,
+    title: 'Your website does not reflect who you actually are.',
+    copy: 'Your real-world experience is premium. Your online presence is not. Every potential client who lands on your site is forming a first impression before they ever call you.',
+  },
+];
+
+const differentiators = [
+  {
+    icon: Sparkles,
+    title: 'World-Class Website',
+    copy: 'A stunning, conversion-optimized website that reflects the premium experience you deliver in person and turns visitors into booked appointments automatically.',
+  },
+  {
+    icon: Palette,
+    title: 'Social Media, Done.',
+    copy: 'Consistent, on-brand content published for you every single week. No more late-night posting. No more random content with no strategy.',
+  },
+  {
+    icon: Search,
+    title: 'Local SEO Dominance',
+    copy: 'When someone searches "Botox near me" or "lip filler in your city," you show up. We optimize your Google presence so high-intent clients find you first.',
+  },
+  {
+    icon: Bot,
+    title: 'Patient Flow AI',
+    copy: 'Our proprietary system keeps your calendar filling automatically through targeted digital advertising and follow-up systems designed for aesthetic practices.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Unlimited Updates. Always.',
+    copy: 'Your services change. Your pricing changes. Your branding evolves. We update everything, immediately, at no extra cost.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'A Partner Who Gets It',
+    copy: 'We do not need you to explain what Botox is or how a membership model works. You get a partner who speaks your language from day one.',
+  },
+];
+
+const steps = [
+  {
+    icon: HeartHandshake,
+    title: 'Tell Us About Your Spa',
+    copy: 'Fill out a short intake form about your practice, your services, your goals, and your brand vision. It takes less than 10 minutes.',
+  },
+  {
+    icon: Palette,
+    title: 'We Build Your Digital Presence',
+    copy: 'Our team builds your website, sets up your social strategy, optimizes your Google presence, and launches your patient flow system.',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Watch Your Calendar Fill',
+    copy: 'Your digital presence goes live. New client inquiries start coming in from ideal patients who already trust you before they walk through the door.',
+  },
+];
+
+const stats = [
+  ['500+', 'Health businesses served'],
+  ['90 days', 'Average time to meaningful results'],
+  ['#1', 'Where our clients show up in local search'],
+];
+
+const testimonials = [
+  {
+    quote: 'Within 60 days of working with Team Riley, I had my best new client month ever. And I had not touched my social media once.',
+    byline: 'Med Spa Owner, City',
+  },
+  {
+    quote: 'I was embarrassed to send people to my website. Now I share it with everyone. It finally looks like the spa I have spent years building.',
+    byline: 'Aesthetic NP and Spa Owner, City',
+  },
+  {
+    quote: 'I was paying another agency for 6 months and could not tell you what they did. Team Riley had results I could actually see.',
+    byline: 'Injector and Med Spa Founder, City',
+  },
+];
+
+const plans = [
+  {
+    name: 'Silver',
+    price: '$199',
+    fit: 'For med spas ready to look the part online',
+    features: [
+      'Professional website, up to 5 pages',
+      'Unlimited updates, forever',
+      'Mobile-optimized design',
+      'Google Business Profile setup',
+      'Basic SEO foundation',
+    ],
+  },
+  {
+    name: 'Gold',
+    price: '$399',
+    fit: 'For med spas ready to fill their calendar',
+    featured: true,
+    features: [
+      'Professional website, 5-11 pages',
+      'Unlimited updates, forever',
+      'Social media management',
+      'SEO Group integration',
+      'Google optimization',
+      'Monthly performance reporting',
+      'Dedicated account manager',
+    ],
+  },
+  {
+    name: 'Platinum',
+    price: '$599',
+    fit: 'For established med spas building a dominant brand',
+    features: [
+      'Full website, 11+ pages',
+      'Unlimited updates, forever',
+      'Full social media management',
+      'Advanced SEO strategy',
+      'Patient Flow AI',
+      'PPC campaign management',
+      'Priority support',
+      'Strategic monthly reviews',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: 'I have tried a marketing agency before and it did not work.',
+    answer: 'We hear this every week. Here is why it failed: they did not know med spas. They knew "marketing." There is a difference. We work exclusively with health and aesthetic businesses. We know what converts in your world because we have built it hundreds of times. Ask us for portfolio examples. We will show you before you spend a dime.',
+  },
+  {
+    question: 'I do not have time to manage another vendor.',
+    answer: 'You will not manage us. We manage ourselves. Your involvement is approving content before it goes live and hopping on a short monthly call. That is it. We do the thinking, the building, the posting, and the reporting.',
+  },
+  {
+    question: 'How long until I see results?',
+    answer: 'You will see your brand transform in the first 30 days. Early client inquiry momentum typically builds within 60 days. Meaningful, measurable calendar impact typically hits within 90 days. This is not a silver bullet. It is a system that compounds over time and gets stronger every month.',
+  },
+  {
+    question: 'What if I want to cancel?',
+    answer: 'You keep everything. Your website, your content, your assets. All yours. We ask for reasonable notice so we can transition things cleanly. No horror stories. No contracts held over your head.',
+  },
+  {
+    question: 'Is this just for big spas or does it work for smaller practices too?',
+    answer: 'We work with single-injector practices, small boutique spas, and multi-location clinics. Our Silver plan was designed specifically for practices that are growing. You do not have to be big to benefit from looking big online.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="Med Spa Marketing Funnel - Team Riley"
+  description="Done-for-you websites, social media, SEO, and patient flow systems built exclusively for med spas."
+>
+  <div class="min-h-screen bg-white text-gray-900">
+    <Navigation />
+
+    <main>
+      <section class="relative overflow-hidden bg-slate-50 pt-28 pb-0 md:pt-36 lg:min-h-[760px]">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(59,130,246,0.18),transparent_28%),radial-gradient(circle_at_42%_70%,rgba(34,211,238,0.15),transparent_32%),radial-gradient(circle_at_8%_82%,rgba(139,92,246,0.12),transparent_30%),linear-gradient(135deg,#f8fafc_0%,#ffffff_46%,#eff6ff_100%)]"></div>
+        <div class="absolute left-0 top-0 h-full w-[52vw] bg-[linear-gradient(120deg,rgba(255,255,255,0.92),rgba(255,255,255,0.55)_48%,rgba(255,255,255,0)_100%)]"></div>
+        <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-blue-50"></div>
+        <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-t from-transparent to-white"></div>
+
+        <div class="portfolio-scroll-gallery order-2 relative z-10 mt-12 h-[460px] w-full overflow-hidden md:h-[560px] lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:h-full lg:w-[44vw]">
+          <div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-white lg:from-blue-50 to-transparent"></div>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-gradient-to-t from-blue-50 to-transparent"></div>
+          <div class="grid grid-cols-2 gap-3 px-4 sm:px-6 md:gap-5 md:p-3 lg:-mt-12">
+            <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
+              <Image src={facialTreatmentImage} alt="Aesthetician providing a facial treatment in a modern spa clinic" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={modernClinicImage} alt="Professional skincare treatment in a modern aesthetic clinic" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={maskTreatmentImage} alt="Beautician applying a facial mask treatment in a calm spa room" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={facialTreatmentImage} alt="" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" aria-hidden="true" />
+            </div>
+            <div class="portfolio-scroll-column portfolio-scroll-column-down space-y-4 pt-16 md:space-y-5">
+              <Image src={maskTreatmentImage} alt="Relaxing med spa skincare treatment" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={facialTreatmentImage} alt="Modern aesthetic facial treatment" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={modernClinicImage} alt="Aesthetic clinic treatment room" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" />
+              <Image src={maskTreatmentImage} alt="" class="aspect-[4/5] w-full rounded-xl object-cover shadow-xl" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center lg:min-h-[700px] lg:mr-[50%]">
+            <div class="pb-4 lg:pb-20">
+              <div class="mb-8 inline-flex items-center rounded-r-lg border-l-4 border-primary-700 bg-primary-100 px-4 py-2">
+                <span class="text-sm font-semibold uppercase tracking-wider text-primary-800">Built Exclusively for Med Spas</span>
+              </div>
+
+              <h1 class="text-5xl font-bold leading-tight text-gray-950 md:text-6xl lg:text-7xl">
+                Your Injections Are <span class="animated-gradient-text">World-Class</span>. Your Calendar Should Be Too.
+              </h1>
+
+              <p class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-700">
+                Team Riley handles your entire digital presence: website, social media, SEO, and patient flow, so your med spa stays fully booked without you lifting a finger.
+              </p>
+
+              <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-lg w-full max-w-full !whitespace-normal text-center leading-snug sm:w-auto sm:!whitespace-nowrap">
+                  <span>Get Started</span>
+                  <ArrowRight class="h-5 w-5 flex-shrink-0" />
+                </a>
+                <a href="#pricing" class="btn btn-secondary btn-lg border-white/25 bg-white/95">
+                  View Pricing
+                </a>
+              </div>
+
+              <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-gray-700">
+                <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="h-4 w-4 text-primary-700" /> 500+ health and wellness businesses served</span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="h-4 w-4 text-primary-700" /> Done-for-you</span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="h-4 w-4 text-primary-700" /> No tech headaches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="aurora-light-section relative overflow-hidden bg-white py-20 md:py-28">
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+            <div>
+              <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-700 bg-primary-100 px-4 py-2">
+                <span class="text-sm font-semibold text-primary-800">Sound Familiar?</span>
+              </div>
+              <h2 class="text-4xl font-bold leading-tight text-gray-950 md:text-5xl">
+                You Did Not Build a Med Spa to Spend Your Evenings on Instagram.
+              </h2>
+              <div class="mt-8 space-y-5 text-lg leading-relaxed text-gray-700">
+                <p>You got into this because you are genuinely talented at what you do. Your clients trust you. Your results speak for themselves. People drive across town to sit in your chair.</p>
+                <p>And yet.</p>
+                <p>You are posting inconsistently at 10pm because nobody else will do it. Your website was built three years ago and you are low-key embarrassed to send people there. You are watching the spa down the street, the one that is honestly not as good as yours, get all the new client inquiries because their Instagram looks polished and their Google listing is pristine.</p>
+                <p>It is not fair. And it is not a reflection of your skill. It is a marketing problem. And marketing problems have solutions.</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary-200 via-accent-200 to-secondary-200 opacity-80 blur-xl"></div>
+              <Image src={modernClinicImage} alt="Modern aesthetic clinic treatment room" class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
+              <div class="absolute -bottom-6 -left-6 max-w-xs rounded-2xl border border-white/80 bg-white/95 p-5 shadow-xl backdrop-blur">
+                <p class="text-3xl font-bold text-primary-800">10pm</p>
+                <p class="mt-1 text-sm font-semibold text-gray-700">is too late to become your own marketing department.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-14 grid gap-6 md:grid-cols-3">
+            {painCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <article class="group rounded-2xl border border-gray-200 bg-white/85 p-7 shadow-soft backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl">
+                  <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-600 via-accent-500 to-secondary-500 text-white shadow-medium">
+                    <Icon class="h-6 w-6" />
+                  </div>
+                  <h3 class="text-xl font-bold leading-snug text-gray-950">{card.title}</h3>
+                  <p class="mt-4 leading-relaxed text-gray-600">{card.copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-gray-100 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-50">
+          <div class="absolute -top-24 right-12 h-96 w-96 rounded-full bg-primary-200 blur-3xl"></div>
+          <div class="absolute bottom-0 left-12 h-80 w-80 rounded-full bg-accent-300 blur-3xl"></div>
+        </div>
+
+        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+          <div class="relative">
+            <Image src={facialTreatmentImage} alt="Med spa facial treatment with aesthetician and client" class="aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-gray-950/55 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-md">
+              <p class="text-sm font-bold uppercase tracking-wide text-cyan-100">The shift</p>
+              <p class="mt-2 text-2xl font-bold leading-tight">Better care deserves better visibility.</p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold leading-tight text-gray-950 md:text-5xl lg:text-6xl">
+              Here is the thing nobody tells med spa owners:
+            </h2>
+            <div class="mt-8 space-y-5 text-lg leading-relaxed text-gray-700">
+              <p>The practices that stay fully booked year-round are not better at injections than you are.</p>
+              <p class="text-2xl font-bold text-gray-900">They just show up better online.</p>
+              <p>They have a website that makes people trust them before they ever walk in the door. They have social media that runs without them. They have a Google presence that puts them at the top of the list when someone searches "med spa near me" at 11pm on a Thursday.</p>
+              <p>That is not luck. That is a system. And it is one you can have too, without learning a single thing about digital marketing.</p>
+            </div>
+            <p class="mt-10 text-3xl font-bold text-primary-900 md:text-4xl">
+              "You focus on the needles. We fill the calendar."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-16 right-10 h-80 w-80 rounded-full bg-primary-600 blur-3xl"></div>
+          <div class="absolute bottom-10 left-10 h-72 w-72 rounded-full bg-accent-500 blur-3xl"></div>
+          <div class="absolute left-1/2 top-1/2 h-[300px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary-500 blur-[150px]"></div>
+        </div>
+        <div class="absolute inset-0 opacity-[0.03] text-white" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-500 bg-primary-900/50 px-4 py-2">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary-300">The Team Riley Difference</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl">
+              Done-For-You Digital Marketing Built Exclusively for <span class="animated-gradient-text">Med Spas</span>.
+            </h2>
+            <p class="mt-6 text-xl leading-relaxed text-gray-300">
+              We do not serve restaurants, retail stores, or gyms. We speak med spa. We know your clients, your services, your culture, and exactly what it takes to turn online browsers into booked appointments.
+            </p>
+          </div>
+
+          <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {differentiators.map((item) => {
+              const Icon = item.icon;
+              return (
+                <article class="group rounded-2xl border border-white/10 bg-white/5 p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/40 hover:bg-white/10">
+                  <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-600 via-accent-500 to-secondary-500 text-white shadow-medium">
+                    <Icon class="h-6 w-6" />
+                  </div>
+                  <h3 class="text-xl font-bold text-white">{item.title}</h3>
+                  <p class="mt-4 leading-relaxed text-gray-300">{item.copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-950 to-black py-20 md:py-28">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute right-1/4 top-0 h-[500px] w-[500px] rounded-full bg-primary-500 blur-[120px]"></div>
+          <div class="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-accent-400 blur-[100px]"></div>
+        </div>
+        <div class="absolute -top-20 -left-20 h-80 w-80 animate-float-very-slow">
+          <div class="absolute inset-0 rounded-full border-2 border-primary-400/20"></div>
+          <div class="absolute inset-8 rounded-full border border-primary-400/15"></div>
+          <div class="absolute inset-16 rounded-full border border-primary-400/10"></div>
+        </div>
+        <div class="absolute -bottom-24 -right-24 h-96 w-96 animate-float-very-slow" style="animation-delay: -10s;">
+          <div class="absolute inset-0 rounded-full border-2 border-violet-400/20"></div>
+          <div class="absolute inset-10 rounded-full border border-violet-400/15"></div>
+          <div class="absolute inset-20 rounded-full border border-violet-400/10"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-500 bg-primary-900/50 px-4 py-2">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary-300">Simple. Fast. Done.</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl">
+              From Invisible to Fully Booked in 3 Steps.
+            </h2>
+          </div>
+
+          <div class="relative mx-auto mt-16 max-w-5xl">
+            <div class="absolute left-[calc(16.67%-10px)] right-[calc(16.67%-10px)] top-10 hidden h-1 md:block">
+              <div class="absolute inset-0 rounded-full bg-gray-700"></div>
+              <div class="process-line-animate absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 via-primary-400 to-primary-500"></div>
+            </div>
+            <div class="grid gap-10 md:grid-cols-3 md:items-stretch md:gap-4">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <article class="group relative flex h-full flex-col items-center text-center">
+                  {index < steps.length - 1 && (
+                    <div class="absolute left-1/2 top-20 h-[calc(100%+2rem)] w-1 -translate-x-1/2 rounded-full bg-gradient-to-b from-primary-500 to-accent-400 md:hidden"></div>
+                  )}
+                  <div class="relative z-10">
+                    <div class="absolute -inset-2 rounded-full bg-gradient-to-br from-primary-400/30 to-secondary-600/30 blur-sm transition-all duration-300 group-hover:from-primary-400/40 group-hover:to-secondary-600/40"></div>
+                    <div class="step-badge relative flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-secondary-600 shadow-xl ring-4 ring-gray-900">
+                      <span class="text-3xl font-bold text-white">{index + 1}</span>
+                    </div>
+                  </div>
+                  <div class="relative z-0 mt-8 flex h-full min-h-[280px] flex-col rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                    <Icon class="mx-auto mb-4 h-8 w-8 text-accent-300" />
+                    <h3 class="text-xl font-bold text-white">{step.title}</h3>
+                    <p class="mt-4 leading-relaxed text-gray-300">{step.copy}</p>
+                  </div>
+                </article>
+              );
+            })}
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-lg">
+              Get Started
+              <ArrowRight class="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-gray-100 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-40">
+          <div class="absolute -top-24 right-12 h-96 w-96 rounded-full bg-primary-200 blur-3xl"></div>
+          <div class="absolute bottom-0 left-12 h-80 w-80 rounded-full bg-accent-300 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-700 bg-primary-100 px-4 py-2">
+              <span class="text-sm font-semibold text-primary-800">Real Results</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-gray-950 md:text-5xl">
+              500+ Health and Wellness Businesses <span class="animated-gradient-text">Cannot Be Wrong</span>.
+            </h2>
+          </div>
+
+          <div class="mt-12 grid overflow-hidden rounded-3xl border border-gray-200 bg-white/90 shadow-xl backdrop-blur-sm md:grid-cols-3">
+            {stats.map(([value, label]) => (
+              <div class="border-b border-gray-200 p-8 text-center last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+                <div class="text-5xl font-bold text-primary-800">{value}</div>
+                <div class="mt-2 font-semibold text-gray-600">{label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <figure class="rounded-2xl border border-gray-200 bg-white/90 p-7 shadow-soft backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <Quote class="h-8 w-8 text-accent-500" />
+                <blockquote class="mt-5 text-lg font-medium leading-relaxed text-gray-800">"{testimonial.quote}"</blockquote>
+                <figcaption class="mt-5 text-sm font-bold text-primary-800">- {testimonial.byline}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute left-10 top-16 h-80 w-80 rounded-full bg-primary-600 blur-3xl"></div>
+          <div class="absolute bottom-10 right-10 h-96 w-96 rounded-full bg-accent-500 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div class="relative">
+            <div class="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-primary-500 via-accent-400 to-secondary-500 opacity-70 blur-xl"></div>
+            <Image src={founderImage} alt="Joshua Riley, founder of Team Riley" class="relative min-h-[560px] w-full rounded-3xl object-cover object-top shadow-2xl lg:min-h-[720px]" />
+            <div class="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-gray-950/55 p-5 text-white backdrop-blur-md">
+              <p class="text-sm font-bold uppercase tracking-wide text-cyan-100">Founder-led strategy</p>
+              <p class="mt-2 text-2xl font-bold leading-tight">A partner who understands health and wellness growth.</p>
+            </div>
+          </div>
+          <div>
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-500 bg-primary-900/50 px-4 py-2">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary-300">Meet the Founder</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl">
+              Hi, I am Joshua. And I built Team Riley because med spas deserve better than <span class="animated-gradient-text">generic marketing</span>.
+            </h2>
+            <div class="mt-7 space-y-5 text-lg leading-relaxed text-gray-300">
+              <p>You have poured everything into building something real: a space that transforms how your clients look and feel, a team that genuinely cares, a reputation that took years to build. And your digital presence? It does not come close to reflecting what you have actually created.</p>
+              <p>I started Team Riley because I believe that the most talented practitioners in the aesthetics industry deserve to be the most visible ones. Not the loudest. Not the ones with the biggest ad budget. The best ones.</p>
+              <p>So we built a done-for-you, med-spa-specific digital marketing engine that keeps your calendar full without pulling you away from what you are actually good at.</p>
+            </div>
+            <p class="mt-7 text-xl font-bold text-white">- Joshua, Founder of Team Riley</p>
+            <div class="mt-8">
+              <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-lg">
+                Get Started
+                <ArrowRight class="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-blue-50 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-40">
+          <div class="absolute right-10 top-10 h-80 w-80 rounded-full bg-primary-200 blur-3xl"></div>
+          <div class="absolute bottom-0 left-10 h-72 w-72 rounded-full bg-accent-300 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-700 bg-primary-100 px-4 py-2">
+              <span class="text-sm font-semibold text-primary-800">Everything You Need. Nothing You Do Not.</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-gray-950 md:text-5xl">
+              Choose the Plan That Fits <span class="animated-gradient-text">Where You Are</span>.
+            </h2>
+          </div>
+
+          <div class="mt-14 grid gap-6 overflow-visible pt-5 lg:grid-cols-3">
+            {plans.map((plan) => (
+              <article class:list={[
+                'group relative overflow-visible rounded-2xl border p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-xl',
+                plan.featured ? 'border-accent-400 bg-gradient-to-br from-blue-50 via-primary-50 to-white ring-2 ring-accent-300 lg:-mt-4' : 'border-gray-200 bg-white/90 backdrop-blur-sm',
+              ]}>
+                <div class:list={['pointer-events-none absolute inset-0 overflow-hidden rounded-2xl transition-opacity duration-500', plan.featured ? 'shimmer-overlay-gold opacity-100' : 'shimmer-overlay opacity-0 group-hover:opacity-100']}></div>
+                {plan.featured && (
+                  <div class="absolute -top-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gradient-to-r from-yellow-300 to-amber-400 px-4 py-1 text-sm font-bold text-yellow-950 shadow-lg">
+                    <Star class="h-4 w-4 fill-current" />
+                    Most Popular
+                  </div>
+                )}
+                <div class="relative z-10">
+                  <h3 class="text-2xl font-bold uppercase tracking-wide text-gray-950">{plan.name}</h3>
+                  <div class="mt-5 flex items-end gap-2">
+                    <span class="text-5xl font-bold text-gray-950">{plan.price}</span>
+                    <span class="pb-2 font-semibold text-gray-600">/month</span>
+                  </div>
+                  <p class="mt-4 min-h-[3rem] font-semibold text-gray-700">{plan.fit}</p>
+                  <ul class="mt-7 space-y-4">
+                    {plan.features.map((feature) => (
+                      <li class="flex gap-3 text-gray-700">
+                        <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-700" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="/#book-a-call" data-booking-modal-open class:list={['btn mt-8 w-full', plan.featured ? 'btn-secondary' : 'btn-primary']}>
+                    Get Started
+                    <ArrowRight class="h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p class="mx-auto mt-8 max-w-4xl text-center text-base font-semibold text-gray-700">
+            All plans include unlimited updates. You keep your website if you ever cancel. No lock-in contracts.
+          </p>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary-600 blur-3xl"></div>
+          <div class="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-secondary-500 blur-3xl"></div>
+        </div>
+        <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <div class="mb-6 inline-flex items-center rounded-r-lg border-l-4 border-primary-500 bg-primary-900/50 px-4 py-2">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary-300">Let us Be Honest</span>
+            </div>
+            <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl">
+              Every Question You Are Probably Thinking Right Now.
+            </h2>
+          </div>
+
+          <div class="mt-12 space-y-4">
+            {faqs.map((faq) => (
+              <details class="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/10">
+                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-lg font-bold text-white">
+                  <span>"{faq.question}"</span>
+                  <CircleHelp class="h-6 w-6 flex-shrink-0 text-accent-300 transition-transform group-open:rotate-45" />
+                </summary>
+                <p class="mt-4 leading-relaxed text-gray-300">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="relative isolate overflow-hidden bg-primary-1000 py-20 text-white md:py-28">
+        <Image src={maskTreatmentImage} alt="" class="absolute inset-0 -z-20 h-full w-full object-cover opacity-25 saturate-50" aria-hidden="true" />
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_15%,rgba(34,211,238,0.25),transparent_30%),radial-gradient(circle_at_82%_70%,rgba(139,92,246,0.18),transparent_34%),linear-gradient(135deg,rgba(13,21,42,0.96),rgba(15,23,42,0.88))]"></div>
+        <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 class="text-5xl font-bold leading-tight md:text-6xl">
+            Your Clients Are Searching for You Right Now. Can They Find You?
+          </h2>
+          <div class="mx-auto mt-7 max-w-3xl space-y-5 text-lg leading-relaxed text-blue-100">
+            <p>Every day without a professional digital presence is another day of potential clients choosing your competitor, not because they are better, but because they showed up first.</p>
+            <p class="text-2xl font-bold text-white">That ends today.</p>
+            <p>Book a free discovery call. We will look at your current digital presence together, identify what is holding your calendar back, and show you exactly what your spa could look like online in 90 days.</p>
+            <p>No pitch. No pressure. Just a clear, honest plan.</p>
+          </div>
+          <div class="mt-10">
+            <a href="/#book-a-call" data-booking-modal-open class="btn btn-secondary btn-xl rounded-2xl">
+              Get Started
+              <ArrowRight class="h-6 w-6" />
+            </a>
+          </div>
+          <div class="mt-7 flex flex-wrap justify-center gap-4 text-sm font-semibold text-blue-100">
+            <span class="inline-flex items-center gap-2"><CheckCircle2 class="h-4 w-4 text-cyan-300" /> Free discovery call</span>
+            <span class="inline-flex items-center gap-2"><ShieldCheck class="h-4 w-4 text-cyan-300" /> No commitment required</span>
+            <span class="inline-flex items-center gap-2"><TrendingUp class="h-4 w-4 text-cyan-300" /> Built exclusively for med spas</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-950 py-14 text-gray-300">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-accent-400">
+                <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z" />
+                </svg>
+              </span>
+              <span class="text-2xl font-bold text-white">Team Riley</span>
+            </div>
+            <p class="mt-4 text-gray-400">Digital Health For Your Business</p>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white">Links</h3>
+            <div class="mt-4 space-y-3">
+              <a href="#services" class="block transition-colors hover:text-accent-300">Services</a>
+              <a href="#pricing" class="block transition-colors hover:text-accent-300">Pricing</a>
+              <a href="#about" class="block transition-colors hover:text-accent-300">About</a>
+              <a href="/contact" class="block transition-colors hover:text-accent-300">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white">Industries Served</h3>
+            <p class="mt-4 leading-relaxed text-gray-400">
+              Med Spas | Chiropractic | Functional Medicine | Private Practice | Wellness Studios
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white">Contact</h3>
+            <div class="mt-4 space-y-3">
+              <a href="mailto:hello@teamrileyweb.com" class="flex items-center gap-3 transition-colors hover:text-accent-300">
+                <Mail class="h-5 w-5 text-accent-300" />
+                hello@teamrileyweb.com
+              </a>
+              <a href="/" class="flex items-center gap-3 transition-colors hover:text-accent-300">
+                <Globe class="h-5 w-5 text-accent-300" />
+                teamrileyweb.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+          <p>&copy; 2026 Team Riley. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="/privacy-policy" class="transition-colors hover:text-accent-300">Privacy Policy</a>
+            <a href="/terms-of-service" class="transition-colors hover:text-accent-300">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const gallery = document.querySelector('.portfolio-scroll-gallery');
+    const upColumn = document.querySelector('.portfolio-scroll-column-up');
+    const downColumn = document.querySelector('.portfolio-scroll-column-down');
+
+    let scrollPosition = 0;
+    let animationFrame: number;
+
+    const animateGallery = () => {
+      if (!gallery || !upColumn || !downColumn) return;
+
+      scrollPosition += 0.12;
+
+      const upHeight = upColumn.scrollHeight / 2;
+      const downHeight = downColumn.scrollHeight / 2;
+
+      if (scrollPosition >= Math.min(upHeight, downHeight)) {
+        scrollPosition = 0;
+      }
+
+      (upColumn as HTMLElement).style.transform = `translateY(-${scrollPosition}px)`;
+      (downColumn as HTMLElement).style.transform = `translateY(-${downHeight - scrollPosition}px)`;
+
+      animationFrame = requestAnimationFrame(animateGallery);
+    };
+
+    if (upColumn && downColumn) {
+      const upClone = upColumn.cloneNode(true);
+      const downClone = downColumn.cloneNode(true);
+
+      upColumn.append(...Array.from(upClone.childNodes));
+      downColumn.append(...Array.from(downClone.childNodes));
+
+      requestAnimationFrame(() => {
+        if (downColumn) {
+          const downHeight = downColumn.scrollHeight / 2;
+          (downColumn as HTMLElement).style.transform = `translateY(-${downHeight}px)`;
+        }
+        animateGallery();
+      });
+    }
+
+    document.addEventListener('astro:before-swap', () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    });
+  </script>
+</BaseLayout>
