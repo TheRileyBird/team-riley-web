@@ -1,0 +1,458 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import {
+  ArrowRight,
+  Bot,
+  CalendarCheck,
+  CheckCircle2,
+  Globe2,
+  Inbox,
+  Menu,
+  MessageSquareText,
+  Search,
+  Sparkles,
+  Star,
+  TrendingUp,
+  X,
+} from '@lucide/astro';
+import founderImage from '../assets/images/JoshuaRiley2.png';
+import facialTreatmentImage from '../assets/images/med-spa-facial-treatment.jpg';
+import maskTreatmentImage from '../assets/images/med-spa-mask-treatment.jpg';
+import modernClinicImage from '../assets/images/med-spa-modern-clinic.jpg';
+
+const systemSteps = [
+  {
+    title: 'Set Your Foundation',
+    copy: 'We make sure your website, Google presence, and booking system are ready to convert new clients before we send a single person your way.',
+    icon: Globe2,
+  },
+  {
+    title: 'Fill Your Calendar',
+    copy: 'We drive a steady flow of new client bookings using targeted social media, local SEO, Google Ads, and Patient Flow AI built specifically for aesthetic practices.',
+    icon: CalendarCheck,
+  },
+  {
+    title: 'Grow Without the Grind',
+    copy: 'Your marketing runs in the background. You stay in the treatment room. We handle the rest.',
+    icon: TrendingUp,
+  },
+];
+
+const stagePlans = [
+  {
+    name: 'The Foundation',
+    fit: 'For new or part-time injectors ready to go full-time',
+    copy: 'You need to show up where clients are searching. We build your digital foundation and start driving your first consistent bookings.',
+  },
+  {
+    name: 'The Growth Engine',
+    fit: 'For established med spas ready to scale',
+    copy: "You've built something real. Now let's make sure your online presence matches it and keep your calendar full month after month.",
+    featured: true,
+  },
+  {
+    name: 'The Market Dominator',
+    fit: 'For serious owners who want to own their local market',
+    copy: 'Full-service, fully done-for-you digital marketing, Patient Flow AI, paid ads, and a strategy built to make you the #1 med spa in your area.',
+  },
+];
+
+const aiFeatures = [
+  ['24/7 Booking Assistant', "Responds to inquiries instantly, even when you're with a client."],
+  ['Instant Response System', 'Answers calls, texts, and DMs automatically.'],
+  ['Central Inbox', 'Every client conversation in one place.'],
+  ['Aesthetics-Trained AI', 'Custom-built for your spa to write posts, emails, and replies in your voice.'],
+];
+
+const relateItems = [
+  'You need to show up at the top of Google when someone searches for med spas in your city',
+  "You're tired of relying entirely on referrals and word of mouth to fill your calendar",
+  "You want to use AI and modern tech but don't know where to start",
+  'You need someone who understands the aesthetics industry and can be trusted with your brand',
+  "You're posting inconsistently and know your social media isn't doing your work justice",
+];
+
+const pricingPlans = [
+  {
+    name: 'Get Started',
+    price: '$199',
+    summary: 'The proven system to start getting new clients in your first 30 days.',
+    features: [
+      'Website build and optimization',
+      'Google Business Profile setup',
+      'Patient Flow AI',
+      'Lead tracking dashboard',
+      'Review generation plan',
+      'Online booking system integration',
+    ],
+  },
+  {
+    name: 'Get Growing',
+    price: '$399',
+    summary: 'Supercharge your marketing and start buying back your time.',
+    featured: true,
+    features: [
+      'Everything in Get Started',
+      'Social media management',
+      'Local SEO and Google content',
+      'Client database and email follow-up',
+      'Monthly performance reporting',
+    ],
+  },
+  {
+    name: 'Market Dominator',
+    price: '$599',
+    summary: 'The complete done-for-you system for med spas serious about owning their market.',
+    features: [
+      'Everything in Get Growing',
+      'Meta and Google Ads management',
+      'Advanced Patient Flow AI',
+      'Custom AI tools for your spa',
+      'Priority support and strategy calls',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Condensed Med Spa Marketing Page - Team Riley"
+  description="A condensed Team Riley landing page for med spa owners, injectors, and aesthetic practices that want more bookings without managing marketing themselves."
+>
+  <div class="min-h-screen bg-white text-slate-950">
+    <header
+      class="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur"
+      x-data="{ mobileMenuOpen: false }"
+    >
+      <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-700 to-accent-500 text-white shadow-md">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z"></path>
+            </svg>
+          </span>
+          <span class="text-xl font-bold text-slate-950">Team Riley</span>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#how-it-works" class="text-sm font-semibold text-slate-600 transition-colors hover:text-primary-700">How It Works</a>
+          <a href="#pricing" class="text-sm font-semibold text-slate-600 transition-colors hover:text-primary-700">Pricing</a>
+          <a href="#about" class="text-sm font-semibold text-slate-600 transition-colors hover:text-primary-700">About</a>
+        </div>
+
+        <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-sm hidden md:inline-flex">
+          Get Started
+          <ArrowRight class="h-4 w-4" />
+        </a>
+
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 md:hidden"
+          aria-label="Toggle navigation"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <Menu class="h-6 w-6" x-show="!mobileMenuOpen" />
+          <X class="h-6 w-6" x-show="mobileMenuOpen" x-cloak />
+        </button>
+      </nav>
+
+      <div
+        x-show="mobileMenuOpen"
+        x-cloak
+        x-transition
+        class="border-t border-slate-200 bg-white px-4 py-5 md:hidden"
+      >
+        <div class="flex flex-col gap-4">
+          <a href="#how-it-works" class="font-semibold text-slate-700">How It Works</a>
+          <a href="#pricing" class="font-semibold text-slate-700">Pricing</a>
+          <a href="#about" class="font-semibold text-slate-700">About</a>
+          <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-sm justify-center">
+            Get Started
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden bg-slate-950 pt-28 text-white sm:pt-32">
+        <Image src={modernClinicImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" aria-hidden="true" />
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.98),rgba(15,23,42,0.88),rgba(15,23,42,0.46))]"></div>
+        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 sm:px-6 md:pb-20 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+          <div class="max-w-3xl">
+            <div class="inline-flex rounded-r-lg border-l-4 border-accent-300 bg-white/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-cyan-100">
+              Built Exclusively for Med Spas
+            </div>
+            <h1 class="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Marketing for Med Spa Owners, Injectors & Aesthetic Practices
+            </h1>
+            <div class="mt-6 space-y-4 text-lg leading-relaxed text-slate-200">
+              <p>We get it. You want to grow. Book more clients. Fill your calendar. Maybe even expand your space.</p>
+              <p>But marketing keeps getting more complex - and you didn't build a med spa to become a social media manager.</p>
+              <p>We help you stay fully booked with done-for-you digital marketing, AI-powered patient flow tools, and a team that actually speaks your language.</p>
+              <p class="font-semibold text-white">This isn't a generic agency. This is Team Riley - built specifically for the aesthetics industry.</p>
+            </div>
+            <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary btn-lg mt-8">
+              Get Started
+              <ArrowRight class="h-5 w-5" />
+            </a>
+          </div>
+
+          <div class="grid gap-4 self-end sm:grid-cols-2 lg:pt-16">
+            <Image src={facialTreatmentImage} alt="Med spa facial treatment" class="aspect-[4/5] rounded-xl object-cover shadow-2xl" />
+            <div class="space-y-4 sm:pt-12">
+              <Image src={maskTreatmentImage} alt="Aesthetic facial mask treatment" class="aspect-[4/5] rounded-xl object-cover shadow-2xl" />
+              <div class="rounded-xl border border-white/15 bg-white/10 p-5 backdrop-blur">
+                <p class="text-sm font-bold uppercase tracking-wider text-cyan-100">Done-for-you growth</p>
+                <p class="mt-2 text-2xl font-bold">Stay in the treatment room. We fill the calendar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="bg-white py-16 md:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">The Team Riley System</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">Our System for a Fully Booked Spa</h2>
+          </div>
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {systemSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <article class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                  <div class="flex items-center gap-4">
+                    <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-700 text-white">
+                      <Icon class="h-5 w-5" />
+                    </span>
+                    <p class="text-sm font-bold uppercase tracking-wider text-primary-700">Step {index + 1}</p>
+                  </div>
+                  <h3 class="mt-5 text-xl font-bold text-slate-950">{step.title}</h3>
+                  <p class="mt-3 leading-relaxed text-slate-600">{step.copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-slate-100 py-16 md:py-20">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+          <Image src={facialTreatmentImage} alt="Med spa provider treating a client" class="aspect-[5/4] w-full rounded-xl object-cover shadow-xl" />
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">The Kind of Days You Actually Want</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">Imagine This Monday Morning.</h2>
+            <div class="mt-6 space-y-4 text-lg leading-relaxed text-slate-700">
+              <p>New client inquiries came in over the weekend - and three already booked online.</p>
+              <p>Your Instagram is active, on-brand, and building trust while you sleep. Your Google listing shows you at the top when someone searches "med spa near me."</p>
+              <p>5-star reviews are coming in consistently. Your website looks like the premium spa you've spent years building.</p>
+              <p class="font-semibold text-slate-950">Your calendar is full. And you didn't touch your phone once to make it happen.</p>
+              <p>This isn't a dream. Our med spa clients are already living it.</p>
+            </div>
+            <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary mt-8">
+              Get Started
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="bg-white py-16 md:py-20">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-8">
+          <Image src={founderImage} alt="Joshua Riley, founder of Team Riley" class="max-h-[620px] w-full rounded-xl object-cover object-top shadow-xl" />
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">Meet the Founder</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">Hi, I'm Joshua.</h2>
+            <div class="mt-6 space-y-4 text-lg leading-relaxed text-slate-700">
+              <p>I built Team Riley because med spa owners deserve better than a generic agency that doesn't know the difference between a filler and a facial.</p>
+              <p>I've worked exclusively with health and wellness businesses long enough to know exactly what holds a talented injector back from a fully booked calendar - and it's never the quality of their work. It's always the digital presence.</p>
+              <p class="text-2xl font-bold text-slate-950">You focus on your clients. We fill your calendar.</p>
+            </div>
+            <p class="mt-6 font-bold text-primary-800">- Joshua, Founder of Team Riley</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-slate-950 py-16 text-white md:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl">
+            <p class="text-sm font-bold uppercase tracking-wider text-cyan-200">Marketing Solutions for Every Stage</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight md:text-5xl">Whether You're Growing or Dominating - We Have a Plan for You.</h2>
+          </div>
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            {stagePlans.map((plan) => (
+              <article class:list={[
+                'rounded-xl border p-6',
+                plan.featured ? 'border-amber-300 bg-white text-slate-950 shadow-xl' : 'border-white/15 bg-white/[0.08]',
+              ]}>
+                {plan.featured && (
+                  <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-300 px-3 py-1 text-sm font-bold text-amber-950">
+                    <Star class="h-4 w-4 fill-current" />
+                    Most Popular
+                  </div>
+                )}
+                <h3 class="text-2xl font-bold">{plan.name}</h3>
+                <p class:list={['mt-3 font-semibold', plan.featured ? 'text-primary-800' : 'text-cyan-100']}>{plan.fit}</p>
+                <p class:list={['mt-4 leading-relaxed', plan.featured ? 'text-slate-700' : 'text-slate-300']}>{plan.copy}</p>
+              </article>
+            ))}
+          </div>
+          <a href="/#book-a-call" data-booking-modal-open class="btn btn-secondary mt-8">
+            Get Started
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
+      <section class="bg-white py-16 md:py-20">
+        <div class="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">New Technology</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">Never Miss Another Booking.</h2>
+            <p class="mt-5 text-lg leading-relaxed text-slate-700">
+              Built for med spa owners who are busy in the treatment room - not watching their inbox.
+            </p>
+            <a href="/platform" class="btn btn-outline mt-8">
+              Learn More
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {aiFeatures.map(([title, copy], index) => {
+              const icons = [Bot, MessageSquareText, Inbox, Sparkles];
+              const Icon = icons[index];
+              return (
+                <article class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                  <Icon class="h-7 w-7 text-primary-700" />
+                  <h3 class="mt-4 text-lg font-bold text-slate-950">{title}</h3>
+                  <p class="mt-2 leading-relaxed text-slate-600">{copy}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-slate-100 py-16 md:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">If You Can Relate - We Can Help</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">Sound Like You?</h2>
+            <p class="mt-5 text-lg leading-relaxed text-slate-700">If you're nodding - you're in the right place.</p>
+            <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary mt-8">
+              Get Started
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </div>
+          <ul class="space-y-3">
+            {relateItems.map((item) => (
+              <li class="flex gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-700" />
+                <span class="font-medium leading-relaxed text-slate-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="pricing" class="bg-white py-16 md:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <p class="text-sm font-bold uppercase tracking-wider text-primary-700">A Solution Built for the Aesthetics Industry</p>
+            <h2 class="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">The Patient Flow System</h2>
+            <p class="mt-5 text-lg leading-relaxed text-slate-700">
+              We give you the professional marketing help you need, the AI technology you've been missing, and a team that understands your world. Every plan runs on the same proven framework.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            {pricingPlans.map((plan) => (
+              <article class:list={[
+                'relative rounded-xl border p-6 shadow-soft',
+                plan.featured ? 'border-accent-400 bg-primary-50 ring-2 ring-accent-200' : 'border-slate-200 bg-white',
+              ]}>
+                {plan.featured && (
+                  <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-300 px-3 py-1 text-sm font-bold text-amber-950">
+                    <Star class="h-4 w-4 fill-current" />
+                    Most Popular
+                  </div>
+                )}
+                <h3 class="text-2xl font-bold uppercase tracking-wide text-slate-950">{plan.name}</h3>
+                <div class="mt-4 flex items-end gap-2">
+                  <span class="text-5xl font-bold text-slate-950">{plan.price}</span>
+                  <span class="pb-2 font-semibold text-slate-600">/month</span>
+                </div>
+                <p class="mt-4 min-h-[4rem] font-semibold leading-relaxed text-slate-700">{plan.summary}</p>
+                <ul class="mt-6 space-y-3">
+                  {plan.features.map((feature) => (
+                    <li class="flex gap-3 text-slate-700">
+                      <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-700" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href="/#book-a-call" data-booking-modal-open class:list={['btn mt-7 w-full', plan.featured ? 'btn-secondary' : 'btn-primary']}>
+                  Get Started
+                  <ArrowRight class="h-4 w-4" />
+                </a>
+              </article>
+            ))}
+          </div>
+          <p class="mt-8 text-center font-semibold text-slate-700">
+            All plans include unlimited updates. You keep everything if you ever cancel. No long-term contracts.
+          </p>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden bg-slate-950 py-16 text-white md:py-20">
+        <Image src={maskTreatmentImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" aria-hidden="true" />
+        <div class="absolute inset-0 bg-slate-950/85"></div>
+        <div class="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+          <Search class="mx-auto h-10 w-10 text-cyan-200" />
+          <h2 class="mt-5 text-4xl font-bold leading-tight md:text-6xl">Your Clients Are Searching for You Right Now.</h2>
+          <div class="mx-auto mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-slate-200">
+            <p>Every day without a professional digital presence is another booking going to the spa down the street. Let's change that.</p>
+            <p>Book a free discovery call. We'll look at your current digital presence, identify what's holding your calendar back, and show you exactly what's possible in 90 days. No pressure. No pitch. Just a plan.</p>
+          </div>
+          <a href="/#book-a-call" data-booking-modal-open class="btn btn-secondary btn-xl mt-9 rounded-xl">
+            Get Started
+            <ArrowRight class="h-5 w-5" />
+          </a>
+          <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm font-semibold text-cyan-50">
+            <span class="rounded-full bg-white/10 px-4 py-2">Free discovery call</span>
+            <span class="rounded-full bg-white/10 px-4 py-2">No commitment required</span>
+            <span class="rounded-full bg-white/10 px-4 py-2">Built exclusively for med spas</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-white py-10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 text-slate-600 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-5 border-b border-slate-200 pb-8 md:flex-row md:items-center">
+          <div>
+            <p class="text-xl font-bold text-slate-950">Team Riley</p>
+            <p class="mt-1 font-semibold">Digital Health For Your Business</p>
+          </div>
+          <div class="flex flex-wrap gap-x-6 gap-y-3 font-semibold">
+            <a href="/services" class="hover:text-primary-700">Services</a>
+            <a href="#pricing" class="hover:text-primary-700">Pricing</a>
+            <a href="#about" class="hover:text-primary-700">About</a>
+            <a href="/contact" class="hover:text-primary-700">Contact</a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <span>Med Spas</span>
+            <span>Chiropractic</span>
+            <span>Functional Medicine</span>
+            <span>Wellness Studios</span>
+            <span>Private Practice</span>
+          </div>
+          <a href="https://teamrileyweb.com" class="text-sm font-bold text-primary-700">teamrileyweb.com</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
