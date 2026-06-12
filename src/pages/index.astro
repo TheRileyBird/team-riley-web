@@ -22,27 +22,34 @@ import graceSite from '../assets/sites/grace.png';
   <Navigation />
 
   <!-- Hero Section -->
-  <section class="relative min-h-[760px] overflow-hidden bg-slate-50 pt-28 pb-24 md:pt-36 md:pb-32">
-    <ShaderBackground />
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
+  <section class="relative min-h-[680px] overflow-hidden bg-white pt-28 pb-20 md:min-h-[760px] md:pt-36 md:pb-32 lg:bg-slate-50">
+    <div class="hidden lg:block">
+      <ShaderBackground />
+    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.92)_42%,rgba(219,234,254,0.6)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_34%,rgba(219,234,254,0.74)_70%,rgba(196,181,253,0.5)_100%)] lg:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
+    <div class="absolute -left-36 top-12 hidden h-96 w-96 rounded-full bg-primary-300/45 blur-3xl md:block lg:hidden"></div>
+    <div class="absolute -right-36 bottom-0 hidden h-[28rem] w-[28rem] rounded-full bg-secondary-300/35 blur-3xl md:block lg:hidden"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(135deg,rgba(219,234,254,0.88),rgba(255,255,255,0.7)_48%,rgba(207,250,254,0.6))] md:hidden"></div>
+    <div class="absolute -left-20 top-28 h-56 w-56 rounded-full bg-primary-200/45 blur-3xl md:hidden"></div>
+    <div class="absolute -right-24 bottom-16 h-64 w-64 rounded-full bg-accent-200/55 blur-3xl md:hidden"></div>
     <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-gray-100"></div>
     <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-t from-transparent to-white"></div>
 
-    <div class="relative z-10 mx-auto flex min-h-[560px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-      <div class="inline-flex items-center rounded-full border border-primary-200 bg-white/80 px-4 py-2 shadow-soft backdrop-blur-md">
-        <span class="text-sm font-semibold uppercase text-primary-800">Doctors • Medical Clinic Owners • Health Practioners</span>
+    <div class="relative z-10 mx-auto flex min-h-[520px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 md:min-h-[560px] lg:px-8">
+      <div class="inline-flex max-w-[22rem] items-center rounded-full border border-primary-200 bg-white/90 px-4 py-2 shadow-soft backdrop-blur-md sm:max-w-none">
+        <span class="text-xs font-semibold uppercase leading-snug text-primary-800 sm:text-sm">Digital Health For Your Business</span>
       </div>
 
-      <h1 class="mt-8 text-5xl uppercase font-bold leading-tight text-gray-950 md:text-6xl lg:text-8xl">
+      <h1 class="mt-7 text-6xl uppercase font-bold text-gray-950 md:mt-8 md:text-6xl lg:text-8xl">
         <span>Do you want </span>
-        <span class="animated-gradient-text">more clients?</span><br>
+        <span class="animated-gradient-text block md:inline">more clients?</span>
       </h1>
 
-      <p class="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-slate-700 md:text-xl">
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-700 md:mt-6 md:text-xl">
         Scale your revenue with a world-class online presence, patient acquisition, automated marketing, and unlimited updates.
       </p>
 
-      <div class="mt-10 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row">
+      <div class="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row md:mt-10 md:gap-4">
         <a href="/portfolio" class="btn btn-primary btn-lg">
           View Our Work
           <ArrowRight class="w-5 h-5" />

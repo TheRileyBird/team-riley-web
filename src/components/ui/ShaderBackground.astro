@@ -219,7 +219,16 @@
     .forEach((canvas) => {
       if (canvas.dataset.shaderReady) return;
 
-      canvas.dataset.shaderReady = 'true';
-      startShaderBackground(canvas);
+      const desktopMedia = window.matchMedia('(min-width: 1024px)');
+      const startWhenVisible = () => {
+        if (canvas.dataset.shaderReady || !desktopMedia.matches) return;
+
+        canvas.dataset.shaderReady = 'true';
+        startShaderBackground(canvas);
+        desktopMedia.removeEventListener('change', startWhenVisible);
+      };
+
+      startWhenVisible();
+      desktopMedia.addEventListener('change', startWhenVisible);
     });
 </script>
