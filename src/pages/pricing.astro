@@ -6,6 +6,538 @@ import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from '../components/PricingSection.astro';
 import ServiceColumnSection from '../components/ServiceColumnSection.astro';
 import Footer from '../components/Footer.astro';
+
+const faqSections = [
+  {
+    title: 'General',
+    items: [
+      {
+        question: 'What types of businesses does Team Riley work with?',
+        answer: [
+          'Team Riley provides website design, development, management, and digital marketing services for established businesses, professional service providers, healthcare and wellness practices, local businesses, e-commerce brands, and growing organizations.',
+          'Although we have particular experience with health, wellness, medical, and service-based businesses, our approach can be adapted to businesses across a wide range of industries.'
+        ]
+      },
+      {
+        question: 'When is the best time to build a professional website?',
+        answer: [
+          'The best time to build a professional website is when your current digital presence no longer reflects the quality of your business.',
+          'That may be when you are launching a new company, expanding your services, entering a new market, refreshing your brand, or realizing that your current website is costing you credibility and opportunities.',
+          'A strong website helps establish trust, explain your value, and give prospective customers a clear next step.'
+        ]
+      },
+      {
+        question: 'Why does professional web design matter?',
+        answer: [
+          'Your website is often one of the first places a potential customer evaluates your business.',
+          'A professionally designed website helps communicate credibility, expertise, stability, and attention to detail. It should also make it easy for visitors to understand what you offer, who you help, and how to contact or purchase from you.',
+          'Good web design is not simply about making a site attractive. It should support your business goals and help move visitors toward action.'
+        ]
+      },
+      {
+        question: 'What sets Team Riley apart from other web design companies?',
+        answer: [
+          'Team Riley provides a managed website service rather than handing you a website and disappearing.',
+          'We combine professional design, clear messaging, modern technology, ongoing maintenance, and responsive support. Our goal is to become a long-term digital partner who keeps your website accurate, healthy, and aligned with your business.',
+          'Instead of forcing your business into a generic template, we design around your brand, services, customers, and goals.'
+        ]
+      },
+      {
+        question: 'How do I know whether my website needs to be redesigned?',
+        answer: [
+          'It may be time for a redesign when:',
+          [
+            'The website looks outdated',
+            'It does not work well on mobile devices',
+            'Visitors have difficulty finding important information',
+            'Your branding, team, or services have changed',
+            'The website is slow or unreliable',
+            'You are embarrassed to send people to it',
+            'It does not generate calls, inquiries, appointments, or sales',
+            'Your online presence no longer reflects the quality of your work'
+          ],
+          'A website should grow with your business rather than quietly holding it back.'
+        ]
+      },
+      {
+        question: 'Do you use website templates?',
+        answer: [
+          'We may use proven systems and development frameworks to create websites efficiently, but each Team Riley website is customized for the individual business.',
+          'Your branding, layout, messaging, imagery, services, calls to action, and customer journey are developed around your specific needs. You will not receive a generic website with your logo placed on top.'
+        ]
+      },
+      {
+        question: 'Are Team Riley websites mobile-friendly?',
+        answer: [
+          'Yes. Every website we create is designed to work across smartphones, tablets, laptops, and desktop computers.',
+          'Mobile responsiveness is essential because many potential customers will first encounter your business from a phone. Your website should remain clear, professional, and easy to use regardless of screen size.'
+        ]
+      },
+      {
+        question: 'What should a business website include?',
+        answer: [
+          'The exact features depend on the business, but most effective websites should include:',
+          [
+            'Clear navigation',
+            'A strong explanation of what the business offers',
+            'Calls to action',
+            'Contact information',
+            'Service or product pages',
+            'Trust-building information',
+            'Customer testimonials or case studies',
+            'Professional photography or imagery',
+            'Frequently asked questions',
+            'Contact, booking, or inquiry forms'
+          ],
+          'The purpose of each feature is to help visitors understand your business, trust your company, and take the next step.'
+        ]
+      },
+      {
+        question: 'Can Team Riley help with search engine optimization?',
+        answer: [
+          'Yes. Every Team Riley website is built with a strong technical foundation for search engines and AI-powered search tools.',
+          'This may include:',
+          [
+            'Fast-loading pages',
+            'Mobile-responsive development',
+            'Clear page structure',
+            'Image optimization',
+            'Image alt text',
+            'Page titles and meta descriptions',
+            'Search-friendly website copy',
+            'Proper heading structure',
+            'Search engine indexing setup'
+          ],
+          'Ongoing SEO, local search strategy, content development, and more proactive campaigns may be available as additional services.'
+        ]
+      },
+      {
+        question: 'What kind of content should my website include?',
+        answer: [
+          'Your website should answer the questions a prospective customer is already asking:',
+          ['What do you do?', 'Who do you help?', 'What makes you different?', 'Can I trust you?', 'What does the process look like?', 'What should I do next?'],
+          'Depending on your business, useful content may include service pages, case studies, customer testimonials, videos, educational articles, guides, project galleries, team profiles, product information, and frequently asked questions.'
+        ]
+      },
+      {
+        question: 'How can my website turn visitors into leads?',
+        answer: [
+          'A website generates more leads when it gives visitors a clear and compelling path forward.',
+          'That may include:',
+          [
+            'Prominent calls to action',
+            'Simple contact forms',
+            'Appointment booking',
+            'Quote request forms',
+            'Free guides or downloadable resources',
+            'Email or text follow-up',
+            'Strong testimonials',
+            'Clear descriptions of your services',
+            'Multiple ways to contact your business'
+          ],
+          'The website should not leave visitors wondering what to do next.'
+        ]
+      },
+      {
+        question: 'What does the monthly website fee include?',
+        answer: [
+          'Team Riley\'s website program is a managed service, not simply a website hosting platform.',
+          'Depending on your plan, the monthly service may include:',
+          [
+            'Website hosting',
+            'Security updates',
+            'Software updates',
+            'Routine backups',
+            'Website monitoring',
+            'Technical maintenance',
+            'Content edits',
+            'Image replacements',
+            'Team and staff updates',
+            'Service or product updates',
+            'Ongoing technical support'
+          ],
+          'The goal is to remove the burden of managing the website yourself.'
+        ]
+      },
+      {
+        question: 'What does "unlimited updates" mean?',
+        answer: [
+          'Unlimited updates are intended for reasonable, routine changes to the existing website.',
+          'Examples may include updating text, replacing images, changing staff information, adding announcements, revising services, updating hours, and making similar ongoing changes.',
+          'Large redesigns, new applications, major functionality, extensive new sections, full rebranding projects, or substantial expansions may require a separate proposal.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Website Features',
+    items: [
+      {
+        question: 'What website platform does Team Riley use?',
+        answer: [
+          'Team Riley selects the platform and technology based on the needs of the project.',
+          'Depending on the business, this may include WordPress, Shopify, custom development, or another suitable content management system. We do not force every business into the same platform.',
+          'Our priorities are performance, security, usability, flexibility, and long-term maintainability.'
+        ]
+      },
+      {
+        question: 'What SEO features are included in a website build?',
+        answer: [
+          'Standard website builds may include:',
+          [
+            'A modern, fast-loading codebase',
+            'Mobile-responsive design',
+            'Image compression and optimization',
+            'Image alt tags',
+            'Search-focused copy for core pages',
+            'Page titles and meta descriptions',
+            'Proper heading structures',
+            'XML sitemap configuration',
+            'Search engine indexing submission',
+            'Basic analytics and tracking setup'
+          ],
+          'These features establish a sound foundation. They do not guarantee a particular search ranking, since rankings depend on competition, content, authority, location, and many other factors.'
+        ]
+      },
+      {
+        question: 'Is copywriting included?',
+        answer: [
+          'Copywriting depends on the selected package and scope of work.',
+          'Team Riley can help write or refine content for core pages such as:',
+          ['Home', 'About', 'Services', 'Products', 'Frequently Asked Questions', 'Contact'],
+          'We work to make the writing clear, specific, customer-focused, and aligned with the voice of your business.'
+        ]
+      },
+      {
+        question: 'How do you make sure the website copy sounds like my business?',
+        answer: [
+          'We begin by learning about your company, customers, services, values, differentiators, and goals.',
+          'We may use questionnaires, existing materials, interviews, notes, brochures, and customer feedback to shape the content. We then refine the writing so it sounds credible and appropriate for your brand rather than generic or disconnected.'
+        ]
+      },
+      {
+        question: 'Are website backups included?',
+        answer: [
+          'Yes. Managed Team Riley websites include routine backups so the website can be restored if a technical issue occurs.',
+          'The backup schedule and retention period may vary depending on the platform and hosting environment.'
+        ]
+      },
+      {
+        question: 'Do you provide secure website hosting?',
+        answer: [
+          'Yes. Hosting is included with our managed website plans unless another arrangement is specified.',
+          'We use professional hosting solutions selected for reliability, security, speed, and compatibility with the website.'
+        ]
+      },
+      {
+        question: 'Can I edit the website myself?',
+        answer: [
+          'In many cases, yes. Your ability to edit the website will depend on the platform and the structure of the project.',
+          'However, one of the primary benefits of Team Riley\'s managed service is that you do not have to make routine changes yourself. You can send updates to our team and allow us to handle them for you.'
+        ]
+      },
+      {
+        question: 'Can you connect my website to other business tools?',
+        answer: [
+          'Yes. Depending on compatibility, we can help integrate websites with tools such as:',
+          [
+            'Customer relationship management systems',
+            'Email marketing platforms',
+            'Appointment scheduling systems',
+            'Payment processors',
+            'E-commerce systems',
+            'Social media accounts',
+            'Analytics platforms',
+            'Online forms',
+            'Automation systems',
+            'GoHighLevel',
+            'Shopify',
+            'Stripe',
+            'Third-party applications'
+          ],
+          'Some advanced integrations may require an additional scope and fee.'
+        ]
+      },
+      {
+        question: 'Can you build e-commerce websites?',
+        answer: [
+          'Yes. Team Riley can build and manage e-commerce websites for businesses selling physical or digital products.',
+          'Services may include product setup, collection organization, storefront design, checkout configuration, payment integration, and ongoing website support.',
+          'The exact scope depends on the number of products, required functionality, and the e-commerce platform.'
+        ]
+      },
+      {
+        question: 'Can you add appointment booking or online forms?',
+        answer: [
+          'Yes. We can add contact forms, quote request forms, intake forms, appointment scheduling, consultation requests, and other conversion tools.',
+          'We will recommend the most appropriate setup based on your workflow and the systems you already use.'
+        ]
+      },
+      {
+        question: 'Can you help with accessibility?',
+        answer: [
+          'We follow modern web design practices intended to make websites easier to use for a broad range of visitors.',
+          'This may include readable typography, clear navigation, image alt text, appropriate page structure, keyboard-friendly components, and sufficient visual contrast.',
+          'No automated platform or website provider can guarantee complete legal compliance in every situation. Businesses with specific accessibility obligations should consult a qualified accessibility or legal professional.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Design and Development Process',
+    items: [
+      {
+        question: 'How long does it take to build a website?',
+        answer: [
+          'The timeline depends on the size and complexity of the project, how quickly content is provided, and how many revisions are required.',
+          'A smaller website may be completed within several weeks. Larger websites, e-commerce projects, custom integrations, and content-heavy projects may require additional time.',
+          'Consistent communication and timely feedback help keep the project moving.'
+        ]
+      },
+      {
+        question: 'What does the website process look like?',
+        answer: [
+          'A typical Team Riley website project includes:',
+          [
+            'Discovery and planning',
+            'Collection of branding, content, photography, and account access',
+            'Website structure and messaging',
+            'Design and development',
+            'Client review',
+            'Revisions',
+            'Technical testing',
+            'Launch',
+            'Ongoing hosting, maintenance, and updates'
+          ],
+          'The exact process may vary depending on the project.'
+        ]
+      },
+      {
+        question: 'What do you need from me to get started?',
+        answer: [
+          'We may request:',
+          [
+            'Logo and brand files',
+            'Existing website access',
+            'Domain registrar access',
+            'Photography',
+            'Service or product information',
+            'Team biographies',
+            'Testimonials',
+            'Social media links',
+            'Contact information',
+            'Examples of websites you like',
+            'Existing brochures or marketing materials',
+            'Access to booking, CRM, email, or payment systems'
+          ],
+          'We will provide a clear list based on your specific project.'
+        ]
+      },
+      {
+        question: 'Can I request revisions?',
+        answer: [
+          'Yes. Revisions are a normal part of the design process.',
+          'You will have opportunities to review the website and provide organized feedback. The number and type of included revision rounds may depend on the project agreement.'
+        ]
+      },
+      {
+        question: 'What happens if I am delayed in providing content or feedback?',
+        answer: [
+          'We understand that business owners have competing priorities.',
+          'If content, approvals, access, or feedback are delayed, the project timeline may need to be adjusted. We will communicate with you and resume progress once the required materials are available.',
+          'Extended inactivity may result in the project being rescheduled around other active client work.'
+        ]
+      },
+      {
+        question: 'Can I provide my own website copy?',
+        answer: [
+          'Yes. You may provide your own content, use content from your existing website, or work with Team Riley to develop new copy.',
+          'We may recommend editing supplied content for clarity, consistency, search visibility, or conversion.'
+        ]
+      },
+      {
+        question: 'Can I provide my own photography?',
+        answer: [
+          'Yes. Professional, authentic images of your business, team, products, work, or location are often the best choice.',
+          'We can also help source licensed stock imagery or provide guidance for a professional photo session.'
+        ]
+      },
+      {
+        question: 'Will you transfer content from my existing website?',
+        answer: [
+          'Yes. Content migration can be included in the project scope.',
+          'The time and cost depend on the number of pages, posts, products, images, files, and other materials being transferred.'
+        ]
+      },
+      {
+        question: 'Will my website experience downtime during launch?',
+        answer: [
+          'We plan launches carefully to minimize disruption.',
+          'In most cases, the new website can be prepared and tested before the domain is redirected. Some brief propagation or transition time may occur depending on the domain, hosting, email, and technical setup.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Support and Ongoing Management',
+    items: [
+      {
+        question: 'What kind of support does Team Riley provide?',
+        answer: [
+          'Team Riley provides ongoing support for managed website clients.',
+          'Support may include:',
+          [
+            'Troubleshooting technical issues',
+            'Updating content',
+            'Replacing images',
+            'Updating team information',
+            'Publishing new pages or posts',
+            'Monitoring website performance',
+            'Maintaining software',
+            'Coordinating with third-party providers',
+            'Answering website-related questions'
+          ],
+          'Support is provided according to the client\'s plan and service agreement.'
+        ]
+      },
+      {
+        question: 'How do I request website updates?',
+        answer: [
+          'You can send your requested changes to Team Riley through the designated support channel.',
+          'Whenever possible, include:',
+          [
+            'The page that needs to be changed',
+            'The exact text to add or replace',
+            'Any new images or files',
+            'A clear explanation of the desired result'
+          ],
+          'Clear, organized requests help us complete updates more efficiently.'
+        ]
+      },
+      {
+        question: 'How quickly are update requests completed?',
+        answer: [
+          'Routine updates are typically completed as soon as reasonably possible based on urgency, complexity, and the current support queue.',
+          'Simple edits are generally faster than requests involving design changes, new pages, integrations, or custom development.'
+        ]
+      },
+      {
+        question: 'Do you monitor the website after it launches?',
+        answer: [
+          'Yes. Managed websites receive ongoing monitoring, maintenance, updates, and backups according to the service plan.',
+          'A website is a living business asset. It should be maintained rather than ignored after launch.'
+        ]
+      },
+      {
+        question: 'Can Team Riley manage my website if someone else built it?',
+        answer: [
+          'Possibly. We will first need to evaluate the website, platform, hosting, software, code quality, and existing technical condition.',
+          'In some cases, we can take over management. In others, rebuilding or migrating the website may be the safer and more cost-effective option.'
+        ]
+      },
+      {
+        question: 'Can you work with my existing marketing team?',
+        answer: [
+          'Yes. Team Riley can collaborate with internal staff, photographers, copywriters, advertising agencies, SEO providers, social media managers, and other partners.',
+          'We aim to make the website a useful part of the larger marketing system rather than an isolated asset.'
+        ]
+      },
+      {
+        question: 'Do you offer services beyond website design?',
+        answer: [
+          'Yes. Depending on the needs of the business, Team Riley may provide or coordinate services such as:',
+          [
+            'Website management',
+            'E-commerce management',
+            'Landing pages',
+            'Search engine optimization',
+            'Local search optimization',
+            'Social media content',
+            'Digital advertising',
+            'Email marketing',
+            'CRM setup',
+            'Marketing automation',
+            'Lead generation systems',
+            'Branding and graphic design',
+            'Conversion strategy',
+            'Online booking and payment systems'
+          ],
+          'Services may be purchased individually or combined into a broader marketing plan.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Ownership, Billing, and Cancellation',
+    items: [
+      {
+        question: 'Do I own my domain name?',
+        answer: [
+          'Your domain should be registered in your business\'s name whenever possible.',
+          'Team Riley may help manage or configure the domain, but the business owner should retain ownership and access to the domain registration account.'
+        ]
+      },
+      {
+        question: 'Who owns the website?',
+        answer: [
+          'Website ownership and licensing depend on the service agreement and the type of project purchased.',
+          'Some Team Riley services operate as an ongoing website subscription that includes design, hosting, maintenance, software, and support. Other projects may include different ownership or transfer terms.',
+          'These details will be clearly stated in your agreement before work begins.'
+        ]
+      },
+      {
+        question: 'Is there a setup fee?',
+        answer: [
+          'Some website plans include an initial setup fee to cover discovery, design, development, content preparation, configuration, and launch.',
+          'The amount depends on the size and requirements of the project.'
+        ]
+      },
+      {
+        question: 'Are there long-term contracts?',
+        answer: [
+          'Contract terms depend on the selected service.',
+          'Any minimum term, cancellation requirement, transfer option, or early termination provision will be stated clearly in the service agreement.'
+        ]
+      },
+      {
+        question: 'What happens if I cancel my website service?',
+        answer: [
+          'The cancellation process depends on the terms of your agreement.',
+          'Because Team Riley\'s subscription service may include ongoing use of hosting, software, design systems, maintenance, and support, cancellation does not necessarily include an automatic transfer of the complete website.',
+          'Available transfer or buyout options, if applicable, will be explained in the agreement.'
+        ]
+      },
+      {
+        question: 'Are third-party fees included?',
+        answer: [
+          'Third-party services are not always included in the Team Riley monthly fee.',
+          'Examples may include:',
+          [
+            'Domain registration',
+            'Premium software licenses',
+            'Appointment scheduling platforms',
+            'CRM subscriptions',
+            'Email marketing software',
+            'Payment processing fees',
+            'E-commerce platform fees',
+            'Stock photography',
+            'Advertising budgets',
+            'Specialized integrations'
+          ],
+          'We will identify known third-party costs before implementing them whenever possible.'
+        ]
+      },
+      {
+        question: 'Does Team Riley guarantee leads, sales, or search rankings?',
+        answer: [
+          'No ethical website or marketing provider can guarantee a specific number of leads, sales, appointments, or search rankings.',
+          'Results depend on many factors, including the strength of the offer, competition, reputation, pricing, market demand, advertising budget, sales process, customer service, location, and business operations.',
+          'Team Riley\'s role is to build and improve the digital systems that support visibility, credibility, customer experience, and growth.'
+        ]
+      }
+    ]
+  }
+];
 ---
 
 <BaseLayout title="Pricing - Team Riley" description="Simple, transparent pricing for professional web design and development services">
@@ -451,136 +983,39 @@ import Footer from '../components/Footer.astro';
         subtitle="Everything you need to know about our pricing and services"
       />
 
-      <div class="space-y-6">
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            What's included in "Unlimited Updates"?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Unlimited updates means you can request as many changes to your website as you need—content updates, image changes, new pages, feature additions, and more. There are no hourly rates and no surprise bills.
-          </p>
-        </details>
+      <div class="space-y-8">
+        {faqSections.map((section) => (
+          <div class="rounded-2xl border border-gray-200/80 bg-white/90 p-5 shadow-soft sm:p-6">
+            <div class="mb-2 flex items-center gap-3">
+              <span class="h-px w-8 bg-gradient-to-r from-primary-600 to-accent-500"></span>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-primary-700">{section.title}</h3>
+            </div>
 
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Can I upgrade or downgrade my plan?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Yes! You can upgrade or downgrade your plan at any time. The change will take effect on your next billing cycle.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            What happens if I cancel?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            You can cancel anytime with no penalties. Your site will remain live until the end of your billing period, and you'll own all the content you created.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Do you offer custom quotes?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Yes! If you need more than 15 pages or have specific requirements, contact us for a custom quote tailored to your needs.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            How long does it take to launch?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Most sites launch within 2 weeks. We'll work with you to create a timeline that fits your needs and goals.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            What do I pay when I sign up?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            When you sign up, you'll pay a one-time $500 setup fee plus a prorated charge for the remainder of your first month based on your chosen plan. After that, you're billed monthly on the 1st of each month.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Are there any hidden fees or extra costs?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            No hidden fees. Your monthly subscription includes professional hosting, SSL security, regular backups, and unlimited updates. The only additional cost is your domain name registration, which you maintain separately (typically $10-20/year).
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Do I own my website if I cancel?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Yes, you own everything. All content, images, HTML files, CSS, and JavaScript are 100% yours. If you ever cancel, we'll provide a complete export of your website files that you can take to any other hosting provider.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Is there a long-term contract?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            No long-term contracts. Our service is month-to-month, and you can cancel anytime with no penalties. We believe in earning your business every month, not locking you in.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            How fast are update requests completed?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Most updates are completed within 1-2 business days, and simple changes often within hours. For larger requests, we'll give you a timeline upfront so you know what to expect.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Can I use my own domain name?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Yes, you can keep and use your existing domain name. We recommend you maintain ownership of your domain in your own registrar account for maximum control.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            Is this a template or custom design?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            Every website we create is 100% custom designed. We don't use templates—your site will be uniquely crafted to reflect your brand identity and business goals.
-          </p>
-        </details>
-
-        <details class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-600 transition-colors">
-          <summary class="cursor-pointer font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
-            What if I don't like the design?
-            <span class="text-primary-600 group-open:rotate-45 transition-transform">+</span>
-          </summary>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            We work closely with you throughout the design process to ensure you love the result. Revisions are included, and we won't launch until you're completely satisfied with your site.
-          </p>
-        </details>
+            <div class="divide-y divide-gray-200">
+              {section.items.map((item) => (
+                <details class="group">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold text-gray-900 transition-colors hover:text-primary-700">
+                    <span>{item.question}</span>
+                    <span class="shrink-0 text-lg leading-none text-primary-600 transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <div class="pb-5 text-sm leading-relaxed text-gray-700 sm:text-base">
+                    {item.answer.map((block) => (
+                      Array.isArray(block) ? (
+                        <ul class="my-3 grid gap-2 pl-5 sm:grid-cols-2">
+                          {block.map((listItem) => (
+                            <li class="list-disc">{listItem}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p class="mt-3 first:mt-0">{block}</p>
+                      )
+                    ))}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
