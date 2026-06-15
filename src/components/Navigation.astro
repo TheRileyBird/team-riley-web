@@ -1,5 +1,7 @@
 ---
 import {ArrowRight, Menu, X} from '@lucide/astro';
+import { Image } from 'astro:assets';
+import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
 
 const currentPath = Astro.url.pathname;
 
@@ -28,11 +30,7 @@ const isActive = (path: string) => {
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent-500 rounded-xl flex items-center justify-center shadow-md">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7V2z"/>
-            </svg>
-          </div>
+          <Image src={teamRileyLogo} alt="Team Riley logo" class="h-10 w-10 rounded-xl object-contain shadow-md" />
           <span class="text-xl font-bold animated-gradient-text">Team Riley</span>
         </a>
       </div>
