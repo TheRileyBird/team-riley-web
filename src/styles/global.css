@@ -107,10 +107,21 @@
   justify-content: center;
   gap: 0.5rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s ease,
+              filter 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
+}
+
+/* Accessible focus ring for every button */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.45);
 }
 
 /* Shine Effect for all buttons */
@@ -144,34 +155,49 @@
   border-radius: 0.75rem;
   padding: 0.875rem 2rem;
   font-size: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.16),
+              0 6px 16px -4px rgba(30, 64, 175, 0.38);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  filter: saturate(1.08) brightness(1.05);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.18),
+              0 14px 28px -6px rgba(30, 64, 175, 0.48);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  filter: saturate(1) brightness(0.98);
 }
 
 /* Secondary Button - White with border */
 .btn-secondary {
   background: white;
   color: #1e40af;
-  border: 2px solid #cbd5e1;
+  border: 1.5px solid #cbd5e1;
   border-radius: 0.75rem;
   padding: 0.875rem 2rem;
   font-size: 1rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
 }
 
 .btn-secondary:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  border-color: #93c5fd;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08),
+              0 12px 24px -8px rgba(30, 64, 175, 0.25);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
 /* Outline Button - Transparent with border */
 .btn-outline {
   background: transparent;
   color: #1e40af;
-  border: 2px solid #cbd5e1;
+  border: 1.5px solid #cbd5e1;
   border-radius: 0.75rem;
   padding: 0.875rem 2rem;
   font-size: 1rem;
@@ -179,7 +205,12 @@
 
 .btn-outline:hover {
   background: rgba(30, 64, 175, 0.05);
-  transform: scale(1.05);
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
 }
 
 /* Custom shine effect for outline buttons - light gray */
@@ -532,4 +563,55 @@
 /* Hide default details marker for FAQ sections */
 details summary::-webkit-details-marker {
   display: none;
+}
+
+/* ---- Typographic polish ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tighten + balance large display headings so multi-line titles
+   break evenly and read as one confident block, not a ransom note. */
+h1, h2 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h3, h4 {
+  letter-spacing: -0.01em;
+}
+
+/* Calmer measure + nicer breaks for long-form paragraphs */
+p {
+  text-wrap: pretty;
+}
+
+/* Keep the animated gradient text crisp during repaint */
+.animated-gradient-text {
+  letter-spacing: -0.02em;
+  will-change: background-position;
+}
+
+/* Respect reduced-motion: freeze the decorative loops */
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient-text,
+  .animated-gradient-bg,
+  .hero-gradient-overlay,
+  .aurora-light-section::before,
+  .shimmer-overlay,
+  .shimmer-overlay-gold,
+  .shimmer-overlay-footer,
+  .logo-marquee-track,
+  .process-line-animate,
+  .ekg-line,
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-float-very-slow,
+  .animate-rotate-slow,
+  #infinity-outline {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
