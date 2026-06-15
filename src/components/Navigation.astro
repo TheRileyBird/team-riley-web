@@ -30,7 +30,7 @@ const isActive = (path: string) => {
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center gap-3">
-          <Image src={teamRileyLogo} alt="Team Riley logo" class="h-10 w-10 rounded-xl object-contain shadow-md" />
+          <Image src={teamRileyLogo} alt="Team Riley logo" class="h-10 w-10 object-contain" />
           <span class="text-xl font-bold animated-gradient-text">Team Riley</span>
         </a>
       </div>
@@ -38,7 +38,7 @@ const isActive = (path: string) => {
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/services" class={`text-sm font-medium transition-colors ${isActive('/services') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Services</a>
-        <a href="/platform" class={`text-sm font-medium transition-colors ${isActive('/platform') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Platform</a>
+        <!--<a href="/platform" class={`text-sm font-medium transition-colors ${isActive('/platform') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Platform</a>-->
         <a href="/pricing" class={`text-sm font-medium transition-colors ${isActive('/pricing') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Pricing</a>
         <a href="/portfolio" class={`text-sm font-medium transition-colors ${isActive('/portfolio') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>Portfolio</a>
         <a href="/about" class={`text-sm font-medium transition-colors ${isActive('/about') ? 'text-primary-700 font-semibold' : 'text-gray-600 hover:text-primary-700'}`}>About</a>
@@ -49,7 +49,7 @@ const isActive = (path: string) => {
       <div class="hidden md:block">
         <a href="/#book-a-call"
           data-booking-modal-open
-          class="btn btn-primary btn-sm">
+          class="btn btn-primary btn-sm hover:!translate-y-0">
           Get Started
           <ArrowRight class="w-4 h-4" />
         </a>
@@ -81,7 +81,7 @@ const isActive = (path: string) => {
       <a href="/contact" class={`block text-base font-medium ${isActive('/contact') ? 'text-primary-700 font-semibold' : 'text-gray-700 hover:text-primary-700'}`}>Contact</a>
       <a href="/#book-a-call"
         data-booking-modal-open
-        class="btn btn-primary btn-sm w-full justify-center">
+        class="btn btn-primary btn-sm w-full justify-center hover:!translate-y-0">
         Get Started
         <ArrowRight class="w-4 h-4" />
       </a>
