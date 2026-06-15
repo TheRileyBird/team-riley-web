@@ -20,9 +20,9 @@ const {
 } = Astro.props;
 
 const cardClasses = {
-  silver: 'bg-white border-2 border-gray-200 hover:border-primary-600',
+  silver: 'bg-white border border-gray-200 hover:border-primary-400',
   gold: 'bg-gradient-to-br from-blue-700 via-primary-700 to-violet-600',
-  platinum: 'bg-white border-2 border-gray-200 hover:border-secondary-500'
+  platinum: 'bg-white border border-gray-200 hover:border-secondary-400'
 };
 
 const textClasses = {
@@ -31,12 +31,12 @@ const textClasses = {
   platinum: { title: 'text-gray-900', price: 'text-gray-900', priceUnit: 'text-gray-600', feature: 'text-gray-700', icon: 'text-violet-500' }
 };
 
-const hoverClasses = variant === 'gold' ? 'hover:scale-110' : 'hover:scale-105';
+const hoverClasses = variant === 'gold' ? 'hover:md:scale-[1.08] hover:-translate-y-1.5' : 'hover:-translate-y-1.5';
 const scaleClass = variant === 'gold' ? 'md:scale-105' : '';
 const buttonVariant = variant === 'gold' ? 'btn-secondary' : 'btn-primary';
 ---
 
-<div class={`relative ${cardClasses[variant]} rounded-2xl p-8 shadow-2xl transform ${scaleClass} ${hoverClasses} ${variant === 'gold' ? 'ring-2 ring-accent-400/50' : ''} overflow-${variant === 'gold' ? 'visible' : 'hidden'} transition-${variant === 'gold' ? 'transform' : 'all'} duration-300 group`}>
+<div class={`relative ${cardClasses[variant]} rounded-2xl p-8 shadow-large transform ${scaleClass} ${hoverClasses} ${variant === 'gold' ? 'ring-2 ring-accent-400/60' : ''} overflow-${variant === 'gold' ? 'visible' : 'hidden'} transition-all duration-300 group`}>
   {variant === 'gold' && (
     <>
       <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>

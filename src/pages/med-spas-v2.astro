@@ -369,8 +369,8 @@ const pricingPlans = [
           <div class="mt-10 grid gap-5 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
               <article class:list={[
-                'relative rounded-xl border p-6 shadow-soft',
-                plan.featured ? 'border-accent-400 bg-primary-50 ring-2 ring-accent-200' : 'border-slate-200 bg-white',
+                'relative rounded-xl border p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large',
+                plan.featured ? 'border-accent-400 bg-primary-50 ring-2 ring-accent-200' : 'border-slate-200 bg-white hover:border-primary-400',
               ]}>
                 {plan.featured && (
                   <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-300 px-3 py-1 text-sm font-bold text-amber-950">

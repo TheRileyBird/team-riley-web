@@ -75,15 +75,15 @@ const isDark = theme === 'dark';
           : (isSilver ? 'bg-gradient-to-br from-slate-50 via-gray-100 to-white' : isGold ? 'bg-gradient-to-br from-blue-50 via-primary-50 to-white' : 'bg-gradient-to-br from-indigo-100 via-slate-50 to-violet-100');
 
         const borderColor = isDark
-          ? (isGold ? 'border-primary-500' : 'border-gray-700 hover:border-primary-500')
-          : (isGold ? 'border-primary-500' : 'border-gray-200 hover:border-primary-600 hover:border-secondary-500'.split(' ')[index]);
+          ? (isGold ? 'border-primary-500' : 'border-gray-700 hover:border-primary-400')
+          : (isGold ? 'border-primary-500' : isPlatinum ? 'border-gray-200 hover:border-secondary-400' : 'border-gray-200 hover:border-primary-400');
 
-        const hoverScale = isGold ? 'hover:scale-110' : isSilver ? 'hover:scale-110' : 'hover:scale-105';
+        const hoverMotion = isGold ? 'hover:md:scale-[1.08] hover:-translate-y-1.5' : 'hover:-translate-y-1.5';
         const baseScale = isGold ? 'md:scale-105' : '';
 
         return (
           <div
-            class={`relative ${cardBg} rounded-2xl p-8 border-2 ${borderColor} ${baseScale} ${hoverScale} transition-all duration-300 ${isGold ? 'shadow-2xl ring-2 ring-accent-400/50' : 'hover:shadow-xl'} overflow-${isGold ? 'visible' : 'hidden'} group`}
+            class={`relative ${cardBg} rounded-2xl p-8 border ${borderColor} ${baseScale} ${hoverMotion} transition-all duration-300 ${isGold ? 'shadow-large ring-2 ring-accent-400/60' : 'hover:shadow-large'} overflow-${isGold ? 'visible' : 'hidden'} group`}
           >
             {isGold && !isDark && (
               <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
