@@ -1,0 +1,516 @@
+---
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  ClipboardList,
+  Loader2,
+  Send,
+} from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Client Onboarding Questionnaire - Team Riley"
+  description="Start your Team Riley project with a guided onboarding questionnaire."
+  robots="noindex, nofollow"
+>
+  <Navigation />
+
+  <main class="min-h-screen bg-gradient-to-b from-primary-50 via-white to-gray-50 pt-28 pb-16 md:pt-36 md:pb-24">
+    <section class="px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <div class="mb-8 max-w-3xl">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm">
+            <ClipboardList class="h-4 w-4" />
+            Client onboarding questionnaire
+          </p>
+          <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
+            Help us understand your offer, audience, and growth goals.
+          </h1>
+          <p class="text-lg leading-relaxed text-gray-600">
+            This saves your progress on this device after you enter your email. Each section is short, and your answers help us prepare a stronger strategy before we meet.
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
+          <aside class="lg:sticky lg:top-24 lg:self-start">
+            <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-soft">
+              <div class="mb-4 flex items-center justify-between">
+                <span class="text-sm font-semibold text-gray-900">Progress</span>
+                <span id="progress-count" class="text-sm font-semibold text-primary-700">Step 1 of 6</span>
+              </div>
+              <div class="mb-5 h-2 overflow-hidden rounded-full bg-gray-100">
+                <div id="progress-bar" class="h-full w-[16%] rounded-full bg-primary-700 transition-all duration-300"></div>
+              </div>
+              <ol id="step-list" class="space-y-2 text-sm"></ol>
+            </div>
+          </aside>
+
+          <form
+            name="client-onboarding"
+            method="POST"
+            action="/start"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="onboarding-form"
+            class="rounded-2xl border border-gray-200 bg-white p-5 shadow-large sm:p-8"
+          >
+            <input type="hidden" name="form-name" value="client-onboarding" />
+            <input type="hidden" name="submitted_at" id="submitted_at" />
+            <p class="hidden">
+              <label>Do not fill this out if you are human: <input name="bot-field" /></label>
+            </p>
+
+            <div id="success-message" class="hidden rounded-xl border border-green-200 bg-green-50 p-6">
+              <div class="mb-2 flex items-center gap-3">
+                <CheckCircle2 class="h-7 w-7 text-green-700" />
+                <h2 class="text-2xl font-bold text-green-950">Questionnaire submitted</h2>
+              </div>
+              <p class="text-green-900">Thank you. We have your answers and will review them before your next step with Team Riley.</p>
+            </div>
+
+            <div id="error-message" class="hidden rounded-xl border border-red-200 bg-red-50 p-6">
+              <h2 class="mb-2 text-xl font-bold text-red-950">Something went wrong</h2>
+              <p class="text-red-900">Please try again. If the issue continues, email hello@teamrileyweb.com.</p>
+            </div>
+
+            <div id="form-pages" class="space-y-8">
+              <section class="form-step" data-step-title="Fit & Contact">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 1</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Fit & Contact</h2>
+                  <p class="mt-3 text-gray-600">Tell us who you are and which service level seems closest right now.</p>
+                </div>
+
+                <fieldset class="mb-7">
+                  <legend class="mb-3 block text-sm font-semibold text-gray-950">Which service do you think would fit best for you? *</legend>
+                  <div class="grid gap-3 sm:grid-cols-2">
+                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Silver" required /> <span>Website Services - Silver</span></label>
+                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Gold" /> <span>Website Services - Gold</span></label>
+                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Platinum" /> <span>Website Services - Platinum</span></label>
+                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Silver" /> <span>Social Services - Silver</span></label>
+                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Gold" /> <span>Social Services - Gold</span></label>
+                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Platinum" /> <span>Social Services - Platinum</span></label>
+                    <label class="option-card sm:col-span-2"><input type="radio" name="service_fit" value="Other" /> <span>Other / Not sure yet</span></label>
+                  </div>
+                </fieldset>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label for="name" class="form-label">Name *</label>
+                    <input id="name" name="name" type="text" required class="form-input" autocomplete="name" />
+                  </div>
+                  <div>
+                    <label for="email" class="form-label">Email *</label>
+                    <input id="email" name="email" type="email" required class="form-input" autocomplete="email" />
+                  </div>
+                  <div>
+                    <label for="business_name" class="form-label">Business name</label>
+                    <input id="business_name" name="business_name" type="text" class="form-input" autocomplete="organization" />
+                  </div>
+                  <div>
+                    <label for="website_url" class="form-label">Current website</label>
+                    <input id="website_url" name="website_url" type="url" class="form-input" placeholder="https://" />
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-step hidden" data-step-title="Offer Details">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 2</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Offer Details</h2>
+                  <p class="mt-3 text-gray-600">Describe what you sell and how customers understand the value.</p>
+                </div>
+                <div class="space-y-5">
+                  <label class="field-block">Primary offer: what is the primary product or service you are offering? *<textarea name="primary_offer" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Features and benefits: what are the key features and benefits of your offer? *<textarea name="features_benefits" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Packaging and presentation: how is your offer packaged or presented to customers? *<textarea name="packaging_presentation" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Pricing structure: what is the pricing structure of your offer? *<textarea name="pricing_structure" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Additional value: are there bonuses or additional value-adds included? *<textarea name="additional_value" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Guarantees: what guarantees or risk reversals do you offer? *<textarea name="guarantees" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Ideal audience: who is your offer best for? *<textarea name="offer_ideal_audience" required class="form-textarea"></textarea></label>
+                </div>
+              </section>
+
+              <section class="form-step hidden" data-step-title="Sales & Marketing">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 3</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Sales & Marketing</h2>
+                  <p class="mt-3 text-gray-600">Help us map the customer journey from attention to purchase.</p>
+                </div>
+                <div class="space-y-5">
+                  <label class="field-block">Initial engagement: what is the first point of contact for potential customers? *<textarea name="initial_engagement" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Next step: what is the next step after initial engagement? *<textarea name="next_step" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Lead nurturing: how do you nurture leads who do not convert immediately? *<textarea name="lead_nurturing" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Upsells and cross-sells: what upsells or cross-sells do you offer? *<textarea name="upsells_cross_sells" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Post-purchase engagement: how do you retain and engage customers post-purchase? *<textarea name="post_purchase_engagement" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Unique selling proposition: what makes your offer unique compared to competitors? *<textarea name="unique_selling_proposition" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Customer testimonials: do you have any customer testimonials or case studies that highlight the success of your offer? *<textarea name="customer_testimonials" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Target audience: who is your target audience for this offer? *<textarea name="target_audience" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Marketing channels: which marketing channels do you plan to use to promote your offer? *<textarea name="marketing_channels" required class="form-textarea"></textarea></label>
+                </div>
+              </section>
+
+              <section class="form-step hidden" data-step-title="Advertising">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 4</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Advertising</h2>
+                  <p class="mt-3 text-gray-600">If you are running ads, share the numbers we should know before planning improvements.</p>
+                </div>
+
+                <fieldset class="mb-7">
+                  <legend class="mb-3 block text-sm font-semibold text-gray-950">Are you currently running ads? *</legend>
+                  <div class="flex flex-wrap gap-3">
+                    <label class="option-card min-w-32"><input type="radio" name="currently_running_ads" value="Yes" required /> <span>Yes</span></label>
+                    <label class="option-card min-w-32"><input type="radio" name="currently_running_ads" value="No" /> <span>No</span></label>
+                  </div>
+                </fieldset>
+
+                <div id="ad-kpi-fields" class="hidden space-y-5 rounded-xl border border-primary-100 bg-primary-50/50 p-5">
+                  <label class="field-block">What is the goal of your marketing campaign, such as generating demos, signups, or increasing sales? *<textarea name="ad_campaign_goal" data-ad-required class="form-textarea"></textarea></label>
+                  <label class="field-block">What is your paid cost per lead or cost per sale? *<textarea name="ad_cost_per_result" data-ad-required class="form-textarea"></textarea></label>
+                  <label class="field-block">Are you using video or static creative, or a mix of both? *<textarea name="ad_creative_type" data-ad-required class="form-textarea"></textarea></label>
+                  <label class="field-block">What landing page or funnel are ads sending people to? *<textarea name="ad_destination" data-ad-required class="form-textarea"></textarea></label>
+                  <label class="field-block">If you have campaign KPIs, what are your impressions, clicks, click-through rate, conversion rate, and return on ad spend? *<textarea name="ad_kpis" data-ad-required class="form-textarea"></textarea></label>
+                </div>
+              </section>
+
+              <section class="form-step hidden" data-step-title="Product & Customer">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 5</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Product & Customer</h2>
+                  <p class="mt-3 text-gray-600">These answers help us sharpen your messaging, funnel, and conversion path.</p>
+                </div>
+                <div class="space-y-5">
+                  <label class="field-block">What specific step-by-step does your ideal customer take, and why is this stage most relevant for your product or service? *<textarea name="customer_step_by_step" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How would you describe your ideal customer's current stage or occupation, and what unique challenges do they face? *<textarea name="customer_stage_challenges" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are the top pain points or challenges your ideal customer is currently experiencing? *<textarea name="customer_pain_points" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How would you characterize your ideal customer's risk tolerance when it comes to trying new products or services? *<textarea name="customer_risk_tolerance" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are the primary objections, doubts, or questions your ideal customer has before buying? *<textarea name="customer_objections" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How does your ideal customer prefer to learn about and engage with new products or services? *<textarea name="customer_learning_preference" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What level of investment, both time and money, is your ideal customer willing and able to make? *<textarea name="customer_investment_level" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are the key functional needs your ideal customer wants to fulfill through their purchase? *<textarea name="customer_functional_needs" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How aware is your ideal customer of your type of product or service? Do they need education about the category, or are they comparing alternatives? *<textarea name="customer_awareness_level" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are 3 to 5 core values that drive your ideal customer's decisions and lifestyle choices? *<textarea name="customer_core_values" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Who or what influences your ideal customer's purchasing decisions the most? *<textarea name="customer_influences" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What criteria does your ideal customer use to evaluate products or services before making a purchase? *<textarea name="customer_evaluation_criteria" required class="form-textarea"></textarea></label>
+                  <label class="field-block">Are there any specific skills, experiences, or prerequisites your ideal customer needs before taking your product or service effectively? *<textarea name="customer_prerequisites" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What level of ongoing support and resources does your ideal customer expect from a product or service provider? *<textarea name="customer_support_expectations" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How does your ideal customer define success in both their personal and professional life? *<textarea name="customer_success_definition" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are 3 potential information sources or thought leaders your ideal customer trusts when seeking advice or making decisions? *<textarea name="customer_trusted_sources" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What are the top 3 objections your ideal customer might have about your product or service, and how would you address them? *<textarea name="customer_objection_responses" required class="form-textarea"></textarea></label>
+                  <label class="field-block">How important is social proof to your ideal customer? *<textarea name="social_proof_importance" required class="form-textarea"></textarea></label>
+                  <label class="field-block">What specific fears or aspirations does your ideal customer have related to the problem your product or service solves? *<textarea name="customer_fears_aspirations" required class="form-textarea"></textarea></label>
+                </div>
+              </section>
+
+              <section class="form-step hidden" data-step-title="Final Review">
+                <div class="mb-8">
+                  <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary-700">Section 6</p>
+                  <h2 class="text-3xl font-bold text-gray-950">Final Review</h2>
+                  <p class="mt-3 text-gray-600">Add anything else we should know before you submit.</p>
+                </div>
+                <label class="field-block">Anything else you want Team Riley to know?<textarea name="additional_notes" class="form-textarea"></textarea></label>
+                <div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-relaxed text-gray-700">
+                  By submitting this questionnaire, you are sending your answers to Team Riley so we can prepare your project strategy and next steps.
+                </div>
+              </section>
+            </div>
+
+            <div id="form-actions" class="mt-8 flex flex-col-reverse gap-3 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <button type="button" id="prev-step" class="btn btn-secondary justify-center">
+                <ArrowLeft class="h-4 w-4" />
+                Back
+              </button>
+              <button type="button" id="next-step" class="btn btn-primary justify-center">
+                Continue
+                <ArrowRight class="h-4 w-4" />
+              </button>
+              <button type="submit" id="submit-step" class="btn btn-primary hidden justify-center">
+                <span id="submit-text">Submit Questionnaire</span>
+                <span id="submit-loading" class="hidden items-center gap-2">
+                  <Loader2 class="h-4 w-4 animate-spin" />
+                  Sending
+                </span>
+                <Send class="h-4 w-4" id="submit-icon" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-input {
+    padding: 0.875rem 1rem;
+  }
+
+  .form-textarea {
+    margin-top: 0.5rem;
+    min-height: 7rem;
+    resize: vertical;
+    padding: 0.875rem 1rem;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+  }
+
+  .field-block {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #111827;
+  }
+
+  .option-card {
+    display: flex;
+    min-height: 3.25rem;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1f2937;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+
+  .option-card:has(input:checked) {
+    border-color: #1d4ed8;
+    background: #eff6ff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  }
+
+  .option-card input {
+    height: 1rem;
+    width: 1rem;
+    flex: none;
+    accent-color: #1d4ed8;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('onboarding-form');
+    const steps = Array.from(document.querySelectorAll('.form-step'));
+    const stepList = document.getElementById('step-list');
+    const progressCount = document.getElementById('progress-count');
+    const progressBar = document.getElementById('progress-bar');
+    const prevButton = document.getElementById('prev-step');
+    const nextButton = document.getElementById('next-step');
+    const submitButton = document.getElementById('submit-step');
+    const submitText = document.getElementById('submit-text');
+    const submitLoading = document.getElementById('submit-loading');
+    const submitIcon = document.getElementById('submit-icon');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const formPages = document.getElementById('form-pages');
+    const formActions = document.getElementById('form-actions');
+    const submittedAt = document.getElementById('submitted_at');
+    const adsFields = document.getElementById('ad-kpi-fields');
+    const storageKey = 'team-riley-start-form';
+    let currentStep = 0;
+
+    const getVisibleSteps = () => steps.filter((step) => !step.dataset.skipStep);
+
+    const shouldSave = () => {
+      const email = form.querySelector('[name="email"]');
+      return email && email.value.trim().length > 0;
+    };
+
+    const saveProgress = () => {
+      if (!shouldSave()) return;
+      const data = {};
+      const formData = new FormData(form);
+      for (const [key, value] of formData.entries()) {
+        if (key !== 'bot-field') data[key] = value.toString();
+      }
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    };
+
+    const restoreProgress = () => {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) return;
+
+      try {
+        const data = JSON.parse(saved);
+        Object.entries(data).forEach(([key, value]) => {
+          const fields = Array.from(form.querySelectorAll(`[name="${CSS.escape(key)}"]`));
+          fields.forEach((field) => {
+            if (field.type === 'radio' || field.type === 'checkbox') {
+              field.checked = field.value === value;
+            } else {
+              field.value = value;
+            }
+          });
+        });
+      } catch (error) {
+        console.warn('Unable to restore saved onboarding progress.', error);
+      }
+    };
+
+    const updateAdRequirements = () => {
+      const selected = form.querySelector('[name="currently_running_ads"]:checked');
+      const isRunningAds = selected && selected.value === 'Yes';
+      adsFields.classList.toggle('hidden', !isRunningAds);
+      adsFields.querySelectorAll('[data-ad-required]').forEach((field) => {
+        field.required = Boolean(isRunningAds);
+        if (!isRunningAds) field.value = '';
+      });
+    };
+
+    const rebuildStepList = () => {
+      const visibleSteps = getVisibleSteps();
+      stepList.innerHTML = visibleSteps.map((step, index) => {
+        const title = step.dataset.stepTitle;
+        const isActive = index === currentStep;
+        const isComplete = index < currentStep;
+        const classes = isActive
+          ? 'bg-primary-50 text-primary-800 border-primary-200'
+          : isComplete
+            ? 'bg-green-50 text-green-800 border-green-200'
+            : 'bg-white text-gray-600 border-gray-200';
+
+        return `<li class="rounded-lg border px-3 py-2 font-semibold ${classes}">${index + 1}. ${title}</li>`;
+      }).join('');
+    };
+
+    const showStep = (index) => {
+      updateAdRequirements();
+      const visibleSteps = getVisibleSteps();
+      currentStep = Math.min(Math.max(index, 0), visibleSteps.length - 1);
+
+      steps.forEach((step) => step.classList.add('hidden'));
+      visibleSteps[currentStep].classList.remove('hidden');
+
+      const isFirst = currentStep === 0;
+      const isLast = currentStep === visibleSteps.length - 1;
+      prevButton.classList.toggle('invisible', isFirst);
+      nextButton.classList.toggle('hidden', isLast);
+      submitButton.classList.toggle('hidden', !isLast);
+      progressCount.textContent = `Step ${currentStep + 1} of ${visibleSteps.length}`;
+      progressBar.style.width = `${((currentStep + 1) / visibleSteps.length) * 100}%`;
+      rebuildStepList();
+      saveProgress();
+      visibleSteps[currentStep].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const validateCurrentStep = () => {
+      const visibleSteps = getVisibleSteps();
+      const fields = Array.from(visibleSteps[currentStep].querySelectorAll('input, select, textarea'));
+      const invalidField = fields.find((field) => !field.checkValidity());
+      if (invalidField) {
+        invalidField.reportValidity();
+        return false;
+      }
+      return true;
+    };
+
+    restoreProgress();
+    updateAdRequirements();
+    showStep(0);
+
+    form.addEventListener('input', (event) => {
+      if (event.target && event.target.name === 'currently_running_ads') {
+        updateAdRequirements();
+      }
+      saveProgress();
+    });
+
+    form.addEventListener('change', (event) => {
+      if (event.target && event.target.name === 'currently_running_ads') {
+        updateAdRequirements();
+      }
+      saveProgress();
+    });
+
+    prevButton.addEventListener('click', () => showStep(currentStep - 1));
+
+    nextButton.addEventListener('click', () => {
+      if (!validateCurrentStep()) return;
+      showStep(currentStep + 1);
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!validateCurrentStep()) return;
+
+      submittedAt.value = new Date().toISOString();
+      submitButton.disabled = true;
+      submitText.classList.add('hidden');
+      submitIcon.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+      submitLoading.classList.add('inline-flex');
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+
+      try {
+        const body = new URLSearchParams();
+        const formData = new FormData(form);
+        for (const [key, value] of formData.entries()) {
+          body.append(key, value.toString());
+        }
+
+        const response = await fetch('/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString(),
+        });
+
+        if (!response.ok && response.status !== 303) {
+          throw new Error(`Form submission failed with status ${response.status}`);
+        }
+
+        localStorage.removeItem(storageKey);
+        form.reset();
+        formPages.classList.add('hidden');
+        formActions.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (error) {
+        console.error('Form submission error:', error);
+        errorMessage.classList.remove('hidden');
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } finally {
+        submitButton.disabled = false;
+        submitText.classList.remove('hidden');
+        submitIcon.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+        submitLoading.classList.remove('inline-flex');
+      }
+    });
+  });
+</script>
