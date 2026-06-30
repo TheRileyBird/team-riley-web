@@ -10,12 +10,15 @@ import {
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import getStartedImage from '../assets/images/get-started.png';
 ---
 
 <BaseLayout
   title="Client Onboarding Questionnaire - Team Riley"
   description="Start your Team Riley project with a guided onboarding questionnaire."
   robots="noindex, nofollow"
+  socialShareImage={getStartedImage}
+  socialShareImageAlt="Client Onboarding Questionnaire - Team Riley"
 >
   <Navigation />
 
@@ -128,6 +131,10 @@ import Footer from '../components/Footer.astro';
                   </div>
                   <div class="mt-3">
                     <label class="option-card"><input type="radio" name="service_fit" value="Other" /> <span>Other / Not sure yet</span></label>
+                  </div>
+                  <div id="service-other-field" class="mt-4 hidden">
+                    <label for="service_fit_other" class="form-label">Tell us what you have in mind</label>
+                    <input id="service_fit_other" name="service_fit_other" type="text" class="form-input" />
                   </div>
                 </fieldset>
               </section>
@@ -367,6 +374,8 @@ import Footer from '../components/Footer.astro';
     const formActions = document.getElementById('form-actions');
     const submittedAt = document.getElementById('submitted_at');
     const adsFields = document.getElementById('ad-kpi-fields');
+    const serviceOtherField = document.getElementById('service-other-field');
+    const serviceOtherInput = document.getElementById('service_fit_other');
     const storageKey = 'team-riley-start-form';
     let currentStep = 0;
 
@@ -418,6 +427,14 @@ import Footer from '../components/Footer.astro';
       });
     };
 
+    const updateServiceOtherField = () => {
+      const selected = form.querySelector('[name="service_fit"]:checked');
+      const isOther = selected && selected.value === 'Other';
+      serviceOtherField.classList.toggle('hidden', !isOther);
+      serviceOtherInput.required = Boolean(isOther);
+      if (!isOther) serviceOtherInput.value = '';
+    };
+
     const rebuildStepList = () => {
       const visibleSteps = getVisibleSteps();
       stepList.innerHTML = visibleSteps.map((step, index) => {
@@ -435,6 +452,7 @@ import Footer from '../components/Footer.astro';
     };
 
     const showStep = (index) => {
+      updateServiceOtherField();
       updateAdRequirements();
       const visibleSteps = getVisibleSteps();
       currentStep = Math.min(Math.max(index, 0), visibleSteps.length - 1);
@@ -466,10 +484,14 @@ import Footer from '../components/Footer.astro';
     };
 
     restoreProgress();
+    updateServiceOtherField();
     updateAdRequirements();
     showStep(0);
 
     form.addEventListener('input', (event) => {
+      if (event.target && event.target.name === 'service_fit') {
+        updateServiceOtherField();
+      }
       if (event.target && event.target.name === 'currently_running_ads') {
         updateAdRequirements();
       }
@@ -477,6 +499,9 @@ import Footer from '../components/Footer.astro';
     });
 
     form.addEventListener('change', (event) => {
+      if (event.target && event.target.name === 'service_fit') {
+        updateServiceOtherField();
+      }
       if (event.target && event.target.name === 'currently_running_ads') {
         updateAdRequirements();
       }

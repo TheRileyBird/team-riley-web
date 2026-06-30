@@ -1,23 +1,27 @@
 ---
 import '../styles/global.css';
 import BookingModal from '../components/BookingModal.astro';
-import socialShareImage from '../assets/images/Team-Riley-Social-Share-v2.png';
+import defaultSocialShareImage from '../assets/images/Team-Riley-Social-Share-v2.png';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   title: string;
   description?: string;
   robots?: string;
+  socialShareImage?: ImageMetadata;
+  socialShareImageAlt?: string;
 }
 
 const {
   title,
   description = "Team Riley Web - Digital Health For Your Business",
-  robots
+  robots,
+  socialShareImage = defaultSocialShareImage,
+  socialShareImageAlt = 'Team Riley Web - Digital Health For Your Business'
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
-const socialShareImageAlt = 'Team Riley Web - Digital Health For Your Business';
 ---
 
 <!doctype html>
