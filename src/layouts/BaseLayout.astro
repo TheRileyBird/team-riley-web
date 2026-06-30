@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import BookingModal from '../components/BookingModal.astro';
+import socialShareImage from '../assets/images/Team-Riley-Social-Share.png';
 
 interface Props {
   title: string;
@@ -13,6 +14,10 @@ const {
   description = "Team Riley Web - Digital Health For Your Business",
   robots
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
+const socialShareImageAlt = 'Team Riley Web - Digital Health For Your Business';
 ---
 
 <!doctype html>
@@ -31,12 +36,29 @@ const {
     <meta name="description" content={description} />
     {robots && <meta name="robots" content={robots} />}
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:site_name" content="Team Riley Web" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialShareImageUrl} />
+    <meta property="og:image:secure_url" content={socialShareImageUrl} />
+    <meta property="og:image:type" content={`image/${socialShareImage.format}`} />
+    <meta property="og:image:width" content={socialShareImage.width} />
+    <meta property="og:image:height" content={socialShareImage.height} />
+    <meta property="og:image:alt" content={socialShareImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialShareImageUrl} />
+    <meta name="twitter:image:alt" content={socialShareImageAlt} />
 
     <title>{title}</title>
   </head>
