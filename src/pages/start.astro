@@ -44,20 +44,7 @@ import getStartedImage from '../assets/images/get-started.png';
           </p>
         </div>
 
-        <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
-          <aside class="lg:sticky lg:top-24 lg:self-start">
-            <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-soft">
-              <div class="mb-4 flex items-center justify-between">
-                <span class="text-sm font-semibold text-gray-900">Progress</span>
-                <span id="progress-count" class="text-sm font-semibold text-primary-700">Step 1 of 6</span>
-              </div>
-              <div class="mb-5 h-2 overflow-hidden rounded-full bg-gray-100">
-                <div id="progress-bar" class="h-full w-[16%] rounded-full bg-primary-700 transition-all duration-300"></div>
-              </div>
-              <ol id="step-list" class="space-y-2 text-sm"></ol>
-            </div>
-          </aside>
-
+        <div class="mx-auto max-w-3xl">
           <form
             name="client-onboarding"
             method="POST"
@@ -72,6 +59,16 @@ import getStartedImage from '../assets/images/get-started.png';
             <p class="hidden">
               <label>Do not fill this out if you are human: <input name="bot-field" /></label>
             </p>
+
+            <div class="mb-8">
+              <div class="mb-3 flex items-center justify-between">
+                <span class="text-sm font-semibold text-gray-900">Progress</span>
+                <span id="progress-count" class="text-sm font-semibold text-primary-700">Step 1 of 6</span>
+              </div>
+              <div class="h-2 overflow-hidden rounded-full bg-gray-100">
+                <div id="progress-bar" class="h-full w-[16%] rounded-full bg-primary-700 transition-all duration-300"></div>
+              </div>
+            </div>
 
             <div id="success-message" class="hidden rounded-xl border border-green-200 bg-green-50 p-6">
               <div class="mb-2 flex items-center gap-3">
@@ -359,7 +356,6 @@ import getStartedImage from '../assets/images/get-started.png';
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('onboarding-form');
     const steps = Array.from(document.querySelectorAll('.form-step'));
-    const stepList = document.getElementById('step-list');
     const progressCount = document.getElementById('progress-count');
     const progressBar = document.getElementById('progress-bar');
     const prevButton = document.getElementById('prev-step');
@@ -435,22 +431,6 @@ import getStartedImage from '../assets/images/get-started.png';
       if (!isOther) serviceOtherInput.value = '';
     };
 
-    const rebuildStepList = () => {
-      const visibleSteps = getVisibleSteps();
-      stepList.innerHTML = visibleSteps.map((step, index) => {
-        const title = step.dataset.stepTitle;
-        const isActive = index === currentStep;
-        const isComplete = index < currentStep;
-        const classes = isActive
-          ? 'bg-primary-50 text-primary-800 border-primary-200'
-          : isComplete
-            ? 'bg-green-50 text-green-800 border-green-200'
-            : 'bg-white text-gray-600 border-gray-200';
-
-        return `<li class="rounded-lg border px-3 py-2 font-semibold ${classes}">${index + 1}. ${title}</li>`;
-      }).join('');
-    };
-
     const showStep = (index) => {
       updateServiceOtherField();
       updateAdRequirements();
@@ -467,7 +447,6 @@ import getStartedImage from '../assets/images/get-started.png';
       submitButton.classList.toggle('hidden', !isLast);
       progressCount.textContent = `Step ${currentStep + 1} of ${visibleSteps.length}`;
       progressBar.style.width = `${((currentStep + 1) / visibleSteps.length) * 100}%`;
-      rebuildStepList();
       saveProgress();
       visibleSteps[currentStep].scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
