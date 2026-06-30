@@ -239,7 +239,7 @@ import getStartedImage from '../assets/images/get-started.png';
             </div>
 
             <div id="form-actions" class="mt-8 flex flex-col-reverse gap-3 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <button type="button" id="prev-step" class="btn btn-secondary justify-center">
+              <button type="button" id="prev-step" class="btn btn-secondary invisible justify-center" x-cloak>
                 <ArrowLeft class="h-4 w-4" />
                 Back
               </button>
@@ -247,7 +247,7 @@ import getStartedImage from '../assets/images/get-started.png';
                 Save and Continue
                 <ArrowRight class="h-4 w-4" />
               </button>
-              <button type="submit" id="submit-step" class="btn btn-primary justify-center" hidden>
+              <button type="submit" id="submit-step" class="btn btn-primary justify-center" hidden x-cloak>
                 <span id="submit-text">Submit Questionnaire</span>
                 <span id="submit-loading" class="hidden items-center gap-2">
                   <Loader2 class="h-4 w-4 animate-spin" />
