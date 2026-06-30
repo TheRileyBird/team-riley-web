@@ -247,7 +247,7 @@ import getStartedImage from '../assets/images/get-started.png';
                 Save and Continue
                 <ArrowRight class="h-4 w-4" />
               </button>
-              <button type="submit" id="submit-step" class="btn btn-primary hidden justify-center">
+              <button type="submit" id="submit-step" class="btn btn-primary justify-center" hidden>
                 <span id="submit-text">Submit Questionnaire</span>
                 <span id="submit-loading" class="hidden items-center gap-2">
                   <Loader2 class="h-4 w-4 animate-spin" />
@@ -443,8 +443,8 @@ import getStartedImage from '../assets/images/get-started.png';
       const isFirst = currentStep === 0;
       const isLast = currentStep === visibleSteps.length - 1;
       prevButton.classList.toggle('invisible', isFirst);
-      nextButton.classList.toggle('hidden', isLast);
-      submitButton.classList.toggle('hidden', !isLast);
+      nextButton.hidden = isLast;
+      submitButton.hidden = !isLast;
       progressCount.textContent = `Step ${currentStep + 1} of ${visibleSteps.length}`;
       progressBar.style.width = `${((currentStep + 1) / visibleSteps.length) * 100}%`;
       saveProgress();
