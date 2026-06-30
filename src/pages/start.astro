@@ -22,16 +22,22 @@ import Footer from '../components/Footer.astro';
   <main class="min-h-screen bg-gradient-to-b from-primary-50 via-white to-gray-50 pt-28 pb-16 md:pt-36 md:pb-24">
     <section class="px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-5xl">
-        <div class="mb-8 max-w-3xl">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm">
+        <div class="mx-auto mb-8 max-w-3xl text-center">
+          <p class="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white px-4 py-2 text-sm font-semibold text-primary-800 shadow-sm">
             <ClipboardList class="h-4 w-4" />
-            Client onboarding questionnaire
+            Client Onboarding Questionnaire
           </p>
           <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
             Help us understand your offer, audience, and growth goals.
           </h1>
-          <p class="text-lg leading-relaxed text-gray-600">
-            This saves your progress on this device after you enter your email. Each section is short, and your answers help us prepare a stronger strategy before we meet.
+          <p class="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600">
+            This onboarding questionnaire allows us to build a product that resonates deeply with your ideal customers and maximizes your return on investment.
+          </p>
+          <p class="mx-auto mt-4 max-w-2xl text-lg font-semibold leading-relaxed text-gray-800">
+            The more you put into it, the more you get out.
+          </p>
+          <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-gray-600">
+            To move quickly, we recommend using a voice dictation service on your phone to transcribe your thoughts as you speak.
           </p>
         </div>
 
@@ -87,14 +93,26 @@ import Footer from '../components/Footer.astro';
 
                 <fieldset class="mb-7">
                   <legend class="mb-3 block text-sm font-semibold text-gray-950">Which service do you think would fit best for you? *</legend>
-                  <div class="grid gap-3 sm:grid-cols-2">
-                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Silver" required /> <span>Website Services - Silver</span></label>
-                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Gold" /> <span>Website Services - Gold</span></label>
-                    <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Platinum" /> <span>Website Services - Platinum</span></label>
-                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Silver" /> <span>Social Services - Silver</span></label>
-                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Gold" /> <span>Social Services - Gold</span></label>
-                    <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Platinum" /> <span>Social Services - Platinum</span></label>
-                    <label class="option-card sm:col-span-2"><input type="radio" name="service_fit" value="Other" /> <span>Other / Not sure yet</span></label>
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <div class="space-y-3">
+                      <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Website Services</p>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Silver" required /> <span>Website - Silver (1-5 pages)</span></label>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Gold" /> <span>Website - Gold (6-10 pages)</span></label>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Website Services - Platinum" /> <span>Website - Platinum (11+ pages)</span></label>
+                    </div>
+                    <div class="space-y-3">
+                      <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Social Services</p>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Silver" /> <span>Social - Silver (2 posts/week)</span></label>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Gold" /> <span>Social - Gold (3 posts/week)</span></label>
+                      <label class="option-card"><input type="radio" name="service_fit" value="Social Services - Platinum" /> <span>Social - Platinum (5 posts/week)</span></label>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <label class="option-card"><input type="radio" name="service_fit" value="Other" /> <span>Other / Not sure yet</span></label>
+                  </div>
+                  <div id="service-other-field" class="mt-4 hidden">
+                    <label for="service_fit_other" class="form-label">Tell us what you have in mind *</label>
+                    <input id="service_fit_other" name="service_fit_other" type="text" class="form-input" />
                   </div>
                 </fieldset>
 
@@ -113,7 +131,7 @@ import Footer from '../components/Footer.astro';
                   </div>
                   <div>
                     <label for="website_url" class="form-label">Current website</label>
-                    <input id="website_url" name="website_url" type="url" class="form-input" placeholder="https://" />
+                    <input id="website_url" name="website_url" type="text" class="form-input" placeholder="google.com" />
                   </div>
                 </div>
               </section>
@@ -226,7 +244,7 @@ import Footer from '../components/Footer.astro';
                 Back
               </button>
               <button type="button" id="next-step" class="btn btn-primary justify-center">
-                Continue
+                Save and Continue
                 <ArrowRight class="h-4 w-4" />
               </button>
               <button type="submit" id="submit-step" class="btn btn-primary hidden justify-center">
@@ -341,6 +359,8 @@ import Footer from '../components/Footer.astro';
     const formActions = document.getElementById('form-actions');
     const submittedAt = document.getElementById('submitted_at');
     const adsFields = document.getElementById('ad-kpi-fields');
+    const serviceOtherField = document.getElementById('service-other-field');
+    const serviceOtherInput = document.getElementById('service_fit_other');
     const storageKey = 'team-riley-start-form';
     let currentStep = 0;
 
@@ -392,6 +412,14 @@ import Footer from '../components/Footer.astro';
       });
     };
 
+    const updateServiceOtherField = () => {
+      const selected = form.querySelector('[name="service_fit"]:checked');
+      const isOther = selected && selected.value === 'Other';
+      serviceOtherField.classList.toggle('hidden', !isOther);
+      serviceOtherInput.required = Boolean(isOther);
+      if (!isOther) serviceOtherInput.value = '';
+    };
+
     const rebuildStepList = () => {
       const visibleSteps = getVisibleSteps();
       stepList.innerHTML = visibleSteps.map((step, index) => {
@@ -409,6 +437,7 @@ import Footer from '../components/Footer.astro';
     };
 
     const showStep = (index) => {
+      updateServiceOtherField();
       updateAdRequirements();
       const visibleSteps = getVisibleSteps();
       currentStep = Math.min(Math.max(index, 0), visibleSteps.length - 1);
@@ -440,10 +469,14 @@ import Footer from '../components/Footer.astro';
     };
 
     restoreProgress();
+    updateServiceOtherField();
     updateAdRequirements();
     showStep(0);
 
     form.addEventListener('input', (event) => {
+      if (event.target && event.target.name === 'service_fit') {
+        updateServiceOtherField();
+      }
       if (event.target && event.target.name === 'currently_running_ads') {
         updateAdRequirements();
       }
@@ -451,6 +484,9 @@ import Footer from '../components/Footer.astro';
     });
 
     form.addEventListener('change', (event) => {
+      if (event.target && event.target.name === 'service_fit') {
+        updateServiceOtherField();
+      }
       if (event.target && event.target.name === 'currently_running_ads') {
         updateAdRequirements();
       }
