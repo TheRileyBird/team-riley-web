@@ -7,6 +7,12 @@ interface Props {
 
 const { showHeader = true } = Astro.props;
 
+const plans = [
+  { name: 'Silver', price: '$199', pages: '1-5 Pages', featured: false },
+  { name: 'Gold', price: '$399', pages: '5-15 Pages', featured: true },
+  { name: 'Platinum', price: '$599', pages: '15+ Pages', featured: false },
+];
+
 const planIncludes = [
   'Hosting',
   'Ongoing support',
@@ -15,185 +21,100 @@ const planIncludes = [
   'Mobile optimization',
   'Strategy guidance',
 ];
+
+const ftpFeatures = [
+  'Monthly strategy session',
+  'Technical guidance and vendor support',
+];
 ---
 
-<section id="pricing" class="pb-20 md:pb-28 relative overflow-visible">
-  <div class="relative max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-    <div class="p-4 sm:p-10 md:p-16 lg:p-20 relative overflow-visible">
-      {showHeader && (
-        <div class="text-center mb-16">
-          <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
-            <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Choose Your Plan
-          </h2>
-          <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-            All plans include unlimited updates.
-          </p>
+<section id="pricing" class="pt-16 md:pt-20 pb-20 md:pb-28 relative overflow-visible">
+  <div class="relative mx-auto px-4 sm:px-6 lg:px-8" style="max-width: 1400px;">
+    {showHeader && (
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-primary-600/10 border-l-4 border-primary-600 rounded-r-lg mb-6">
+          <span class="text-xs font-bold text-primary-700 tracking-wider uppercase">Simple Pricing</span>
         </div>
-      )}
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto relative pt-6">
-        <!-- Silver Plan -->
-        <div class="relative bg-gradient-to-br from-slate-50 via-gray-100 to-white border border-gray-200 rounded-2xl p-8 hover:border-primary-400 transition-all duration-300 hover:shadow-large hover:-translate-y-1.5 overflow-hidden group">
-          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative z-10">
-            <div class="mb-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Silver</h3>
-              <div class="flex items-baseline gap-2">
-                <span class="text-5xl font-bold text-gray-900">$199</span>
-                <span class="text-gray-600">/month</span>
-              </div>
-            </div>
-
-            <ul class="space-y-4 mb-8">
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">1-5 Pages</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">$500 Setup</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">Unlimited Updates</span>
-              </li>
-            </ul>
-
-            <a href="/#book-a-call"
-              data-booking-modal-open
-              class="btn btn-primary w-full">
-              Get Started
-            </a>
-          </div>
-        </div>
-
-        <!-- Gold Plan (Featured) -->
-        <div class="relative bg-gradient-to-br from-blue-50 via-primary-50 to-white rounded-2xl p-8 shadow-large transform xl:scale-105 hover:xl:scale-[1.08] hover:-translate-y-1.5 ring-2 ring-accent-400/60 overflow-visible transition-all duration-300">
-          <div class="absolute inset-0 shimmer-overlay-gold rounded-2xl"></div>
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
-            MOST POPULAR
-          </div>
-          <div class="relative z-10">
-            <div class="mb-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Gold</h3>
-              <div class="flex items-baseline gap-2">
-                <span class="text-5xl font-bold text-gray-900">$399</span>
-                <span class="text-gray-600">/month</span>
-              </div>
-            </div>
-
-            <ul class="space-y-4 mb-8">
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-900 font-medium">5-15 Pages</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-900 font-medium">$500 Setup</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-900 font-medium">Unlimited Updates</span>
-              </li>
-            </ul>
-
-            <a href="/#book-a-call"
-              data-booking-modal-open
-              class="btn btn-secondary w-full">
-              Get Started
-            </a>
-          </div>
-        </div>
-
-        <!-- Platinum Plan -->
-        <div class="relative bg-gradient-to-br from-indigo-100 via-slate-50 to-violet-100 border border-gray-200 rounded-2xl p-8 hover:border-secondary-400 transition-all duration-300 hover:shadow-large hover:-translate-y-1.5 overflow-hidden group">
-          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative z-10">
-            <div class="mb-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Platinum</h3>
-              <div class="flex items-baseline gap-2">
-                <span class="text-5xl font-bold text-gray-900">$599</span>
-                <span class="text-gray-600">/month</span>
-              </div>
-            </div>
-
-            <ul class="space-y-4 mb-8">
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-violet-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">15+ Pages</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-violet-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">$500 Setup</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-violet-500 flex-shrink-0 mt-0.5" />
-                <span class="text-gray-700">Unlimited Updates</span>
-              </li>
-            </ul>
-
-            <a href="/#book-a-call"
-              data-booking-modal-open
-              class="btn btn-primary w-full">
-              Get Started
-            </a>
-          </div>
-        </div>
-
-        <!-- Fractional Technology Partner Plan -->
-        <div class="relative bg-gradient-to-br from-gray-950 via-primary-950 to-cyan-950 rounded-2xl p-8 shadow-large hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.22),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(139,92,246,0.2),_transparent_30%)]"></div>
-          <div class="absolute inset-0 shimmer-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative z-10">
-            <div class="mb-8">
-              <div class="inline-flex items-center rounded-full bg-cyan-300/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-100 mb-4">
-                Premium Partner
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Fractional Technology Partner</h3>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-bold text-white">$2,500+</span>
-                <span class="text-cyan-100">/month</span>
-              </div>
-              <p class="mt-4 text-sm leading-relaxed text-gray-200">
-                For businesses that need a trusted technical mind, not just another vendor.
-              </p>
-            </div>
-
-            <ul class="space-y-4 mb-8">
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-cyan-300 flex-shrink-0 mt-0.5" />
-                <span class="text-white font-medium">Monthly strategy session</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-cyan-300 flex-shrink-0 mt-0.5" />
-                <span class="text-white font-medium">Technical guidance and vendor support</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="w-6 h-6 text-cyan-300 flex-shrink-0 mt-0.5" />
-                <span class="text-white font-medium">AI, CRM, automation, and website oversight</span>
-              </li>
-            </ul>
-
-            <a href="/fractional-technology-partner"
-              class="btn btn-secondary w-full !whitespace-normal text-center leading-snug">
-              Learn More
-              <ArrowRight class="w-4 h-4 flex-shrink-0" />
-            </a>
-          </div>
-        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Choose Your Plan
+        </h2>
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+          All plans include unlimited updates.
+        </p>
       </div>
-      <div class="max-w-3xl mt-8 lg:mt-16 mx-auto rounded-2xl border border-gray-200 bg-gray-50 p-8">
-        <h3 class="text-xl text-center font-bold text-gray-900 mb-5">All plans include:</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {planIncludes.map((item) => (
-              <div class="flex gap-3 text-gray-700"><CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" /> {item}</div>
-          ))}
+    )}
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 relative pt-6">
+      {plans.map((plan) => (
+        <div class:list={[
+          'relative rounded-2xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large',
+          plan.featured
+            ? 'bg-white ring-2 ring-primary-600 shadow-large'
+            : 'bg-white border border-gray-200 hover:border-primary-400',
+        ]}>
+          {plan.featured && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg z-20 whitespace-nowrap">
+              MOST POPULAR
+            </div>
+          )}
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+          <div class="flex items-baseline gap-2 mb-8">
+            <span class="text-5xl font-bold text-gray-900">{plan.price}</span>
+            <span class="text-gray-600">/mo</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">{plan.pages}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span class="text-gray-700">$500 Setup</span>
+            </li>
+          </ul>
+          <a href="/#book-a-call"
+            data-booking-modal-open
+            class:list={['btn w-full mt-auto', plan.featured ? 'btn-primary' : 'btn-secondary']}>
+            Get Started
+          </a>
+        </div>
+      ))}
+
+      <!-- Fractional CTO (Premium) -->
+      <div class="relative rounded-2xl p-8 flex flex-col bg-gradient-to-br from-gray-950 via-primary-950 to-cyan-950 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.18),_transparent_34%)]"></div>
+        <div class="relative z-10 flex flex-col flex-1">
+          <h3 class="text-2xl font-bold text-white mb-2">Fractional CTO</h3>
+          <div class="flex items-baseline gap-2 mb-8">
+            <span class="text-5xl font-bold text-white">$2,500+</span>
+            <span class="text-cyan-100">/mo</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            {ftpFeatures.map((item) => (
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="w-6 h-6 text-cyan-300 flex-shrink-0 mt-0.5" />
+                <span class="text-white">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/fractional-technology-partner" class="btn btn-secondary w-full mt-auto">
+            Learn More
+            <ArrowRight class="w-4 h-4 flex-shrink-0" />
+          </a>
         </div>
       </div>
     </div>
 
+    <div class="mt-12 rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6">
+      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
+        <span class="text-sm font-bold uppercase tracking-wider text-gray-900 mr-2">All plans include</span>
+        {planIncludes.map((item) => (
+          <span class="inline-flex items-center gap-2 rounded-full bg-white border border-gray-200 px-4 py-1.5 text-sm text-gray-700">
+            <CheckCircle2 class="w-4 h-4 text-primary-600" />
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
   </div>
 </section>

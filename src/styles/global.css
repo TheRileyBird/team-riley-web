@@ -19,6 +19,22 @@
   animation: gradient-shift 8s ease infinite;
 }
 
+/* Bright variant for dark sections (gray-950 heroes) */
+.animated-gradient-text-bright {
+  background: linear-gradient(90deg, #67e8f9, #ffffff, #a78bfa, #67e8f9);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient-text-bright {
+    animation: none !important;
+  }
+}
+
 /* Hero Image Gradient Overlay */
 .hero-gradient-overlay {
   background: linear-gradient(135deg,
@@ -613,5 +629,80 @@ p {
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Scroll reveal — the section's CONTENT fades in, backgrounds stay put.
+   Absolutely-positioned children (gradient/aurora overlays) are excluded.
+   Above-the-fold sections get .revealed before first paint, so no load fade.
+   Gated on html.js so no-JS visitors see everything. */
+html.js section > :not(.absolute):not(noscript) {
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js section:not(.revealed) > :not(.absolute):not(noscript) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+html.js section.revealed > :not(.absolute):not(noscript) {
+  opacity: 1;
+  transform: none;
+}
+html.js nav section > *,
+html.js footer section > *,
+html.js [data-no-reveal] section > *,
+html.js section[data-no-reveal] > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.34s; }
+
+/* Staggered item reveal — put .reveal-stagger on a list container and its
+   direct children fade in one after another when the container scrolls in */
+html.js .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .reveal-stagger.revealed > * {
+  opacity: 1;
+  transform: none;
+}
+/* Per-item scroll reveal — put .reveal-item on list rows and each one fades
+   in individually as it scrolls into view */
+html.js .reveal-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .reveal-item.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal-stagger.revealed > :nth-child(2) { transition-delay: 0.14s; }
+html.js .reveal-stagger.revealed > :nth-child(3) { transition-delay: 0.28s; }
+html.js .reveal-stagger.revealed > :nth-child(4) { transition-delay: 0.42s; }
+html.js .reveal-stagger.revealed > :nth-child(5) { transition-delay: 0.56s; }
+html.js .reveal-stagger.revealed > :nth-child(6) { transition-delay: 0.7s; }
+html.js .reveal-stagger.revealed > :nth-child(7) { transition-delay: 0.84s; }
+html.js .reveal-stagger.revealed > :nth-child(8) { transition-delay: 0.98s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js section > :not(.absolute):not(noscript),
+  html.js section:not(.revealed) > :not(.absolute):not(noscript),
+  html.js .reveal-stagger > *,
+  html.js .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

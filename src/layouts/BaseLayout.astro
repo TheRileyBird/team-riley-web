@@ -29,6 +29,9 @@ const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Set before first paint so scroll-reveal styles only apply when JS runs -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
+
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -74,6 +77,39 @@ const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
 
     <slot />
     <BookingModal />
+
+    <script>
+      // Scroll reveal via IntersectionObserver (ported from rosario)
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          // Cascade items that arrive in the same batch so they never pop in as one block
+          const arriving = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          arriving.forEach((entry, i) => {
+            if (entry.target.classList.contains('reveal-item') && i > 0) {
+              entry.target.style.transitionDelay = `${i * 0.3}s`;
+            }
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
+      );
+
+      document.querySelectorAll('section, .reveal-stagger, .reveal-item').forEach((el) => {
+        if (el.closest('nav, footer, [data-no-reveal]')) {
+          el.classList.add('revealed');
+          return;
+        }
+        // Above the fold: reveal before first paint so there's no load-time fade
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('revealed');
+          return;
+        }
+        revealObserver.observe(el);
+      });
+    </script>
 
     <script is:inline src="https://app.teamrileyweb.com/js/form_embed.js"></script>
     <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a14e7d9ee7b17216c7ee4b7"></script>

@@ -9,27 +9,44 @@ import {
   CalendarCheck2,
   CheckCircle2,
   ClipboardList,
+  Layers,
   LifeBuoy,
-  ShieldCheck,
+  TrendingUp,
+  UserCheck,
   Users,
   Workflow,
 } from '@lucide/astro';
 import joshuaRileyImage from '../assets/images/JoshuaRiley2.png';
 import collaborationImage from '../assets/images/services-2.jpg';
 
-const includedItems = [
-  'Monthly technology strategy session',
-  'Unlimited technical guidance by call, text, or email',
-  'Vendor meeting attendance and management',
-  'AI tool implementation and team training',
-  'Software audit and recommendations',
-  'Website oversight and updates',
-  'Marketing technology management',
-  'Automation design and build',
-  'CRM setup and optimization',
-  'Security and backup best practices',
-  '90-day technology roadmap',
-  'Technical project management',
+const coverageGroups = [
+  {
+    title: 'Strategy & Leadership',
+    items: [
+      'Monthly technology strategy session',
+      '90-day technology roadmap',
+      'Software audit and recommendations',
+      'Vendor meeting attendance and management',
+    ],
+  },
+  {
+    title: 'Systems & Automation',
+    items: [
+      'Automation design and build',
+      'CRM setup and optimization',
+      'AI tool implementation and team training',
+      'Marketing technology management',
+    ],
+  },
+  {
+    title: 'Support & Delivery',
+    items: [
+      'Unlimited technical guidance by call, text, or email',
+      'Website oversight and updates',
+      'Security and backup best practices',
+      'Technical project management',
+    ],
+  },
 ];
 
 const businessProblems = [
@@ -65,10 +82,10 @@ const outcomes = [
 ];
 
 const fitSignals = [
-  '5-50 employees',
-  'Growing quickly',
-  'Heavy use of software, forms, bookings, payments, CRM, or automation',
-  'Owner wants trusted technical leadership without hiring a full-time CTO',
+  { icon: Users, text: '5-50 employees' },
+  { icon: TrendingUp, text: 'Growing quickly' },
+  { icon: Layers, text: 'Heavy use of software, forms, bookings, payments, CRM, or automation' },
+  { icon: UserCheck, text: 'Owner wants trusted technical leadership without hiring a full-time CTO' },
 ];
 ---
 
@@ -81,30 +98,22 @@ const fitSignals = [
   <section class="relative overflow-hidden bg-gray-950 pt-28 pb-20 md:pt-36 md:pb-28">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.2),_transparent_30%)]"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <div class="inline-flex items-center px-4 py-2 bg-cyan-300/10 border-l-4 border-cyan-300 rounded-r-lg mb-8">
             <span class="text-sm font-semibold text-cyan-100 uppercase tracking-wider">Fractional Technology Partner</span>
           </div>
 
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-10">
             Your business is getting more complex.
-            <span class="block text-cyan-200">You need someone you trust.</span>
+            <span class="block text-cyan-200">You need someone you <span class="animated-gradient-text-bright">trust.</span></span>
           </h1>
-
-          <p class="text-xl text-gray-200 leading-relaxed max-w-3xl mb-6">
-            Most growing businesses are managing a website, CRM, email system, automation tools, AI tools, booking software, payment platforms, and vendors. When something breaks or needs to evolve, the owner becomes the technical department.
-          </p>
-
-          <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mb-8">
-            Team Riley's Fractional Technology Partner program gives you a trusted technical mind behind the business, so your systems work together and your decisions stop getting revisited.
-          </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="/#book-a-call"
               data-booking-modal-open
               class="btn btn-primary btn-lg w-full max-w-full !whitespace-normal text-center leading-snug sm:w-auto sm:!whitespace-nowrap">
-              <span>Schedule a Technology Strategy Call</span>
+              <span>Schedule a Call</span>
               <ArrowRight class="w-5 h-5 flex-shrink-0" />
             </a>
             <a href="/pricing" class="btn btn-secondary btn-lg w-full text-center sm:w-auto">
@@ -113,8 +122,8 @@ const fitSignals = [
           </div>
         </div>
 
-        <div class="relative">
-          <div class="absolute -inset-4 rounded-3xl bg-cyan-300/10 blur-2xl"></div>
+        <div class="relative lg:-my-6">
+          <div class="absolute -inset-6 rounded-3xl bg-cyan-300/10 blur-2xl"></div>
           <Image
             src={joshuaRileyImage}
             alt="Joshua Riley from Team Riley"
@@ -126,26 +135,59 @@ const fitSignals = [
   </section>
 
   <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
-        <div>
-          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-            <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">The Real Problem</span>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
+        <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">The Real Problem</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Technology problems rarely stay technical.</h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-14 max-w-3xl">
+        Clients often think they have a website problem, a marketing problem, or an AI problem. Sometimes they do. But often the real issue is that nobody owns the technical side of the business.
+      </p>
+
+      <div>
+        {businessProblems.map((item, i) => (
+          <div class="reveal-item flex items-baseline gap-6 py-6 border-b border-gray-200 last:border-0">
+            <span class="text-4xl font-bold text-primary-200 tabular-nums flex-shrink-0 w-14">{String(i + 1).padStart(2, '0')}</span>
+            <p class="text-xl text-gray-800 font-medium leading-relaxed">{item}</p>
           </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Technology problems rarely stay technical.</h2>
-          <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Clients often think they have a website problem, a marketing problem, or an AI problem. Sometimes they do. But often the real issue is that nobody owns the technical side of the business.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed">
-            My role is to identify what is actually holding the business back, build the plan, and work alongside you until the system is working.
-          </p>
+        ))}
+      </div>
+
+      <p class="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mt-14 max-w-3xl">
+        My role is to identify what is actually holding the business back, build the plan, and work alongside you until the system is working.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-gray-950 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.14),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.16),_transparent_30%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center mb-14">
+        <div class="inline-flex items-center px-4 py-2 bg-cyan-300/10 border-l-4 border-cyan-300 rounded-r-lg mb-6">
+          <span class="text-sm font-semibold text-cyan-100 uppercase tracking-wider">What Changes</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">You get a technical seat at the table.</h2>
+        <p class="text-xl text-gray-300 leading-relaxed">
+          Not another agency package. Not another software subscription. A partner who understands the business context behind the technology decisions.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-stretch">
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-3xl bg-cyan-300/10 blur-2xl"></div>
+          <Image
+            src={collaborationImage}
+            alt="Team Riley technology strategy and collaboration session"
+            class="relative h-full min-h-[320px] w-full rounded-2xl object-cover shadow-large"
+          />
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-4">
-          {businessProblems.map((item) => (
-            <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
-              <CheckCircle2 class="w-5 h-5 text-primary-700 mb-3" />
-              <p class="text-gray-800 font-medium leading-relaxed">{item}</p>
+        <div class="grid sm:grid-cols-2 gap-6 reveal-stagger">
+          {outcomes.map(({ icon: Icon, title, text }) => (
+            <div class="rounded-xl border border-white/10 bg-white/5 p-6">
+              <Icon class="w-8 h-8 text-cyan-300 mb-5" />
+              <h3 class="text-xl font-bold text-white mb-3">{title}</h3>
+              <p class="text-gray-300 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
@@ -153,116 +195,93 @@ const fitSignals = [
     </div>
   </section>
 
-  <section class="py-20 md:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center mb-14">
-        <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-          <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">What Changes</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-5">You get a technical seat at the table.</h2>
-        <p class="text-xl text-gray-700 leading-relaxed">
-          Not another agency package. Not another software subscription. A partner who understands the business context behind the technology decisions.
-        </p>
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
+        <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">Included</span>
       </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What the partnership covers</h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-14 max-w-3xl">
+        The deliverables are not the product. The product is having someone you trust responsible for making the technology side of the business clearer, calmer, and more useful.
+      </p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {outcomes.map(({ icon: Icon, title, text }) => (
-          <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-soft">
-            <Icon class="w-8 h-8 text-primary-700 mb-5" />
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-            <p class="text-gray-600 leading-relaxed">{text}</p>
+      <div class="space-y-12">
+        {coverageGroups.map((group) => (
+          <div>
+            <h3 class="text-2xl font-bold animated-gradient-text inline-block mb-5">{group.title}</h3>
+            <div class="bg-gray-50 rounded-2xl border border-gray-200 px-8">
+              {group.items.map((item) => (
+                <div class="reveal-item flex items-start gap-4 py-4 border-b border-gray-200 last:border-0">
+                  <CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-1" />
+                  <span class="text-lg text-gray-800">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-20 md:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div>
-          <Image
-            src={collaborationImage}
-            alt="Team Riley technology strategy and collaboration session"
-            class="aspect-[4/3] w-full rounded-2xl object-cover shadow-large"
-          />
-        </div>
+  <section class="py-20 md:py-28 bg-gray-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(139,92,246,0.18),_transparent_30%)]"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center px-4 py-2 bg-cyan-300/10 border-l-4 border-cyan-300 rounded-r-lg mb-6">
+        <span class="text-sm font-semibold text-cyan-100 uppercase tracking-wider">Investment</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-200 mb-6">Fractional Technology Partner</h2>
+      <div class="flex items-baseline justify-center gap-3 mb-4">
+        <span class="text-6xl md:text-7xl font-bold animated-gradient-text-bright">$2,500+</span>
+        <span class="text-2xl text-cyan-100">/mo</span>
+      </div>
+      <p class="text-base text-gray-400 leading-relaxed mb-12 max-w-xl mx-auto">
+        Final scope depends on the number of systems, vendors, team members, automations, and active projects involved.
+      </p>
 
-        <div>
-          <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
-            <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">Included</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What the partnership covers</h2>
-          <p class="text-lg text-gray-700 leading-relaxed mb-8">
-            The deliverables are not the product. The product is having someone you trust responsible for making the technology side of the business clearer, calmer, and more useful.
-          </p>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            {includedItems.map((item) => (
-              <div class="flex gap-3 text-gray-700">
-                <CheckCircle2 class="w-5 h-5 text-primary-700 flex-shrink-0 mt-0.5" />
-                <span>{item}</span>
+      <div class="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 text-left backdrop-blur-sm">
+        <h3 class="text-xl font-bold text-white mb-2">Best fit for businesses with:</h3>
+        <div class="mb-8">
+          <div class="sm:grid sm:grid-cols-2 sm:border-b sm:border-white/10">
+            {fitSignals.slice(0, 2).map(({ icon: Icon, text }) => (
+              <div class="reveal-item flex items-start gap-4 py-4 border-b border-white/10 sm:border-0">
+                <Icon class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-1" />
+                <span class="text-lg text-gray-100">{text}</span>
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 md:py-28 bg-gray-950 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
-        <div>
-          <div class="inline-flex items-center px-4 py-2 bg-cyan-300/10 border-l-4 border-cyan-300 rounded-r-lg mb-6">
-            <span class="text-sm font-semibold text-cyan-100 uppercase tracking-wider">Investment</span>
-          </div>
-          <h2 class="text-4xl md:text-5xl font-bold mb-5">Fractional Technology Partner</h2>
-          <div class="flex items-baseline gap-3 mb-5">
-            <span class="text-5xl md:text-6xl font-bold">$2,500+</span>
-            <span class="text-xl text-cyan-100">/month</span>
-          </div>
-          <p class="text-lg text-gray-300 leading-relaxed">
-            Final scope depends on the number of systems, vendors, team members, automations, and active projects involved.
-          </p>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-8">
-          <h3 class="text-2xl font-bold mb-6">Best fit for businesses with:</h3>
-          <div class="grid sm:grid-cols-2 gap-4 mb-8">
-            {fitSignals.map((item) => (
-              <div class="flex gap-3 text-gray-100">
-                <ShieldCheck class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="grid sm:grid-cols-2 gap-4 mb-8">
-            <div class="flex items-start gap-3 rounded-xl bg-white/10 p-4">
-              <CalendarCheck2 class="w-6 h-6 text-cyan-300 flex-shrink-0" />
-              <div>
-                <h4 class="font-bold">90-day roadmap</h4>
-                <p class="text-sm text-gray-300 mt-1">A practical plan for what gets fixed first.</p>
-              </div>
+          {fitSignals.slice(2).map(({ icon: Icon, text }) => (
+            <div class="reveal-item flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <Icon class="w-5 h-5 text-cyan-300 flex-shrink-0 mt-1" />
+              <span class="text-lg text-gray-100">{text}</span>
             </div>
-            <div class="flex items-start gap-3 rounded-xl bg-white/10 p-4">
-              <LifeBuoy class="w-6 h-6 text-cyan-300 flex-shrink-0" />
-              <div>
-                <h4 class="font-bold">Ongoing support</h4>
-                <p class="text-sm text-gray-300 mt-1">A trusted point of contact when decisions or issues come up.</p>
-              </div>
+          ))}
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 border-t border-white/10 pt-8">
+          <div class="flex items-start gap-3">
+            <CalendarCheck2 class="w-6 h-6 text-cyan-300 flex-shrink-0" />
+            <div>
+              <h4 class="font-bold">90-day roadmap</h4>
+              <p class="text-sm text-gray-400 mt-1">A practical plan for what gets fixed first.</p>
             </div>
           </div>
-
-          <a href="/#book-a-call"
-            data-booking-modal-open
-            class="btn btn-primary btn-lg w-full !whitespace-normal text-center leading-snug">
-            <span>Talk Through Your Technology Problems</span>
-            <ArrowRight class="w-5 h-5 flex-shrink-0" />
-          </a>
+          <div class="flex items-start gap-3">
+            <LifeBuoy class="w-6 h-6 text-cyan-300 flex-shrink-0" />
+            <div>
+              <h4 class="font-bold">Ongoing support</h4>
+              <p class="text-sm text-gray-400 mt-1">A trusted point of contact when decisions or issues come up.</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <a href="/#book-a-call"
+        data-booking-modal-open
+        class="btn btn-primary btn-lg inline-flex mt-12 !whitespace-normal text-center leading-snug">
+        <span>Talk Through Your Technology Problems</span>
+        <ArrowRight class="w-5 h-5 flex-shrink-0" />
+      </a>
+      <p class="text-sm text-gray-400 mt-5">One call. No pressure. We'll map what's holding the business back.</p>
     </div>
   </section>
 
