@@ -331,6 +331,29 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
     const formFields = document.getElementById('form-fields') as HTMLElement;
     const phoneInput = document.getElementById('phone') as HTMLInputElement;
 
+    const trackGenerateLead = () => {
+      const trackingWindow = window as Window & {
+        dataLayer?: unknown[];
+        gtag?: (...args: unknown[]) => void;
+      };
+
+      const eventParams = {
+        form_name: 'contact',
+        lead_source: 'contact_form'
+      };
+
+      if (typeof trackingWindow.gtag === 'function') {
+        trackingWindow.gtag('event', 'generate_lead', eventParams);
+        return;
+      }
+
+      trackingWindow.dataLayer = trackingWindow.dataLayer || [];
+      trackingWindow.dataLayer.push({
+        event: 'generate_lead',
+        ...eventParams
+      });
+    };
+
     // Phone number formatter
     phoneInput?.addEventListener('input', (e) => {
       const input = e.target as HTMLInputElement;
@@ -380,6 +403,8 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
 
         // Netlify Forms returns 200 or 303 redirect on success
         if (response.ok || response.status === 303) {
+          trackGenerateLead();
+
           // Show success message
           successMessage.classList.remove('hidden');
           formFields.classList.add('hidden');
