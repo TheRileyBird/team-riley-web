@@ -1,5 +1,6 @@
 ---
 import { CheckCircle2 } from '@lucide/astro';
+import ServicePricingGrid from './ServicePricingGrid.astro';
 
 interface Tier {
   name: string;
@@ -22,6 +23,9 @@ interface Props {
   tiers: Tier[];
   reverse?: boolean;
   additionalNote?: string;
+  inlinePricing?: boolean;
+  pricingNotes?: string[];
+  collapsibleAfter?: number;
 }
 
 const {
@@ -33,14 +37,18 @@ const {
   blurColors,
   tiers,
   reverse = false,
-  additionalNote
+  additionalNote,
+  inlinePricing = false,
+  pricingNotes = [],
+  collapsibleAfter
 } = Astro.props;
 
 const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHighlight.toLowerCase().replace(/\s+/g, '-')}`;
 ---
 
 <section
-  x-data="{ showPricing: false }"
+  id={sectionId}
+  x-data="{ showPricing: false, showMoreTiers: false }"
   class={`py-20 md:py-28 relative overflow-hidden ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
 >
   {blurColors && (
@@ -84,10 +92,13 @@ const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHi
 
           <!-- Toggle Pricing Button -->
           <button
-            @click="showPricing = true; document.body.style.overflow = 'hidden'"
+            @click={inlinePricing ? 'showPricing = !showPricing' : "showPricing = true; document.body.style.overflow = 'hidden'"}
+            x-bind:aria-expanded="showPricing"
+            aria-controls={`${sectionId}-pricing`}
             class="w-full btn btn-primary mb-4"
           >
-            See Pricing
+            <span x-show="!showPricing">See Pricing</span>
+            <span x-show="showPricing" x-cloak>Hide Pricing</span>
           </button>
 
           {additionalNote && (
@@ -98,90 +109,71 @@ const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHi
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Pricing Modal -->
-  <div
-    x-show="showPricing"
-    x-cloak
-    @click.self="showPricing = false; document.body.style.overflow = ''"
-    @keydown.escape.window="showPricing = false; document.body.style.overflow = ''"
-    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-  >
-    <div
-      class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
-      x-show="showPricing"
-      x-transition:enter="transition ease-out duration-300"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-200"
-      x-transition:leave-start="opacity-100 scale-100"
-      x-transition:leave-end="opacity-0 scale-95"
-    >
-      <button
-        @click="showPricing = false; document.body.style.overflow = ''"
-        class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
-        aria-label="Close"
+    {inlinePricing && (
+      <div
+        id={`${sectionId}-pricing`}
+        x-show="showPricing"
+        x-cloak
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-3"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        class="mt-14 border-t border-gray-200 pt-12"
       >
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+        <h3 class="mb-8 text-center text-3xl font-bold text-gray-900">
+          {serviceName} {serviceHighlight} Pricing
+        </h3>
 
-      <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-        {serviceName} {serviceHighlight} Pricing
-      </h3>
-
-      <div class={`grid gap-8 ${tiers.length === 2 ? 'md:grid-cols-2' : tiers.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-1'} mb-6`}>
-        {tiers.map((tier) => (
-          <div class={`relative rounded-2xl p-6 border-2 ${tier.featured ? 'border-primary-600 shadow-xl' : 'border-gray-200'}`}>
-            {tier.featured && (
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 text-sm font-bold rounded-full shadow-lg whitespace-nowrap">
-                MOST POPULAR
-              </div>
-            )}
-
-            <div class="mb-6">
-              <h4 class="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h4>
-              <div class="flex items-baseline gap-2 mb-2">
-                <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
-                <span class="text-gray-600">{tier.priceUnit}</span>
-              </div>
-              <p class="text-gray-600 text-sm">{tier.description}</p>
-            </div>
-
-            <ul class="space-y-3 mb-6">
-              {tier.features.map((feature) => (
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.featured ? 'text-yellow-500' : 'text-primary-600'}`} />
-                  <span class="text-gray-700 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {tier.setupFee && (
-              <p class="text-sm text-gray-600 mb-4">{tier.setupFee}</p>
-            )}
-
-            {tier.additionalNote && (
-              <p class="text-sm text-gray-600 mb-4">{tier.additionalNote}</p>
-            )}
-
-            <a href="/#book-a-call"
-              data-booking-modal-open
-              class={`w-full ${tier.featured ? 'btn btn-secondary' : 'btn btn-primary'}`}
-            >
-              Get Started
-            </a>
-          </div>
-        ))}
+        <ServicePricingGrid
+          tiers={tiers}
+          additionalNote={additionalNote}
+          pricingNotes={pricingNotes}
+          collapsibleAfter={collapsibleAfter}
+          sectionId={sectionId}
+        />
       </div>
-
-      {additionalNote && (
-        <p class="text-center text-gray-600 text-sm">
-          {additionalNote}
-        </p>
-      )}
-    </div>
+    )}
   </div>
+
+  {!inlinePricing && (
+    <div
+      x-show="showPricing"
+      x-cloak
+      @click.self="showPricing = false; document.body.style.overflow = ''"
+      @keydown.escape.window="showPricing = false; document.body.style.overflow = ''"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div
+        id={`${sectionId}-pricing`}
+        class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+        x-show="showPricing"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+      >
+        <button
+          @click="showPricing = false; document.body.style.overflow = ''"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
+          aria-label="Close"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+          {serviceName} {serviceHighlight} Pricing
+        </h3>
+
+        <ServicePricingGrid
+          tiers={tiers}
+          additionalNote={additionalNote}
+          sectionId={sectionId}
+        />
+      </div>
+    </div>
+  )}
 </section>

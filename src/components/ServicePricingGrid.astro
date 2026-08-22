@@ -1,0 +1,161 @@
+---
+import { CheckCircle2, ChevronDown } from '@lucide/astro';
+
+interface Tier {
+  name: string;
+  price: string;
+  priceUnit: string;
+  description: string;
+  features: string[];
+  setupFee?: string;
+  featured?: boolean;
+  additionalNote?: string;
+}
+
+interface Props {
+  tiers: Tier[];
+  additionalNote?: string;
+  pricingNotes?: string[];
+  collapsibleAfter?: number;
+  sectionId: string;
+}
+
+const {
+  tiers,
+  additionalNote,
+  pricingNotes = [],
+  collapsibleAfter,
+  sectionId
+} = Astro.props;
+
+const primaryTiers = collapsibleAfter ? tiers.slice(0, collapsibleAfter) : tiers;
+const expandedTiers = collapsibleAfter ? tiers.slice(collapsibleAfter) : [];
+const gridColumns = (tierCount: number) =>
+  tierCount === 2 ? 'md:grid-cols-2' : tierCount >= 3 ? 'md:grid-cols-2 xl:grid-cols-3' : 'md:grid-cols-1';
+---
+
+{pricingNotes.length > 0 && (
+  <div class="mb-8 rounded-2xl border border-primary-200 bg-primary-50 p-5 md:p-6">
+    <h4 class="mb-3 text-lg font-bold text-gray-900">About Reels</h4>
+    <ul class="space-y-2 text-sm leading-relaxed text-gray-700 md:text-base">
+      {pricingNotes.map((note) => (
+        <li class="flex items-start gap-3">
+          <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-600" />
+          <span>{note}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<div class={`grid gap-8 ${gridColumns(primaryTiers.length)}`}>
+  {primaryTiers.map((tier) => (
+    <article class={`relative flex h-full flex-col rounded-2xl border-2 p-6 ${tier.featured ? 'border-primary-600 shadow-xl' : 'border-gray-200'}`}>
+      {tier.featured && (
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-4 py-1 text-sm font-bold text-yellow-900 shadow-lg">
+          MOST POPULAR
+        </div>
+      )}
+
+      <div class="mb-6">
+        <h4 class="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h4>
+        <div class="mb-2 flex items-baseline gap-2">
+          <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
+          <span class="text-gray-600">{tier.priceUnit}</span>
+        </div>
+        <p class="text-sm text-gray-600">{tier.description}</p>
+      </div>
+
+      <ul class="mb-6 space-y-3">
+        {tier.features.map((feature) => (
+          <li class="flex items-start gap-3">
+            <CheckCircle2 class={`mt-0.5 h-5 w-5 flex-shrink-0 ${tier.featured ? 'text-yellow-500' : 'text-primary-600'}`} />
+            <span class="text-sm text-gray-700">{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      {tier.setupFee && (
+        <p class="mb-4 text-sm text-gray-600">{tier.setupFee}</p>
+      )}
+
+      {tier.additionalNote && (
+        <p class="mb-4 text-sm text-gray-600">{tier.additionalNote}</p>
+      )}
+
+      <a
+        href="/#book-a-call"
+        data-booking-modal-open
+        class={`mt-auto w-full ${tier.featured ? 'btn btn-secondary' : 'btn btn-primary'}`}
+      >
+        Get Started
+      </a>
+    </article>
+  ))}
+</div>
+
+{expandedTiers.length > 0 && (
+  <div class="mt-8 rounded-2xl border border-gray-200 bg-gray-50/80 p-4 md:p-6">
+    <button
+      type="button"
+      @click="showMoreTiers = !showMoreTiers"
+      x-bind:aria-expanded="showMoreTiers"
+      aria-controls={`${sectionId}-advanced-plans`}
+      class="flex w-full items-center justify-between gap-4 rounded-xl px-2 py-2 text-left text-gray-900 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+    >
+      <span>
+        <span class="block text-lg font-bold md:text-xl">Strategist & Influencer plans</span>
+        <span class="mt-1 block text-sm font-normal text-gray-600">Expand for higher-volume content and hands-on strategy</span>
+      </span>
+      <ChevronDown
+        class="h-6 w-6 flex-shrink-0 transition-transform duration-200"
+        x-bind:class="showMoreTiers ? 'rotate-180' : ''"
+      />
+    </button>
+
+    <div
+      id={`${sectionId}-advanced-plans`}
+      x-show="showMoreTiers"
+      x-cloak
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 -translate-y-2"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      class={`grid gap-8 pt-6 ${gridColumns(expandedTiers.length)}`}
+    >
+      {expandedTiers.map((tier) => (
+        <article class="flex h-full flex-col rounded-2xl border-2 border-gray-200 bg-white p-6">
+          <div class="mb-6">
+            <h4 class="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h4>
+            <div class="mb-2 flex items-baseline gap-2">
+              <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
+              <span class="text-gray-600">{tier.priceUnit}</span>
+            </div>
+            <p class="text-sm text-gray-600">{tier.description}</p>
+          </div>
+
+          <ul class="mb-6 space-y-3">
+            {tier.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-600" />
+                <span class="text-sm text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          {tier.setupFee && <p class="mb-4 text-sm text-gray-600">{tier.setupFee}</p>}
+          {tier.additionalNote && <p class="mb-4 text-sm text-gray-600">{tier.additionalNote}</p>}
+
+          <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary mt-auto w-full">
+            Get Started
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+)}
+
+{additionalNote && (
+  <p class="mt-6 text-center text-sm text-gray-600">
+    {additionalNote}
+  </p>
+)}

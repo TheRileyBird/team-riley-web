@@ -481,6 +481,13 @@ const faqSections = [
     subDescription="Content creation · Strategic planning · Community engagement · Performance tracking · Brand storytelling"
     theme="light"
     reverse={true}
+    inlinePricing={true}
+    collapsibleAfter={3}
+    pricingNotes={[
+      'Reels are included within the monthly post total. They are not additional posts.',
+      'A Reel is short-form video content. It may use AI-generated media, a slideshow of photos, supplied video clips, animated graphics and text, or a combination of these formats.',
+      'Filming is not included. If you want yourself, your team, or your location featured in a Reel, you must provide the footage.'
+    ]}
     tiers={[
       {
         name: 'Basic',
@@ -503,8 +510,8 @@ const faqSections = [
         description: 'Ideal for busy professionals',
         features: [
           '$149 one-time setup fee',
-          '6 Posts Per Month',
-          '1 Reel Per Month',
+          '6 total posts per month',
+          'At least 1 of the 6 posts will be a Reel',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)'
         ],
@@ -518,8 +525,8 @@ const faqSections = [
         description: 'Consistent and engaging presence',
         features: [
           '$149 one-time setup fee',
-          '10 Posts Per Month',
-          '3 Reels Per Month',
+          '10 total posts per month',
+          '3 of the 10 posts will be Reels',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)'
         ],
@@ -532,8 +539,8 @@ const faqSections = [
         description: 'For growing businesses',
         features: [
           '$375 one-time setup fee',
-          '12 Posts Per Month',
-          '5 Reels Per Month',
+          '12 total posts per month',
+          '5 of the 12 posts will be Reels',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)',
           'Direct Slack Channel for Instant Communication'
@@ -547,8 +554,8 @@ const faqSections = [
         description: 'High-performing content strategy',
         features: [
           '$750 one-time setup fee',
-          '20 Posts Per Month',
-          'Up to 8 Reels Per Month',
+          '20 total posts per month',
+          'Up to 8 of the 20 posts may be Reels',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)',
           'Monthly Content Strategy Plan',
@@ -563,8 +570,8 @@ const faqSections = [
         description: 'Premium content production',
         features: [
           '$750 one-time setup fee',
-          '20 Posts Per Month',
-          'Up to 10 Reels Per Month',
+          '20 total posts per month',
+          'Up to 10 of the 20 posts may be Reels',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)',
           'Monthly Content Strategy Plan',
