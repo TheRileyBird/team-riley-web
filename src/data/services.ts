@@ -56,8 +56,19 @@ export interface Service {
   highlight: string;
   description: string;
   subDescription: string;
-  /** Decorative background blurs. Semantic to the service, not to its position. */
-  accent?: { top: string; bottom: string };
+  /**
+   * Decorative background blurs. Semantic to the service, not to its position.
+   * Either corner can be omitted. The section is `overflow-hidden`, so a blur at
+   * an edge that borders a same-toned section gets cut off in a hard line rather
+   * than fading — omit `bottom` on a section designed to blend downward.
+   */
+  accent?: { top?: string; bottom?: string };
+  /**
+   * Overrides the flat background derived from `theme`. Use when a section has to
+   * blend into the one after it. `theme` still governs text colours, so only pass
+   * a light background on a light-themed position and vice versa.
+   */
+  background?: string;
   /**
    * What the "What's Included" panel lists. Explicit on purpose: this used to be
    * derived from tiers[0].features with a string filter that dropped any line
@@ -483,7 +494,7 @@ export const services: Service[] = [
     description: 'Professional logo design and brand identity that makes your practice stand out',
     subDescription:
       'Logo design · Brand guidelines · Color palettes · Typography · Marketing materials',
-    accent: { top: 'bg-teal-600', bottom: 'bg-red-500' },
+    accent: { top: 'bg-teal-600', bottom: 'bg-secondary-500' },
     includedFeatures: [
       '10 hour minimum project',
       'Custom logo design',
@@ -526,7 +537,8 @@ export const services: Service[] = [
       'Client Growth AI automation that helps health clinics capture more leads, book more appointments, and grow faster',
     subDescription:
       'Complete business automation · Lead management · Patient engagement · Marketing campaigns',
-    accent: { top: 'bg-cyan-600', bottom: 'bg-blue-500' },
+    accent: { top: 'bg-cyan-600' },
+    background: 'bg-gradient-to-b from-white to-gray-50',
     includedFeatures: [
       'CRM for leads',
       'Calendar booking',

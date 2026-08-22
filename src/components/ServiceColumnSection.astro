@@ -42,6 +42,7 @@ const {
   description,
   subDescription,
   accent,
+  background,
   includedFeatures,
   collapsibleAfter,
   collapseLabel,
@@ -59,7 +60,7 @@ const isDark = theme === 'dark';
   x-data="{ showPricing: false }"
   class:list={[
     'relative overflow-hidden py-20 md:py-28',
-    isDark ? 'bg-gray-900' : 'bg-white'
+    background ?? (isDark ? 'bg-gray-900' : 'bg-white')
   ]}
 >
   {/*
@@ -72,10 +73,14 @@ const isDark = theme === 'dark';
     ></span>
   ))}
 
-  {accent && (
+  {accent && (accent.top || accent.bottom) && (
     <div class="pointer-events-none absolute inset-0">
-      <div class={`absolute left-0 top-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.top}`}></div>
-      <div class={`absolute bottom-0 right-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.bottom}`}></div>
+      {accent.top && (
+        <div class={`absolute left-0 top-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.top}`}></div>
+      )}
+      {accent.bottom && (
+        <div class={`absolute bottom-0 right-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.bottom}`}></div>
+      )}
     </div>
   )}
 
