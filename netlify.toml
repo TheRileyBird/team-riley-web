@@ -2,10 +2,11 @@
   command = "npm run build"
   publish = "dist"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA catch-all. This is a static multi-page Astro site, and a
+# `from = "/*" -> "/index.html"` rewrite at status 200 made every dead URL answer
+# with the homepage and an HTTP 200 — a soft 404, which Google reports as such.
+# Unmatched paths now fall through to dist/404.html with a real 404 status.
+# Verify after deploy: curl -I https://teamrileyweb.com/does-not-exist
 
 [build.environment]
   NODE_VERSION = "18"

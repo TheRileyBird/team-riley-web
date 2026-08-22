@@ -1,0 +1,66 @@
+---
+/**
+ * One pricing tier card. Extracted from ServicePricingGrid, which rendered this
+ * markup twice — once for visible tiers and once for collapsed ones — and had
+ * already started to drift between the two copies.
+ */
+import { CheckCircle2 } from '@lucide/astro';
+import type { Tier } from '../data/services';
+
+interface Props {
+  tier: Tier;
+  /** Collapsed tiers don't carry the MOST POPULAR badge even if flagged featured. */
+  showFeaturedBadge?: boolean;
+}
+
+const { tier, showFeaturedBadge = true } = Astro.props;
+const isFeatured = Boolean(tier.featured);
+const withBadge = isFeatured && showFeaturedBadge;
+---
+
+<article
+  class:list={[
+    'relative flex h-full flex-col rounded-2xl border-2 bg-white p-6',
+    withBadge ? 'border-primary-600 shadow-xl' : 'border-gray-200'
+  ]}
+>
+  {withBadge && (
+    <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-4 py-1 text-sm font-bold text-yellow-900 shadow-lg">
+      MOST POPULAR
+    </div>
+  )}
+
+  <div class="mb-6">
+    <h4 class="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h4>
+    <div class="mb-2 flex items-baseline gap-2">
+      <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
+      <span class="text-gray-600">{tier.priceUnit}</span>
+    </div>
+    <p class="text-sm text-gray-600">{tier.description}</p>
+  </div>
+
+  <ul class="mb-6 space-y-3">
+    {tier.features.map((feature) => (
+      <li class="flex items-start gap-3">
+        <CheckCircle2
+          class:list={[
+            'mt-0.5 h-5 w-5 flex-shrink-0',
+            withBadge ? 'text-yellow-500' : 'text-primary-600'
+          ]}
+        />
+        <span class="text-sm text-gray-700">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  {tier.setupFee && <p class="mb-4 text-sm text-gray-600">{tier.setupFee}</p>}
+  {tier.additionalNote && <p class="mb-4 text-sm text-gray-600">{tier.additionalNote}</p>}
+
+  <a
+    href="/#book-a-call"
+    data-booking-modal-open
+    class:list={['btn mt-auto w-full', withBadge ? 'btn-secondary' : 'btn-primary']}
+  >
+    Get Started
+  </a>
+</article>

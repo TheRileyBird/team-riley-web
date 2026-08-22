@@ -1,5 +1,6 @@
 ---
 import { ArrowRight, CheckCircle2 } from '@lucide/astro';
+import PlanIncludes from './PlanIncludes.astro';
 
 interface Props {
   showHeader?: boolean;
@@ -13,19 +14,11 @@ const plans = [
   { name: 'Platinum', price: '$599', pages: '15+ Pages', featured: false },
 ];
 
-const planIncludes = [
-  'Hosting',
-  'Ongoing support',
-  'Unlimited updates',
-  'SEO foundations',
-  'Mobile optimization',
-  'Strategy guidance',
-];
-
 const ftpFeatures = [
   'Monthly strategy session',
   'Technical guidance and vendor support',
 ];
+
 ---
 
 <section id="pricing" class="pt-16 md:pt-20 pb-20 md:pb-28 relative overflow-visible">
@@ -44,10 +37,10 @@ const ftpFeatures = [
       </div>
     )}
 
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 relative pt-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative pt-6">
       {plans.map((plan) => (
         <div class:list={[
-          'relative rounded-2xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large',
+          'relative rounded-2xl p-6 xl:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large',
           plan.featured
             ? 'bg-white ring-2 ring-primary-600 shadow-large'
             : 'bg-white border border-gray-200 hover:border-primary-400',
@@ -59,7 +52,7 @@ const ftpFeatures = [
           )}
           <h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
           <div class="flex items-baseline gap-2 mb-8">
-            <span class="text-5xl font-bold text-gray-900">{plan.price}</span>
+            <span class="text-4xl xl:text-5xl font-bold text-gray-900">{plan.price}</span>
             <span class="text-gray-600">/mo</span>
           </div>
           <ul class="space-y-4 mb-8">
@@ -81,12 +74,12 @@ const ftpFeatures = [
       ))}
 
       <!-- Fractional CTO (Premium) -->
-      <div class="relative rounded-2xl p-8 flex flex-col bg-gradient-to-br from-gray-950 via-primary-950 to-cyan-950 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large overflow-hidden">
+      <div class="relative rounded-2xl p-6 xl:p-8 flex flex-col bg-gradient-to-br from-gray-950 via-primary-950 to-cyan-950 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-large overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.18),_transparent_34%)]"></div>
         <div class="relative z-10 flex flex-col flex-1">
           <h3 class="text-2xl font-bold text-white mb-2">Fractional CTO</h3>
           <div class="flex items-baseline gap-2 mb-8">
-            <span class="text-5xl font-bold text-white">$2,500+</span>
+            <span class="text-3xl xl:text-4xl font-bold text-white">$2,500+</span>
             <span class="text-cyan-100">/mo</span>
           </div>
           <ul class="space-y-4 mb-8">
@@ -105,16 +98,7 @@ const ftpFeatures = [
       </div>
     </div>
 
-    <div class="mt-12 rounded-2xl border border-gray-200 bg-gray-50 px-8 py-6">
-      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
-        <span class="text-sm font-bold uppercase tracking-wider text-gray-900 mr-2">All plans include</span>
-        {planIncludes.map((item) => (
-          <span class="inline-flex items-center gap-2 rounded-full bg-white border border-gray-200 px-4 py-1.5 text-sm text-gray-700">
-            <CheckCircle2 class="w-4 h-4 text-primary-600" />
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
+    <PlanIncludes />
+
   </div>
 </section>

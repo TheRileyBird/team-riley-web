@@ -1,186 +1,230 @@
 ---
-import { CheckCircle2, ChevronDown } from '@lucide/astro';
-
-interface Tier {
-  name: string;
-  price: string;
-  priceUnit: string;
-  description: string;
-  features: string[];
-  setupFee?: string;
-  featured?: boolean;
-  additionalNote?: string;
-}
+/**
+ * Renders one service's pricing: one or more named tier groups, an optional
+ * collapsed set of higher tiers, and an optional notes disclosure.
+ *
+ * Owns its own Alpine state (showMoreTiers, showNotes) so it can be dropped
+ * anywhere. It previously read those flags out of the parent section's x-data,
+ * which meant it could not render standalone and two grids in one section would
+ * have shared one toggle. The parent still owns showPricing — that's modal
+ * visibility, which belongs to the section, not the grid.
+ *
+ * All labels are per-service. This component used to hardcode "About Reels" and
+ * "Strategist & Influencer plans", which are Social Media Management's copy and
+ * would have shipped on any other service that used these slots.
+ */
+import { ChevronDown, CheckCircle2 } from '@lucide/astro';
+import TierCard from './TierCard.astro';
+import type { TierGroup } from '../data/services';
 
 interface Props {
-  tiers: Tier[];
-  additionalNote?: string;
-  pricingNotes?: string[];
-  collapsibleAfter?: number;
+  tierGroups: TierGroup[];
   sectionId: string;
+  theme?: 'light' | 'dark';
+  /** Applies to the first group only; a multi-group service shows all tiers. */
+  collapsibleAfter?: number;
+  collapseLabel?: string;
+  collapseSubtitle?: string;
+  notesLabel?: string;
+  pricingNotes?: string[];
+  additionalNote?: string;
 }
 
 const {
-  tiers,
-  additionalNote,
-  pricingNotes = [],
+  tierGroups,
+  sectionId,
+  theme = 'light',
   collapsibleAfter,
-  sectionId
+  collapseLabel,
+  collapseSubtitle,
+  notesLabel,
+  pricingNotes = [],
+  additionalNote
 } = Astro.props;
 
-const primaryTiers = collapsibleAfter ? tiers.slice(0, collapsibleAfter) : tiers;
-const expandedTiers = collapsibleAfter ? tiers.slice(collapsibleAfter) : [];
+const isDark = theme === 'dark';
+const hasNamedGroups = tierGroups.length > 1 || Boolean(tierGroups[0]?.label);
+
+// Collapsing only makes sense for a single ladder of tiers. With several named
+// families each group is already a meaningful chunk, so nothing is hidden.
+const collapseEnabled = tierGroups.length === 1 && Boolean(collapsibleAfter);
+const allTiers = tierGroups[0]?.tiers ?? [];
+const primaryTiers = collapseEnabled ? allTiers.slice(0, collapsibleAfter) : allTiers;
+const expandedTiers = collapseEnabled ? allTiers.slice(collapsibleAfter) : [];
+
+if (collapseEnabled && !collapseLabel) {
+  throw new Error(
+    `Service section "${sectionId}" sets collapsibleAfter but no collapseLabel. The collapsed group needs its own heading — it must not inherit another service's copy.`
+  );
+}
+if (pricingNotes.length > 0 && !notesLabel) {
+  throw new Error(
+    `Service section "${sectionId}" sets pricingNotes but no notesLabel. The disclosure needs its own heading.`
+  );
+}
+
 const gridColumns = (tierCount: number) =>
-  tierCount === 2 ? 'md:grid-cols-2' : tierCount >= 3 ? 'md:grid-cols-2 xl:grid-cols-3' : 'md:grid-cols-1';
+  tierCount === 2
+    ? 'md:grid-cols-2'
+    : tierCount >= 3
+      ? 'md:grid-cols-2 xl:grid-cols-3'
+      : 'md:grid-cols-1';
 ---
 
-<div class={`grid gap-8 ${gridColumns(primaryTiers.length)}`}>
-  {primaryTiers.map((tier) => (
-    <article class={`relative flex h-full flex-col rounded-2xl border-2 p-6 ${tier.featured ? 'border-primary-600 shadow-xl' : 'border-gray-200'}`}>
-      {tier.featured && (
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-4 py-1 text-sm font-bold text-yellow-900 shadow-lg">
-          MOST POPULAR
-        </div>
-      )}
-
-      <div class="mb-6">
-        <h4 class="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h4>
-        <div class="mb-2 flex items-baseline gap-2">
-          <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
-          <span class="text-gray-600">{tier.priceUnit}</span>
-        </div>
-        <p class="text-sm text-gray-600">{tier.description}</p>
-      </div>
-
-      <ul class="mb-6 space-y-3">
-        {tier.features.map((feature) => (
-          <li class="flex items-start gap-3">
-            <CheckCircle2 class={`mt-0.5 h-5 w-5 flex-shrink-0 ${tier.featured ? 'text-yellow-500' : 'text-primary-600'}`} />
-            <span class="text-sm text-gray-700">{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      {tier.setupFee && (
-        <p class="mb-4 text-sm text-gray-600">{tier.setupFee}</p>
-      )}
-
-      {tier.additionalNote && (
-        <p class="mb-4 text-sm text-gray-600">{tier.additionalNote}</p>
-      )}
-
-      <a
-        href="/#book-a-call"
-        data-booking-modal-open
-        class={`mt-auto w-full ${tier.featured ? 'btn btn-secondary' : 'btn btn-primary'}`}
-      >
-        Get Started
-      </a>
-    </article>
-  ))}
-</div>
-
-{expandedTiers.length > 0 && (
-  <div class="mt-8 rounded-2xl border border-gray-200 bg-gray-50/80 p-4 md:p-6">
-    <button
-      type="button"
-      @click="showMoreTiers = !showMoreTiers"
-      x-bind:aria-expanded="showMoreTiers"
-      aria-controls={`${sectionId}-advanced-plans`}
-      class="flex w-full items-center justify-between gap-4 rounded-xl px-2 py-2 text-left text-gray-900 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-    >
-      <span>
-        <span class="block text-lg font-bold md:text-xl">Strategist & Influencer plans</span>
-        <span class="mt-1 block text-sm font-normal text-gray-600">Expand for higher-volume content and hands-on strategy</span>
-      </span>
-      <ChevronDown
-        class="h-6 w-6 flex-shrink-0 transition-transform duration-200"
-        x-bind:class="showMoreTiers ? 'rotate-180' : ''"
-      />
-    </button>
-
-    <div
-      id={`${sectionId}-advanced-plans`}
-      x-show="showMoreTiers"
-      x-cloak
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 -translate-y-2"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      class={`grid gap-8 pt-6 ${gridColumns(expandedTiers.length)}`}
-    >
-      {expandedTiers.map((tier) => (
-        <article class="flex h-full flex-col rounded-2xl border-2 border-gray-200 bg-white p-6">
-          <div class="mb-6">
-            <h4 class="mb-2 text-2xl font-bold text-gray-900">{tier.name}</h4>
-            <div class="mb-2 flex items-baseline gap-2">
-              <span class="text-4xl font-bold text-gray-900">{tier.price}</span>
-              <span class="text-gray-600">{tier.priceUnit}</span>
+<div x-data="{ showMoreTiers: false, showNotes: false }">
+  {collapseEnabled ? (
+    <div class={`grid gap-8 ${gridColumns(primaryTiers.length)}`}>
+      {primaryTiers.map((tier) => <TierCard tier={tier} />)}
+    </div>
+  ) : (
+    <div class="space-y-12">
+      {tierGroups.map((group) => (
+        <div>
+          {hasNamedGroups && group.label && (
+            <div class="mb-6">
+              <h4
+                class:list={[
+                  'text-2xl font-bold md:text-3xl',
+                  isDark ? 'text-white' : 'text-gray-900'
+                ]}
+              >
+                {group.label}
+              </h4>
+              {group.subtitle && (
+                <p
+                  class:list={[
+                    'mt-2 text-base',
+                    isDark ? 'text-gray-300' : 'text-gray-600'
+                  ]}
+                >
+                  {group.subtitle}
+                </p>
+              )}
             </div>
-            <p class="text-sm text-gray-600">{tier.description}</p>
+          )}
+
+          <div class={`grid gap-8 ${gridColumns(group.tiers.length)}`}>
+            {group.tiers.map((tier) => <TierCard tier={tier} />)}
           </div>
-
-          <ul class="mb-6 space-y-3">
-            {tier.features.map((feature) => (
-              <li class="flex items-start gap-3">
-                <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-600" />
-                <span class="text-sm text-gray-700">{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          {tier.setupFee && <p class="mb-4 text-sm text-gray-600">{tier.setupFee}</p>}
-          {tier.additionalNote && <p class="mb-4 text-sm text-gray-600">{tier.additionalNote}</p>}
-
-          <a href="/#book-a-call" data-booking-modal-open class="btn btn-primary mt-auto w-full">
-            Get Started
-          </a>
-        </article>
+        </div>
       ))}
     </div>
-  </div>
-)}
+  )}
 
-{pricingNotes.length > 0 && (
-  <div class="mt-6 rounded-2xl border border-primary-200 bg-primary-50/70 p-4 md:p-6">
-    <button
-      type="button"
-      @click="showReelInfo = !showReelInfo"
-      x-bind:aria-expanded="showReelInfo"
-      aria-controls={`${sectionId}-reel-information`}
-      class="flex w-full items-center justify-between gap-4 rounded-xl px-2 py-2 text-left text-gray-900 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-    >
-      <span>
-        <span class="block text-lg font-bold md:text-xl">About Reels</span>
-      </span>
-      <ChevronDown
-        class="h-6 w-6 flex-shrink-0 transition-transform duration-200"
-        x-bind:class="showReelInfo ? 'rotate-180' : ''"
-      />
-    </button>
-
+  {expandedTiers.length > 0 && (
     <div
-      id={`${sectionId}-reel-information`}
-      x-show="showReelInfo"
-      x-cloak
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 -translate-y-2"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      class="pt-5"
+      class:list={[
+        'mt-8 rounded-2xl border p-4 md:p-6',
+        isDark ? 'border-gray-700 bg-gray-800/60' : 'border-gray-200 bg-gray-50/80'
+      ]}
     >
-      <ul class="space-y-3 rounded-xl border border-primary-100 bg-white/80 p-4 text-sm leading-relaxed text-gray-700 md:p-5 md:text-base">
-        {pricingNotes.map((note) => (
-          <li class="flex items-start gap-3">
-            <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-600" />
-            <span>{note}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+      <button
+        type="button"
+        @click="showMoreTiers = !showMoreTiers"
+        x-bind:aria-expanded="showMoreTiers"
+        aria-controls={`${sectionId}-advanced-plans`}
+        class:list={[
+          'flex w-full items-center justify-between gap-4 rounded-xl px-2 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+          isDark
+            ? 'text-white hover:text-primary-300 focus-visible:ring-offset-gray-900'
+            : 'text-gray-900 hover:text-primary-700'
+        ]}
+      >
+        <span>
+          <span class="block text-lg font-bold md:text-xl">{collapseLabel}</span>
+          {collapseSubtitle && (
+            <span
+              class:list={[
+                'mt-1 block text-sm font-normal',
+                isDark ? 'text-gray-300' : 'text-gray-600'
+              ]}
+            >
+              {collapseSubtitle}
+            </span>
+          )}
+        </span>
+        <ChevronDown
+          class="h-6 w-6 flex-shrink-0 transition-transform duration-200"
+          x-bind:class="showMoreTiers ? 'rotate-180' : ''"
+        />
+      </button>
 
-{additionalNote && (
-  <p class="mt-6 text-center text-sm text-gray-600">
-    {additionalNote}
-  </p>
-)}
+      <div
+        id={`${sectionId}-advanced-plans`}
+        x-show="showMoreTiers"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        class={`grid gap-8 pt-6 ${gridColumns(expandedTiers.length)}`}
+      >
+        {expandedTiers.map((tier) => <TierCard tier={tier} showFeaturedBadge={false} />)}
+      </div>
+    </div>
+  )}
+
+  {pricingNotes.length > 0 && (
+    <div
+      class:list={[
+        'mt-6 rounded-2xl border p-4 md:p-6',
+        isDark ? 'border-primary-800 bg-primary-950/40' : 'border-primary-200 bg-primary-50/70'
+      ]}
+    >
+      <button
+        type="button"
+        @click="showNotes = !showNotes"
+        x-bind:aria-expanded="showNotes"
+        aria-controls={`${sectionId}-pricing-notes`}
+        class:list={[
+          'flex w-full items-center justify-between gap-4 rounded-xl px-2 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+          isDark
+            ? 'text-white hover:text-primary-300 focus-visible:ring-offset-gray-900'
+            : 'text-gray-900 hover:text-primary-700'
+        ]}
+      >
+        <span class="block text-lg font-bold md:text-xl">{notesLabel}</span>
+        <ChevronDown
+          class="h-6 w-6 flex-shrink-0 transition-transform duration-200"
+          x-bind:class="showNotes ? 'rotate-180' : ''"
+        />
+      </button>
+
+      <div
+        id={`${sectionId}-pricing-notes`}
+        x-show="showNotes"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        class="pt-5"
+      >
+        <ul
+          class:list={[
+            'space-y-3 rounded-xl border p-4 text-sm leading-relaxed md:p-5 md:text-base',
+            isDark
+              ? 'border-primary-900 bg-gray-900/70 text-gray-200'
+              : 'border-primary-100 bg-white/80 text-gray-700'
+          ]}
+        >
+          {pricingNotes.map((note) => (
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="mt-0.5 h-5 w-5 flex-shrink-0 text-primary-600" />
+              <span>{note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )}
+
+  {additionalNote && (
+    <p
+      class:list={[
+        'mt-6 text-center text-sm',
+        isDark ? 'text-gray-400' : 'text-gray-600'
+      ]}
+    >
+      {additionalNote}
+    </p>
+  )}
+</div>

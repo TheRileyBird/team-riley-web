@@ -1,0 +1,100 @@
+---
+/**
+ * "All plans include" — a row of chips where each one opens its own explanation.
+ *
+ * One panel is open at a time, rendered below the row, so opening a chip never
+ * pushes the others around. A visitor digs into whichever promise they doubt
+ * instead of reading everything.
+ *
+ * Headings and prose are centered within one shared measure; cards keep their text
+ * left-aligned so they stay scannable.
+ *
+ * Self-contained Alpine state, keyed by the open panel's id.
+ */
+import { ChevronDown, FileText, Palette, Sparkles, ShieldCheck } from '@lucide/astro';
+import { planIncludes, type PointIcon } from '../data/plan-includes';
+
+// Icon keys live in the data file as strings so it stays pure TS; the mapping to
+// components belongs here, with the rest of the presentation.
+const pointIcons = {
+  content: FileText,
+  design: Palette,
+  features: Sparkles,
+  performance: ShieldCheck
+} satisfies Record<PointIcon, unknown>;
+---
+
+<div class="mt-12 rounded-2xl border border-gray-200 bg-gray-50 px-6 py-6 md:px-8" x-data="{ open: null }">
+  <p class="text-center text-sm font-bold uppercase tracking-wider text-gray-900">
+    All plans include
+  </p>
+
+  <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
+    {planIncludes.map((item) => (
+      <button
+        type="button"
+        @click={`open = open === '${item.id}' ? null : '${item.id}'`}
+        x-bind:aria-expanded={`open === '${item.id}'`}
+        aria-controls={`plan-include-${item.id}`}
+        class="inline-flex w-full items-center justify-center gap-1.5 rounded-full border bg-white px-3 py-2 text-sm leading-tight xl:text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+        x-bind:class={`open === '${item.id}' ? 'border-primary-600 text-primary-800 shadow-sm' : 'border-gray-200 text-gray-700 hover:border-primary-400 hover:text-primary-700'`}
+      >
+        <span>{item.label}</span>
+        <ChevronDown
+          class="h-4 w-4 flex-shrink-0 transition-transform duration-200"
+          x-bind:class={`open === '${item.id}' ? 'rotate-180' : ''`}
+        />
+      </button>
+    ))}
+  </div>
+
+  {planIncludes.map((item) => (
+    <div
+      id={`plan-include-${item.id}`}
+      x-show={`open === '${item.id}'`}
+      x-cloak
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 -translate-y-2"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      class="mt-6 border-t border-gray-200 pt-6"
+    >
+      <div class="mx-auto max-w-4xl">
+        <h3 class="text-center text-lg font-bold text-gray-900 md:text-xl">{item.headline}</h3>
+
+        <div class="mt-3 space-y-3">
+          {item.intro.map((paragraph) => (
+            <p class="text-center text-base leading-relaxed text-gray-700">{paragraph}</p>
+          ))}
+        </div>
+
+        {item.points && (
+          <div class:list={['mt-6 grid gap-4', item.points.length > 1 && 'sm:grid-cols-2']}>
+            {item.points.map((point) => {
+              const Icon = point.icon ? pointIcons[point.icon] : null;
+
+              return (
+                <div class="rounded-xl border border-gray-200 bg-white p-4">
+                  <div class:list={['flex items-start gap-3', item.points.length === 1 && 'justify-center text-center']}>
+                    {Icon && (
+                      <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                        <Icon class="h-5 w-5" />
+                      </span>
+                    )}
+                    <div>
+                      <h4 class="text-sm font-bold text-gray-900">{point.title}</h4>
+                      <p class="mt-1 text-sm leading-relaxed text-gray-700">{point.body}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {item.footnote && (
+          <p class="mt-5 text-center text-sm leading-relaxed text-gray-600">{item.footnote}</p>
+        )}
+      </div>
+    </div>
+  ))}
+</div>

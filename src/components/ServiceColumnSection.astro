@@ -1,108 +1,161 @@
 ---
+/**
+ * One service section: description on one side, "What's Included" plus a pricing
+ * toggle on the other, and the pricing grid expanding in place below.
+ *
+ * Takes a Service straight from src/data/services.ts. theme and reverse are passed
+ * in by the page, derived from the service's index among VISIBLE services, so
+ * archiving one service can't flip the colors of every section after it.
+ *
+ * Pricing always expands inline. There used to be a second, modal presentation
+ * behind an `inlinePricing` flag; every service now expands on the page, so the
+ * modal branch and the flag were removed rather than left as an abstraction with
+ * no user. Recover it from git history if a service ever genuinely needs one.
+ */
 import { CheckCircle2 } from '@lucide/astro';
 import ServicePricingGrid from './ServicePricingGrid.astro';
-
-interface Tier {
-  name: string;
-  price: string;
-  priceUnit: string;
-  description: string;
-  features: string[];
-  setupFee?: string;
-  featured?: boolean;
-  additionalNote?: string;
-}
+import { tierGroupsFor, type Service } from '../data/services';
 
 interface Props {
-  serviceName: string;
-  serviceHighlight: string;
-  description: string;
-  subDescription: string;
-  theme?: 'light' | 'dark';
-  blurColors?: { top: string; bottom: string };
-  tiers: Tier[];
-  reverse?: boolean;
-  additionalNote?: string;
-  inlinePricing?: boolean;
-  pricingNotes?: string[];
-  collapsibleAfter?: number;
+  service: Service;
+  theme: 'light' | 'dark';
+  reverse: boolean;
 }
 
+const { service, theme, reverse } = Astro.props;
+
+if (service.status === 'archived') {
+  throw new Error(
+    `Service "${service.slug}" is archived and must not be rendered. Filter with visibleServices.`
+  );
+}
+
+// Throws, naming the service, when a service has no tiers at all. An empty tier
+// list is always a mistake — retiring a service means status: 'archived'.
+const tierGroups = tierGroupsFor(service);
+
 const {
-  serviceName,
-  serviceHighlight,
+  slug,
+  aliases = [],
+  name,
+  highlight,
   description,
   subDescription,
-  theme = 'light',
-  blurColors,
-  tiers,
-  reverse = false,
-  additionalNote,
-  inlinePricing = false,
+  accent,
+  includedFeatures,
+  collapsibleAfter,
+  collapseLabel,
+  collapseSubtitle,
+  notesLabel,
   pricingNotes = [],
-  collapsibleAfter
-} = Astro.props;
+  additionalNote
+} = service;
 
-const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHighlight.toLowerCase().replace(/\s+/g, '-')}`;
+const isDark = theme === 'dark';
 ---
 
 <section
-  id={sectionId}
-  x-data="{ showPricing: false, showMoreTiers: false, showReelInfo: false }"
-  class={`py-20 md:py-28 relative overflow-hidden ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
+  id={slug}
+  x-data="{ showPricing: false }"
+  class:list={[
+    'relative overflow-hidden py-20 md:py-28',
+    isDark ? 'bg-gray-900' : 'bg-white'
+  ]}
 >
-  {blurColors && (
-    <div class="absolute inset-0 pointer-events-none">
-      <div class={`absolute top-0 left-0 w-96 h-96 ${blurColors.top} opacity-20 blur-3xl rounded-full`}></div>
-      <div class={`absolute bottom-0 right-0 w-96 h-96 ${blurColors.bottom} opacity-20 blur-3xl rounded-full`}></div>
+  {/*
+    Retired section ids kept as targets so links already sent to clients still land
+    somewhere sensible. Anchors are URL fragments and never reach the server, so a
+    Netlify redirect cannot cover this — the element has to exist.
+  */}
+  {aliases.map((alias) => (
+    <span id={alias} class="pointer-events-none absolute -top-24 block h-0 w-0" aria-hidden="true"
+    ></span>
+  ))}
+
+  {accent && (
+    <div class="pointer-events-none absolute inset-0">
+      <div class={`absolute left-0 top-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.top}`}></div>
+      <div class={`absolute bottom-0 right-0 h-96 w-96 rounded-full opacity-20 blur-3xl ${accent.bottom}`}></div>
     </div>
   )}
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <!-- Service Description Column -->
-      <div class={`${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
-        <h2 class={`text-4xl md:text-5xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-          {serviceName} <span class="animated-gradient-text">{serviceHighlight}</span>
+      <div class={reverse ? 'lg:order-2' : 'lg:order-1'}>
+        <h2
+          class:list={[
+            'mb-4 text-4xl font-bold md:text-5xl',
+            isDark ? 'text-white' : 'text-gray-900'
+          ]}
+        >
+          {name} <span class="animated-gradient-text">{highlight}</span>
         </h2>
-        <p class={`text-xl mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <p class:list={['mb-6 text-xl', isDark ? 'text-gray-300' : 'text-gray-700']}>
           {description}
         </p>
-        <p class={`text-base ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+        <p class:list={['text-base', isDark ? 'text-gray-400' : 'text-gray-600']}>
           {subDescription}
         </p>
       </div>
 
       <!-- Features & Pricing Column -->
-      <div class={`${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
-        <div class={`rounded-2xl p-8 ${theme === 'dark' ? 'bg-gray-800/50 border border-gray-700' : 'bg-gray-50 border border-gray-200'}`}>
-          <h3 class={`text-2xl font-bold mb-6 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+      <div class={reverse ? 'lg:order-1' : 'lg:order-2'}>
+        <div
+          class:list={[
+            'rounded-2xl border p-8',
+            isDark ? 'border-gray-700 bg-gray-800/50' : 'border-gray-200 bg-gray-50'
+          ]}
+        >
+          <h3
+            class:list={[
+              'mb-6 text-2xl font-bold',
+              isDark ? 'text-white' : 'text-gray-900'
+            ]}
+          >
             What's Included
           </h3>
 
-          <!-- Feature list from first tier (filter out ad spend/mgmt fee lines) -->
-          <ul class="space-y-4 mb-8">
-            {tiers[0].features.filter((feature) => !feature.includes('min. monthly ad spend') && !feature.includes('minimum management fee')).map((feature) => (
+          {/*
+            Explicit list from the data file. This used to be tiers[0].features run
+            through a string filter that dropped any line containing "min. monthly
+            ad spend" — it broke silently whenever ad copy was reworded, and could
+            only ever describe the first tier of the first pricing family.
+          */}
+          <ul class="mb-8 space-y-4">
+            {includedFeatures.map((feature) => (
               <li class="flex items-start gap-3">
-                <CheckCircle2 class={`w-6 h-6 flex-shrink-0 mt-0.5 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`} />
-                <span class={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>{feature}</span>
+                <CheckCircle2
+                  class:list={[
+                    'mt-0.5 h-6 w-6 flex-shrink-0',
+                    isDark ? 'text-primary-400' : 'text-primary-600'
+                  ]}
+                />
+                <span class={isDark ? 'text-gray-300' : 'text-gray-700'}>{feature}</span>
               </li>
             ))}
           </ul>
 
-          <!-- Toggle Pricing Button -->
           <button
-            @click={inlinePricing ? 'showPricing = !showPricing' : "showPricing = true; document.body.style.overflow = 'hidden'"}
+            type="button"
+            data-service-pricing-toggle
+            data-service-slug={slug}
+            @click="showPricing = !showPricing"
             x-bind:aria-expanded="showPricing"
-            aria-controls={`${sectionId}-pricing`}
-            class="w-full btn btn-primary mb-4"
+            aria-controls={`${slug}-pricing`}
+            class="btn btn-primary mb-4 w-full"
           >
             <span x-show="!showPricing">See Pricing</span>
             <span x-show="showPricing" x-cloak>Hide Pricing</span>
           </button>
 
           {additionalNote && (
-            <p class={`text-sm text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p
+              class:list={[
+                'text-center text-sm',
+                isDark ? 'text-gray-400' : 'text-gray-600'
+              ]}
+            >
               {additionalNote}
             </p>
           )}
@@ -110,70 +163,80 @@ const sectionId = `${serviceName.toLowerCase().replace(/\s+/g, '-')}-${serviceHi
       </div>
     </div>
 
-    {inlinePricing && (
-      <div
-        id={`${sectionId}-pricing`}
-        x-show="showPricing"
-        x-cloak
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 -translate-y-3"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        class="mt-14 border-t border-gray-200 pt-12"
-      >
-        <h3 class="mb-8 text-center text-3xl font-bold text-gray-900">
-          {serviceName} {serviceHighlight} Pricing
-        </h3>
-
-        <ServicePricingGrid
-          tiers={tiers}
-          additionalNote={additionalNote}
-          pricingNotes={pricingNotes}
-          collapsibleAfter={collapsibleAfter}
-          sectionId={sectionId}
-        />
-      </div>
-    )}
-  </div>
-
-  {!inlinePricing && (
     <div
+      id={`${slug}-pricing`}
       x-show="showPricing"
       x-cloak
-      @click.self="showPricing = false; document.body.style.overflow = ''"
-      @keydown.escape.window="showPricing = false; document.body.style.overflow = ''"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0 -translate-y-3"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      class:list={[
+        'mt-14 border-t pt-14',
+        isDark ? 'border-gray-700' : 'border-gray-200'
+      ]}
     >
-      <div
-        id={`${sectionId}-pricing`}
-        class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
-        x-show="showPricing"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-      >
-        <button
-          @click="showPricing = false; document.body.style.overflow = ''"
-          class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
-          aria-label="Close"
-        >
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-
-        <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-          {serviceName} {serviceHighlight} Pricing
-        </h3>
-
-        <ServicePricingGrid
-          tiers={tiers}
-          additionalNote={additionalNote}
-          sectionId={sectionId}
-        />
-      </div>
+      {/*
+        No heading here. It read "{Service} Pricing", which just repeated the h2 a
+        few hundred pixels above it. The section heading plus the rule and the
+        expanded state already say what this is.
+      */}
+      <ServicePricingGrid
+        tierGroups={tierGroups}
+        sectionId={slug}
+        theme={theme}
+        collapsibleAfter={collapsibleAfter}
+        collapseLabel={collapseLabel}
+        collapseSubtitle={collapseSubtitle}
+        notesLabel={notesLabel}
+        pricingNotes={pricingNotes}
+        additionalNote={additionalNote}
+      />
     </div>
-  )}
+  </div>
 </section>
+
+<script>
+  // Which service a visitor opens pricing for is the clearest interest signal on
+  // this page. GTM has been loaded sitewide with no event on it.
+  //
+  // Bundled once by Astro no matter how many sections render, so this binds every
+  // toggle on the page.
+  //
+  // Capture phase: aria-expanded is read before Alpine's bubbling handler flips
+  // showPricing, so "false" reliably means this click is an OPEN. Without that the
+  // event would also fire on "Hide Pricing" and double every count.
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-service-pricing-toggle]');
+
+  const trackServicePricingView = (slug: string) => {
+    const trackingWindow = window as Window & {
+      dataLayer?: unknown[];
+      gtag?: (...args: unknown[]) => void;
+    };
+
+    const eventParams = { service: slug };
+
+    // The sitewide snippet is plain GTM, which only guarantees window.dataLayer.
+    // window.gtag exists only if a GA4 config fires inside the container, so fall
+    // back the same way BookingModal does.
+    if (typeof trackingWindow.gtag === 'function') {
+      trackingWindow.gtag('event', 'view_service_pricing', eventParams);
+      return;
+    }
+
+    trackingWindow.dataLayer = trackingWindow.dataLayer || [];
+    trackingWindow.dataLayer.push({ event: 'view_service_pricing', ...eventParams });
+  };
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener(
+      'click',
+      () => {
+        if (toggle.getAttribute('aria-expanded') === 'true') return;
+
+        const slug = toggle.dataset.serviceSlug;
+        if (slug) trackServicePricingView(slug);
+      },
+      true
+    );
+  });
+</script>

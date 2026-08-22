@@ -22,6 +22,8 @@ import BookingWidget from './BookingWidget.astro';
   </div>
 </dialog>
 <script>
+  import { lockPageScroll, releasePageScroll } from '../scripts/scroll-lock';
+
   const bookingModal = document.querySelector<HTMLDialogElement>('#book-a-call');
   const bookingLinks = document.querySelectorAll<HTMLAnchorElement>('[data-booking-modal-open]');
   const closeButton = document.querySelector<HTMLButtonElement>('[data-booking-modal-close]');
@@ -49,12 +51,17 @@ import BookingWidget from './BookingWidget.astro';
     });
   };
 
+  // showModal() makes the rest of the page inert but does NOT stop it scrolling,
+  // so the page used to scroll away behind the open calendar — everywhere this
+  // modal opens from, on every page. Whichever overlay is on top owns the lock:
+  // this one takes it on open and releases it on close.
   const openBookingModal = () => {
     if (!bookingModal || typeof bookingModal.showModal !== 'function') {
       return false;
     }
 
     if (!bookingModal.open) {
+      lockPageScroll();
       bookingModal.showModal();
       trackBookConsultation();
     }
@@ -67,6 +74,11 @@ import BookingWidget from './BookingWidget.astro';
       bookingModal.close();
     }
   };
+
+  // Covers every close path at once: the close button, a backdrop click, and the
+  // browser's own Escape handling, which fires `close` without going through
+  // closeBookingModal.
+  bookingModal?.addEventListener('close', releasePageScroll);
 
   bookingLinks.forEach((link) => {
     link.addEventListener('click', (event) => {

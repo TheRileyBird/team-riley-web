@@ -13,4 +13,5 @@ unchecked task unless you are starting it.
 - Do not combine unrelated tasks into one implementation.
 
 ## Queue
-- [ ] 
+- [ ] I have other clients, [ACCBP](https://www.accbp.com/) and then Secure Logic USA https://securelogicusa.com/ and then joy within birth. ACCBP is a building scientist who does home estimates and then SecureLogicUSA makes a product that cleans the air And a custom mister that helps to clean large facilities. I'd like this to go on my portfolio page. Might need its own section. 
+- [ ] Another section, I currently have Grace Midwifery and then I have a new client who's going to launch soon called Joy Within Birth https://www.joywithinbirth.com/

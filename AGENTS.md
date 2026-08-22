@@ -37,7 +37,19 @@ When ending a work session:
 5. Leave unrelated user changes untouched.
 6. Provide a concise handoff with what changed, what was verified, and any remaining risk.
 
-## Task Queue (TASKS.md)
+## Task Queue (TASKS.md) vs Parked Work (TODOS.md)
+
+Two files, two different jobs. Do not confuse them:
+
+- **`TASKS.md` is the queue.** Work gets pulled from here and executed, oldest
+  unchecked item first. Only put something here when you want it done.
+- **`TODOS.md` is the parked-work ledger.** Known work that was deliberately
+  deferred, with the reasoning and the file/line references needed to pick it up
+  cold. **Read it for context; never pull work from it.** Moving an item into
+  `TASKS.md` is the deliberate act that schedules it.
+
+Putting deferred work in `TASKS.md` un-defers it, because the rule below is to work
+the oldest unchecked item.
 
 This project uses `TASKS.md` as a running task queue that the user adds to at any time.
 

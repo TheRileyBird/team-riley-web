@@ -6,6 +6,12 @@ import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from '../components/PricingSection.astro';
 import ServiceColumnSection from '../components/ServiceColumnSection.astro';
 import Footer from '../components/Footer.astro';
+import {
+  visibleServices,
+  retiredAnchors,
+  themeForIndex,
+  reverseForIndex
+} from '../data/services';
 
 const faqSections = [
   {
@@ -94,8 +100,8 @@ const faqSections = [
       {
         question: 'Can Team Riley help with search engine optimization?',
         answer: [
-          'Yes. Every Team Riley website is built with a strong technical foundation for search engines and AI-powered search tools.',
-          'This includes:',
+          'Yes, and it is worth being precise about what that means, because two different things get called SEO.',
+          'Every Team Riley website includes SEO foundations. That is the technical and on-page work that lets search engines and AI-powered search tools crawl your site, understand it, and index it properly:',
           [
             'Fast-loading pages',
             'Mobile-responsive development',
@@ -107,7 +113,9 @@ const faqSections = [
             'Proper heading structure',
             'Search engine indexing setup'
           ],
-          'Ongoing SEO, local search strategy, content development, and more proactive campaigns are be available as additional services.'
+          'Ongoing SEO is a separate marketing effort aimed at improving your visibility for specific searches over time. It involves keyword strategy, content development, local search and Google Business Profile work, competitive analysis, internal linking and ongoing measurement.',
+          'The distinction matters: building an SEO-ready website gives Google a strong foundation to understand and index your site. It does not by itself move you up the rankings for competitive searches. We do not promise particular rankings. We make sure the website itself is not the thing holding you back.',
+          'Ongoing SEO, local search strategy, and content campaigns are available as additional services, quoted by proposal.'
         ]
       },
       {
@@ -419,438 +427,31 @@ const faqSections = [
   <!-- Pricing Section -->
   <PricingSection showHeader={false} />
 
-  <!-- Client Growth AI Platform -->
-  <ServiceColumnSection
-    serviceName="Patient Flow"
-    serviceHighlight="AI"
-    description="Client Growth AI automation that helps health clinics capture more leads, book more appointments, and grow faster"
-    subDescription="Complete business automation · Lead management · Patient engagement · Marketing campaigns"
-    theme="dark"
-    blurColors={{ top: 'bg-cyan-600', bottom: 'bg-blue-500' }}
-    reverse={false}
-    tiers={[
-      {
-        name: 'Basic Automation System',
-        price: '$97',
-        priceUnit: '/month',
-        description: 'Best for small practices',
-        features: [
-          'CRM for leads',
-          'Calendar booking',
-          'Missed-call text back',
-          'Basic lead capture',
-          'Central inbox'
-        ]
-      },
-      {
-        name: 'Growth Automation',
-        price: '$197',
-        priceUnit: '/month',
-        description: 'Our proven growth system',
-        features: [
-          'Everything above',
-          'Automated follow-ups',
-          'Appointment reminders',
-          'Review generation',
-          'Lead pipelines',
-          'Monthly optimization'
-        ],
-        featured: true
-      },
-      {
-        name: 'AI Growth System',
-        price: '$297',
-        priceUnit: '/month',
-        description: 'For clinics ready to scale',
-        features: [
-          'AI lead responder',
-          'Advanced automation',
-          'Marketing campaigns',
-          'Landing pages',
-          'Reporting dashboards'
-        ]
-      }
-    ]}
-  />
+  <!--
+    Anchor homes for retired sections. Ongoing SEO is archived, so an old
+    /pricing#search-engine-optimization link lands on the website plans, where the
+    SEO Foundations explainer now lives.
+  -->
+  {retiredAnchors.map((anchor) => (
+    <span id={anchor} class="pointer-events-none block h-0 w-0" aria-hidden="true"></span>
+  ))}
 
-  <!-- Social Media Management -->
-  <ServiceColumnSection
-    serviceName="Social Media"
-    serviceHighlight="Management"
-    description="Consistent, engaging social media content that builds your brand and connects with your audience"
-    subDescription="Content creation · Strategic planning · Community engagement · Performance tracking · Brand storytelling"
-    theme="light"
-    reverse={true}
-    inlinePricing={true}
-    collapsibleAfter={3}
-    pricingNotes={[
-      'Reels are included within the monthly post total. They are not additional posts.',
-      'A Reel is short-form video content. It may use AI-generated media, a slideshow of photos, supplied video clips, animated graphics and text, or a combination of these formats.',
-      'Filming is not included. If you want yourself, your team, or your location featured in a Reel, you must provide the footage.'
-    ]}
-    tiers={[
-      {
-        name: 'Basic',
-        price: '$199',
-        priceUnit: '/month',
-        description: 'Perfect for consistent content',
-        features: [
-          '$99 one-time setup fee',
-          '4 Posts Per Month',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)',
-          'Instagram or Facebook or LinkedIn'
-        ],
-        additionalNote: '+$150 per additional platform'
-      },
-      {
-        name: 'Essential',
-        price: '$299',
-        priceUnit: '/month',
-        description: 'Ideal for busy professionals',
-        features: [
-          '$149 one-time setup fee',
-          '6 total posts per month',
-          'At least 1 of the 6 posts will be a Reel',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)'
-        ],
-        featured: true,
-        additionalNote: '+$150 per additional platform'
-      },
-      {
-        name: 'Essential Plus',
-        price: '$499',
-        priceUnit: '/month',
-        description: 'Consistent and engaging presence',
-        features: [
-          '$149 one-time setup fee',
-          '10 total posts per month',
-          '3 of the 10 posts will be Reels',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)'
-        ],
-        additionalNote: '+$150 per additional platform'
-      },
-      {
-        name: 'Strategist',
-        price: '$740',
-        priceUnit: '/month',
-        description: 'For growing businesses',
-        features: [
-          '$375 one-time setup fee',
-          '12 total posts per month',
-          '5 of the 12 posts will be Reels',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)',
-          'Direct Slack Channel for Instant Communication'
-        ],
-        additionalNote: '+$150 per additional platform'
-      },
-      {
-        name: 'Influencer',
-        price: '$2,500',
-        priceUnit: '/month',
-        description: 'High-performing content strategy',
-        features: [
-          '$750 one-time setup fee',
-          '20 total posts per month',
-          'Up to 8 of the 20 posts may be Reels',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)',
-          'Monthly Content Strategy Plan',
-          'Direct Slack Channel for Instant Communication'
-        ],
-        additionalNote: '+$150 per additional platform'
-      },
-      {
-        name: 'Influencer Plus',
-        price: '$3,500',
-        priceUnit: '/month',
-        description: 'Premium content production',
-        features: [
-          '$750 one-time setup fee',
-          '20 total posts per month',
-          'Up to 10 of the 20 posts may be Reels',
-          'Custom branded graphics and captions',
-          'Profile Optimization (Bio, Links, Branding)',
-          'Monthly Content Strategy Plan',
-          'Direct Slack Channel for Instant Communication',
-          'Monthly 2 hour Photo/Video Shoot'
-        ],
-        additionalNote: '+$150 per additional platform'
-      }
-    ]}
-  />
-
-  <!-- SEO Services -->
-  <ServiceColumnSection
-    serviceName="Search Engine"
-    serviceHighlight="Optimization"
-    description="Rank higher in Google and get found by clients actively searching for your services"
-    subDescription="Monthly performance reports · Keyword research · Local SEO · Content creation · Technical optimization"
-    theme="dark"
-    blurColors={{ top: 'bg-primary-600', bottom: 'bg-cyan-500' }}
-    additionalNote="Additional locations: $300/month each"
-    reverse={false}
-    tiers={[
-      {
-        name: 'Silver',
-        price: '$1,000',
-        priceUnit: '/month',
-        description: 'Perfect for single-location practices',
-        features: [
-          'Up to 3 locations',
-          'Up to 100 keywords tracked',
-          '6 SEO blog posts/year',
-          '4 specialty pages/year'
-        ],
-        setupFee: '$500 one-time setup fee'
-      },
-      {
-        name: 'Gold',
-        price: '$1,800',
-        priceUnit: '/month',
-        description: 'Most popular for growing practices',
-        features: [
-          'Up to 6 locations',
-          'Up to 250 keywords tracked',
-          '14 SEO blog posts/year',
-          '10 specialty pages/year'
-        ],
-        setupFee: '$500 one-time setup fee',
-        featured: true
-      },
-      {
-        name: 'Platinum',
-        price: '$3,200',
-        priceUnit: '/month',
-        description: 'Enterprise-level SEO strategy',
-        features: [
-          'Up to 9 locations',
-          'Up to 500 keywords tracked',
-          '24 SEO blog posts/year',
-          '20 specialty pages/year'
-        ],
-        setupFee: '$500 one-time setup fee'
-      }
-    ]}
-  />
-
-  <!-- PPC Management -->
-  <ServiceColumnSection
-    serviceName="PPC"
-    serviceHighlight="Management"
-    description="Google, Bing, and YouTube ads that target the right clients at the right time"
-    subDescription="Campaign setup · Keyword research · Ad copywriting · Bid optimization · Monthly reporting"
-    theme="light"
-    reverse={true}
-    tiers={[
-      {
-        name: 'Silver',
-        price: '25%',
-        priceUnit: 'mgmt fee',
-        description: 'Start driving qualified traffic',
-        features: [
-          '$1,400 min. monthly ad spend',
-          '$350 minimum management fee',
-          'Google & Bing campaigns',
-          'Monthly performance reports'
-        ],
-        setupFee: '$500 one-time setup fee'
-      },
-      {
-        name: 'Gold',
-        price: '20%',
-        priceUnit: 'mgmt fee',
-        description: 'Optimized campaign management',
-        features: [
-          '$2,400 min. monthly ad spend',
-          '$480 minimum management fee',
-          'Advanced audience targeting',
-          'A/B testing & optimization'
-        ],
-        setupFee: '$500 one-time setup fee',
-        featured: true
-      },
-      {
-        name: 'Platinum',
-        price: '15%',
-        priceUnit: 'mgmt fee',
-        description: 'Enterprise PPC strategy',
-        features: [
-          '$4,000 min. monthly ad spend',
-          '$600 minimum management fee',
-          'Multi-platform campaigns',
-          'Dedicated account manager'
-        ],
-        setupFee: '$500 one-time setup fee'
-      }
-    ]}
-  />
-
-  <!-- Social Advertising -->
-  <ServiceColumnSection
-    serviceName="Social"
-    serviceHighlight="Advertising"
-    description="Facebook and Instagram ads that reach your ideal clients where they spend their time"
-    subDescription="Audience targeting · Creative design · Campaign management · Conversion tracking · Performance analytics"
-    theme="dark"
-    blurColors={{ top: 'bg-purple-600', bottom: 'bg-pink-500' }}
-    reverse={false}
-    tiers={[
-      {
-        name: 'Silver',
-        price: '30%',
-        priceUnit: 'mgmt fee',
-        description: 'Build your social presence',
-        features: [
-          '$1,400 min. monthly ad spend',
-          '$420 minimum management fee',
-          'Facebook & Instagram ads',
-          'Audience research & targeting'
-        ],
-        setupFee: '$1,000 one-time setup fee'
-      },
-      {
-        name: 'Gold',
-        price: '25%',
-        priceUnit: 'mgmt fee',
-        description: 'Strategic social campaigns',
-        features: [
-          '$2,400 min. monthly ad spend',
-          '$600 minimum management fee',
-          'Advanced lookalike audiences',
-          'Creative testing & optimization'
-        ],
-        setupFee: '$1,000 one-time setup fee',
-        featured: true
-      },
-      {
-        name: 'Platinum',
-        price: '20%',
-        priceUnit: 'mgmt fee',
-        description: 'Full-scale social strategy',
-        features: [
-          '$4,000 min. monthly ad spend',
-          '$800 minimum management fee',
-          'Multi-platform campaigns',
-          'Conversion rate optimization'
-        ],
-        setupFee: '$1,000 one-time setup fee'
-      }
-    ]}
-  />
-
-  <!-- eCommerce Management -->
-  <ServiceColumnSection
-    serviceName="eCommerce"
-    serviceHighlight="Management"
-    description="Complete online store management that transforms your eCommerce operation into a revenue-generating machine"
-    subDescription="Store maintenance · Product management · Conversion optimization · Performance tracking · Strategic support"
-    theme="light"
-    reverse={true}
-    tiers={[
-      {
-        name: 'Silver',
-        price: '$399',
-        priceUnit: '/month',
-        description: 'Best for new or low-volume stores',
-        features: [
-          '1-25 products',
-          'Basic store maintenance (themes, plugins, updates)',
-          'Basic reporting',
-          'Email support'
-        ],
-        setupFee: '$500 one-time setup fee'
-      },
-      {
-        name: 'Gold',
-        price: '$699',
-        priceUnit: '/month',
-        description: 'Best for stores doing consistent sales',
-        features: [
-          '25-75 products',
-          'Everything in Silver',
-          'CRO light (product pages, checkout)',
-          'Monthly performance reporting',
-        ],
-        setupFee: '$500 one-time setup fee',
-        featured: true
-      },
-      {
-        name: 'Platinum',
-        price: '$1,200',
-        priceUnit: '/month',
-        description: 'Best for serious e-comm businesses',
-        features: [
-          '75-150 products',
-          'Everything in Gold',
-          'Advanced CRO (landing pages, A/B testing)',
-          'Funnel optimization',
-          'Product + collection strategy',
-          'Weekly reporting / insights',
-          'Priority support'
-        ],
-        setupFee: '$1,000 one-time setup fee'
-      },
-      {
-        name: 'Enterprise',
-        price: '$2,500–$5,000',
-        priceUnit: '/month',
-        description: 'Best for $50k–$250k+/mo stores',
-        features: [
-          '150+ products',
-          'Full store management',
-          'CRO + revenue optimization',
-          'Offer strategy',
-          'Lifecycle marketing oversight',
-        ],
-        setupFee: '$1,500+ one-time setup fee',
-        additionalNote: 'Optional add-on: 1–3% of revenue once threshold is reached'
-      }
-    ]}
-  />
-
-  <!-- Branding & Design -->
-  <ServiceColumnSection
-    serviceName="Branding &"
-    serviceHighlight="Design"
-    description="Professional logo design and brand identity that makes your practice stand out"
-    subDescription="Logo design · Brand guidelines · Color palettes · Typography · Marketing materials"
-    theme="dark"
-    blurColors={{ top: 'bg-teal-600', bottom: 'bg-red-500' }}
-    reverse={false}
-    tiers={[
-      {
-        name: 'Logo & Branding',
-        price: '$150',
-        priceUnit: '/hour',
-        description: 'Complete brand identity package',
-        features: [
-          '10 hour minimum project',
-          'Custom logo design',
-          'Brand style guide',
-          'Multiple revisions included'
-        ]
-      },
-      {
-        name: 'Graphic Design',
-        price: '$150',
-        priceUnit: '/hour',
-        description: 'Custom graphics and visuals',
-        features: [
-          '4 hour minimum project',
-          'Social media graphics',
-          'Print materials',
-          'Marketing collateral'
-        ]
-      }
-    ]}
-  />
+  <!--
+    Every priced service, in order, from src/data/services.ts. Adding, reordering,
+    repricing or retiring a service is an edit to that file — never to this markup.
+    theme and reverse come from the index among VISIBLE services so archiving one
+    service cannot flip the colors of every section after it.
+  -->
+  {visibleServices.map((service, index) => (
+    <ServiceColumnSection
+      service={service}
+      theme={themeForIndex(index)}
+      reverse={reverseForIndex(index)}
+    />
+  ))}
 
   <!-- FAQ Section -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="py-20 md:py-28 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title="Frequently Asked Questions"
