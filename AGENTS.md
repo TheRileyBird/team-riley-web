@@ -37,6 +37,20 @@ When ending a work session:
 5. Leave unrelated user changes untouched.
 6. Provide a concise handoff with what changed, what was verified, and any remaining risk.
 
+## Task Queue (TASKS.md)
+
+This project uses `TASKS.md` as a running task queue that the user adds to at any time.
+
+- After completing each task, re-read `TASKS.md` before choosing the next task.
+- Never modify or remove an unchecked task unless you are beginning that task.
+- Work on only one task at a time.
+- When the user gives a new task, add it to the bottom of the task list in `TASKS.md`.
+- Do not abandon or interrupt the current task unless the user explicitly says "interrupt".
+- Finish, test, and verify the current task before starting the next.
+- Before starting another task, review `TASKS.md` and select the oldest pending (unchecked) task.
+- Tell the user briefly when a task is complete and which task you are starting next.
+- Do not combine unrelated tasks into one implementation.
+
 # Astro Development Standards
 
 This document outlines coding standards and best practices for this Astro project.
