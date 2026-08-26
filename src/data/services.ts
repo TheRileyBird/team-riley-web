@@ -529,14 +529,15 @@ export const services: Service[] = [
     ]
   },
   {
-    slug: 'patient-flow-ai',
+    slug: 'client-growth-ai',
+    aliases: ['patient-flow-ai'],
     status: 'emerging',
-    name: 'Patient Flow',
+    name: 'Client Growth',
     highlight: 'AI',
     description:
       'Client Growth AI automation that helps health clinics capture more leads, book more appointments, and grow faster',
     subDescription:
-      'Complete business automation · Lead management · Patient engagement · Marketing campaigns',
+      'Complete business automation · Lead management · Client engagement · Marketing campaigns',
     accent: { top: 'bg-cyan-600' },
     background: 'bg-gradient-to-b from-white to-gray-50',
     includedFeatures: [

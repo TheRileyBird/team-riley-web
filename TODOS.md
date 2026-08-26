@@ -105,7 +105,7 @@ Consider only if the prose version doesn't reduce the questions.
   `/pricing#ecommerce-management`. The slugs and aliases already exist in
   `src/data/services.ts`; nothing exposes them to a reader.
 - Print stylesheet for `/pricing` so it attaches to a proposal as a clean PDF.
-- An honest "New service" badge driven by `status: 'emerging'`. Patient Flow AI is
+- An honest "New service" badge driven by `status: 'emerging'`. Client Growth AI is
   already tagged `emerging` and currently looks identical to established services.
 - Copy-to-clipboard on a tier, for pasting a quote into an email.
 
