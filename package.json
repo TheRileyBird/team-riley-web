@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "SITE_VERTICAL=health astro dev",
-    "dev:law": "SITE_VERTICAL=law astro dev",
-    "dev:finance": "SITE_VERTICAL=finance astro dev",
+    "dev": "SITE_VERTICAL=health astro dev --port 4321",
+    "dev:law": "SITE_VERTICAL=law astro dev --port 4322",
+    "dev:finance": "SITE_VERTICAL=finance astro dev --port 4323",
     "start": "npm run dev",
     "build": "node scripts/build.mjs",
     "build:all": "node scripts/build.mjs --all",
     "preview": "SITE_VERTICAL=${SITE_VERTICAL:-health} astro preview",
     "test": "vitest run --project unit",
-    "test:watch": "vitest --project unit"
+    "test:watch": "vitest --project unit",
+    "dev:all": "node scripts/dev-all.mjs"
   },
   "keywords": [],
   "author": "",

@@ -86,6 +86,9 @@ export default defineConfig({
   site: site.domain,
   // scripts/build.mjs --all builds each market into its own dist-<id>/.
   outDir: process.env.ASTRO_OUT_DIR ?? './dist',
+  // One cache per market. Shared, the three dev servers race each other writing
+  // .astro/data-store.json and two of the three fail to start.
+  cacheDir: `./.astro/${verticalId}`,
   integrations: [
     tailwind(),
     alpinejs(),
