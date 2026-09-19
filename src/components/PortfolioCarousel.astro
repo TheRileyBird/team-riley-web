@@ -1,0 +1,214 @@
+---
+// Stacks cards on mobile/tablet; on desktop shows three at a time, advances
+// one card every few seconds, and offers prev/next arrows. The slotted cards
+// are rendered twice so the track can loop seamlessly — the second copy is
+// hidden from assistive tech and the tab order but stays hoverable/clickable,
+// since it is what's on screen while the loop wraps.
+import { ChevronLeft, ChevronRight } from '@lucide/astro';
+
+interface Props {
+  interval?: number;
+  color?: 'primary' | 'secondary' | 'accent';
+}
+
+const { interval = 4000, color = 'primary' } = Astro.props;
+const cards = await Astro.slots.render('default');
+---
+
+<div class="portfolio-carousel-wrap relative" data-interval={interval} data-color={color}>
+  <div class="portfolio-carousel">
+    <div class="portfolio-carousel-track">
+      <div class="portfolio-carousel-set contents" set:html={cards} />
+      <div class="portfolio-carousel-clone contents" aria-hidden="true" set:html={cards} />
+    </div>
+  </div>
+
+  <button type="button" class="portfolio-carousel-arrow is-prev" data-direction="-1" aria-label="Previous project">
+    <ChevronLeft class="w-6 h-6" />
+  </button>
+  <button type="button" class="portfolio-carousel-arrow is-next" data-direction="1" aria-label="Next project">
+    <ChevronRight class="w-6 h-6" />
+  </button>
+</div>
+
+<style>
+  /* Arrows take on the brand color of the section they sit in */
+  .portfolio-carousel-wrap[data-color='primary'] {
+    --arrow-bg: theme('colors.primary.600');
+    --arrow-bg-hover: theme('colors.primary.700');
+  }
+
+  .portfolio-carousel-wrap[data-color='secondary'] {
+    --arrow-bg: theme('colors.secondary.500');
+    --arrow-bg-hover: theme('colors.secondary.600');
+  }
+
+  .portfolio-carousel-wrap[data-color='accent'] {
+    --arrow-bg: theme('colors.accent.500');
+    --arrow-bg-hover: theme('colors.accent.600');
+  }
+
+  .portfolio-carousel-track {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .portfolio-carousel-clone,
+  .portfolio-carousel-arrow {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .portfolio-carousel-track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .portfolio-carousel {
+      container-type: inline-size;
+      overflow: hidden;
+      /* Room for the cards' hover lift and shadow, plus bleed for the edge gutters */
+      margin: -1rem -1rem;
+      padding: 1rem 0;
+    }
+
+    .portfolio-carousel-track {
+      --index: 0;
+      display: flex;
+      gap: 0;
+      width: max-content;
+      translate: calc(var(--index) * -100cqw / 3) 0;
+      transition: translate 900ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .portfolio-carousel-track.is-resetting {
+      transition: none;
+    }
+
+    .portfolio-carousel-clone {
+      display: contents;
+    }
+
+    /* Each card owns exactly a third of the viewport; margins stand in for the gap */
+    .portfolio-carousel-track > .contents > :global(*) {
+      flex: none;
+      width: calc(100cqw / 3 - 2rem);
+      margin-inline: 1rem;
+    }
+
+    .portfolio-carousel-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      margin-top: -1.5rem;
+      border-radius: 9999px;
+      background: var(--arrow-bg);
+      color: #fff;
+      box-shadow: theme('boxShadow.medium');
+      transition: background-color 200ms, box-shadow 200ms;
+    }
+
+    /* Sit a full gutter outside the cards, but never closer than 0.5rem to the viewport edge */
+    .portfolio-carousel-arrow.is-prev {
+      left: calc(-1 * min(4.5rem, (100vw - 100%) / 2 - 0.5rem));
+    }
+
+    .portfolio-carousel-arrow.is-next {
+      right: calc(-1 * min(4.5rem, (100vw - 100%) / 2 - 0.5rem));
+    }
+
+    .portfolio-carousel-arrow:hover {
+      background: var(--arrow-bg-hover);
+      box-shadow: theme('boxShadow.large');
+    }
+
+    .portfolio-carousel-arrow:focus-visible {
+      outline: 2px solid var(--arrow-bg);
+      outline-offset: 2px;
+    }
+  }
+</style>
+
+<script>
+  const motionQuery = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)');
+
+  document.querySelectorAll<HTMLElement>('.portfolio-carousel-wrap').forEach((wrap) => {
+    const track = wrap.querySelector<HTMLElement>('.portfolio-carousel-track');
+    const count = wrap.querySelector('.portfolio-carousel-set')?.children.length ?? 0;
+    const interval = Number(wrap.dataset.interval) || 4000;
+    if (!track) return;
+
+    wrap.querySelectorAll('.portfolio-carousel-clone a, .portfolio-carousel-clone button').forEach((el) => {
+      el.setAttribute('tabindex', '-1');
+    });
+
+    // Three cards fit, so there is nothing to scroll to.
+    if (count <= 3) {
+      wrap.querySelectorAll('.portfolio-carousel-arrow').forEach((arrow) => arrow.remove());
+      return;
+    }
+
+    let index = 0;
+    let paused = false;
+    let timer: number | undefined;
+
+    const setIndex = (value: number, animate = true) => {
+      index = value;
+      if (!animate) track.classList.add('is-resetting');
+      track.style.setProperty('--index', String(index));
+      if (!animate) {
+        void track.offsetWidth;
+        track.classList.remove('is-resetting');
+      }
+    };
+
+    // The clone set is visually identical to the originals, so jumping by a
+    // full set without animating keeps the loop endless in both directions.
+    const normalize = () => {
+      if (index >= count) setIndex(index - count, false);
+      else if (index < 0) setIndex(index + count, false);
+    };
+
+    const step = (direction: number) => {
+      normalize();
+      if (direction < 0 && index === 0) setIndex(count, false);
+      setIndex(index + direction);
+    };
+
+    const restartTimer = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        if (paused || document.hidden || !motionQuery.matches) return;
+        step(1);
+      }, interval);
+    };
+
+    track.addEventListener('transitionend', (event) => {
+      if (event.target === track && event.propertyName === 'translate') normalize();
+    });
+
+    wrap.querySelectorAll<HTMLButtonElement>('.portfolio-carousel-arrow').forEach((arrow) => {
+      arrow.addEventListener('click', () => {
+        step(Number(arrow.dataset.direction));
+        restartTimer();
+      });
+    });
+
+    wrap.addEventListener('mouseenter', () => (paused = true));
+    wrap.addEventListener('mouseleave', () => (paused = false));
+    // Only keyboard focus pauses; a mouse click on an arrow shouldn't leave it stuck.
+    wrap.addEventListener('focusin', (event) => {
+      if ((event.target as HTMLElement).matches(':focus-visible')) paused = true;
+    });
+    wrap.addEventListener('focusout', () => (paused = false));
+
+    motionQuery.addEventListener('change', () => setIndex(0, false));
+    restartTimer();
+  });
+</script>

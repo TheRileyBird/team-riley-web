@@ -19,10 +19,13 @@ export default {
           1000: '#0D152A'
         },
         accent: {
+          50: '#ecfeff',
+          100: '#cffafe',
           300: '#22d3ee',
           400: '#06b6d4',
           500: '#0891b2',
           600: '#0e7490',
+          700: '#155e75',
         },
         secondary: {
           300: '#c1abfb',
