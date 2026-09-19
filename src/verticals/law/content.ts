@@ -2,6 +2,10 @@ import harborRidgeConcept from '../../assets/concepts/harbor-ridge-law.jpg';
 import lindqvistConcept from '../../assets/concepts/lindqvist-family-law.jpg';
 import bexleyConcept from '../../assets/concepts/bexley-estate-law.jpg';
 import nazarethSite from '../../assets/sites/nazareth.png';
+import lawPlaceholder1 from '../../assets/placeholders/law-1.jpg';
+import lawPlaceholder2 from '../../assets/placeholders/law-2.jpg';
+import lawPlaceholder3 from '../../assets/placeholders/law-3.jpg';
+import lawPlaceholder4 from '../../assets/placeholders/law-4.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -89,9 +93,20 @@ export const content: VerticalContent = {
         }
       ]
     },
-    // Nazareth Law is the only live law site so far; the gallery needs at least six,
-    // so it stays hidden until the concept mockups land (see E3 in the plan).
-    showcase: [],
+    // Real client work first, then concepts, then neutral placeholders: the gallery
+    // needs six images to avoid visibly repeating, and a wireframe placeholder is
+    // honest filler in a way a repeated client screenshot is not. Drop placeholders
+    // as real law sites ship.
+    showcase: [
+      { src: nazarethSite, alt: 'Nazareth Law Firm website' },
+      { src: harborRidgeConcept, alt: 'Harbor Ridge Law concept homepage' },
+      { src: lawPlaceholder1, alt: 'Placeholder layout for law firm work in progress' },
+      { src: lindqvistConcept, alt: 'Lindqvist Family Law concept homepage' },
+      { src: lawPlaceholder2, alt: 'Placeholder layout for law firm work in progress' },
+      { src: bexleyConcept, alt: 'Bexley Estate Counsel concept homepage' },
+      { src: lawPlaceholder3, alt: 'Placeholder layout for law firm work in progress' },
+      { src: lawPlaceholder4, alt: 'Placeholder layout for law firm work in progress' }
+    ],
     clientLogosLabel: 'Trusted by firm owners and solo attorneys',
     clientLogos: [
       { name: 'Nazareth Law', src: '/images/logos/nazareth.png', href: 'https://nazarethlaw.com' }

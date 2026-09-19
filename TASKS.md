@@ -59,3 +59,9 @@ unchecked task unless you are starting it.
   them as data attributes and substitutes them into the fragment shader before compiling, falling back to the health
   blues if a value is missing or malformed. Law renders navy to brass, finance evergreen to sand, health unchanged.
   Verified in headless Chrome with WebGL on. The aurora overlays and blur glows already followed the palette.
+- [x] Use placeholder images across law and finance for now (e.g. the homepage "Stand Out" second section needs images) - plain placeholder rectangles are fine, but keep the existing design/layout intact
+  Done 2026-09-19: The "Stand Out" gallery (and the matching one on /services) hides itself below six images, which is why
+  law and finance had no images there. Added 4 wireframe placeholders per market, rendered in that market's palette
+  (src/assets/placeholders/), and filled each showcase: law = Nazareth + 3 concepts + 4 placeholders, finance = 3 concepts
+  + 4 placeholders. Layout is unchanged; the placeholders are deliberately generic (no firm name, no readable copy) so they
+  cannot read as client work, and their alt text says placeholder. Drop them as real sites ship.

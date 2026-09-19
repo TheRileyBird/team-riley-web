@@ -1,6 +1,10 @@
 import northMeridianConcept from '../../assets/concepts/north-meridian-advisors.jpg';
 import cedarPostConcept from '../../assets/concepts/cedar-post-retirement.jpg';
 import aldermanConcept from '../../assets/concepts/alderman-tax-partners.jpg';
+import financePlaceholder1 from '../../assets/placeholders/finance-1.jpg';
+import financePlaceholder2 from '../../assets/placeholders/finance-2.jpg';
+import financePlaceholder3 from '../../assets/placeholders/finance-3.jpg';
+import financePlaceholder4 from '../../assets/placeholders/finance-4.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -90,8 +94,18 @@ export const content: VerticalContent = {
         }
       ]
     },
-    // No finance sites yet. Concept mockups land with E3; until then, no gallery.
-    showcase: [],
+    // Concepts plus neutral placeholders until a real advisory site ships. The
+    // placeholders are deliberately generic wireframes: no firm name, nothing that
+    // could read as client work.
+    showcase: [
+      { src: northMeridianConcept, alt: 'North Meridian Advisors concept homepage' },
+      { src: financePlaceholder1, alt: 'Placeholder layout for advisory work in progress' },
+      { src: cedarPostConcept, alt: 'Cedar Post Retirement concept homepage' },
+      { src: financePlaceholder2, alt: 'Placeholder layout for advisory work in progress' },
+      { src: aldermanConcept, alt: 'Alderman Tax Partners concept homepage' },
+      { src: financePlaceholder3, alt: 'Placeholder layout for advisory work in progress' },
+      { src: financePlaceholder4, alt: 'Placeholder layout for advisory work in progress' }
+    ],
     clientLogosLabel: '',
     clientLogos: [],
     features: {
