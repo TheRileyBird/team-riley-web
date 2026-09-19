@@ -122,3 +122,11 @@ unchecked task unless you are starting it.
   Done 2026-09-19: The shader is now absolutely positioned inside a wrapper around the header and PricingSection instead of
   fixed to the viewport, so it ends where the plan cards end. Removed the page-wide style block that had been dropping every
   light section to 55% white; sections below the plans are back to their own solid backgrounds.
+
+## Notes
+
+- **Restart `npm run dev:all` after editing `tailwind.config.mjs` or `astro.config.mjs`.** A running dev server does not pick up
+  a new Tailwind color family, so utilities using it silently do nothing: on 2026-09-19 the pricing page's dark service bands
+  rendered white with white text after `ink-900/950` were added, while the production build was correct the whole time. It
+  looks exactly like a browser cache problem and is not one.
+

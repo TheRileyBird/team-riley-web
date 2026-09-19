@@ -4,6 +4,11 @@
  *   health  http://localhost:4321
  *   law     http://localhost:4322
  *   finance http://localhost:4323
+ * Restart these after changing astro.config.mjs or tailwind.config.mjs: Tailwind
+ * does not pick up a new color family from a running dev server, and the page then
+ * renders those utilities as no-ops — dark sections lose their background and white
+ * text lands on white. The build is unaffected, which makes it look like a cache bug.
+ *
  * Ctrl-C stops all three. Each gets its own Astro cache (see astro.config.mjs), and
  * they start a few seconds apart: Astro writes .astro/types.d.ts at startup, and
  * three processes doing that at the same instant makes two of them die with
