@@ -25,10 +25,10 @@ import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
 import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
 import cfcCardSite from '../../assets/sites/cfc.jpg';
 import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
-import healthDoctor from '../../assets/videos/health-doctor-visit.mp4';
 import healthMedSpa from '../../assets/videos/health-med-spa.mp4';
-import healthPharmacy from '../../assets/videos/health-pharmacy.mp4';
-import healthTrainer from '../../assets/videos/health-trainer.mp4';
+import healthMassage from '../../assets/videos/health-massage-therapy.mp4';
+import healthSkin from '../../assets/videos/health-skin-treatment.mp4';
+import healthMeditation from '../../assets/videos/health-meditation-ridge.mp4';
 import healthPoster from '../../assets/videos/health-poster.jpg';
 import teamRileyLogo from '../../assets/images/team-riley-logo-gradient.png';
 import favicon from '../../assets/images/favicon-health.png';
@@ -68,10 +68,10 @@ export const content: VerticalContent = {
     hero: {
       clips: [
         { src: healthYoga },
-        { src: healthDoctor },
+        { src: healthMassage },
         { src: healthMedSpa },
-        { src: healthPharmacy },
-        { src: healthTrainer }
+        { src: healthSkin },
+        { src: healthMeditation }
       ],
       poster: healthPoster,
       eyebrow: 'Digital Health For Your Business',
