@@ -38,7 +38,12 @@ export const theme: ThemeOverrides = {
   // Headline gradient: primary-400, accent-500, secondary-400 instead of the default primary-800 start,
   // which in this palette is near-black (16.5:1 on white for law, 13.4:1 for finance)
   // and made the animated text read as flat black.
-  '--c-headline-1': '85 105 136',
-  '--c-headline-2': '107 118 132',
-  '--c-headline-3': '117 133 154'
+  // All three stops are saturated blues (chroma 150+). Earlier versions mixed navy
+  // with steel: a static frame then landed on a near-grey and the animation read as
+  // muted, because at 300% background-size only a third of the gradient is visible
+  // at a time. Silver stays the site's accent; the headline carries the blue.
+  // Contrast on white: 6.1 / 3.4 / 4.9.
+  '--c-headline-1': '31 95 191',
+  '--c-headline-2': '74 140 224',
+  '--c-headline-3': '58 111 196'
 };

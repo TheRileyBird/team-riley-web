@@ -154,6 +154,11 @@ unchecked task unless you are starting it.
   law uses primary-400 / accent-500 / secondary-400 and finance primary-500 / accent-500 / secondary-500, so every stop sits
   roughly between 3:1 and 8:1 like health's. Law's is the most muted of the three because its palette is navy and steel by
   design; going lighter would drop below the 3:1 floor for large text.
+- [x] Law animated headline text is too muted - bring some blue into the gradient
+  Done 2026-09-19: The old stops averaged chroma 25-50, i.e. grey. Took two passes: adding one sapphire stop was not enough,
+  because at background-size 300% only a third of the gradient is on screen at a time, so most frames still landed on a grey
+  stop. All three stops are now saturated blues (chroma 138-160, contrast 6.1 / 3.4 / 4.9 on white). Silver remains the site's
+  accent - logo, buttons, dark surfaces - so law still reads navy-and-silver overall while the headline carries blue.
 
 ## Notes
 
