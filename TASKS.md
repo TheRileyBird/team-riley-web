@@ -95,3 +95,15 @@ unchecked task unless you are starting it.
   which the old large header padding had been standing in for.
   Note: the annotated screenshot arrived as a generic PNG file icon again (third time). When an annotation matters, paste the
   image into the chat rather than attaching it, or point at the element by name.
+- [x] Health homepage Stand Out / Build Trust gallery: remove Nazareth Law, replace with Genesis360
+  Done 2026-09-19: Captured a fresh genesis360.com screenshot into src/assets/sites/. Nazareth stays on the portfolio page
+  (feature panel) and on the law site; it is only out of the health homepage gallery.
+- [x] Health homepage Stand Out / Build Trust gallery: remove Life2Health, replace with an ACCBP home screenshot (take one)
+  Done 2026-09-19: Took the accbp.com screenshot as asked (src/assets/sites/accbp.png). src/assets/sites/life2health.png is
+  still used by the services page; the logo marquee uses a separate file in public/images/logos/.
+- [x] Health homepage Stand Out / Build Trust gallery: replace Your Daily Wisdom with Joy Within Birth
+  Done 2026-09-19: Captured joywithinbirth.com. src/assets/sites/dailywisdom.png now has no references and can be deleted.
+- [x] Add Your Daily Wisdom to the portfolio Mind, Body & Spirit section
+  Done 2026-09-19: Added as the first card in the holistic section, with a fresh screenshot of the live site.
+  Note: the live site is https://dailywisdomapp.netlify.app - yourdailywisdom.com is an unrelated site (DataLens), so do not
+  link that one.

@@ -1,7 +1,10 @@
+import accbpSite from '../../assets/sites/accbp.png';
 import careptSite from '../../assets/sites/carept.png';
 import cfcSite from '../../assets/sites/cfc.png';
-import dailywisdomSite from '../../assets/sites/dailywisdom.png';
+import dailyWisdomSite from '../../assets/sites/dailywisdom-site.jpg';
 import domlukeSite from '../../assets/sites/domluke.png';
+import genesis360Site from '../../assets/sites/genesis360.png';
+import joyWithinBirthSite from '../../assets/sites/joywithinbirth.png';
 import dsmmdSite from '../../assets/sites/dsmmd.png';
 import garrettSite from '../../assets/sites/garrett.png';
 import graceSite from '../../assets/sites/grace.png';
@@ -118,11 +121,11 @@ export const content: VerticalContent = {
       ]
     },
     showcase: [
-      { src: nazarethSite, alt: 'Nazareth website portfolio preview' },
-      { src: life2healthSite, alt: 'Life2Health website portfolio preview' },
-      { src: cfcSite, alt: 'CFC website portfolio preview' },
+      { src: genesis360Site, alt: 'Genesis360 website portfolio preview' },
+      { src: accbpSite, alt: 'ACC Building Performance website portfolio preview' },
+      { src: cfcSite, alt: 'CFC Skincare website portfolio preview' },
       { src: domlukeSite, alt: 'Dom Luke website portfolio preview' },
-      { src: dailywisdomSite, alt: 'Daily Wisdom website portfolio preview' },
+      { src: joyWithinBirthSite, alt: 'Joy Within Birth website portfolio preview' },
       { src: graceSite, alt: 'Grace Midwifery Collective website portfolio preview' },
       { src: lovemoreSite, alt: 'LoveMore website portfolio preview' },
       { src: dsmmdSite, alt: 'DSM MD website portfolio preview' },
@@ -434,6 +437,16 @@ export const content: VerticalContent = {
         intro: 'Calming, thoughtfully designed websites for wellness coaches, doulas, and holistic health practitioners.',
         carousel: true,
         projects: [
+          {
+            image: dailyWisdomSite,
+            imageAlt: 'Your Daily Wisdom website and app screens',
+            badge: 'Mindset & Habits',
+            name: 'Your Daily Wisdom',
+            description:
+              'An iOS app and marketing site that reads your own hard-earned insights back to you each morning, in a warm human voice.',
+            tags: ['iOS App', 'App Landing Page', 'Free Download'],
+            href: 'https://dailywisdomapp.netlify.app'
+          },
           {
             image: joyWithinBirthMaternity,
             imageAlt: 'Expectant mother cradling her belly in a summer field',
