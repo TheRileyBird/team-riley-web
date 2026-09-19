@@ -1,16 +1,10 @@
 import type { ThemeOverrides } from '../content/theme';
 
-/**
- * Navy & Brass — Traditional firm colors: deep navy with a brass accent. Reads established and conservative.
- *
- * Base colors: primary #1f3a63, accent #a67c34, secondary #4a5f7a.
- * Scales are generated tints and shades of those three; every shade the site puts
- * white text on clears WCAG AA against white (worst case 5.1:1).
- */
+/** Navy & Silver: navy primary, steel accent. Steel rather than a true silver, which sits near 2:1 on white and cannot carry text or a button. Worst white-text contrast on a 600/700 shade: 6.09:1. */
 export const theme: ThemeOverrides = {
   '--c-primary-50': '237 239 243',
   '--c-primary-100': '219 223 230',
-  '--c-primary-200': '183 192 205',
+  '--c-primary-200': '201 208 218',
   '--c-primary-300': '139 153 174',
   '--c-primary-400': '85 105 136',
   '--c-primary-500': '31 58 99',
@@ -20,30 +14,25 @@ export const theme: ThemeOverrides = {
   '--c-primary-900': '13 24 42',
   '--c-primary-950': '9 16 28',
   '--c-primary-1000': '6 10 18',
-  '--c-accent-50': '248 245 239',
-  '--c-accent-100': '241 234 223',
-  '--c-accent-200': '225 210 186',
-  '--c-accent-300': '209 187 149',
-  '--c-accent-400': '187 155 101',
-  '--c-accent-500': '166 124 52',
-  '--c-accent-600': '139 104 44',
-  '--c-accent-700': '113 84 35',
+  '--c-accent-50': '243 244 245',
+  '--c-accent-100': '231 233 235',
+  '--c-accent-200': '219 222 225',
+  '--c-accent-300': '178 184 191',
+  '--c-accent-400': '143 151 162',
+  '--c-accent-500': '107 118 132',
+  '--c-accent-600': '90 99 111',
+  '--c-accent-700': '73 80 90',
   '--c-secondary-300': '161 172 186',
   '--c-secondary-400': '117 133 154',
   '--c-secondary-500': '74 95 122',
   '--c-secondary-600': '62 80 102',
   '--c-secondary-700': '50 65 83',
-  // Dark surfaces (footer, dark service bands) in this market's hue.
   '--c-ink-900': '14 24 42',
   '--c-ink-950': '6 10 18',
-  // Infinity animation: all gold, light -> mid -> deep, so it reads on the
-  // white card instead of cycling through this market's near-black shades.
-  '--c-infinity-1': '199 173 129',
-  '--c-infinity-2': '166 124 52',
-  '--c-infinity-3': '113 84 35',
-  // Hero shader: a vivid primary for the plasma lines, fading from light
-  // primary on the left to the accent on the right.
+  '--c-infinity-1': '143 151 162',
+  '--c-infinity-2': '107 118 132',
+  '--c-infinity-3': '73 80 90',
   '--c-hero-line': '53 78 115',
   '--c-hero-edge-left': '139 153 174',
-  '--c-hero-edge-right': '209 187 149'
+  '--c-hero-edge-right': '178 184 191'
 };
