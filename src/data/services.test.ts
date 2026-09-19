@@ -7,6 +7,8 @@ import {
   tierGroupsFor,
   themeForIndex,
   reverseForIndex,
+  pricingUrlFor,
+  tierQuoteText,
   type Service,
   type ServiceStatus
 } from './services';
@@ -200,5 +202,106 @@ describe('services data', () => {
   it('refuses to render an archived service through tierGroupsFor', () => {
     const empty = { slug: 'empty-service', status: 'core', tiers: [] } as unknown as Service;
     expect(() => tierGroupsFor(empty)).toThrow(/no tiers/);
+  });
+
+  it('offers no TikTok plan until TikTok deliverables are defined (see TODOS.md)', () => {
+    const everyLine = visibleServices.flatMap((service) => [
+      ...service.includedFeatures,
+      ...(service.pricingNotes ?? []),
+      ...tierGroupsFor(service).flatMap((group) =>
+        group.tiers.flatMap((tier) => [tier.description, ...tier.features, tier.additionalNote ?? ''])
+      )
+    ]);
+    expect(everyLine.filter((line) => /tiktok/i.test(line))).toEqual([]);
+  });
+});
+
+describe('services page cards', () => {
+  const carded = services.filter((service) => service.servicesCard);
+
+  it('renders the four marketing services, in data order', () => {
+    expect(carded.map((service) => service.slug)).toEqual([
+      'social-media-management',
+      'paid-advertising',
+      'search-engine-optimization',
+      'branding-design'
+    ]);
+  });
+
+  it('only cards services that render on /pricing, since every card links there', () => {
+    for (const service of carded) {
+      expect(service.status, service.slug).not.toBe('archived');
+    }
+  });
+
+  it('gives every card a title, summary and icon gradient', () => {
+    for (const service of carded) {
+      const card = service.servicesCard!;
+      expect(card.title.trim(), service.slug).not.toBe('');
+      expect(card.summary.trim(), service.slug).not.toBe('');
+      expect(card.iconGradient, service.slug).toMatch(/^from-\S+ to-\S+$/);
+    }
+  });
+
+  it('no longer describes SEO as quoted by proposal (it has published tiers)', () => {
+    const seo = services.find((service) => service.slug === 'search-engine-optimization')!;
+    expect(seo.servicesCard!.summary).not.toMatch(/proposal/i);
+  });
+});
+
+describe('tier quotes', () => {
+  const site = 'https://teamrileyweb.com';
+
+  it('builds the pricing URL from the slug', () => {
+    expect(pricingUrlFor('paid-advertising', site)).toBe(
+      'https://teamrileyweb.com/pricing#paid-advertising'
+    );
+  });
+
+  it('writes a monthly tier with every feature and the setup fee', () => {
+    const ecommerce = services.find((service) => service.slug === 'ecommerce-management')!;
+    const silver = ecommerce.tiers![0];
+    const text = tierQuoteText({
+      serviceName: 'eCommerce Management',
+      tier: silver,
+      pricingUrl: pricingUrlFor(ecommerce.slug, site)
+    });
+    expect(text.split('\n')).toEqual([
+      'eCommerce Management - Silver: $399 per month',
+      'Best for new or low-volume stores',
+      '- 1-25 products',
+      '- Basic store maintenance (themes, plugins, updates)',
+      '- Basic reporting',
+      '- Email support',
+      '$500 one-time setup fee',
+      'Details: https://teamrileyweb.com/pricing#ecommerce-management'
+    ]);
+  });
+
+  it('names the tier group and keeps a non-monthly unit as written', () => {
+    const ads = services.find((service) => service.slug === 'paid-advertising')!;
+    const group = ads.tierGroups![0];
+    const text = tierQuoteText({
+      serviceName: 'Paid Advertising',
+      groupLabel: group.label,
+      tier: group.tiers[1],
+      pricingUrl: pricingUrlFor(ads.slug, site)
+    });
+    expect(text.split('\n')[0]).toBe('Paid Advertising (Search Advertising) - Gold: 20% mgmt fee');
+  });
+
+  it('omits empty optional lines instead of printing blanks', () => {
+    const text = tierQuoteText({
+      serviceName: 'Branding & Design',
+      tier: { name: 'Hourly', price: '$150', priceUnit: '/hour', description: 'Design work', features: ['4 hour minimum'] },
+      pricingUrl: pricingUrlFor('branding-design', site)
+    });
+    expect(text.split('\n')).toEqual([
+      'Branding & Design - Hourly: $150 per hour',
+      'Design work',
+      '- 4 hour minimum',
+      'Details: https://teamrileyweb.com/pricing#branding-design'
+    ]);
+    expect(text).not.toMatch(/undefined|\n\n/);
   });
 });

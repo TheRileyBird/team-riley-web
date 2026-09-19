@@ -15,7 +15,13 @@ import nazarethSite from '../assets/sites/nazareth.png';
 import garrettSite from '../assets/sites/garrett.png';
 import graceSite from '../assets/sites/grace.png';
 import cfcSite from '../assets/sites/cfc.png';
+import { services as pricedServices, type ServicesCardIcon } from '../data/services';
 import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus } from '@lucide/astro';
+
+// The marketing grid reads src/data/services.ts, so a renamed, repriced or retired
+// service can't drift out of step with /pricing. Each card links to its section there.
+const cardIcons: Record<ServicesCardIcon, typeof Users> = { users: Users, zap: Zap, globe: Globe, palette: Palette };
+const marketingCards = pricedServices.filter((service) => service.status !== 'archived' && service.servicesCard);
 
 const wrongProblemNeeds = [
   'a website that builds trust instantly',
@@ -766,51 +772,26 @@ const plans = [
       />
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Social Media Management -->
-        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
-            <Users class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Social Media</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Consistent, on-brand content that keeps your business visible between appointments.
-          </p>
-        </div>
-
-        <!-- Paid Advertising (search + social, one service) -->
-        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
-            <Zap class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Paid Advertising</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Google, Bing and Meta campaigns, managed end to end. Search reaches people already
-            looking for you; social builds demand.
-          </p>
-        </div>
-
-        <!-- Ongoing SEO (by proposal) -->
-        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center mb-6">
-            <Globe class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Ongoing SEO</h3>
-          <p class="text-gray-700 leading-relaxed">
-            A separate campaign to improve visibility for specific searches over time. Every
-            website already ships with SEO foundations. Quoted by proposal.
-          </p>
-        </div>
-
-        <!-- Branding & Design -->
-        <div class="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
-            <Palette class="w-7 h-7 text-white" />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">Branding</h3>
-          <p class="text-gray-700 leading-relaxed">
-            Professional logo design and brand identity that makes your practice stand out.
-          </p>
-        </div>
+        {marketingCards.map((service) => {
+          const card = service.servicesCard!;
+          const Icon = cardIcons[card.icon];
+          return (
+            <a
+              href={`/pricing#${service.slug}`}
+              class="group block p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+            >
+              <div class={`w-14 h-14 bg-gradient-to-br ${card.iconGradient} rounded-xl flex items-center justify-center mb-6`}>
+                <Icon class="w-7 h-7 text-white" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">{card.title}</h3>
+              <p class="text-gray-700 leading-relaxed">{card.summary}</p>
+              <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 group-hover:text-primary-800">
+                See pricing
+                <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </a>
+          );
+        })}
       </div>
 
       <!-- CTA -->

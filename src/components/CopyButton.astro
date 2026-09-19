@@ -1,0 +1,104 @@
+---
+/**
+ * Copies a fixed string to the clipboard: a pricing section's link, or a tier's
+ * plain-text quote. Sales-flow shortcuts, so they're hidden when the page prints.
+ *
+ * One delegated click listener handles every button on the page (Astro bundles the
+ * script once). Clipboard API first; the textarea fallback covers browsers that
+ * refuse it outside a secure context. The label flips to `copiedLabel` for two
+ * seconds, and because it's aria-live, screen readers hear the confirmation.
+ */
+import { Copy, Link } from '@lucide/astro';
+
+interface Props {
+  text: string;
+  label: string;
+  copiedLabel?: string;
+  icon?: 'copy' | 'link';
+  theme?: 'light' | 'dark';
+  class?: string;
+}
+
+const {
+  text,
+  label,
+  copiedLabel = 'Copied',
+  icon = 'copy',
+  theme = 'light',
+  class: className
+} = Astro.props;
+const Icon = icon === 'link' ? Link : Copy;
+---
+
+<button
+  type="button"
+  data-copy-text={text}
+  data-copy-label={label}
+  data-copied-label={copiedLabel}
+  data-print-hide
+  class:list={[
+    'inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+    theme === 'dark'
+      ? 'text-gray-300 hover:bg-gray-800 hover:text-white focus-visible:ring-offset-gray-900'
+      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+    className
+  ]}
+>
+  <Icon class="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+  <span data-copy-status aria-live="polite">{label}</span>
+</button>
+
+<script>
+  const RESET_MS = 2000;
+  const timers = new WeakMap<HTMLButtonElement, number>();
+
+  const fallbackCopy = (text: string) => {
+    const field = document.createElement('textarea');
+    field.value = text;
+    field.setAttribute('readonly', '');
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand('copy');
+    field.remove();
+    if (!copied) throw new Error('execCommand copy was refused');
+  };
+
+  const copy = async (text: string) => {
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch {
+        // Permission denied or insecure context: fall through to the textarea path.
+      }
+    }
+    fallbackCopy(text);
+  };
+
+  document.addEventListener('click', async (event) => {
+    const button = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-copy-text]');
+    if (!button) return;
+
+    const status = button.querySelector<HTMLElement>('[data-copy-status]');
+    const { copyText = '', copyLabel = '', copiedLabel = 'Copied' } = button.dataset;
+
+    let message = copiedLabel;
+    try {
+      await copy(copyText);
+    } catch (error) {
+      console.error('[CopyButton] copy failed', error);
+      message = 'Copy failed';
+    }
+
+    if (status) status.textContent = message;
+    window.clearTimeout(timers.get(button));
+    timers.set(
+      button,
+      window.setTimeout(() => {
+        if (status) status.textContent = copyLabel;
+      }, RESET_MS)
+    );
+  });
+</script>

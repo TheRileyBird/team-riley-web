@@ -706,3 +706,93 @@ html.js .reveal-stagger.revealed > :nth-child(8) { transition-delay: 0.98s; }
     transition: none !important;
   }
 }
+
+/*
+ * Print: turns /pricing into a proposal attachment. Every pricing grid, collapsed
+ * tier group and notes disclosure prints expanded (x-show hides them with an inline
+ * display:none, which !important here outranks). Dark sections flip to black on
+ * white, because browsers drop background colors by default and would otherwise
+ * print white text on white paper. Navigation, buttons and anything marked
+ * data-print-hide are sales-flow chrome with no meaning on paper.
+ */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  nav,
+  footer,
+  dialog,
+  chat-widget,
+  [data-print-hide],
+  [data-booking-modal-open] {
+    display: none !important;
+  }
+
+  [id$='-pricing'],
+  [id$='-pricing-notes'] {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* A printed page is narrower than Tailwind's md breakpoint, so every tier grid
+     would collapse to one card per row and a proposal would run 25+ pages. */
+  [id$='-advanced-plans'],
+  .grid:has(> article) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  [data-print-columns='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  article {
+    padding: 0.75rem !important;
+    font-size: 0.8rem;
+  }
+
+  article .text-4xl {
+    font-size: 1.5rem !important;
+  }
+
+  /* Scroll reveal keeps unrevealed section content at opacity 0. Paper never
+     scrolls, so without this everything below the first screen prints blank. */
+  html.js section > *,
+  html.js .reveal-stagger > *,
+  html.js .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  body,
+  body * {
+    color: #111827 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .animated-gradient-text,
+  .animated-gradient-text-bright {
+    -webkit-text-fill-color: currentColor !important;
+  }
+
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    break-inside: auto;
+  }
+
+  article,
+  h2,
+  h3,
+  h4 {
+    break-inside: avoid;
+    break-after: avoid;
+  }
+}

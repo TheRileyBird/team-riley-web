@@ -13,8 +13,9 @@
  * no user. Recover it from git history if a service ever genuinely needs one.
  */
 import { CheckCircle2 } from '@lucide/astro';
+import CopyButton from './CopyButton.astro';
 import ServicePricingGrid from './ServicePricingGrid.astro';
-import { tierGroupsFor, type Service } from '../data/services';
+import { pricingUrlFor, tierGroupsFor, type Service } from '../data/services';
 
 interface Props {
   service: Service;
@@ -53,11 +54,27 @@ const {
 } = service;
 
 const isDark = theme === 'dark';
+const serviceName = `${name} ${highlight}`.replace(/\s+/g, ' ').trim();
+const pricingUrl = pricingUrlFor(slug, Astro.site ?? Astro.url);
+
+// A link to /pricing#<slug> (or a retired alias) is a quote someone sent, so land
+// with that service's pricing already open instead of making them find the toggle.
+// hashchange covers in-page jumps after load.
+const anchorIds = [slug, ...aliases];
+const sectionState = `{
+  anchorIds: ${JSON.stringify(anchorIds)},
+  showPricing: false,
+  openIfTargeted() {
+    if (this.anchorIds.includes(decodeURIComponent(location.hash.slice(1)))) this.showPricing = true;
+  }
+}`;
 ---
 
 <section
   id={slug}
-  x-data="{ showPricing: false }"
+  x-data={sectionState}
+  x-init="openIfTargeted()"
+  @hashchange.window="openIfTargeted()"
   class:list={[
     'relative overflow-hidden py-20 md:py-28',
     background ?? (isDark ? 'bg-gray-900' : 'bg-white')
@@ -88,6 +105,16 @@ const isDark = theme === 'dark';
     <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <!-- Service Description Column -->
       <div class={reverse ? 'lg:order-2' : 'lg:order-1'}>
+        {service.status === 'emerging' && (
+          <span
+            class:list={[
+              'mb-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider',
+              isDark ? 'bg-accent-400/15 text-accent-300' : 'bg-accent-100 text-accent-700'
+            ]}
+          >
+            New service
+          </span>
+        )}
         <h2
           class:list={[
             'mb-4 text-4xl font-bold md:text-5xl',
@@ -102,6 +129,14 @@ const isDark = theme === 'dark';
         <p class:list={['text-base', isDark ? 'text-gray-400' : 'text-gray-600']}>
           {subDescription}
         </p>
+        <CopyButton
+          text={pricingUrl}
+          label="Copy link to this service"
+          copiedLabel="Link copied"
+          icon="link"
+          theme={theme}
+          class="-ml-2.5 mt-4"
+        />
       </div>
 
       <!-- Features & Pricing Column -->
@@ -145,6 +180,7 @@ const isDark = theme === 'dark';
             type="button"
             data-service-pricing-toggle
             data-service-slug={slug}
+            data-print-hide
             @click="showPricing = !showPricing"
             x-bind:aria-expanded="showPricing"
             aria-controls={`${slug}-pricing`}
@@ -188,6 +224,7 @@ const isDark = theme === 'dark';
       <ServicePricingGrid
         tierGroups={tierGroups}
         sectionId={slug}
+        serviceName={serviceName}
         theme={theme}
         collapsibleAfter={collapsibleAfter}
         collapseLabel={collapseLabel}

@@ -1,9 +1,10 @@
 /**
  * Single source of truth for every priced service.
  *
- * pricing.astro maps this array. services.astro will consume it in a second pass
- * (see TODOS.md). Adding, reordering, repricing, or retiring a service is an edit
- * here — never a change to page markup.
+ * pricing.astro maps this array into full pricing sections; services.astro maps
+ * the services that carry a `servicesCard` into its marketing grid. Adding,
+ * reordering, repricing, or retiring a service is an edit here — never a change to
+ * page markup.
  *
  * ORDER  Array position is render order. What you read here is what a visitor sees.
  * STATUS `status` controls BOTH whether a service renders and how prominent it is.
@@ -87,6 +88,23 @@ export interface Service {
   additionalNote?: string;
   tiers?: Tier[];
   tierGroups?: TierGroup[];
+  /**
+   * The service's card in the "Marketing That Drives Results" grid on /services.
+   * Omit to leave the service out of that grid (eCommerce and Client Growth AI have
+   * their own sections there). The card links to this service's pricing section.
+   */
+  servicesCard?: ServicesCard;
+}
+
+/** Icon names resolve to Lucide components in services.astro; keeps this file importable by tests. */
+export type ServicesCardIcon = 'users' | 'zap' | 'globe' | 'palette';
+
+export interface ServicesCard {
+  title: string;
+  summary: string;
+  icon: ServicesCardIcon;
+  /** Tailwind gradient classes for the icon tile, e.g. 'from-violet-600 to-purple-700'. */
+  iconGradient: string;
 }
 
 export const services: Service[] = [
@@ -99,19 +117,25 @@ export const services: Service[] = [
       'Consistent, engaging social media content that builds your brand and connects with your audience',
     subDescription:
       'Content creation · Strategic planning · Community engagement · Performance tracking · Brand storytelling',
+    servicesCard: {
+      title: 'Social Media',
+      summary: 'Consistent, on-brand content that keeps your business visible between appointments.',
+      icon: 'users',
+      iconGradient: 'from-violet-600 to-purple-700'
+    },
     includedFeatures: [
       '$99 one-time setup fee',
       '4 Posts Per Month',
       'Custom branded graphics and captions',
       'Profile Optimization (Bio, Links, Branding)',
-      'One platform: Meta, LinkedIn, or TikTok'
+      'One platform: Meta or LinkedIn'
     ],
     collapsibleAfter: 3,
     collapseLabel: 'Strategist & Influencer plans',
     collapseSubtitle: 'Expand for higher-volume content and hands-on strategy',
     notesLabel: 'About Reels and platforms',
     pricingNotes: [
-      'Meta counts as a single platform and covers both Instagram and Facebook, because the two publish together through Meta Business Suite. LinkedIn and TikTok are each separate platforms.',
+      'Meta counts as a single platform and covers both Instagram and Facebook, because the two publish together through Meta Business Suite. LinkedIn is a separate platform.',
       'Reels are included within the monthly post total. They are not additional posts.',
       'A Reel is short-form video content. It may use AI-generated media, a slideshow of photos, supplied video clips, animated graphics and text, or a combination of these formats.',
       'Filming is not included. If you want yourself, your team, or your location featured in a Reel, you must provide the footage.'
@@ -127,7 +151,7 @@ export const services: Service[] = [
           '4 Posts Per Month',
           'Custom branded graphics and captions',
           'Profile Optimization (Bio, Links, Branding)',
-          'One platform: Meta, LinkedIn, or TikTok'
+          'One platform: Meta or LinkedIn'
         ],
         additionalNote: '+$150 per additional platform'
       },
@@ -305,6 +329,13 @@ export const services: Service[] = [
     subDescription:
       'Campaign setup · Keyword research · Audience targeting · Ad copywriting · Creative design · Bid optimization · Monthly reporting',
     accent: { top: 'bg-primary-600', bottom: 'bg-cyan-500' },
+    servicesCard: {
+      title: 'Paid Advertising',
+      summary:
+        'Google, Bing and Meta campaigns, managed end to end. Search reaches people already looking for you; social builds demand.',
+      icon: 'zap',
+      iconGradient: 'from-cyan-600 to-blue-700'
+    },
     includedFeatures: [
       'Google, Bing and YouTube search campaigns',
       'Facebook and Instagram social campaigns',
@@ -428,6 +459,13 @@ export const services: Service[] = [
     subDescription:
       'Keyword research · Local SEO · Content creation · Technical optimization · Monthly performance reports',
     accent: { top: 'bg-primary-600', bottom: 'bg-cyan-500' },
+    servicesCard: {
+      title: 'SEO Campaigns',
+      summary:
+        'A separate campaign to improve visibility for specific searches over time. Every website already ships with SEO foundations.',
+      icon: 'globe',
+      iconGradient: 'from-primary-600 to-primary-700'
+    },
     includedFeatures: [
       '4 specialty pages/year',
       '6 SEO blog posts/year',
@@ -495,6 +533,12 @@ export const services: Service[] = [
     subDescription:
       'Logo design · Brand guidelines · Color palettes · Typography · Marketing materials',
     accent: { top: 'bg-teal-600', bottom: 'bg-secondary-500' },
+    servicesCard: {
+      title: 'Branding',
+      summary: 'Professional logo design and brand identity that makes your practice stand out.',
+      icon: 'palette',
+      iconGradient: 'from-teal-600 to-cyan-600'
+    },
     includedFeatures: [
       '10 hour minimum project',
       'Custom logo design',
@@ -636,4 +680,40 @@ export function themeForIndex(index: number): 'light' | 'dark' {
 /** Alternating column order, derived from position among VISIBLE services. */
 export function reverseForIndex(index: number): boolean {
   return index % 2 === 1;
+}
+
+/** The URL of a service's pricing section, e.g. https://teamrileyweb.com/pricing#paid-advertising. */
+export function pricingUrlFor(slug: string, site: string | URL): string {
+  return new URL(`/pricing#${slug}`, site).toString();
+}
+
+/**
+ * Plain-text quote for one tier, for pasting into an email. Built from the same
+ * data the card renders, so a pasted quote can never disagree with the page.
+ *
+ *   Paid Advertising (Search Advertising) - Gold: 20% mgmt fee
+ *   Optimized campaign management
+ *   - $2,400 min. monthly ad spend
+ *   ...
+ *   $500 one-time setup fee
+ *   Details: https://teamrileyweb.com/pricing#paid-advertising
+ */
+export function tierQuoteText(options: {
+  serviceName: string;
+  groupLabel?: string;
+  tier: Tier;
+  pricingUrl: string;
+}): string {
+  const { serviceName, groupLabel, tier, pricingUrl } = options;
+  const heading = `${serviceName}${groupLabel ? ` (${groupLabel})` : ''} - ${tier.name}: ${tier.price} ${tier.priceUnit.replace(/^\//, 'per ')}`;
+  return [
+    heading,
+    tier.description,
+    ...tier.features.map((feature) => `- ${feature}`),
+    tier.setupFee,
+    tier.additionalNote,
+    `Details: ${pricingUrl}`
+  ]
+    .filter((line): line is string => Boolean(line))
+    .join('\n');
 }

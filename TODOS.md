@@ -10,70 +10,6 @@ Move an item from here to `TASKS.md` when you actually want it done.
 
 ---
 
-## Make `services.astro` read `src/data/services.ts`
-
-**What:** Second pass of the pricing data-layer refactor. `pricing.astro` now maps
-`src/data/services.ts`; `services.astro` still hand-maintains its own service cards.
-
-**Why:** Until both pages read one array, the service taxonomy is duplicated and can
-drift. It already had: `services.astro` carried a byte-identical copy of the pricing
-page's SEO headline, and separate PPC / Social Ads cards after pricing had merged them
-into one Paid Advertising service.
-
-**Current state:** The copy has been de-contradicted by hand (2026-08-22), so the two
-pages agree today. They are not structurally linked.
-
-**Where to start:** `services.astro` has two grids that do not map 1:1 to the pricing
-sections — an "SEO Foundations" card around line 557 in the website-features grid, and
-a separate marketing grid around line 769 (Social Media, Paid Advertising, Ongoing SEO,
-Branding). Decide which grid becomes data-driven. The marketing grid is the closer fit.
-
-**Effort:** M (human) / S (with CC) · **Priority:** P2 · **Blocked by:** nothing
-
----
-
-## Decide what to do with five unreachable pages
-
-**What:** Five pages build and deploy with no inbound link anywhere in `src`:
-
-| Page | Lines | Notes |
-|---|---|---|
-| `src/pages/med-spas.astro` | 734 | v1; `med-spas-v2` was never linked either |
-| `src/pages/med-spas-v2.astro` | 458 | contains "top of Google" claim at line 69 |
-| `src/pages/landing-page.astro` | 416 | |
-| `src/pages/digital-health-audit.astro` | — | **intentionally unlisted** — excluded from the sitemap in `astro.config.mjs` |
-| `src/pages/start.astro` | — | onboarding questionnaire; submit fixed in `712c073a`, so it is maintained code with no front door. **In the sitemap**, so search can find it. |
-
-**Why:** ~1,600 lines of maintained, indexable surface nobody navigates to. Each one is
-either a deliberate direct-link page (like `digital-health-audit`) or dead weight, and
-right now there's no way to tell which from the code.
-
-**Decide per page:** link it, keep it unlisted deliberately (and exclude from the
-sitemap the way `digital-health-audit` is), or delete it.
-
-**Also:** `med-spas-v2.astro:69` says "You need to show up at the top of Google when
-someone searches for med spas in your city." That contradicts the SEO Foundations
-positioning adopted 2026-08-22. Fix it or delete the page.
-
-**Effort:** M (human) / S (with CC) · **Priority:** P2 · **Blocked by:** nothing
-
----
-
-## `/platform` is reachable on mobile only
-
-**What:** `src/components/Navigation.astro:41` has the desktop `/platform` link
-commented out. Line 77 keeps the mobile link live. `src/pages/services.astro:724`
-points a primary CTA at `/platform`.
-
-**Why:** A desktop visitor who lands on `/services` can click through to `/platform`,
-but cannot find it from the nav. Either the page is ready and the desktop link should
-be restored, or it isn't and the mobile link plus the CTA should go.
-
-**Effort:** XS · **Priority:** P3 · **Blocked by:** a decision about whether
-`/platform` is ready
-
----
-
 ## "Which plan am I?" selector for store-first vs website+store
 
 **What:** An interactive helper on `/pricing` that asks a visitor whether their site is
@@ -97,24 +33,6 @@ Consider only if the prose version doesn't reduce the questions.
 
 ---
 
-## Pricing page polish bundle
-
-**What:** Small additions, each independently useful:
-
-- Per-service anchor links surfaced in the UI, so a quote email can point at
-  `/pricing#ecommerce-management`. The slugs and aliases already exist in
-  `src/data/services.ts`; nothing exposes them to a reader.
-- Print stylesheet for `/pricing` so it attaches to a proposal as a clean PDF.
-- An honest "New service" badge driven by `status: 'emerging'`. Client Growth AI is
-  already tagged `emerging` and currently looks identical to established services.
-- Copy-to-clipboard on a tier, for pasting a quote into an email.
-
-**Why:** Each removes a small piece of manual work in the sales flow.
-
-**Effort:** S each · **Priority:** P3 · **Blocked by:** nothing
-
----
-
 ## Revisit Paid Advertising pricing after the first client
 
 **What:** Paid Advertising currently publishes two fee structures under one heading:
@@ -131,28 +49,6 @@ a revenue decision and shouldn't ride along inside a layout change.
 Simplifying is now a data edit.
 
 **Effort:** S · **Priority:** P3 · **Blocked by:** landing a first paid-ads client
-
----
-
-## Decide what TikTok actually delivers on Social Media plans
-
-**What:** Social Media tiers now offer "One platform: Meta, LinkedIn, or TikTok."
-TikTok is a new commitment and the plan copy doesn't fit it.
-
-**Why:** Tier features describe "custom branded graphics and captions," and the Reels
-policy says filming is not included and a Reel may be AI media, a photo slideshow, or
-supplied clips. TikTok is almost entirely short-form video, so a graphics-led plan maps
-onto it poorly. A client could buy Basic at $199 expecting 4 TikToks a month.
-
-**Decide:** are TikTok posts counted against the Reels allowance (they are video, so
-probably yes), and does the Basic tier — which currently includes zero Reels — support
-TikTok at all?
-
-**Where to start:** `src/data/services.ts`, the `social-media-management` entry's
-`tiers` and `pricingNotes`.
-
-**Effort:** XS to write, the decision is the work · **Priority:** P2 · **Blocked by:**
-nothing, but decide before selling a TikTok plan
 
 ---
 
@@ -180,3 +76,29 @@ Two things to know:
   single-city client (the New Orleans lawyer package) specialty pages are the purchase and
   location count is the least relevant number, so the list reads in priority order rather
   than starting with locations.
+
+---
+
+## Note: TikTok is excluded from Social Media plans
+
+Not a task. Decided 2026-09-18: TikTok was removed from every Social Media tier and note
+("One platform: Meta or LinkedIn"). The plans are graphics-led and TikTok is almost
+entirely short-form video, so a Basic client at $199 could reasonably expect 4 TikToks a
+month that the plan can't deliver. A test in `src/data/services.test.ts` fails if TikTok
+reappears in any tier, feature or note.
+
+**To offer it later:** decide whether TikTok posts count against the Reels allowance and
+which tier is the minimum (Basic has zero Reels), then price it as a video-first add-on
+rather than a platform swap. Delete the TikTok test when you do.
+
+---
+
+## Note: draft pages are dev-only
+
+Not a task. Decided 2026-09-18: `med-spas`, `med-spas-v2` and `landing-page` moved to
+`src/drafts/`. `astro.config.mjs` injects their routes only under `astro dev`, so a
+production build contains no HTML and no sitemap entry for them. `digital-health-audit`
+(unlisted, sitemap-excluded) and `start` stay live. `/platform` stays live but is out of
+the nav; `/services` still links to it. To publish a draft, move it back to `src/pages/`
+and delete its entry in `draftPages`.
+

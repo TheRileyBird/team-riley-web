@@ -5,15 +5,22 @@
  * already started to drift between the two copies.
  */
 import { CheckCircle2 } from '@lucide/astro';
-import type { Tier } from '../data/services';
+import CopyButton from './CopyButton.astro';
+import { tierQuoteText, type Tier } from '../data/services';
 
 interface Props {
   tier: Tier;
   /** Collapsed tiers don't carry the MOST POPULAR badge even if flagged featured. */
   showFeaturedBadge?: boolean;
+  /** Full service name for the copied quote, e.g. "eCommerce Management". */
+  serviceName: string;
+  /** Tier family, e.g. "Search Advertising". Omitted for single-family services. */
+  groupLabel?: string;
+  pricingUrl: string;
 }
 
-const { tier, showFeaturedBadge = true } = Astro.props;
+const { tier, showFeaturedBadge = true, serviceName, groupLabel, pricingUrl } = Astro.props;
+const quote = tierQuoteText({ serviceName, groupLabel, tier, pricingUrl });
 const isFeatured = Boolean(tier.featured);
 const withBadge = isFeatured && showFeaturedBadge;
 ---
@@ -59,8 +66,11 @@ const withBadge = isFeatured && showFeaturedBadge;
   <a
     href="/#book-a-call"
     data-booking-modal-open
+    data-print-hide
     class:list={['btn mt-auto w-full', withBadge ? 'btn-secondary' : 'btn-primary']}
   >
     Get Started
   </a>
+
+  <CopyButton text={quote} label="Copy quote" class="mt-3 self-center" />
 </article>
