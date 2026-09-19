@@ -1,8 +1,7 @@
 ---
-import { site } from '../verticals/active';
+import { content, site } from '../verticals/active';
 import {ArrowRight, Menu, X} from '@lucide/astro';
 import { Image } from 'astro:assets';
-import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
 
 const currentPath = Astro.url.pathname;
 
@@ -31,7 +30,7 @@ const isActive = (path: string) => {
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center gap-3">
-          <Image src={teamRileyLogo} alt="Team Riley logo" class="h-10 w-10 object-contain" />
+          <Image src={content.logo} alt={`${site.brandName} logo`} class="h-10 w-10 object-contain" />
           <span class="text-xl font-bold animated-gradient-text">{site.brandName}</span>
         </a>
       </div>

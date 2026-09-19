@@ -77,7 +77,7 @@ const sectionState = `{
   @hashchange.window="openIfTargeted()"
   class:list={[
     'relative overflow-hidden py-20 md:py-28',
-    background ?? (isDark ? 'bg-gray-900' : 'bg-white')
+    background ?? (isDark ? 'bg-ink-900' : 'bg-white')
   ]}
 >
   {/*
@@ -121,7 +121,7 @@ const sectionState = `{
             isDark ? 'text-white' : 'text-gray-900'
           ]}
         >
-          {name} <span class="animated-gradient-text">{highlight}</span>
+          {name} <span class:list={[isDark ? 'animated-gradient-text-bright' : 'animated-gradient-text']}>{highlight}</span>
         </h2>
         <p class:list={['mb-6 text-xl', isDark ? 'text-gray-300' : 'text-gray-700']}>
           {description}

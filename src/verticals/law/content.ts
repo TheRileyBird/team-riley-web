@@ -11,6 +11,9 @@ import lawDocuments from '../../assets/videos/law-reviewing-documents.mp4';
 import lawHandshake from '../../assets/videos/law-handshake.mp4';
 import lawBoardroom from '../../assets/videos/law-boardroom-presentation.mp4';
 import lawPoster from '../../assets/videos/law-poster.jpg';
+import teamRileyLogo from '../../assets/images/team-riley-logo-law.png';
+import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-law-on-dark.png';
+import favicon from '../../assets/images/favicon-law.png';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -25,6 +28,9 @@ import type { VerticalContent } from '../content/types';
  */
 export const content: VerticalContent = {
   audience: 'law firms',
+  logo: teamRileyLogo,
+  favicon,
+  logoOnDark: teamRileyLogoOnDark,
   meta: {
     defaultDescription: 'Team Riley Law - Websites and marketing built for law firms',
     ogSiteName: 'Team Riley Law',

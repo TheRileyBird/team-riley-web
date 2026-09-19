@@ -39,6 +39,12 @@ export const DEFAULT_PALETTE: Palette = {
   '--c-secondary-500': '139 92 246',
   '--c-secondary-600': '124 58 237',
   '--c-secondary-700': '109 40 217',
+  // Dark surfaces: the footer and the alternating dark service bands. Separate from
+  // the primary scale because they are near-black with only a hint of the brand hue
+  // — health's are Tailwind's slate 900/950, which is why every market's footer was
+  // the same blue-black before these existed.
+  '--c-ink-900': '15 23 42',
+  '--c-ink-950': '2 6 23',
   // The homepage hero shader's three colors: the plasma lines, and the left and
   // right ends of the gradient they fade into. Separate tokens because the shader
   // wants brighter, more saturated values than any button shade.

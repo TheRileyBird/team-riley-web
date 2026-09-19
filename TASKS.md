@@ -78,3 +78,12 @@ unchecked task unless you are starting it.
   Done 2026-09-19: ShaderBackground moved off the homepage hero (which now carries footage) to the /pricing page header,
   desktop only. PageHeader gained a `transparent` prop so the shader shows through instead of being covered by the
   header's own gradient.
+- [x] Review the new law and finance designs again; the footers on law and finance do not seem to match the rest of those sites
+  Done 2026-09-19: Root cause was three things, not one. (1) The TR logo was the health blue PNG on all three sites; law and
+  finance now have palette-recolored marks, plus a lighter variant for the near-black footer where the dark end of the
+  gradient disappeared, and per-market favicons. (2) Footer and every dark band used Tailwind slate (a blue-tinted gray), so
+  finance had a blue-black footer under an evergreen site; added --c-ink-900/950 tokens per market and pointed the footer
+  and 28 dark surfaces at them. (3) 27+ utilities used Tailwind built-in blue/cyan/violet/purple/teal, which ignore the
+  palette entirely - mapped them onto palette classes by exact hex first, so health is pixel-identical except one icon tile.
+  Also fixed gradient headings losing contrast on dark bands (SectionHeader and ServiceColumnSection now use the bright
+  variant when dark). Known remaining: the GoHighLevel chat bubble is blue on all three; that is styled in GHL, not here.

@@ -83,15 +83,15 @@ const businessTypes = pageContent.segments;
   <Navigation />
 
   <!-- Hero Section -->
-  <section class="relative pb-0 pt-20 md:py-28 lg:py-0 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 lg:min-h-[760px] flex flex-col lg:block">
+  <section class="relative pb-0 pt-20 md:py-28 lg:py-0 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50 lg:min-h-[760px] flex flex-col lg:block">
     <div class="absolute inset-0 opacity-5">
       <div class="absolute top-16 right-20 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
       <div class="absolute bottom-10 left-16 w-80 h-80 bg-accent-400 rounded-full blur-3xl"></div>
     </div>
 
     <div class="portfolio-scroll-gallery order-2 relative w-full max-w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
-      <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-blue-50 to-transparent z-10"></div>
-      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-50 to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-primary-50 to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-50 to-transparent z-10"></div>
       {showShowcase && (
         <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 px-4 sm:px-6 md:p-3 -mt-10">
           {showcaseColumns.map((column, columnIndex) => (
@@ -193,7 +193,7 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Failed Efforts Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+  <section class="py-20 md:py-28 bg-gradient-to-b from-ink-900 via-ink-950 to-black relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500 rounded-full blur-3xl"></div>
@@ -223,7 +223,7 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Reframe Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-br from-white via-blue-50 to-gray-100 relative overflow-hidden">
+  <section class="py-20 md:py-28 bg-gradient-to-br from-white via-primary-50 to-gray-100 relative overflow-hidden">
     <div class="absolute inset-0 opacity-40">
       <div class="absolute -top-24 right-12 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
       <div class="absolute bottom-0 left-12 w-80 h-80 bg-accent-300 rounded-full blur-3xl"></div>
@@ -247,7 +247,7 @@ const businessTypes = pageContent.segments;
           </p>
         </div>
 
-        <div class="rounded-2xl bg-gray-950 p-4 md:p-6 border border-gray-800 shadow-2xl">
+        <div class="rounded-2xl bg-ink-950 p-4 md:p-6 border border-gray-800 shadow-2xl">
           <div class="grid gap-3">
             {clientQuestions.map((question) => (
               <div class="flex gap-4 rounded-xl bg-white/5 border border-white/10 p-4 text-white text-lg">
@@ -262,7 +262,7 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Solution Section -->
-  <section class="py-20 md:py-28 bg-gray-950 relative overflow-hidden">
+  <section class="py-20 md:py-28 bg-ink-950 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-16 right-10 w-80 h-80 bg-primary-600 rounded-full blur-3xl"></div>
       <div class="absolute bottom-10 left-10 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
@@ -370,13 +370,13 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Objection Handling Section -->
-  <section class="py-20 md:py-28 bg-gray-950">
+  <section class="py-20 md:py-28 bg-ink-950">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">This is not about “doing more.”</h2>
       <p class="max-w-3xl mx-auto text-xl text-gray-300 leading-relaxed mb-10">It is about finally building a digital presence that matches your expertise, builds trust automatically, positions you correctly, attracts better-fit clients, and works consistently over time.</p>
       <div class="relative inline-flex max-w-5xl items-center gap-2 rounded-3xl bg-white p-2 text-left shadow-2xl">
         <div class="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-r from-primary-600 via-accent-400 to-secondary-500 opacity-75 blur-lg"></div>
-        <div class="relative flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-[1.35rem] bg-gradient-to-br from-white via-blue-50 to-violet-50 p-6 md:p-8 border border-white">
+        <div class="relative flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-[1.35rem] bg-gradient-to-br from-white via-primary-50 to-secondary-300 p-6 md:p-8 border border-white">
           <div class="flex items-center justify-center flex-shrink-0">
             <TrendingUp class="w-10 h-10 text-slate-950" />
           </div>
@@ -391,7 +391,7 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Final Close Section -->
-  <section class="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+  <section class="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-white to-primary-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">You did the hard part.</h2>
       <div class="text-2xl md:text-3xl font-bold text-gray-800 space-y-2 mb-8">
@@ -449,7 +449,7 @@ const businessTypes = pageContent.segments;
 
         <!-- Service 2 -->
         <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-accent-500 to-primary-700 rounded-xl flex items-center justify-center mb-6">
             <Code class="w-7 h-7 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">Development</h3>
@@ -474,7 +474,7 @@ const businessTypes = pageContent.segments;
 
         <!-- Service 3 -->
         <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-primary-600 to-accent-500 rounded-xl flex items-center justify-center mb-6">
             <Zap class="w-7 h-7 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">Performance Optimization</h3>
@@ -499,7 +499,7 @@ const businessTypes = pageContent.segments;
 
         <!-- Service 4 -->
         <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-secondary-600 to-secondary-700 rounded-xl flex items-center justify-center mb-6">
             <Globe class="w-7 h-7 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">SEO Foundations</h3>
@@ -524,7 +524,7 @@ const businessTypes = pageContent.segments;
 
         <!-- Service 5 -->
         <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-accent-400 to-primary-600 rounded-xl flex items-center justify-center mb-6">
             <Smartphone class="w-7 h-7 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">Mobile Optimization</h3>
@@ -549,7 +549,7 @@ const businessTypes = pageContent.segments;
 
         <!-- Service 6 -->
         <div class="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary-400 hover:shadow-large hover:-translate-y-1.5 transition-all duration-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-secondary-600 to-secondary-700 rounded-xl flex items-center justify-center mb-6">
             <Shield class="w-7 h-7 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">Ongoing Support</h3>
@@ -588,9 +588,9 @@ const businessTypes = pageContent.segments;
   </section>
 
   <!-- Client Growth AI Platform Feature -->
-  <section class="py-20 md:py-28 bg-gradient-to-b from-gray-900 via-gray-950 to-black relative overflow-hidden">
+  <section class="py-20 md:py-28 bg-gradient-to-b from-ink-900 via-ink-950 to-black relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary-600 rounded-full blur-3xl"></div>
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
     </div>
 
@@ -598,9 +598,9 @@ const businessTypes = pageContent.segments;
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left: Content -->
         <div>
-          <div class="inline-flex items-center px-4 py-2 bg-purple-900/50 border-l-4 border-purple-500 rounded-r-lg mb-6">
-            <Bot class="w-4 h-4 text-purple-300 mr-2" />
-            <span class="text-sm font-bold text-purple-300 uppercase tracking-wider">Client Growth AI</span>
+          <div class="inline-flex items-center px-4 py-2 bg-secondary-700/50 border-l-4 border-secondary-500 rounded-r-lg mb-6">
+            <Bot class="w-4 h-4 text-secondary-300 mr-2" />
+            <span class="text-sm font-bold text-secondary-300 uppercase tracking-wider">Client Growth AI</span>
           </div>
 
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -672,26 +672,26 @@ const businessTypes = pageContent.segments;
 
         <!-- Right: Features Grid -->
         <div class="grid grid-cols-2 gap-6">
-          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-purple-500/20">
-            <Bot class="w-8 h-8 text-purple-400 mb-3" />
+          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-secondary-500/20">
+            <Bot class="w-8 h-8 text-secondary-400 mb-3" />
             <h4 class="text-lg font-bold text-white mb-1">AI Agents</h4>
             <p class="text-sm text-gray-300">24/7 call handling</p>
           </div>
 
-          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-purple-500/20">
-            <Sparkles class="w-8 h-8 text-cyan-400 mb-3" />
+          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-secondary-500/20">
+            <Sparkles class="w-8 h-8 text-accent-300 mb-3" />
             <h4 class="text-lg font-bold text-white mb-1">Smart CRM</h4>
             <p class="text-sm text-gray-300">Track every lead</p>
           </div>
 
-          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-purple-500/20">
+          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-secondary-500/20">
             <Zap class="w-8 h-8 text-yellow-400 mb-3" />
             <h4 class="text-lg font-bold text-white mb-1">Automations</h4>
             <p class="text-sm text-gray-300">Set it & forget it</p>
           </div>
 
-          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-purple-500/20">
-            <TrendingUp class="w-8 h-8 text-green-400 mb-3" />
+          <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-secondary-500/20">
+            <TrendingUp class="w-8 h-8 text-accent-500 mb-3" />
             <h4 class="text-lg font-bold text-white mb-1">Marketing</h4>
             <p class="text-sm text-gray-300">Email + SMS + Funnels</p>
           </div>

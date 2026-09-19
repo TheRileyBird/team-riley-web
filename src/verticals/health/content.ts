@@ -26,6 +26,8 @@ import healthMeditation from '../../assets/videos/health-meditation-sunset.mp4';
 import healthGroupYoga from '../../assets/videos/health-group-yoga.mp4';
 import healthDoctor from '../../assets/videos/health-doctor-visit.mp4';
 import healthPoster from '../../assets/videos/health-poster.jpg';
+import teamRileyLogo from '../../assets/images/team-riley-logo-gradient.png';
+import favicon from '../../assets/images/favicon-health.png';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -34,6 +36,8 @@ import type { VerticalContent } from '../content/types';
  */
 export const content: VerticalContent = {
   audience: 'health and wellness businesses',
+  logo: teamRileyLogo,
+  favicon,
   meta: {
     defaultDescription: 'Team Riley Web - Digital Health For Your Business',
     ogSiteName: 'Team Riley Web',

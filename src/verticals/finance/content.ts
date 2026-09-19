@@ -10,6 +10,9 @@ import financeDesk from '../../assets/videos/finance-advisor-desk.mp4';
 import financeNumbers from '../../assets/videos/finance-explaining-numbers.mp4';
 import financeMeeting from '../../assets/videos/finance-client-meeting.mp4';
 import financePoster from '../../assets/videos/finance-poster.jpg';
+import teamRileyLogo from '../../assets/images/team-riley-logo-finance.png';
+import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-finance-on-dark.png';
+import favicon from '../../assets/images/favicon-finance.png';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -26,6 +29,9 @@ import type { VerticalContent } from '../content/types';
  */
 export const content: VerticalContent = {
   audience: 'financial advisors',
+  logo: teamRileyLogo,
+  favicon,
+  logoOnDark: teamRileyLogoOnDark,
   meta: {
     defaultDescription: 'Team Riley Finance - Websites and marketing for financial advisors',
     ogSiteName: 'Team Riley Finance',

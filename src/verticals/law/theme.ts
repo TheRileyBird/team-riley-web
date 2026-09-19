@@ -33,6 +33,9 @@ export const theme: ThemeOverrides = {
   '--c-secondary-500': '74 95 122',
   '--c-secondary-600': '62 80 102',
   '--c-secondary-700': '50 65 83',
+  // Dark surfaces (footer, dark service bands) in this market's hue.
+  '--c-ink-900': '14 24 42',
+  '--c-ink-950': '6 10 18',
   // Hero shader: a vivid primary for the plasma lines, fading from light
   // primary on the left to the accent on the right.
   '--c-hero-line': '53 78 115',

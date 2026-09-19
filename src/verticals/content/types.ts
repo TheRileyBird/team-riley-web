@@ -134,6 +134,12 @@ export interface ClientReview {
 export interface VerticalContent {
   /** Plain-language name of the market's customer, e.g. "health and wellness businesses". */
   audience: string;
+  /** The TR mark in this market's colors; health's is the original blue. */
+  logo: ImageMetadata;
+  /** Lighter mark for near-black backgrounds (the footer). Falls back to `logo`. */
+  logoOnDark?: ImageMetadata;
+  /** Browser tab icon in this market's colors. */
+  favicon: ImageMetadata;
   meta: {
     /** <meta name="description"> when a page passes none. */
     defaultDescription: string;

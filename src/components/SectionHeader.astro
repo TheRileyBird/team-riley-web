@@ -10,6 +10,9 @@ interface Props {
 const { badge, title, subtitle, centered = true, theme = 'light' } = Astro.props;
 
 const isDark = theme === 'dark';
+// The standard gradient runs into the market's darkest shade, which disappears on a
+// near-black band. The bright variant keeps both ends legible there.
+const titleHtml = isDark ? title.replaceAll('animated-gradient-text', 'animated-gradient-text-bright') : title;
 const badgeBg = isDark ? 'bg-primary-900/50' : 'bg-primary-600/10';
 const badgeBorder = isDark ? 'border-primary-500' : 'border-primary-600';
 const badgeText = isDark ? 'text-primary-300' : 'text-primary-700';
@@ -24,7 +27,7 @@ const subtitleText = isDark ? 'text-gray-300' : 'text-gray-700';
     </div>
   )}
 
-  <h2 class={`text-4xl md:text-5xl font-bold ${titleText} mb-4`} set:html={title}>
+  <h2 class={`text-4xl md:text-5xl font-bold ${titleText} mb-4`} set:html={titleHtml}>
   </h2>
 
   {subtitle && (
