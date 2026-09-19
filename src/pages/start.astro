@@ -1,5 +1,5 @@
 ---
-import { site } from '../verticals/active';
+import { site, verticalId } from '../verticals/active';
 import {
   ArrowLeft,
   ArrowRight,
@@ -54,6 +54,8 @@ import getStartedImage from '../assets/images/get-started.png';
           >
             <input type="hidden" name="form-name" value="client-onboarding" />
             <input type="hidden" name="submitted_at" id="submitted_at" />
+            {/* One inbox for three sites: the market tags the lead. */}
+            <input type="hidden" name="vertical" value={verticalId} />
             <p class="hidden">
               <label>Do not fill this out if you are human: <input name="bot-field" /></label>
             </p>

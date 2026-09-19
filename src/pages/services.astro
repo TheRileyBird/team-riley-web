@@ -6,8 +6,8 @@ import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from "../components/PricingSection.astro";
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
-import { services as pricedServices, type ServicesCardIcon } from '../data/services';
-import { content } from '../verticals/active';
+import type { ServicesCardIcon } from '../data/services';
+import { content, services as pricedServices } from '../verticals/active';
 import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus, Gavel, Scroll, Briefcase, Plane, Building2, Scale, Gem, PiggyBank, Calculator, UserRound } from '@lucide/astro';
 
 // The marketing grid reads src/data/services.ts, so a renamed, repriced or retired

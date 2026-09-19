@@ -1,5 +1,5 @@
 ---
-import { content, site } from '../verticals/active';
+import { content, services, site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
@@ -8,7 +8,6 @@ import PricingSection from '../components/PricingSection.astro';
 import ServiceColumnSection from '../components/ServiceColumnSection.astro';
 import Footer from '../components/Footer.astro';
 import {
-  visibleServices,
   retiredAnchors,
   themeForIndex,
   reverseForIndex
@@ -443,7 +442,7 @@ const faqSections = [
     theme and reverse come from the index among VISIBLE services so archiving one
     service cannot flip the colors of every section after it.
   -->
-  {visibleServices.map((service, index) => (
+  {services.map((service, index) => (
     <ServiceColumnSection
       service={service}
       theme={themeForIndex(index)}

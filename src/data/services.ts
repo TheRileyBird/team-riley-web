@@ -717,3 +717,76 @@ export function tierQuoteText(options: {
     .filter((line): line is string => Boolean(line))
     .join('\n');
 }
+
+/**
+ * One price change for one market. Prices are shared by default: all three sites
+ * publish the same sheet until a market says otherwise, and saying otherwise is a
+ * data edit here rather than a fork of this file.
+ *
+ *   { service: 'social-media-management', tier: 'Basic', price: '$249' }
+ *   { service: 'paid-advertising', group: 'Search Advertising', tier: 'Gold', setupFee: '$750 one-time setup fee' }
+ *
+ * `group` is required only for a service with several tier families (Paid
+ * Advertising), where tier names repeat.
+ */
+export interface PriceOverride {
+  service: string;
+  group?: string;
+  tier: string;
+  price?: string;
+  priceUnit?: string;
+  setupFee?: string;
+  additionalNote?: string;
+}
+
+/**
+ * Returns a copy of the services with a market's overrides applied. An override
+ * that matches nothing throws: a typo'd slug or tier name would otherwise mean a
+ * market quietly publishes the default price it meant to change.
+ */
+export function applyPriceOverrides(source: Service[], overrides: PriceOverride[]): Service[] {
+  if (overrides.length === 0) return source;
+
+  const applied = new Set<PriceOverride>();
+  const patchTiers = (tiers: Tier[], service: Service, groupLabel: string): Tier[] =>
+    tiers.map((tier) => {
+      const override = overrides.find(
+        (candidate) =>
+          candidate.service === service.slug &&
+          candidate.tier === tier.name &&
+          (candidate.group ?? groupLabel) === groupLabel
+      );
+      if (!override) return tier;
+      applied.add(override);
+      return {
+        ...tier,
+        price: override.price ?? tier.price,
+        priceUnit: override.priceUnit ?? tier.priceUnit,
+        setupFee: override.setupFee ?? tier.setupFee,
+        additionalNote: override.additionalNote ?? tier.additionalNote
+      };
+    });
+
+  const result = source.map((service) => ({
+    ...service,
+    ...(service.tiers ? { tiers: patchTiers(service.tiers, service, '') } : {}),
+    ...(service.tierGroups
+      ? {
+          tierGroups: service.tierGroups.map((group) => ({
+            ...group,
+            tiers: patchTiers(group.tiers, service, group.label)
+          }))
+        }
+      : {})
+  }));
+
+  const missed = overrides.filter((override) => !applied.has(override));
+  if (missed.length > 0) {
+    throw new Error(
+      `Price override matched no tier: ${missed
+        .map((o) => `${o.service}${o.group ? ` / ${o.group}` : ''} / ${o.tier}`)
+        .join(', ')}. Check the slug, group label and tier name in src/data/services.ts.`
+    );
+  }
+  return result;
+}

@@ -19,6 +19,10 @@ import { theme as healthTheme } from './health/theme';
 import { theme as lawTheme } from './law/theme';
 import { theme as financeTheme } from './finance/theme';
 import { themeCss, type ThemeOverrides } from './content/theme';
+import { priceOverrides as healthPrices } from './health/pricing';
+import { priceOverrides as lawPrices } from './law/pricing';
+import { priceOverrides as financePrices } from './finance/pricing';
+import { applyPriceOverrides, visibleServices, type PriceOverride } from '../data/services';
 import type { VerticalContent } from './content/types';
 
 const contentById: Record<string, VerticalContent> = {
@@ -39,3 +43,12 @@ const themeById: Record<string, ThemeOverrides> = {
 
 /** Inline <style> text overriding the default palette, or '' for the defaults. */
 export const themeStyle = themeCss(themeById[verticalId]!);
+
+const pricesById: Record<string, PriceOverride[]> = {
+  health: healthPrices,
+  law: lawPrices,
+  finance: financePrices
+};
+
+/** The price sheet this market publishes: shared data plus its own overrides. */
+export const services = applyPriceOverrides(visibleServices, pricesById[verticalId]!);

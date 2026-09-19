@@ -36,7 +36,10 @@ import BookingWidget from './BookingWidget.astro';
 
     const eventParams = {
       modal_id: 'book-a-call',
-      booking_widget_id: 'f6Bs4WiCkim3CoAkeFiN'
+      booking_widget_id: 'f6Bs4WiCkim3CoAkeFiN',
+      // One GHL pipeline and one GA property serve all three sites, so every event
+      // says which market it came from. <html data-vertical> is set by BaseLayout.
+      vertical: document.documentElement.dataset.vertical ?? 'unknown'
     };
 
     if (typeof trackingWindow.gtag === 'function') {

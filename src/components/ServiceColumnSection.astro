@@ -255,7 +255,10 @@ const sectionState = `{
       gtag?: (...args: unknown[]) => void;
     };
 
-    const eventParams = { service: slug };
+    const eventParams = {
+      service: slug,
+      vertical: document.documentElement.dataset.vertical ?? 'unknown'
+    };
 
     // The sitewide snippet is plain GTM, which only guarantees window.dataLayer.
     // window.gtag exists only if a GA4 config fires inside the container, so fall

@@ -76,4 +76,17 @@ describe(`${vertical} build in ${dir}/`, () => {
     }
     expect([...broken]).toEqual([]);
   });
+
+  it('tags every page and both forms with this market, for the shared inbox', () => {
+    for (const page of pages) {
+      expect(page.html, `${page.path}: missing data-vertical`).toContain(`data-vertical="${vertical}"`);
+    }
+    for (const path of ['/contact/', '/start/']) {
+      const form = pages.find((page) => page.path === path);
+      expect(form, `${path} not built`).toBeDefined();
+      expect(form!.html, `${path}: form is missing the hidden vertical field`).toContain(
+        `<input type="hidden" name="vertical" value="${vertical}"`
+      );
+    }
+  });
 });

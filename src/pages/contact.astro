@@ -1,5 +1,5 @@
 ---
-import { content, site } from '../verticals/active';
+import { content, site, verticalId } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
@@ -116,6 +116,8 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from '@lucide/astro';
 
             <form name="contact" method="POST" action="/contact" data-netlify="true" netlify-honeypot="bot-field" id="contact-form" class="space-y-6">
               <input type="hidden" name="form-name" value="contact" />
+              {/* One inbox for three sites: the market tags the lead. */}
+              <input type="hidden" name="vertical" value={verticalId} />
               <p class="hidden">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>

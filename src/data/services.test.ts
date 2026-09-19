@@ -9,6 +9,7 @@ import {
   reverseForIndex,
   pricingUrlFor,
   tierQuoteText,
+  applyPriceOverrides,
   type Service,
   type ServiceStatus
 } from './services';
@@ -303,5 +304,46 @@ describe('tier quotes', () => {
       'Details: https://teamrileyweb.com/pricing#branding-design'
     ]);
     expect(text).not.toMatch(/undefined|\n\n/);
+  });
+});
+
+describe('per-market price overrides', () => {
+  it('changes nothing when a market has no overrides', () => {
+    expect(applyPriceOverrides(visibleServices, [])).toBe(visibleServices);
+  });
+
+  it('overrides one tier and leaves every other price alone', () => {
+    const patched = applyPriceOverrides(visibleServices, [
+      { service: 'social-media-management', tier: 'Basic', price: '$249' }
+    ]);
+    const social = patched.find((service) => service.slug === 'social-media-management')!;
+    expect(social.tiers![0].price).toBe('$249');
+    expect(social.tiers![0].features).toEqual(
+      visibleServices.find((s) => s.slug === 'social-media-management')!.tiers![0].features
+    );
+    expect(social.tiers![1].price).toBe(
+      visibleServices.find((s) => s.slug === 'social-media-management')!.tiers![1].price
+    );
+    // the shared sheet is untouched: markets build in the same process
+    expect(visibleServices.find((s) => s.slug === 'social-media-management')!.tiers![0].price).toBe('$199');
+  });
+
+  it('targets one tier family when tier names repeat', () => {
+    const patched = applyPriceOverrides(visibleServices, [
+      { service: 'paid-advertising', group: 'Social Advertising', tier: 'Gold', price: '28%' }
+    ]);
+    const ads = patched.find((service) => service.slug === 'paid-advertising')!;
+    const search = ads.tierGroups!.find((group) => group.label === 'Search Advertising')!;
+    const social = ads.tierGroups!.find((group) => group.label === 'Social Advertising')!;
+    expect(social.tiers.find((tier) => tier.name === 'Gold')!.price).toBe('28%');
+    expect(search.tiers.find((tier) => tier.name === 'Gold')!.price).toBe('20%');
+  });
+
+  it('throws on an override that matches nothing, instead of silently doing nothing', () => {
+    expect(() => applyPriceOverrides(visibleServices, [{ service: 'nope', tier: 'Basic', price: '$1' }]))
+      .toThrow(/matched no tier/);
+    expect(() =>
+      applyPriceOverrides(visibleServices, [{ service: 'social-media-management', tier: 'Bronze', price: '$1' }])
+    ).toThrow(/Bronze/);
   });
 });
