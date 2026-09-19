@@ -1,38 +1,41 @@
 /** @type {import('tailwindcss').Config} */
+// Brand scales resolve to CSS variables (declared in src/styles/global.css, and
+// overridden per market by BaseLayout). Channel triplets, not hex, so Tailwind's
+// alpha modifiers — bg-primary-300/45 and the 100+ others — keep working.
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
-          1000: '#0D152A'
+          50: 'rgb(var(--c-primary-50) / <alpha-value>)',
+          100: 'rgb(var(--c-primary-100) / <alpha-value>)',
+          200: 'rgb(var(--c-primary-200) / <alpha-value>)',
+          300: 'rgb(var(--c-primary-300) / <alpha-value>)',
+          400: 'rgb(var(--c-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--c-primary-500) / <alpha-value>)',
+          600: 'rgb(var(--c-primary-600) / <alpha-value>)',
+          700: 'rgb(var(--c-primary-700) / <alpha-value>)',
+          800: 'rgb(var(--c-primary-800) / <alpha-value>)',
+          900: 'rgb(var(--c-primary-900) / <alpha-value>)',
+          950: 'rgb(var(--c-primary-950) / <alpha-value>)',
+          1000: 'rgb(var(--c-primary-1000) / <alpha-value>)'
         },
         accent: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          300: '#22d3ee',
-          400: '#06b6d4',
-          500: '#0891b2',
-          600: '#0e7490',
-          700: '#155e75',
+          50: 'rgb(var(--c-accent-50) / <alpha-value>)',
+          100: 'rgb(var(--c-accent-100) / <alpha-value>)',
+          300: 'rgb(var(--c-accent-300) / <alpha-value>)',
+          400: 'rgb(var(--c-accent-400) / <alpha-value>)',
+          500: 'rgb(var(--c-accent-500) / <alpha-value>)',
+          600: 'rgb(var(--c-accent-600) / <alpha-value>)',
+          700: 'rgb(var(--c-accent-700) / <alpha-value>)'
         },
         secondary: {
-          300: '#c1abfb',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
+          300: 'rgb(var(--c-secondary-300) / <alpha-value>)',
+          400: 'rgb(var(--c-secondary-400) / <alpha-value>)',
+          500: 'rgb(var(--c-secondary-500) / <alpha-value>)',
+          600: 'rgb(var(--c-secondary-600) / <alpha-value>)',
+          700: 'rgb(var(--c-secondary-700) / <alpha-value>)'
         },
         gray: {
           50: '#f8fafc',

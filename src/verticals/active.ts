@@ -15,6 +15,10 @@ import { resolveVerticalId, sites } from './index';
 import { content as healthContent } from './health/content';
 import { content as lawContent } from './law/content';
 import { content as financeContent } from './finance/content';
+import { theme as healthTheme } from './health/theme';
+import { theme as lawTheme } from './law/theme';
+import { theme as financeTheme } from './finance/theme';
+import { themeCss, type ThemeOverrides } from './content/theme';
 import type { VerticalContent } from './content/types';
 
 const contentById: Record<string, VerticalContent> = {
@@ -26,3 +30,12 @@ const contentById: Record<string, VerticalContent> = {
 export const verticalId = resolveVerticalId(import.meta.env.SITE_VERTICAL);
 export const site = sites[verticalId];
 export const content = contentById[verticalId]!;
+
+const themeById: Record<string, ThemeOverrides> = {
+  health: healthTheme,
+  law: lawTheme,
+  finance: financeTheme
+};
+
+/** Inline <style> text overriding the default palette, or '' for the defaults. */
+export const themeStyle = themeCss(themeById[verticalId]!);

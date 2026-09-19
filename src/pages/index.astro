@@ -26,10 +26,10 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
     <div class="hidden lg:block">
       <ShaderBackground />
     </div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.92)_42%,rgba(219,234,254,0.6)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_34%,rgba(219,234,254,0.74)_70%,rgba(196,181,253,0.5)_100%)] lg:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.92)_42%,rgb(var(--c-primary-100)_/_0.6)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_34%,rgb(var(--c-primary-100)_/_0.74)_70%,rgb(var(--c-secondary-300)_/_0.5)_100%)] lg:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
     <div class="absolute -left-36 top-12 hidden h-96 w-96 rounded-full bg-primary-300/45 blur-3xl md:block lg:hidden"></div>
     <div class="absolute -right-36 bottom-0 hidden h-[28rem] w-[28rem] rounded-full bg-secondary-300/35 blur-3xl md:block lg:hidden"></div>
-    <div class="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(135deg,rgba(219,234,254,0.88),rgba(255,255,255,0.7)_48%,rgba(207,250,254,0.6))] md:hidden"></div>
+    <div class="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(135deg,rgb(var(--c-primary-100)_/_0.88),rgba(255,255,255,0.7)_48%,rgb(var(--c-accent-100)_/_0.6))] md:hidden"></div>
     <div class="absolute -left-20 top-28 h-56 w-56 rounded-full bg-primary-200/45 blur-3xl md:hidden"></div>
     <div class="absolute -right-24 bottom-16 h-64 w-64 rounded-full bg-accent-200/55 blur-3xl md:hidden"></div>
 
@@ -194,9 +194,9 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
         <defs>
           <linearGradient id="process-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" style="stop-color:transparent" />
-            <stop offset="20%" style="stop-color:#3b82f6" />
-            <stop offset="50%" style="stop-color:#8b5cf6" />
-            <stop offset="80%" style="stop-color:#3b82f6" />
+            <stop offset="20%" style="stop-color:rgb(var(--c-primary-500))" />
+            <stop offset="50%" style="stop-color:rgb(var(--c-secondary-500))" />
+            <stop offset="80%" style="stop-color:rgb(var(--c-primary-500))" />
             <stop offset="100%" style="stop-color:transparent" />
           </linearGradient>
         </defs>
@@ -412,8 +412,8 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
                 <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
                   <linearGradient id="unlimitedGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:rgb(var(--c-primary-700));stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(var(--c-secondary-500));stop-opacity:1" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -429,8 +429,8 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
                 <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
                   <linearGradient id="unlimitedGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:rgb(var(--c-primary-700));stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(var(--c-secondary-500));stop-opacity:1" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -446,8 +446,8 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
                 <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
                   <linearGradient id="unlimitedGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:rgb(var(--c-primary-700));stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(var(--c-secondary-500));stop-opacity:1" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -463,8 +463,8 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
                 <path d="M8 12.5L10.5 15L16 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
                   <linearGradient id="unlimitedGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:rgb(var(--c-primary-700));stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(var(--c-secondary-500));stop-opacity:1" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -490,14 +490,14 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
                 <svg class="w-full max-w-2xl h-40 md:h-48" viewBox="20 20 147.3 53.7" preserveAspectRatio="xMidYMid meet">
                   <defs>
                     <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1">
-                        <animate attributeName="stop-color" values="#1d4ed8; #0891b2; #8b5cf6; #1d4ed8" dur="8s" repeatCount="indefinite" />
+                      <stop offset="0%" style="stop-color:rgb(var(--c-primary-700));stop-opacity:1">
+                        <animate attributeName="stop-color" values="rgb(var(--c-primary-700)); rgb(var(--c-accent-500)); rgb(var(--c-secondary-500)); rgb(var(--c-primary-700))" dur="8s" repeatCount="indefinite" />
                       </stop>
-                      <stop offset="50%" style="stop-color:#0891b2;stop-opacity:1">
-                        <animate attributeName="stop-color" values="#0891b2; #8b5cf6; #1d4ed8; #0891b2" dur="8s" repeatCount="indefinite" />
+                      <stop offset="50%" style="stop-color:rgb(var(--c-accent-500));stop-opacity:1">
+                        <animate attributeName="stop-color" values="rgb(var(--c-accent-500)); rgb(var(--c-secondary-500)); rgb(var(--c-primary-700)); rgb(var(--c-accent-500))" dur="8s" repeatCount="indefinite" />
                       </stop>
-                      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1">
-                        <animate attributeName="stop-color" values="#8b5cf6; #1d4ed8; #0891b2; #8b5cf6" dur="8s" repeatCount="indefinite" />
+                      <stop offset="100%" style="stop-color:rgb(var(--c-secondary-500));stop-opacity:1">
+                        <animate attributeName="stop-color" values="rgb(var(--c-secondary-500)); rgb(var(--c-primary-700)); rgb(var(--c-accent-500)); rgb(var(--c-secondary-500))" dur="8s" repeatCount="indefinite" />
                       </stop>
                     </linearGradient>
                     <filter id="infinityGlow" x="-50%" y="-50%" width="200%" height="200%">
