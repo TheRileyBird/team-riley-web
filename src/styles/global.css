@@ -11,7 +11,7 @@
 
 /* Animated Gradient Text */
 .animated-gradient-text {
-  background: linear-gradient(90deg, rgb(var(--c-primary-800)), rgb(var(--c-accent-500)), rgb(var(--c-secondary-500)), rgb(var(--c-primary-800)));
+  background: linear-gradient(90deg, rgb(var(--c-headline-1)), rgb(var(--c-headline-2)), rgb(var(--c-headline-3)), rgb(var(--c-headline-1)));
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -20,7 +20,7 @@
 }
 
 .animated-gradient-bg {
-  background: linear-gradient(90deg, rgb(var(--c-primary-800)), rgb(var(--c-accent-500)), rgb(var(--c-secondary-500)), rgb(var(--c-primary-800)));
+  background: linear-gradient(90deg, rgb(var(--c-headline-1)), rgb(var(--c-headline-2)), rgb(var(--c-headline-3)), rgb(var(--c-headline-1)));
   background-size: 300% 100%;
   animation: gradient-shift 8s ease infinite;
 }

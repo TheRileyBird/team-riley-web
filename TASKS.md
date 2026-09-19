@@ -148,6 +148,12 @@ unchecked task unless you are starting it.
   Done 2026-09-19: lg:min-h-[min(900px,90vh)] rather than a flat 900px. A 1440x900 Mac only has about 760px of viewport, so a
   hard 900px would run past the bottom edge with no cue that the page continues; the cap gives the full 900px on a 1080p
   display and 90% of the viewport on a laptop. Inner content block scales with it at lg:min-h-[min(700px,72vh)].
+- [x] Animated gradient text on law and finance often looks black and stops standing out - health's gradient never goes near black, so the law and finance gradients need lighter stops
+  Done 2026-09-19: Measured it: the gradient started at primary-800, which is 8.7:1 on white for health (dark but clearly blue)
+  and 16.5:1 / 13.4:1 for law and finance - effectively black. Added --c-headline-1/2/3 tokens; health keeps its exact stops,
+  law uses primary-400 / accent-500 / secondary-400 and finance primary-500 / accent-500 / secondary-500, so every stop sits
+  roughly between 3:1 and 8:1 like health's. Law's is the most muted of the three because its palette is navy and steel by
+  design; going lighter would drop below the 3:1 floor for large text.
 
 ## Notes
 

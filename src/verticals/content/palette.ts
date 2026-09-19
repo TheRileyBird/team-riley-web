@@ -39,6 +39,14 @@ export const DEFAULT_PALETTE: Palette = {
   '--c-secondary-500': '139 92 246',
   '--c-secondary-600': '124 58 237',
   '--c-secondary-700': '109 40 217',
+  // The three stops of the animated headline gradient, in order. Kept as their own
+  // tokens because the scale steps that suit health (primary-800) are near-black in
+  // the law and finance palettes: 16.5:1 and 13.4:1 against white, which reads as
+  // plain black type. Every stop here stays roughly between 3:1 and 8:1 — dark
+  // enough to read, light enough to still show its hue.
+  '--c-headline-1': '30 64 175',
+  '--c-headline-2': '8 145 178',
+  '--c-headline-3': '139 92 246',
   // Dark surfaces: the footer and the alternating dark service bands. Separate from
   // the primary scale because they are near-black with only a hint of the brand hue
   // — health's are Tailwind's slate 900/950, which is why every market's footer was

@@ -34,5 +34,11 @@ export const theme: ThemeOverrides = {
   '--c-infinity-3': '73 80 90',
   '--c-hero-line': '53 78 115',
   '--c-hero-edge-left': '139 153 174',
-  '--c-hero-edge-right': '178 184 191'
+  '--c-hero-edge-right': '178 184 191',
+  // Headline gradient: primary-400, accent-500, secondary-400 instead of the default primary-800 start,
+  // which in this palette is near-black (16.5:1 on white for law, 13.4:1 for finance)
+  // and made the animated text read as flat black.
+  '--c-headline-1': '85 105 136',
+  '--c-headline-2': '107 118 132',
+  '--c-headline-3': '117 133 154'
 };
