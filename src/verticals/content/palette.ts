@@ -45,6 +45,13 @@ export const DEFAULT_PALETTE: Palette = {
   // the same blue-black before these existed.
   '--c-ink-900': '15 23 42',
   '--c-ink-950': '2 6 23',
+  // The three stops of the "Unlimited Updates" infinity animation, which cycles
+  // through them. Health rotates blue -> cyan -> violet; law and finance override
+  // these to stay in their gold, because the primary/secondary mix put near-black
+  // navy and green in a gradient that sits on a white card.
+  '--c-infinity-1': '29 78 216',
+  '--c-infinity-2': '8 145 178',
+  '--c-infinity-3': '139 92 246',
   // The homepage hero shader's three colors: the plasma lines, and the left and
   // right ends of the gradient they fade into. Separate tokens because the shader
   // wants brighter, more saturated values than any button shade.

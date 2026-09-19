@@ -112,3 +112,9 @@ unchecked task unless you are starting it.
   color, so the pill shape was effectively invisible (the label text was already fine at 5.5-6.5:1). Pills are now a white
   fill with a mid-tone outline and medium-weight label: boundary 3.5-4:1 (above the 3:1 guidance for UI boundaries) and
   label ~7:1. Applies to all three markets, including the concept cards on law and finance.
+- [x] Infinity animation on law and finance doesn't look good in the dark palette color - keep it in golden tones
+  Done 2026-09-19: The gradient cycled primary-700 -> accent-500 -> secondary-500, so on law and finance two of its three
+  stops were near-black navy/green on a white card. Added --c-infinity-1/2/3 tokens (health keeps its blue -> cyan -> violet
+  exactly); law and finance override them to light -> mid -> deep gold from their own accent scale. Scoped to the
+  infinityGradient definition only: a first pass replaced the same colors in four other gradients on the page by accident
+  and was reverted.

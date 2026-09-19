@@ -36,6 +36,11 @@ export const theme: ThemeOverrides = {
   // Dark surfaces (footer, dark service bands) in this market's hue.
   '--c-ink-900': '14 24 42',
   '--c-ink-950': '6 10 18',
+  // Infinity animation: all gold, light -> mid -> deep, so it reads on the
+  // white card instead of cycling through this market's near-black shades.
+  '--c-infinity-1': '199 173 129',
+  '--c-infinity-2': '166 124 52',
+  '--c-infinity-3': '113 84 35',
   // Hero shader: a vivid primary for the plasma lines, fading from light
   // primary on the left to the accent on the right.
   '--c-hero-line': '53 78 115',
