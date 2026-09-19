@@ -172,6 +172,11 @@ unchecked task unless you are starting it.
 - [x] Finance palette: hint at a more typical money green instead of only the very dark green, and include some lighter greens
   Done 2026-09-19: Primary moved from #14635c (dark teal-green) to #17794a, a money green, with a lighter green secondary
   (#35a06a). The lighter scale steps now read green rather than grey-teal - primary-300 is 134 185 161.
+- [x] Primary buttons on law and finance blend into the background - they don't pop the way health's blue button does (home hero and other sections)
+  Done 2026-09-19: Measured: the button fill (primary-800) sits at 2.08:1 against health's own hero with chroma 145, but only
+  1.2:1 / chroma 36 on law and 1.6:1 / chroma 53 on finance - near-black shapes on a dark hero. Added --c-cta-1/2 tokens:
+  health keeps its exact blue, law uses sapphire (4.1:1 vs hero) and finance money green (3.4:1), both still clearing 4.5:1
+  for their white labels. Applies to every btn-primary, not just the hero.
 
 ## Notes
 

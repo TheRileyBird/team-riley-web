@@ -46,5 +46,8 @@ export const theme: ThemeOverrides = {
   // Contrast on white: 6.1 / 3.4 / 4.9.
   '--c-headline-1': '31 95 191',
   '--c-headline-2': '74 140 224',
-  '--c-headline-3': '58 111 196'
+  '--c-headline-3': '58 111 196',
+  // Button fill: a saturated step rather than the near-black primary-800.
+  '--c-cta-1': '47 111 208',
+  '--c-cta-2': '31 95 191'
 };

@@ -40,5 +40,8 @@ export const theme: ThemeOverrides = {
   // green heading rather than the site's warm accent. Contrast on white 5.3 / 3.8 / 3.1.
   '--c-headline-1': '138 101 41',
   '--c-headline-2': '166 124 52',
-  '--c-headline-3': '185 138 47'
+  '--c-headline-3': '185 138 47',
+  // Button fill: a saturated step rather than the near-black primary-800.
+  '--c-cta-1': '23 121 74',
+  '--c-cta-2': '18 97 59'
 };

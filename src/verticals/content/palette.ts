@@ -47,6 +47,12 @@ export const DEFAULT_PALETTE: Palette = {
   '--c-headline-1': '30 64 175',
   '--c-headline-2': '8 145 178',
   '--c-headline-3': '139 92 246',
+  // Primary button fill, light to dark. Its own tokens because primary-800/900 are
+  // vivid blue on health but near-black on law and finance: measured 1.2:1 and 1.6:1
+  // against their own hero backgrounds, so the button vanished into the page, where
+  // health's sits at 2.08:1 with far more chroma.
+  '--c-cta-1': '30 64 175',
+  '--c-cta-2': '30 58 138',
   // Dark surfaces: the footer and the alternating dark service bands. Separate from
   // the primary scale because they are near-black with only a hint of the brand hue
   // — health's are Tailwind's slate 900/950, which is why every market's footer was
