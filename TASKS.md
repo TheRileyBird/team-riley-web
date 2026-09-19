@@ -144,6 +144,10 @@ unchecked task unless you are starting it.
   For Your Business". Worth watching: "passes the bar" sits near the compliance claim we deliberately avoid making elsewhere
   ("built with bar advertising rules in mind", never a guarantee). It reads as wordplay in a four-word eyebrow, but if a firm
   ever reads it as a promise, swap to "Digital Counsel For Your Firm".
+- [x] Home hero min-height should be around 900px on desktop
+  Done 2026-09-19: lg:min-h-[min(900px,90vh)] rather than a flat 900px. A 1440x900 Mac only has about 760px of viewport, so a
+  hard 900px would run past the bottom edge with no cue that the page continues; the cap gives the full 900px on a 1080p
+  display and 90% of the viewport on a laptop. Inner content block scales with it at lg:min-h-[min(700px,72vh)].
 
 ## Notes
 

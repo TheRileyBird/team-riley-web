@@ -30,7 +30,10 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
   <section
     data-no-reveal
     class:list={[
-      'relative min-h-[680px] overflow-hidden pt-28 pb-20 md:min-h-[760px] md:pt-36 md:pb-32',
+      // 900px on a large display, but never taller than the viewport: a 1440x900 Mac
+      // leaves about 760px of usable height, and a hard 900px would push the fold
+      // off-screen with nothing to show the page continues.
+      'relative min-h-[680px] overflow-hidden pt-28 pb-20 md:min-h-[760px] md:pt-36 md:pb-32 lg:min-h-[min(900px,90vh)]',
       hasHeroVideo ? 'bg-ink-950' : 'bg-white lg:bg-slate-50'
     ]}
   >
@@ -51,7 +54,7 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
       </Fragment>
     )}
 
-    <div class="relative z-10 mx-auto flex min-h-[520px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 md:min-h-[560px] lg:px-8">
+    <div class="relative z-10 mx-auto flex min-h-[520px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 md:min-h-[560px] lg:min-h-[min(700px,72vh)] lg:px-8">
       <div
         class:list={[
           'inline-flex items-center gap-2 rounded-full px-4 py-2 shadow-soft backdrop-blur-md',
