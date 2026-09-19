@@ -1,4 +1,5 @@
 ---
+import { content, site } from '../verticals/active';
 import { Image } from 'astro:assets';
 import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
 ---
@@ -18,10 +19,10 @@ import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
       <div class="lg:col-span-2 space-y-8">
         <div class="flex items-center gap-4 mb-8">
           <Image src={teamRileyLogo} alt="Team Riley logo" class="h-16 w-16 object-contain" />
-          <span class="text-3xl font-bold text-white">Team Riley</span>
+          <span class="text-3xl font-bold text-white">{site.brandName}</span>
         </div>
         <p class="text-lg text-gray-400 leading-relaxed max-w-md">
-          We help health and wellness brands grow their online presence with beautiful, high-converting websites that drive real results.
+          {content.footer.tagline}
         </p>
         <!-- Social Links -->
         <!-- <div class="flex items-center gap-5 pt-4">
@@ -73,28 +74,14 @@ import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
 
       <!-- Industries Served -->
       <div>
-        <h4 class="text-white font-bold text-xl mb-8">Industries Served</h4>
+        <h4 class="text-white font-bold text-xl mb-8">{content.footer.industriesHeading}</h4>
         <ul class="space-y-5">
-          <li><a href="/portfolio#medical" class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
-            <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
-            Medical Clinics
-          </a></li>
-          <li><a href="/portfolio#medical" class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
-            <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
-            Pharmacies
-          </a></li>
-          <li><a href="/portfolio#physical" class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
-            <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
-            Fitness Centers
-          </a></li>
-          <li><a href="/portfolio#physical" class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
-            <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
-            Wellness Coaches
-          </a></li>
-          <li><a href="/portfolio#holistic" class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
-            <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
-            Holistic Practitioners
-          </a></li>
+          {content.footer.industries.map((industry) => (
+            <li><a href={industry.href} class="text-gray-400 hover:text-accent-400 transition-colors flex items-center gap-3 group text-lg">
+              <span class="w-2 h-2 bg-gray-600 group-hover:bg-accent-400 rounded-full transition-colors"></span>
+              {industry.label}
+            </a></li>
+          ))}
         </ul>
       </div>
 
@@ -132,7 +119,7 @@ import teamRileyLogo from '../assets/images/team-riley-logo-gradient.png';
     <div class="border-t border-gray-800 pt-12">
       <div class="flex flex-col md:flex-row justify-between items-center gap-8">
         <p class="text-base text-gray-500">
-          &copy; 2026 Team Riley Wellness. All rights reserved.
+          &copy; 2026 {content.footer.copyrightHolder}. All rights reserved.
         </p>
         <div class="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-base">
           <a href="/privacy-policy" class="text-gray-500 hover:text-accent-400 transition-colors">Privacy Policy</a>

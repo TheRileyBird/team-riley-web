@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import BookingModal from '../components/BookingModal.astro';
 import defaultSocialShareImage from '../assets/images/Team-Riley-Social-Share-v2.png';
+import { content } from '../verticals/active';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -14,10 +15,10 @@ interface Props {
 
 const {
   title,
-  description = "Team Riley Web - Digital Health For Your Business",
+  description = content.meta.defaultDescription,
   robots,
   socialShareImage = defaultSocialShareImage,
-  socialShareImageAlt = 'Team Riley Web - Digital Health For Your Business'
+  socialShareImageAlt = content.meta.socialShareImageAlt
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
@@ -50,7 +51,7 @@ const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:site_name" content="Team Riley Web" />
+    <meta property="og:site_name" content={content.meta.ogSiteName} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
