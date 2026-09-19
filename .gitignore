@@ -2,7 +2,8 @@
 node_modules/
 
 # Build output (Netlify builds on deployment)
-dist/
+/dist/
+/dist-*/
 .astro/
 
 # Local Netlify folder

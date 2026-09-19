@@ -1,0 +1,26 @@
+{
+  "health": {
+    "brandName": "Team Riley",
+    "domain": "https://teamrileyweb.com",
+    "launchReady": true,
+    "pages": [
+      {
+        "pattern": "/digital-health-audit",
+        "entrypoint": "./src/verticals/health/pages/digital-health-audit.astro",
+        "inSitemap": false
+      }
+    ]
+  },
+  "law": {
+    "brandName": "Team Riley Law",
+    "domain": "https://team-riley-law.netlify.app",
+    "launchReady": false,
+    "pages": []
+  },
+  "finance": {
+    "brandName": "Team Riley Finance",
+    "domain": "https://team-riley-finance.netlify.app",
+    "launchReady": false,
+    "pages": []
+  }
+}

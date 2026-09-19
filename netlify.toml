@@ -1,6 +1,13 @@
+# One repo, three Netlify sites (health, law, finance). Each site sets SITE_VERTICAL in
+# its own environment (Site configuration > Environment variables). Without it the build
+# fails on purpose rather than publishing the wrong market. See src/verticals/index.ts.
+#
+# `ignore` lets a site skip a push that only touches another market's files, drafts or
+# docs. Production deploys cost credits per site; skipped builds never deploy.
 [build]
   command = "npm run build"
   publish = "dist"
+  ignore = "node scripts/netlify-ignore.mjs"
 
 # No SPA catch-all. This is a static multi-page Astro site, and a
 # `from = "/*" -> "/index.html"` rewrite at status 200 made every dead URL answer
