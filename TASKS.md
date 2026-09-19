@@ -122,6 +122,19 @@ unchecked task unless you are starting it.
   Done 2026-09-19: The shader is now absolutely positioned inside a wrapper around the header and PricingSection instead of
   fixed to the viewport, so it ends where the plan cards end. Removed the page-wide style block that had been dropping every
   light section to 55% white; sections below the plans are back to their own solid backgrounds.
+- [x] Law hero headline: change "More signed clients." to "More clients." so the last line doesn't wrap to two lines
+  Done 2026-09-19: Law and finance both read "Better brands. Better websites. More clients." now, so the highlight fits one line.
+- [x] Finance hero headline: change "More qualified prospects." to "More clients." for the same reason (wrapping to two lines doesn't work as well)
+  Done 2026-09-19: Same change as law; all three markets now share the same three-sentence headline.
+- [x] Finance hero video: add a clip of one advisor talking to a couple
+  Done 2026-09-19: Added finance-advisor-couple.mp4 (Mixkit 14977, an advisor across a desk from two people, shot over their
+  shoulders) as the second clip. Finance now cycles five.
+- [x] Law hero handshake clip: trim to the middle - the beginning and end are too long
+  Done 2026-09-19: The clasp runs about 1.5-5.5s in the source; the clip is now 1.6s-5.6s, so it opens on hands already
+  meeting and cuts before the release. 8s -> 4s.
+- [x] Law hero video: add a courthouse/court clip
+  Done 2026-09-19: Added law-courtroom.mp4 (Mixkit 46820, a judge's hands on a book beside a gavel - no faces, no verdict
+  being read, so it reads as court without implying criminal work). Law now cycles five.
 
 ## Notes
 
@@ -129,4 +142,3 @@ unchecked task unless you are starting it.
   a new Tailwind color family, so utilities using it silently do nothing: on 2026-09-19 the pricing page's dark service bands
   rendered white with white text after `ink-900/950` were added, while the production build was correct the whole time. It
   looks exactly like a browser cache problem and is not one.
-

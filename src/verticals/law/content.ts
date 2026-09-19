@@ -10,6 +10,7 @@ import lawSigning from '../../assets/videos/law-signing-contract.mp4';
 import lawDocuments from '../../assets/videos/law-reviewing-documents.mp4';
 import lawHandshake from '../../assets/videos/law-handshake.mp4';
 import lawBoardroom from '../../assets/videos/law-boardroom-presentation.mp4';
+import lawCourtroom from '../../assets/videos/law-courtroom.mp4';
 import lawPoster from '../../assets/videos/law-poster.jpg';
 import teamRileyLogo from '../../assets/images/team-riley-logo-law.png';
 import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-law-on-dark.png';
@@ -58,11 +59,12 @@ export const content: VerticalContent = {
         { src: lawSigning },
         { src: lawDocuments },
         { src: lawHandshake },
-        { src: lawBoardroom }
+        { src: lawBoardroom },
+        { src: lawCourtroom }
       ],
       poster: lawPoster,
       eyebrow: 'Built For Law Firms',
-      heading: { lead: 'Better brands. Better websites. ', highlight: 'More signed clients.' },
+      heading: { lead: 'Better brands. Better websites. ', highlight: 'More clients.' },
       subtitle:
         'A website and marketing system that earns trust before the first call, built with your state bar’s advertising rules in mind.'
     },

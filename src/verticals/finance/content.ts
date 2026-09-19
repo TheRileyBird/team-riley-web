@@ -5,6 +5,7 @@ import financePlaceholder1 from '../../assets/placeholders/finance-1.jpg';
 import financePlaceholder2 from '../../assets/placeholders/finance-2.jpg';
 import financePlaceholder3 from '../../assets/placeholders/finance-3.jpg';
 import financePlaceholder4 from '../../assets/placeholders/finance-4.jpg';
+import financeAdvisorCouple from '../../assets/videos/finance-advisor-couple.mp4';
 import financeGreeting from '../../assets/videos/finance-greeting-clients.mp4';
 import financeDesk from '../../assets/videos/finance-advisor-desk.mp4';
 import financeNumbers from '../../assets/videos/finance-explaining-numbers.mp4';
@@ -57,13 +58,14 @@ export const content: VerticalContent = {
     hero: {
       clips: [
         { src: financeGreeting },
+        { src: financeAdvisorCouple },
         { src: financeDesk },
         { src: financeNumbers },
         { src: financeMeeting }
       ],
       poster: financePoster,
       eyebrow: 'Built For Financial Advisors',
-      heading: { lead: 'Better brands. Better websites. ', highlight: 'More qualified prospects.' },
+      heading: { lead: 'Better brands. Better websites. ', highlight: 'More clients.' },
       subtitle:
         'A website and marketing system that explains what you do and who you do it for, built with the SEC Marketing Rule in mind.'
     },
