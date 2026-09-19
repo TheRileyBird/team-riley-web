@@ -46,6 +46,27 @@ export interface ClientLogo {
   href: string;
 }
 
+/** One "this is for you if" card: the kinds of business this market serves. */
+export interface AudienceSegment {
+  label: string;
+  detail: string;
+  /** Lucide icon name; resolved to a component in services.astro. */
+  icon: string;
+}
+
+/** One option in the contact form's "business type" select. */
+export interface BusinessTypeOption {
+  value: string;
+  label: string;
+}
+
+/** A row in the human-readable /sitemap page. */
+export interface SitemapEntry {
+  title: string;
+  url: string;
+  description: string;
+}
+
 export interface VerticalContent {
   /** Plain-language name of the market's customer, e.g. "health and wellness businesses". */
   audience: string;
@@ -104,5 +125,59 @@ export interface VerticalContent {
       /** Exactly six, rendered as a 3x2 table. */
       items: [TitledText, TitledText, TitledText, TitledText, TitledText, TitledText];
     };
+  };
+  about: {
+    title: string;
+    description: string;
+    header: { heading: Highlighted; subtitle: string };
+    teamSubtitle: string;
+    /** Bios stay factual; only the framing changes per market. */
+    joshuaBio: string;
+    rachaelBio: string;
+    differentSubtitle: string;
+    /** First "what makes us different" card: the market-expertise one. */
+    expertise: TitledText;
+    missionHeading: Highlighted;
+    missionSubtitle: string;
+  };
+  services: {
+    title: string;
+    description: string;
+    hero: {
+      eyebrow: string;
+      heading: Highlighted;
+      subheading: string;
+      problem: string;
+      comparison: string;
+    };
+    /** The CTA wording used on this page: health books a "Digital Health Checkup". */
+    consultCta: string;
+    consultCtaLong: string;
+    wrongProblem: { heading: string; rebuttal: string; reality: string };
+    /** Eight "what you have tried" rows: [what they did, why it did not work]. */
+    failedEfforts: [string, string][];
+    partner: { heading: string; body: string };
+    forYou: { heading: Highlighted; body: string };
+    /** The businesses this market serves, shown as an icon grid. */
+    segments: AudienceSegment[];
+    platform: { heading: Highlighted; body: string; phoneAgent: string };
+  };
+  contact: {
+    /** Replaces the generic list; the value is what lands in the Netlify form. */
+    businessTypes: BusinessTypeOption[];
+  };
+  sitemap: {
+    homeDescription: string;
+    portfolioDescription: string;
+    portfolioCategories: SitemapEntry[];
+  };
+  platform: {
+    description: string;
+    heroSubtitle: string;
+    focusLine: string;
+    featuresSubtitle: string;
+    crmBody: string;
+    builtFor: Highlighted;
+    builtForSubtitle: string;
   };
 }

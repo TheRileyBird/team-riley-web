@@ -6,20 +6,27 @@ import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from "../components/PricingSection.astro";
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
-import careptSite from '../assets/sites/carept.png';
-import dsmmdSite from '../assets/sites/dsmmd.png';
-import lovemoreSite from '../assets/sites/lovemore.png';
-import life2healthSite from '../assets/sites/life2health.png';
-import domlukeSite from '../assets/sites/domluke.png';
-import nazarethSite from '../assets/sites/nazareth.png';
-import garrettSite from '../assets/sites/garrett.png';
-import graceSite from '../assets/sites/grace.png';
-import cfcSite from '../assets/sites/cfc.png';
 import { services as pricedServices, type ServicesCardIcon } from '../data/services';
-import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus } from '@lucide/astro';
+import { content } from '../verticals/active';
+import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus, Gavel, Scroll, Briefcase, Plane, Building2, Scale, Gem, PiggyBank, Calculator, UserRound } from '@lucide/astro';
 
 // The marketing grid reads src/data/services.ts, so a renamed, repriced or retired
 // service can't drift out of step with /pricing. Each card links to its section there.
+const pageContent = content.services;
+const { showcase } = content.home;
+// Two staggered screenshot columns; hidden when a market has too little work to
+// fill them without repeating (same rule as the homepage gallery).
+const showShowcase = showcase.length >= 6;
+const showcaseColumns = showShowcase
+  ? [showcase.filter((_, index) => index % 2 === 0), showcase.filter((_, index) => index % 2 === 1)]
+  : [];
+// Lucide components for the segment icons named in the market's content file.
+const segmentIcons: Record<string, typeof Users> = {
+  syringe: Syringe, bone: Bone, dumbbell: Dumbbell, 'heart-pulse': HeartPulse, brain: Brain,
+  'wallet-cards': WalletCards, flower: Flower2, 'smile-plus': SmilePlus, gavel: Gavel, users: Users,
+  scroll: Scroll, shield: Shield, briefcase: Briefcase, plane: Plane, building: Building2, scale: Scale,
+  'line-chart': LineChart, gem: Gem, 'piggy-bank': PiggyBank, calculator: Calculator, 'user-round': UserRound
+};
 const cardIcons: Record<ServicesCardIcon, typeof Users> = { users: Users, zap: Zap, globe: Globe, palette: Palette };
 const marketingCards = pricedServices.filter((service) => service.status !== 'archived' && service.servicesCard);
 
@@ -39,18 +46,7 @@ const growthBlocks = [
   'too busy to market consistently',
 ];
 
-const failedEfforts = [
-  ['Posting inconsistently on social media', 'without a real strategy behind it'],
-  ['Hiring a generic marketing agency', 'that does not understand healthcare psychology'],
-  ['Running ads to a weak website', 'which silently kills conversions'],
-  ['DIY website builders', 'that make your practice look smaller than it is'],
-  ['Asking staff to “help with marketing”', 'while they already have full-time jobs'],
-  ['Depending entirely on referrals', 'which creates unpredictable revenue cycles'],
-  ['Paying for SEO with no measurable growth', 'because nobody fixed the foundation first'],
-  ['Trying to “look professional” online', 'instead of building actual authority and trust'],
-  ['Waiting until things slow down to fix marketing', 'when visibility should have been built months earlier'],
-  ['Watching less-qualified competitors dominate', 'simply because they present themselves better'],
-];
+const failedEfforts = pageContent.failedEfforts;
 
 const clientQuestions = [
   'Does this place feel trustworthy?',
@@ -79,73 +75,11 @@ const services = [
   'Unlimited Updates',
 ];
 
-const businessTypes = [
-  {
-    label: 'Med Spa',
-    detail: 'Premium aesthetics, injectables, skin care, and membership-driven client journeys.',
-    icon: Syringe,
-  },
-  {
-    label: 'Chiropractic Clinic',
-    detail: 'Local search visibility and trust-building experiences for care plans and recurring visits.',
-    icon: Bone,
-  },
-  {
-    label: 'Wellness Studio',
-    detail: 'A polished brand presence for classes, packages, communities, and ongoing engagement.',
-    icon: Dumbbell,
-  },
-  {
-    label: 'Functional Medicine Practice',
-    detail: 'Clear positioning for complex care models, premium offers, and high-intent clients.',
-    icon: HeartPulse,
-  },
-  {
-    label: 'Therapy Practice',
-    detail: 'Calm, credible design that helps people feel safe before they schedule.',
-    icon: Brain,
-  },
-  {
-    label: 'Private-Pay Medical Business',
-    detail: 'Conversion-focused messaging for clients making out-of-pocket decisions.',
-    icon: WalletCards,
-  },
-  {
-    label: 'Yoga or Holistic Wellness Brand',
-    detail: 'Warm, distinctive digital presence for values-led wellness businesses.',
-    icon: Flower2,
-  },
-  {
-    label: 'Dental or Specialty Clinic',
-    detail: 'Authority-building websites for practices that need to look as advanced as their care.',
-    icon: SmilePlus,
-  },
-];
+const businessTypes = pageContent.segments;
 
-const plans = [
-  {
-    name: 'Silver',
-    price: '$249/mo',
-    pages: '1-5 pages',
-    fit: 'Perfect for smaller wellness businesses',
-  },
-  {
-    name: 'Gold',
-    price: '$399/mo',
-    pages: '5-11 pages',
-    fit: 'Best for established practices ready to grow',
-    featured: true,
-  },
-  {
-    name: 'Platinum',
-    price: '$599/mo',
-    pages: '11+ pages',
-    fit: 'For scaling and premium positioning',
-  },
-];
 ---
 
-<BaseLayout title="Services - Team Riley" description="Professional web design and development services for health and wellness businesses">
+<BaseLayout title={pageContent.title} description={pageContent.description}>
   <Navigation />
 
   <!-- Hero Section -->
@@ -158,52 +92,56 @@ const plans = [
     <div class="portfolio-scroll-gallery order-2 relative w-full max-w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
       <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-blue-50 to-transparent z-10"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-50 to-transparent z-10"></div>
-      <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 px-4 sm:px-6 md:p-3 -mt-10">
-        <div class="portfolio-scroll-column portfolio-scroll-column-up space-y-4 md:space-y-5">
-          <Image src={careptSite} alt="CarePT website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={dsmmdSite} alt="DSM MD website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={nazarethSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={cfcSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={garrettSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
+      {showShowcase && (
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 px-4 sm:px-6 md:p-3 -mt-10">
+          {showcaseColumns.map((column, columnIndex) => (
+            <div
+              class:list={[
+                'portfolio-scroll-column space-y-4 md:space-y-5',
+                columnIndex === 0 ? 'portfolio-scroll-column-up' : 'portfolio-scroll-column-down pt-16'
+              ]}
+            >
+              {column.map((shot) => (
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  class="aspect-video w-full rounded-xl object-cover object-top shadow-xl"
+                />
+              ))}
+            </div>
+          ))}
         </div>
-        <div class="portfolio-scroll-column portfolio-scroll-column-down space-y-4 md:space-y-5 pt-16">
-          <Image src={life2healthSite} alt="Life2Health website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={graceSite} alt="Grace Midwifery Collective website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={domlukeSite} alt="CFC website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={lovemoreSite} alt="LoveMore website portfolio preview" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" />
-          <Image src={life2healthSite} alt="" class="aspect-video w-full rounded-xl object-cover object-top shadow-xl" aria-hidden="true" />
-        </div>
-      </div>
+      )}
     </div>
 
     <div class="relative order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:min-h-[760px] lg:py-28 lg:mr-[50%] flex items-center">
         <div>
           <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-8">
-            <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">Digital Health For Health & Wellness Brands</span>
+            <span class="text-sm font-semibold text-primary-800 uppercase tracking-wider">{pageContent.hero.eyebrow}</span>
           </div>
 
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 mb-6">
-            Your clinical expertise is <span class="animated-gradient-text">world-class</span>.
+            {pageContent.hero.heading.lead}<span class="animated-gradient-text">{pageContent.hero.heading.highlight}</span>{pageContent.hero.heading.trail}
           </h1>
 
           <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-snug mb-6">
-            Your digital presence should be, too.
+            {pageContent.hero.subheading}
           </h2>
 
           <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mb-6">
-            Most health businesses have a digital presence does not match their level of expertise.
+            {pageContent.hero.problem}
           </p>
 
           <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
-            Every day, potential clients search online, compare options, and silently choose competitors with better websites, better branding, better Google presence, and better social proof, even when your actual care is far superior.
+            {pageContent.hero.comparison}
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 mb-6">
             <a href="/#book-a-call"
               data-booking-modal-open
               class="btn btn-primary btn-lg w-full max-w-full !whitespace-normal text-center leading-snug sm:w-auto sm:!whitespace-nowrap">
-              <span>Book Your Digital Health Checkup</span>
+              <span>{pageContent.consultCta}</span>
               <ArrowRight class="w-5 h-5 flex-shrink-0" />
             </a>
           </div>
@@ -211,8 +149,7 @@ const plans = [
           <div class="flex flex-wrap gap-3 text-sm font-semibold text-gray-700">
             <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Websites Starting at $249/mo</span>
             <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Unlimited Updates</span>
-            <!--<span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-soft"><CheckCircle2 class="w-4 h-4 text-primary-700" /> Health & Wellness Specialists</span>-->
-          </div>
+              </div>
         </div>
       </div>
     </div>
@@ -225,9 +162,9 @@ const plans = [
         <div class="inline-flex items-center px-4 py-2 bg-primary-100 border-l-4 border-primary-700 rounded-r-lg mb-6">
           <span class="text-sm font-semibold text-primary-800">You Are Solving The Wrong Problem</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Most health businesses think they need more training.</h2>
-        <p class="text-2xl font-bold text-gray-800 mb-6">Usually, that is not true.</p>
-        <p class="max-w-3xl mx-auto text-xl text-gray-700 leading-relaxed">What they actually need is the digital infrastructure that makes clients trust them faster and take the next step with less friction.</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{pageContent.wrongProblem.heading}</h2>
+        <p class="text-2xl font-bold text-gray-800 mb-6">{pageContent.wrongProblem.rebuttal}</p>
+        <p class="max-w-3xl mx-auto text-xl text-gray-700 leading-relaxed">{pageContent.wrongProblem.reality}</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -335,12 +272,12 @@ const plans = [
         <div class="inline-flex items-center px-4 py-2 bg-primary-900/50 border-l-4 border-primary-500 rounded-r-lg mb-6">
           <span class="text-sm font-bold text-primary-300 uppercase tracking-wider">The Solution</span>
         </div>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Team Riley becomes your digital health partner.</h2>
-        <p class="text-xl text-gray-300 leading-relaxed mb-8">We work exclusively with health, wellness, and medical brands, so you can focus on client care instead of trying to become a marketer.</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">{pageContent.partner.heading}</h2>
+        <p class="text-xl text-gray-300 leading-relaxed mb-8">{pageContent.partner.body}</p>
         <a href="/#book-a-call"
           data-booking-modal-open
           class="btn btn-primary btn-lg">
-          Schedule Your Digital Health Checkup
+          {pageContent.consultCtaLong}
           <ArrowRight class="w-5 h-5" />
         </a>
       </div>
@@ -379,10 +316,10 @@ const plans = [
           <span class="text-sm font-semibold text-primary-800">This Is For You If</span>
         </div>
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
-          We know <span class="animated-gradient-text">Health & Wellness</span>
+          {pageContent.forYou.heading.lead}<span class="animated-gradient-text">{pageContent.forYou.heading.highlight}</span>
         </h2>
         <p class="text-xl text-gray-700 leading-relaxed">
-          This is built for practices and wellness brands that know their digital presence no longer reflects the level of care they provide.
+          {pageContent.forYou.body}
         </p>
       </div>
 
@@ -466,7 +403,7 @@ const plans = [
       <a href="/#book-a-call"
         data-booking-modal-open
         class="btn btn-primary btn-lg mb-5">
-        Book Your Digital Health Checkup
+        {pageContent.consultCta}
         <ArrowRight class="w-5 h-5" />
       </a>
       <!--<p class="text-gray-600 max-w-2xl mx-auto">-->
@@ -667,11 +604,11 @@ const plans = [
           </div>
 
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-            Grow Your Practice <span class="animated-gradient-text">On Autopilot</span>
+            {pageContent.platform.heading.lead}<span class="animated-gradient-text">{pageContent.platform.heading.highlight}</span>
           </h2>
 
           <p class="text-xl text-gray-300 mb-8">
-            More than just a website—get Client Growth AI, a complete business management platform with AI that answers calls, books appointments, and follows up with leads 24/7.
+            {pageContent.platform.body}
           </p>
 
           <div class="space-y-4 mb-8">
@@ -688,7 +625,7 @@ const plans = [
               </svg>
               <div>
                 <h4 class="text-lg font-bold text-white mb-1">AI Phone Agent</h4>
-                <p class="text-gray-300">Never miss a call—AI answers, qualifies leads, and books appointments automatically</p>
+                <p class="text-gray-300">{pageContent.platform.phoneAgent}</p>
               </div>
             </div>
 

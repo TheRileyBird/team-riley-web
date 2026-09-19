@@ -1,4 +1,5 @@
 ---
+import { content } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
@@ -14,15 +15,15 @@ import services2 from '../assets/images/services-2.jpg';
 ---
 
 <BaseLayout
-  title="Client Growth AI - Team Riley"
-  description="Complete CRM and marketing automation platform built specifically for health and wellness businesses"
+  title={`Client Growth AI - ${site.brandName}`}
+  description={content.platform.description}
 >
   <Navigation />
 
   <PageHeader
     badge="Client Growth AI"
     title='<span class="animated-gradient-text">Grow Your Practice</span> <span class="text-gray-900">On Autopilot</span>'
-    subtitle="Everything you need to attract, convert, and retain clients—powered by Client Growth AI that works 24/7 for your health and wellness business."
+    subtitle={content.platform.heroSubtitle}
     primaryCTA={{ text: 'Schedule Demo', href: '/contact' }}
     secondaryCTA={{ text: 'View Pricing', href: '/pricing' }}
   />
@@ -44,7 +45,7 @@ import services2 from '../assets/images/services-2.jpg';
           Your <span class="animated-gradient-text">AI Assistant</span> Never Sleeps
         </h2>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          While you focus on helping clients get healthy, Client Growth AI handles calls, qualifies leads, books appointments, and follows up—automatically.
+          {content.platform.focusLine}
         </p>
       </div>
 
@@ -87,7 +88,7 @@ import services2 from '../assets/images/services-2.jpg';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title='<span class="animated-gradient-text">Complete</span> Business Management'
-        subtitle="Everything you need to run and grow your health and wellness practice—all in one place"
+        subtitle={content.platform.featuresSubtitle}
       />
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -126,7 +127,7 @@ import services2 from '../assets/images/services-2.jpg';
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3">Smart CRM</h3>
           <p class="text-gray-700 leading-relaxed mb-4">
-            Track every lead and client interaction in one organized system built for health practitioners.
+            {content.platform.crmBody}
           </p>
           <ul class="space-y-2 text-sm text-gray-600">
             <li class="flex items-start gap-2">
@@ -326,8 +327,8 @@ import services2 from '../assets/images/services-2.jpg';
   <section class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
-        title='Built For <span class="animated-gradient-text">Health & Wellness</span>'
-        subtitle="Stop cobbling together different tools. Get everything you need in one platform designed for practitioners like you."
+        title={`${content.platform.builtFor.lead}<span class="animated-gradient-text">${content.platform.builtFor.highlight}</span>`}
+        subtitle={content.platform.builtForSubtitle}
       />
 
       <div class="grid md:grid-cols-2 gap-12 items-center">

@@ -1,4 +1,5 @@
 ---
+import { site } from '../verticals/active';
 /**
  * Netlify serves this automatically for any path that doesn't match a built page,
  * with a real HTTP 404.
@@ -27,7 +28,7 @@ const destinations = [
 ---
 
 <BaseLayout
-  title="Page Not Found - Team Riley"
+  title={`Page Not Found - ${site.brandName}`}
   description="That page doesn't exist. Here's where to go instead."
   robots="noindex, follow"
 >

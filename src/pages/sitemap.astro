@@ -1,29 +1,26 @@
 ---
+import { content, site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
 // Define all site pages
 const pages = [
-  { title: 'Home', url: '/', description: 'Professional web design for health & wellness businesses' },
+  { title: 'Home', url: '/', description: content.sitemap.homeDescription },
   { title: 'About Us', url: '/about', description: 'Learn about our team and mission' },
   { title: 'Services', url: '/services', description: 'Complete digital solutions for your business' },
   { title: 'Pricing', url: '/pricing', description: 'Simple, transparent pricing plans' },
-  { title: 'Portfolio', url: '/portfolio', description: 'View our health & wellness client work' },
+  { title: 'Portfolio', url: '/portfolio', description: content.sitemap.portfolioDescription },
   { title: 'Contact', url: '/contact', description: 'Get in touch with our team' },
   { title: 'Privacy Policy', url: '/privacy-policy', description: 'Our data protection practices' },
   { title: 'Terms of Service', url: '/terms-of-service', description: 'Terms and conditions for our services' },
 ];
 
 // Portfolio categories
-const portfolioCategories = [
-  { title: 'Medical & Clinical Health', url: '/portfolio#medical', description: 'Healthcare provider websites' },
-  { title: 'Physical Wellness', url: '/portfolio#physical', description: 'Fitness and wellness websites' },
-  { title: 'Holistic & Emotional Wellness', url: '/portfolio#holistic', description: 'Holistic health websites' },
-];
+const portfolioCategories = content.sitemap.portfolioCategories;
 ---
 
-<BaseLayout title="Sitemap - Team Riley" description="Complete sitemap of Team Riley's website">
+<BaseLayout title={`Sitemap - ${site.brandName}`} description={`Complete sitemap of the ${site.brandName} website`}>
   <Navigation />
 
   <section class="pt-32 pb-20 md:pb-28 bg-gradient-to-b from-blue-50 to-white">

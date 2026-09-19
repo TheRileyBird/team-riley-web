@@ -148,5 +148,113 @@ export const content: VerticalContent = {
         }
       ]
     }
+  },
+  about: {
+    title: 'About Us - Team Riley',
+    description: 'Learn about Team Riley and our mission to help health and wellness businesses thrive online',
+    header: {
+      heading: { lead: '', highlight: 'Health', trail: ' is Our Mission' },
+      subtitle:
+        'As health enthusiasts and wellness practitioners ourselves, we understand what drives your business—because we live it every day.'
+    },
+    teamSubtitle: 'A dedicated team of health nuts committed to your success',
+    joshuaBio:
+      "With a decade of experience, including Aveda, Mashable, CNET, LifeHacker, and PCMag, Joshua brings big-brand digital expertise to health and wellness businesses. Health isn't just business for Joshua—it's a lifestyle that guides everything he builds.",
+    rachaelBio:
+      'As a licensed Occupational Therapist, Rachael brings a unique perspective: she understands both the clinical side and the business side of health and wellness. With compassion, she meets clients where they are and creates effective campaigns that convert.',
+    differentSubtitle:
+      "We're not just building brands. As practitioners and wellness enthusiasts ourselves, we speak your language and understand what matters to your clients.",
+    expertise: {
+      title: 'Health & Wellness Expertise',
+      body: "We specialize in health and wellness, understanding your industry's unique needs and challenges."
+    },
+    missionHeading: { lead: '', highlight: 'Better Health', trail: ' For Your Business' },
+    missionSubtitle:
+      'We believe every health and wellness business deserves a website that works as hard as they do'
+  },
+  services: {
+    title: 'Services - Team Riley',
+    description: 'Professional web design and development services for health and wellness businesses',
+    hero: {
+      eyebrow: 'Digital Health For Health & Wellness Brands',
+      heading: { lead: 'Your clinical expertise is ', highlight: 'world-class', trail: '.' },
+      subheading: 'Your digital presence should be, too.',
+      problem: 'Most health businesses have a digital presence does not match their level of expertise.',
+      comparison:
+        'Every day, potential clients search online, compare options, and silently choose competitors with better websites, better branding, better Google presence, and better social proof, even when your actual care is far superior.'
+    },
+    consultCta: 'Book Your Digital Health Checkup',
+    consultCtaLong: 'Schedule Your Digital Health Checkup',
+    wrongProblem: {
+      heading: 'Most health businesses think they need more training.',
+      rebuttal: 'Usually, that is not true.',
+      reality:
+        'What they actually need is the digital infrastructure that makes clients trust them faster and take the next step with less friction.'
+    },
+    failedEfforts: [
+      ['Posting inconsistently on social media', 'without a real strategy behind it'],
+      ['Hiring a generic marketing agency', 'that does not understand healthcare psychology'],
+      ['Running ads to a weak website', 'which silently kills conversions'],
+      ['DIY website builders', 'that make your practice look smaller than it is'],
+      ['Asking staff to \u201chelp with marketing\u201d', 'while they already have full-time jobs'],
+      ['Depending entirely on referrals', 'which creates unpredictable revenue cycles'],
+      ['Paying for SEO with no measurable growth', 'because nobody fixed the foundation first'],
+      ['Trying to \u201clook professional\u201d online', 'instead of building actual authority and trust']
+    ],
+    partner: {
+      heading: 'Team Riley becomes your digital health partner.',
+      body: 'We work exclusively with health, wellness, and medical brands, so you can focus on client care instead of trying to become a marketer.'
+    },
+    forYou: {
+      heading: { lead: 'We know ', highlight: 'Health & Wellness' },
+      body: 'This is built for practices and wellness brands that know their digital presence no longer reflects the level of care they provide.'
+    },
+    segments: [
+      { label: 'Med Spa', detail: 'Premium aesthetics, injectables, skin care, and membership-driven client journeys.', icon: 'syringe' },
+      { label: 'Chiropractic Clinic', detail: 'Local search visibility and trust-building experiences for care plans and recurring visits.', icon: 'bone' },
+      { label: 'Wellness Studio', detail: 'A polished brand presence for classes, packages, communities, and ongoing engagement.', icon: 'dumbbell' },
+      { label: 'Functional Medicine Practice', detail: 'Clear positioning for complex care models, premium offers, and high-intent clients.', icon: 'heart-pulse' },
+      { label: 'Therapy Practice', detail: 'Calm, credible design that helps people feel safe before they schedule.', icon: 'brain' },
+      { label: 'Private-Pay Medical Business', detail: 'Conversion-focused messaging for clients making out-of-pocket decisions.', icon: 'wallet-cards' },
+      { label: 'Yoga or Holistic Wellness Brand', detail: 'Warm, distinctive digital presence for values-led wellness businesses.', icon: 'flower' },
+      { label: 'Dental or Specialty Clinic', detail: 'Authority-building websites for practices that need to look as advanced as their care.', icon: 'smile-plus' }
+    ],
+    platform: {
+      heading: { lead: 'Grow Your Practice ', highlight: 'On Autopilot' },
+      body: 'More than just a website\u2014get Client Growth AI, a complete business management platform with AI that answers calls, books appointments, and follows up with leads 24/7.',
+      phoneAgent: 'Never miss a call\u2014AI answers, qualifies leads, and books appointments automatically'
+    }
+  },
+  contact: {
+    businessTypes: [
+      { value: 'medical', label: 'Medical Clinic' },
+      { value: 'wellness', label: 'Wellness Center' },
+      { value: 'fitness', label: 'Fitness Studio' },
+      { value: 'therapy', label: 'Therapy Practice' },
+      { value: 'spa', label: 'Spa/Salon' },
+      { value: 'pharmacy', label: 'Pharmacy' },
+      { value: 'other', label: 'Other' }
+    ]
+  },
+  sitemap: {
+    homeDescription: 'Professional web design for health & wellness businesses',
+    portfolioDescription: 'View our health & wellness client work',
+    portfolioCategories: [
+      { title: 'Medical & Clinical Health', url: '/portfolio#medical', description: 'Healthcare provider websites' },
+      { title: 'Physical Wellness', url: '/portfolio#physical', description: 'Fitness and wellness websites' },
+      { title: 'Holistic & Emotional Wellness', url: '/portfolio#holistic', description: 'Holistic health websites' }
+    ]
+  },
+  platform: {
+    description: 'Complete CRM and marketing automation platform built specifically for health and wellness businesses',
+    heroSubtitle:
+      'Everything you need to attract, convert, and retain clients\u2014powered by Client Growth AI that works 24/7 for your health and wellness business.',
+    focusLine:
+      'While you focus on helping clients get healthy, Client Growth AI handles calls, qualifies leads, books appointments, and follows up\u2014automatically.',
+    featuresSubtitle: 'Everything you need to run and grow your health and wellness practice\u2014all in one place',
+    crmBody: 'Track every lead and client interaction in one organized system built for health practitioners.',
+    builtFor: { lead: 'Built For ', highlight: 'Health & Wellness' },
+    builtForSubtitle:
+      'Stop cobbling together different tools. Get everything you need in one platform designed for practitioners like you.'
   }
 };

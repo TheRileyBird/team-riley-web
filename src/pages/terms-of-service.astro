@@ -1,10 +1,11 @@
 ---
+import { content, site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Terms of Service - Team Riley" description="Terms and conditions for using Team Riley's services">
+<BaseLayout title={`Terms of Service - ${site.brandName}`} description={`Terms and conditions for using ${site.brandName} services`}>
   <Navigation />
 
   <section class="pt-32 pb-20 md:pb-28 bg-gradient-to-b from-blue-50 to-white">
@@ -24,7 +25,7 @@ import Footer from '../components/Footer.astro';
           <section>
             <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Services Description</h2>
             <p class="leading-relaxed mb-4">
-              Team Riley provides web design, development, and maintenance services for health and wellness businesses. Our services include:
+              {site.brandName} provides web design, development, and maintenance services for {content.audience}. Our services include:
             </p>
             <ul class="list-disc pl-6 space-y-2">
               <li>Custom website design and development</li>

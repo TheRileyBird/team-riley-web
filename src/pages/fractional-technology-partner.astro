@@ -1,4 +1,5 @@
 ---
+import { site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
@@ -90,8 +91,8 @@ const fitSignals = [
 ---
 
 <BaseLayout
-  title="Fractional Technology Partner - Team Riley"
-  description="Team Riley's Fractional Technology Partner program gives growing businesses trusted technical leadership across websites, CRM, automation, AI, vendors, and operations."
+  title={`Fractional Technology Partner - ${site.brandName}`}
+  description={`${site.brandName}'s Fractional Technology Partner program gives growing businesses trusted technical leadership across websites, CRM, automation, AI, vendors, and operations."
 >
   <Navigation />
 

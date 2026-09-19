@@ -121,5 +121,113 @@ export const content: VerticalContent = {
         }
       ]
     }
+  },
+  about: {
+    title: 'About Us - Team Riley Finance',
+    description: 'The team behind Team Riley Finance, and how we work with advisory firms',
+    header: {
+      heading: { lead: 'Your Firm, ', highlight: 'Clearly Explained' },
+      subtitle:
+        'We are a two-person studio. You work directly with the people who build and run your site, not an account manager.'
+    },
+    teamSubtitle: 'A small team that answers its own phone',
+    joshuaBio:
+      'With a decade of experience, including Aveda, Mashable, CNET, LifeHacker, and PCMag, Joshua brings big-brand digital expertise to firms that need to look established online. He has spent that career on sites where trust and clarity decide whether a reader stays.',
+    rachaelBio:
+      'A licensed Occupational Therapist by training, Rachael has spent her career explaining complicated work to the people who need it. She writes and runs campaigns the same way: plain language, no jargon, and a clear next step for the reader.',
+    differentSubtitle:
+      'We are not a volume shop. We take a small number of firms, learn who you serve and how you charge, and build around that.',
+    expertise: {
+      title: 'Built With the Marketing Rule in Mind',
+      body: 'We write your site with SEC Marketing Rule advertising requirements in mind, including how testimonials and performance claims are handled.'
+    },
+    missionHeading: { lead: '', highlight: 'Better Websites', trail: ' For Advisory Firms' },
+    missionSubtitle:
+      'We believe every advisory firm deserves a website that explains its work as clearly as it deserves'
+  },
+  services: {
+    title: 'Services - Team Riley Finance',
+    description: 'Websites, branding and marketing services built for financial advisors',
+    hero: {
+      eyebrow: 'Digital Marketing For Advisory Firms',
+      heading: { lead: 'Your advice is ', highlight: 'worth trusting', trail: '.' },
+      subheading: 'Your website should show it.',
+      problem: 'Most advisory firms have a digital presence that does not match the care they put into their work.',
+      comparison:
+        'Every day, people deciding who should manage their money look up three or four firms, and quietly book with the one whose website explains itself clearly, even when your service is better.'
+    },
+    consultCta: 'Book Your Firm Website Review',
+    consultCtaLong: 'Schedule Your Firm Website Review',
+    wrongProblem: {
+      heading: 'Most advisory firms think they need more leads.',
+      rebuttal: 'Usually, that is not the whole story.',
+      reality:
+        'What they actually need is the digital infrastructure that makes prospects trust them faster and book with less friction.'
+    },
+    failedEfforts: [
+      ['Posting inconsistently on social media', 'without a real strategy behind it'],
+      ['Hiring a generic marketing agency', 'that does not understand how people choose an advisor'],
+      ['Running ads to a weak website', 'which silently kills conversions'],
+      ['DIY website builders', 'that make your firm look smaller than it is'],
+      ['Asking an associate to \u201chelp with marketing\u201d', 'while they already have full-time jobs'],
+      ['Depending entirely on referrals', 'which creates unpredictable growth'],
+      ['Paying for SEO with no measurable growth', 'because nobody fixed the foundation first'],
+      ['Buying leads from a lead service', 'that sells the same prospect to three other firms']
+    ],
+    partner: {
+      heading: 'Team Riley Finance becomes your marketing department.',
+      body: 'We work with a small number of firms at a time, so you can focus on clients instead of trying to become a marketer.'
+    },
+    forYou: {
+      heading: { lead: 'We know ', highlight: 'Advisory Firms' },
+      body: 'This is built for firms that know their digital presence no longer reflects the standard of care they hold themselves to.'
+    },
+    segments: [
+      { label: 'Registered Investment Advisor', detail: 'Clear positioning for fee-only firms explaining how they work and who they serve.', icon: 'line-chart' },
+      { label: 'Wealth Management', detail: 'A presence that matches the households you want, without performance claims.', icon: 'gem' },
+      { label: 'Retirement Planning', detail: 'Plain-language pages for people weighing the biggest decision of their working life.', icon: 'piggy-bank' },
+      { label: 'Tax & Accounting', detail: 'Seasonal-ready sites with clear services, pricing and scheduling.', icon: 'calculator' },
+      { label: 'Insurance & Benefits', detail: 'Straightforward explanations for products people find hard to compare.', icon: 'shield' },
+      { label: 'Estate & Legacy Planning', detail: 'Reassuring design for families planning across generations.', icon: 'scroll' },
+      { label: 'Business Owner Advisory', detail: 'Positioning for exit planning, succession and owner-specific advice.', icon: 'briefcase' },
+      { label: 'Solo & Breakaway Advisor', detail: 'A presence that looks established from day one after going independent.', icon: 'user-round' }
+    ],
+    platform: {
+      heading: { lead: 'Grow Your Firm ', highlight: 'On Autopilot' },
+      body: 'More than just a website\u2014get Client Growth AI, a complete client platform with AI that answers calls, books introductory meetings, and follows up with prospects 24/7.',
+      phoneAgent: 'Never miss a call\u2014AI answers, qualifies prospects, and books introductory meetings automatically'
+    }
+  },
+  contact: {
+    businessTypes: [
+      { value: 'ria', label: 'Registered Investment Advisor' },
+      { value: 'wealth', label: 'Wealth Management' },
+      { value: 'retirement', label: 'Retirement Planning' },
+      { value: 'tax', label: 'Tax & Accounting' },
+      { value: 'insurance', label: 'Insurance & Benefits' },
+      { value: 'solo', label: 'Solo or Breakaway Advisor' },
+      { value: 'other', label: 'Other' }
+    ]
+  },
+  sitemap: {
+    homeDescription: 'Professional web design for financial advisors',
+    portfolioDescription: 'View our advisory firm concept work',
+    portfolioCategories: [
+      { title: 'Advisory & Wealth', url: '/portfolio#advisory', description: 'RIA and wealth management concepts' },
+      { title: 'Planning & Tax', url: '/portfolio#planning', description: 'Retirement, tax and planning concepts' },
+      { title: 'Insurance & Benefits', url: '/portfolio#insurance', description: 'Insurance and benefits concepts' }
+    ]
+  },
+  platform: {
+    description: 'Complete CRM and marketing automation platform built for advisory firms',
+    heroSubtitle:
+      'Everything you need to attract, qualify, and retain clients\u2014powered by Client Growth AI that works 24/7 for your firm.',
+    focusLine:
+      'While you focus on client work, Client Growth AI handles calls, qualifies prospects, books introductory meetings, and follows up\u2014automatically.',
+    featuresSubtitle: 'Everything you need to run and grow your advisory firm\u2014all in one place',
+    crmBody: 'Track every prospect and client conversation in one organized system built for advisory firms.',
+    builtFor: { lead: 'Built For ', highlight: 'Advisory Firms' },
+    builtForSubtitle:
+      'Stop cobbling together different tools. Get everything you need in one platform designed for firms like yours.'
   }
 };

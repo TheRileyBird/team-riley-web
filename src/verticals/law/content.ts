@@ -122,5 +122,113 @@ export const content: VerticalContent = {
         }
       ]
     }
+  },
+  about: {
+    title: 'About Us - Team Riley Law',
+    description: 'The team behind Team Riley Law, and how we work with firms',
+    header: {
+      heading: { lead: 'Your Firm, ', highlight: 'Clearly Presented' },
+      subtitle:
+        'We are a two-person studio. You work directly with the people who build and run your site, not an account manager.'
+    },
+    teamSubtitle: 'A small team that answers its own phone',
+    joshuaBio:
+      'With a decade of experience, including Aveda, Mashable, CNET, LifeHacker, and PCMag, Joshua brings big-brand digital expertise to firms that need to look established online. He has spent that career on sites where credibility and search visibility decide whether a reader stays.',
+    rachaelBio:
+      'A licensed Occupational Therapist by training, Rachael has spent her career explaining complicated work to the people who need it. She writes and runs campaigns the same way: plain language, no jargon, and a clear next step for the reader.',
+    differentSubtitle:
+      'We are not a volume shop. We take a small number of firms, learn the matters you actually want, and build around them.',
+    expertise: {
+      title: 'Built Around Bar Rules',
+      body: 'We write your site with your state bar’s advertising rules in mind: no promises about outcomes, no claims we cannot support.'
+    },
+    missionHeading: { lead: '', highlight: 'Better Websites', trail: ' For Law Firms' },
+    missionSubtitle:
+      'We believe every firm deserves a website that represents its work as well as its attorneys do'
+  },
+  services: {
+    title: 'Services - Team Riley Law',
+    description: 'Websites, branding and marketing services built for law firms',
+    hero: {
+      eyebrow: 'Digital Marketing For Law Firms',
+      heading: { lead: 'Your work in the case file is ', highlight: 'first-rate', trail: '.' },
+      subheading: 'Your website should be, too.',
+      problem: 'Most firms have a digital presence that does not match the quality of their work.',
+      comparison:
+        'Every day, people with a legal problem search online, compare three or four firms, and quietly call the one with the better website, clearer practice areas and more visible reviews, even when your record is stronger.'
+    },
+    consultCta: 'Book Your Firm Website Review',
+    consultCtaLong: 'Schedule Your Firm Website Review',
+    wrongProblem: {
+      heading: 'Most firms think they need more referrals.',
+      rebuttal: 'Usually, that is not the whole story.',
+      reality:
+        'What they actually need is the digital infrastructure that makes prospective clients trust them faster and reach out with less friction.'
+    },
+    failedEfforts: [
+      ['Posting inconsistently on social media', 'without a real strategy behind it'],
+      ['Hiring a generic marketing agency', 'that does not understand how people choose an attorney'],
+      ['Running ads to a weak website', 'which silently kills conversions'],
+      ['DIY website builders', 'that make your firm look smaller than it is'],
+      ['Asking a paralegal to \u201chelp with marketing\u201d', 'while they already have full-time jobs'],
+      ['Depending entirely on referrals', 'which creates unpredictable case flow'],
+      ['Paying for SEO with no measurable growth', 'because nobody fixed the foundation first'],
+      ['Buying leads from a directory', 'that sells the same lead to three other firms']
+    ],
+    partner: {
+      heading: 'Team Riley Law becomes your marketing department.',
+      body: 'We work with a small number of firms at a time, so you can focus on your caseload instead of trying to become a marketer.'
+    },
+    forYou: {
+      heading: { lead: 'We know ', highlight: 'Law Firms' },
+      body: 'This is built for firms that know their digital presence no longer reflects the quality of the work they do.'
+    },
+    segments: [
+      { label: 'Personal Injury', detail: 'High-intent search, clear case types, and intake that answers before the next firm does.', icon: 'gavel' },
+      { label: 'Family Law', detail: 'Calm, plain-language design for people making a hard decision under stress.', icon: 'users' },
+      { label: 'Estate Planning', detail: 'Reassuring positioning for wills, trusts and the conversations families put off.', icon: 'scroll' },
+      { label: 'Criminal Defense', detail: 'Fast, mobile-first pages for people who need an attorney today, not next week.', icon: 'shield' },
+      { label: 'Business & Employment', detail: 'Credible positioning for owners comparing counsel on substance, not ads.', icon: 'briefcase' },
+      { label: 'Immigration', detail: 'Clear service pages, plain language, and multilingual-ready structure.', icon: 'plane' },
+      { label: 'Real Estate & Closings', detail: 'Local visibility and simple scheduling for high-volume, time-sensitive work.', icon: 'building' },
+      { label: 'Solo & Small Firm', detail: 'A presence that looks established without the overhead of an in-house team.', icon: 'scale' }
+    ],
+    platform: {
+      heading: { lead: 'Grow Your Firm ', highlight: 'On Autopilot' },
+      body: 'More than just a website\u2014get Client Growth AI, a complete intake platform with AI that answers calls, books consultations, and follows up with leads 24/7.',
+      phoneAgent: 'Never miss a call\u2014AI answers, screens for your case types, and books consultations automatically'
+    }
+  },
+  contact: {
+    businessTypes: [
+      { value: 'personal-injury', label: 'Personal Injury' },
+      { value: 'family', label: 'Family Law' },
+      { value: 'estate', label: 'Estate Planning' },
+      { value: 'criminal', label: 'Criminal Defense' },
+      { value: 'business', label: 'Business & Employment' },
+      { value: 'immigration', label: 'Immigration' },
+      { value: 'other', label: 'Other' }
+    ]
+  },
+  sitemap: {
+    homeDescription: 'Professional web design for law firms',
+    portfolioDescription: 'View our law firm website work',
+    portfolioCategories: [
+      { title: 'Litigation', url: '/portfolio#litigation', description: 'Personal injury and criminal defense websites' },
+      { title: 'Family & Estate', url: '/portfolio#family', description: 'Family law and estate planning websites' },
+      { title: 'Business & Transactional', url: '/portfolio#business', description: 'Business and employment law websites' }
+    ]
+  },
+  platform: {
+    description: 'Complete CRM and intake automation platform built for law firms',
+    heroSubtitle:
+      'Everything you need to attract, screen, and sign clients\u2014powered by Client Growth AI that works 24/7 for your firm.',
+    focusLine:
+      'While you focus on your caseload, Client Growth AI handles calls, screens leads, books consultations, and follows up\u2014automatically.',
+    featuresSubtitle: 'Everything you need to run and grow your firm\u2014all in one place',
+    crmBody: 'Track every inquiry and matter in one organized system built for firm intake.',
+    builtFor: { lead: 'Built For ', highlight: 'Law Firms' },
+    builtForSubtitle:
+      'Stop cobbling together different tools. Get everything you need in one platform designed for firms like yours.'
   }
 };

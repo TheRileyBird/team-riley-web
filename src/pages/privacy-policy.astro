@@ -1,10 +1,11 @@
 ---
+import { site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Privacy Policy - Team Riley" description="Team Riley's privacy policy and data protection practices">
+<BaseLayout title={`Privacy Policy - ${site.brandName}`} description={`The ${site.brandName} privacy policy and data protection practices`}>
   <Navigation />
 
   <section class="pt-32 pb-20 md:pb-28 bg-gradient-to-b from-blue-50 to-white">

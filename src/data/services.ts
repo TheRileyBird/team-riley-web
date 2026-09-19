@@ -579,7 +579,7 @@ export const services: Service[] = [
     name: 'Client Growth',
     highlight: 'AI',
     description:
-      'Client Growth AI automation that helps health clinics capture more leads, book more appointments, and grow faster',
+      'Client Growth AI automation that helps your business capture more leads, book more appointments, and grow faster',
     subDescription:
       'Complete business automation · Lead management · Client engagement · Marketing campaigns',
     accent: { top: 'bg-cyan-600' },
@@ -624,7 +624,7 @@ export const services: Service[] = [
         name: 'AI Growth System',
         price: '$297',
         priceUnit: '/month',
-        description: 'For clinics ready to scale',
+        description: 'For businesses ready to scale',
         features: [
           'AI lead responder',
           'Advanced automation',

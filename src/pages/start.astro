@@ -1,4 +1,5 @@
 ---
+import { site } from '../verticals/active';
 import {
   ArrowLeft,
   ArrowRight,
@@ -14,8 +15,8 @@ import getStartedImage from '../assets/images/get-started.png';
 ---
 
 <BaseLayout
-  title="Client Onboarding Questionnaire - Team Riley"
-  description="Start your Team Riley project with a guided onboarding questionnaire."
+  title={`Client Onboarding Questionnaire - ${site.brandName}`}
+  description={`Start your ${site.brandName} project with a guided onboarding questionnaire.`}
   robots="noindex, nofollow"
   socialShareImage={getStartedImage}
   socialShareImageAlt="Client Onboarding Questionnaire - Team Riley"
