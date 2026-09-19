@@ -135,6 +135,10 @@ unchecked task unless you are starting it.
 - [x] Law hero video: add a courthouse/court clip
   Done 2026-09-19: Added law-courtroom.mp4 (Mixkit 46820, a judge's hands on a book beside a gavel - no faces, no verdict
   being read, so it reads as court without implying criminal work). Law now cycles five.
+- [x] Health favicon should be updated to the new logo
+  Done 2026-09-19: Health was still using the old blue "plus" tile from public/favicon.png while law and finance already used
+  their TR+ marks. All three favicons are now generated from that market's logo, trimmed and re-centred so the mark fills the
+  square (it was floating small inside its padding at tab size). public/favicon.png is now unreferenced and can be deleted.
 
 ## Notes
 
