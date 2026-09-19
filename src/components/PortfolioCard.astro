@@ -25,23 +25,29 @@ interface Props {
 
 const { project, color = 'primary' } = Astro.props;
 
+/*
+ * Tag pills sit on a card that is already tinted with the section color, so a tinted
+ * pill fill disappeared into it — measured 1.09:1 between pill and card. A white
+ * fill with a mid-tone outline puts the boundary at 3.5-4:1 (above the 3:1 guidance
+ * for UI boundaries) and keeps the label itself around 7:1.
+ */
 const palette = {
   primary: {
     card: 'bg-primary-50/50 hover:border-primary-400',
     badge: 'bg-primary-600',
-    tag: 'bg-primary-100 text-primary-700',
+    tag: 'bg-white ring-1 ring-primary-500 text-primary-700',
     link: 'text-primary-600 group-hover:text-primary-700 focus-visible:after:ring-primary-500'
   },
   secondary: {
     card: 'bg-secondary-300/[0.08] hover:border-secondary-400',
     badge: 'bg-secondary-500',
-    tag: 'bg-secondary-300/30 text-secondary-700',
+    tag: 'bg-white ring-1 ring-secondary-500 text-secondary-700',
     link: 'text-secondary-600 group-hover:text-secondary-700 focus-visible:after:ring-secondary-500'
   },
   accent: {
     card: 'bg-accent-50/50 hover:border-accent-400',
     badge: 'bg-accent-600',
-    tag: 'bg-accent-100 text-accent-700',
+    tag: 'bg-white ring-1 ring-accent-500 text-accent-700',
     link: 'text-accent-600 group-hover:text-accent-700 focus-visible:after:ring-accent-500'
   }
 }[color];
@@ -80,7 +86,7 @@ const palette = {
     <p class="text-gray-700 mb-4">{project.description}</p>
     <div class="flex flex-wrap gap-2 mb-4">
       {project.tags.map((tag) => (
-        <span class:list={['px-3 py-1 text-sm rounded-full', palette.tag]}>{tag}</span>
+        <span class:list={['px-3 py-1 text-sm font-medium rounded-full', palette.tag]}>{tag}</span>
       ))}
     </div>
     {project.href ? (

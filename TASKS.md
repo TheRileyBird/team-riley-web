@@ -107,3 +107,8 @@ unchecked task unless you are starting it.
   Done 2026-09-19: Added as the first card in the holistic section, with a fresh screenshot of the live site.
   Note: the live site is https://dailywisdomapp.netlify.app - yourdailywisdom.com is an unrelated site (DataLens), so do not
   link that one.
+- [x] Portfolio card tag pills are hard to read against the card background - fine-tune their contrast
+  Done 2026-09-19: Measured it first: the pill fill was 1.09-1.17:1 against the card, which is tinted with the same section
+  color, so the pill shape was effectively invisible (the label text was already fine at 5.5-6.5:1). Pills are now a white
+  fill with a mid-tone outline and medium-weight label: boundary 3.5-4:1 (above the 3:1 guidance for UI boundaries) and
+  label ~7:1. Applies to all three markets, including the concept cards on law and finance.
