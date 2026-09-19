@@ -420,33 +420,29 @@ const faqSections = [
   <Navigation />
 
   {/*
-    The animated shader is this page's background, not a band at the top: the
-    homepage hero carries market footage now, and this is the page a visitor sits
-    on comparing plans. Pinned to the viewport so it drifts under the content as
-    you scroll, behind everything (-z-10), and desktop only — it is a WebGL canvas
-    and a phone pays for it in battery.
-
-    The light sections above it go translucent (see the style block below) so it
-    reads the whole way down; the dark service bands still cover it, which is the
-    alternating rhythm the page already had.
+    The shader backs the top of the page only: the header and the plan cards, which
+    is what a visitor is looking at while it is worth having motion behind them. It
+    is absolutely positioned inside this wrapper rather than fixed to the viewport,
+    so it ends where the plans end. Desktop only — it is a WebGL canvas and a phone
+    pays for it in battery.
   */}
-  <div class="pointer-events-none fixed inset-0 -z-10 hidden lg:block" aria-hidden="true">
-    <ShaderBackground />
-    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(255,255,255,0.74)_45%,rgba(255,255,255,0.86)_100%)]"></div>
-  </div>
+  <div class="relative isolate overflow-hidden bg-gradient-to-b from-primary-50/80 to-white">
+    <div class="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+      <ShaderBackground />
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0.72)_42%,rgba(255,255,255,0.92)_100%)]"></div>
+    </div>
 
-  <div class="pricing-shader-page">
-  <div class="bg-gradient-to-b from-primary-50/80 to-transparent">
-    <PageHeader
-      transparent
-      badge="Simple Pricing"
-      title='<span class="animated-gradient-text">Zero</span> <span class="text-gray-900">Friction</span>'
-      subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
-    />
-  </div>
+    <div class="relative">
+      <PageHeader
+        transparent
+        badge="Simple Pricing"
+        title='<span class="animated-gradient-text">Zero</span> <span class="text-gray-900">Friction</span>'
+        subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
+      />
 
-  <!-- Pricing Section -->
-  <PricingSection showHeader={false} />
+      <PricingSection showHeader={false} />
+    </div>
+  </div>
 
   <!--
     Anchor homes for retired sections. Ongoing SEO is archived, so an old
@@ -515,25 +511,7 @@ const faqSections = [
       </div>
     </div>
   </section>
-  </div>
 
   <Footer />
 
-  <style is:global>
-    /*
-     * Only on this page, and only where the shader actually renders (lg+). The
-     * light section fills go translucent so the canvas behind shows through;
-     * anything dark, and every card, keeps its own solid background so text
-     * contrast is unchanged.
-     */
-    @media (min-width: 1024px) {
-      body:has(.pricing-shader-page) {
-        background-color: transparent;
-      }
-      .pricing-shader-page section.bg-white,
-      .pricing-shader-page section.bg-gray-50 {
-        background-color: rgb(255 255 255 / 0.55);
-      }
-    }
-  </style>
 </BaseLayout>

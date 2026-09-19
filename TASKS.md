@@ -118,3 +118,7 @@ unchecked task unless you are starting it.
   exactly); law and finance override them to light -> mid -> deep gold from their own accent scale. Scoped to the
   infinityGradient definition only: a first pass replaced the same colors in four other gradients on the page by accident
   and was reverted.
+- [x] Pricing page shader background should cover only the first section (Zero Friction header) and the #pricing section, not the whole page
+  Done 2026-09-19: The shader is now absolutely positioned inside a wrapper around the header and PricingSection instead of
+  fixed to the viewport, so it ends where the plan cards end. Removed the page-wide style block that had been dropping every
+  light section to 55% white; sections below the plans are back to their own solid backgrounds.
