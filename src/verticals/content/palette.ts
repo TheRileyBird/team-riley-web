@@ -53,6 +53,9 @@ export const DEFAULT_PALETTE: Palette = {
   // health's sits at 2.08:1 with far more chroma.
   '--c-cta-1': '30 64 175',
   '--c-cta-2': '30 58 138',
+  // Button label. A market whose CTA fill is light enough that white text fails AA on
+  // it (finance's gold sits at 2.8:1 under white) overrides this with its ink.
+  '--c-cta-text': '255 255 255',
   // Dark surfaces: the footer and the alternating dark service bands. Separate from
   // the primary scale because they are near-black with only a hint of the brand hue
   // — health's are Tailwind's slate 900/950, which is why every market's footer was

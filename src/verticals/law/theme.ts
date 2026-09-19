@@ -47,7 +47,10 @@ export const theme: ThemeOverrides = {
   '--c-headline-1': '31 95 191',
   '--c-headline-2': '74 140 224',
   '--c-headline-3': '58 111 196',
-  // Button fill: a saturated step rather than the near-black primary-800.
-  '--c-cta-1': '47 111 208',
-  '--c-cta-2': '31 95 191'
+  // Button fill: brushed steel, the site's silver. The sapphire that fixed the
+  // contrast problem read as a generic tech blue against a navy-and-silver brand.
+  // White text holds at 4.6:1 on the light stop and 7.4:1 on the dark one; the fill
+  // sits at 4.3:1 against the hero video and 4.6:1 against a white section.
+  '--c-cta-1': '107 118 132',
+  '--c-cta-2': '73 80 90'
 };

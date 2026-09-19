@@ -177,6 +177,14 @@ unchecked task unless you are starting it.
   1.2:1 / chroma 36 on law and 1.6:1 / chroma 53 on finance - near-black shapes on a dark hero. Added --c-cta-1/2 tokens:
   health keeps its exact blue, law uses sapphire (4.1:1 vs hero) and finance money green (3.4:1), both still clearing 4.5:1
   for their white labels. Applies to every btn-primary, not just the hero.
+- [x] Finance hero reel: the first clip doesn't feel right, the advisor-and-couple clip should be a man in a suit speaking to a couple (not a woman), and the dashboard-pointing clip and the people-at-the-table clip don't work — find clearer video choices
+  Done 2026-09-19: swapped four of five. Handshake, advisor-and-couple, dashboard and table clips out; a man in a suit talking a client through a laptop, a suited three-person meeting by a window, an overhead calculator-and-charts shot, and a close-up handshake in. No free library I can reach (Mixkit, Coverr; Pexels and Pixabay both 403 headless) has a man in a suit addressing a couple, so the advisor clip is one client, not two.
+- [x] Finance buttons: the green feels too cartoony — try gold buttons instead and see how that feels
+  Done 2026-09-19: gold fill (191 148 74 → 139 104 44) with the site's ink as the label, since white text only reaches 2.8:1 on gold. New --c-cta-text token, default white, so health and law are untouched.
+- [x] Finance home page: the border around the circles in the 'We Built The System' section is still blue, should be gold
+  Done 2026-09-19: the ring was ring-gray-900, and this repo's gray scale is Tailwind slate, so #0f172a sat blue-black on a dark green section. Now ring-ink-950; the step line track and the card borders were the same slate leak and are now white/10.
+- [x] Team Riley Law: the buttons are too blue now
+  Done 2026-09-19: brushed steel (107 118 132 → 73 80 90), the site's silver, instead of sapphire. White text 4.6:1, fill 4.3:1 against the hero and 4.6:1 against a white section.
 
 ## Notes
 

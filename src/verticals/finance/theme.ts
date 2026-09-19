@@ -41,7 +41,11 @@ export const theme: ThemeOverrides = {
   '--c-headline-1': '138 101 41',
   '--c-headline-2': '166 124 52',
   '--c-headline-3': '185 138 47',
-  // Button fill: a saturated step rather than the near-black primary-800.
-  '--c-cta-1': '23 121 74',
-  '--c-cta-2': '18 97 59'
+  // Button fill: gold, not green. The green button read as a flat cartoon block next
+  // to the gold the rest of the site runs on. Gold is light enough that white text
+  // fails AA on it (2.8:1), so the label switches to the site's ink: 6.9:1 on the
+  // light stop, 5.1:1 on the dark one. Against the hero video the fill sits at 7.2:1.
+  '--c-cta-1': '191 148 74',
+  '--c-cta-2': '139 104 44',
+  '--c-cta-text': '5 16 15'
 };

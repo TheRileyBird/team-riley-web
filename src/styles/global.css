@@ -173,7 +173,7 @@
 /* Primary Button - Dark blue gradient */
 .btn-primary {
   background: linear-gradient(to right, rgb(var(--c-cta-1)), rgb(var(--c-cta-2)));
-  color: white;
+  color: rgb(var(--c-cta-text));
   border-radius: 0.75rem;
   padding: 0.875rem 2rem;
   font-size: 1rem;

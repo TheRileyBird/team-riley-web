@@ -5,11 +5,11 @@ import financePlaceholder1 from '../../assets/placeholders/finance-1.jpg';
 import financePlaceholder2 from '../../assets/placeholders/finance-2.jpg';
 import financePlaceholder3 from '../../assets/placeholders/finance-3.jpg';
 import financePlaceholder4 from '../../assets/placeholders/finance-4.jpg';
-import financeAdvisorCouple from '../../assets/videos/finance-advisor-couple.mp4';
-import financeGreeting from '../../assets/videos/finance-greeting-clients.mp4';
+import financeAdvisorClient from '../../assets/videos/finance-advisor-client.mp4';
+import financeStrategyMeeting from '../../assets/videos/finance-strategy-meeting.mp4';
 import financeDesk from '../../assets/videos/finance-advisor-desk.mp4';
-import financeNumbers from '../../assets/videos/finance-explaining-numbers.mp4';
-import financeMeeting from '../../assets/videos/finance-client-meeting.mp4';
+import financeNumbers from '../../assets/videos/finance-running-numbers.mp4';
+import financeHandshake from '../../assets/videos/finance-handshake.mp4';
 import financePoster from '../../assets/videos/finance-poster.jpg';
 import teamRileyLogo from '../../assets/images/team-riley-logo-finance-gold.png';
 import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-finance-gold-on-dark.png';
@@ -58,11 +58,11 @@ export const content: VerticalContent = {
       'Websites, branding and marketing for advisory firms, built with the SEC Marketing Rule in mind.',
     hero: {
       clips: [
-        { src: financeGreeting },
-        { src: financeAdvisorCouple },
+        { src: financeAdvisorClient },
+        { src: financeStrategyMeeting },
         { src: financeDesk },
         { src: financeNumbers },
-        { src: financeMeeting }
+        { src: financeHandshake }
       ],
       poster: financePoster,
       eyebrow: 'Marketing That Compounds',
