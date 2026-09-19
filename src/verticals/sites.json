@@ -14,13 +14,13 @@
   "law": {
     "brandName": "Team Riley Law",
     "domain": "https://team-riley-law.netlify.app",
-    "launchReady": false,
+    "launchReady": true,
     "pages": []
   },
   "finance": {
     "brandName": "Team Riley Finance",
     "domain": "https://team-riley-finance.netlify.app",
-    "launchReady": false,
+    "launchReady": true,
     "pages": []
   }
 }

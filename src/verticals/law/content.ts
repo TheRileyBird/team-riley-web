@@ -1,3 +1,7 @@
+import harborRidgeConcept from '../../assets/concepts/harbor-ridge-law.jpg';
+import lindqvistConcept from '../../assets/concepts/lindqvist-family-law.jpg';
+import bexleyConcept from '../../assets/concepts/bexley-estate-law.jpg';
+import nazarethSite from '../../assets/sites/nazareth.png';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -230,5 +234,88 @@ export const content: VerticalContent = {
     builtFor: { lead: 'Built For ', highlight: 'Law Firms' },
     builtForSubtitle:
       'Stop cobbling together different tools. Get everything you need in one platform designed for firms like yours.'
+  },
+  portfolio: {
+    title: 'Portfolio - Team Riley Law',
+    description: 'Law firm websites and design concepts built to earn trust before the first call',
+    header: {
+      heading: { lead: '', highlight: 'Websites That Get', trail: ' The Call' },
+      subtitle:
+        'Client work and design concepts for firms that want their online presence to match their record.'
+    },
+    sections: [
+      {
+        id: 'litigation',
+        color: 'primary',
+        icon: 'gavel',
+        pill: 'Litigation',
+        heading: 'Injury & Defense Firms',
+        intro:
+          'Fast, mobile-first sites for people who need an attorney today, with intake that answers before the next firm does.',
+        carousel: false,
+        projects: [
+          {
+            name: 'Harbor Ridge Law',
+            badge: 'Personal Injury',
+            image: harborRidgeConcept,
+            imageAlt: 'Harbor Ridge Law concept homepage with a free case review form',
+            description:
+              'A concept for a Gulf Coast injury firm: one clear action above the fold, the fee arrangement stated plainly, and a case review form that works on a phone.',
+            tags: ['Concept Design', 'Intake Form', 'Case Types'],
+            concept: true
+          }
+        ]
+      },
+      {
+        id: 'family',
+        color: 'secondary',
+        icon: 'users',
+        pill: 'Family & Estate',
+        heading: 'Family Law & Estate Planning',
+        intro:
+          'Calm, plain-language design for people making hard decisions, where tone matters as much as information.',
+        carousel: false,
+        projects: [
+          {
+            name: 'Lindqvist Family Law',
+            badge: 'Family Law',
+            image: lindqvistConcept,
+            imageAlt: 'Lindqvist Family Law concept homepage with a consultation form',
+            description:
+              'A concept for a divorce and custody practice: predictable fees stated upfront, mediation positioned honestly, and an evening-appointment note where anxious readers look.',
+            tags: ['Concept Design', 'Flat-Fee Messaging', 'Consultation Booking'],
+            concept: true
+          },
+          {
+            name: 'Bexley Estate Counsel',
+            badge: 'Estate Planning',
+            image: bexleyConcept,
+            imageAlt: 'Bexley Estate Counsel concept homepage for wills and trusts',
+            description:
+              'A concept for a wills and trusts practice: one flat fee, a two-week timeline, and language a family can read without a glossary.',
+            tags: ['Concept Design', 'Flat-Fee Messaging', 'Service Pages'],
+            concept: true
+          }
+        ]
+      }
+    ],
+    feature: {
+      sectionId: 'high-stakes',
+      sectionHeading: 'Authority for High-Stakes Legal Work',
+      sectionIntro:
+        'A focused digital presence for firms whose work sits at the intersection of medicine, injury, and complex litigation.',
+      eyebrow: 'Client Work',
+      name: 'Nazareth Law Firm',
+      subtitle: 'Neil F. Nazareth, Principal Attorney',
+      paragraphs: [
+        'With over two decades of experience, Neil F. Nazareth has dedicated his career to representing victims of mesothelioma and maritime accidents.',
+        'Recognized annually as a Louisiana Super Lawyer since 2013, Neil has secured over $50 million in compensation for individual clients in complex asbestos and maritime litigation cases.'
+      ],
+      tags: ['Mesothelioma', 'Maritime Accidents', 'Asbestos Litigation', '$50M+ Recovered'],
+      image: nazarethSite,
+      imageAlt: 'Nazareth Law Firm website',
+      href: 'https://nazarethlawfirm.com/'
+    },
+    reviews: []
   }
 };

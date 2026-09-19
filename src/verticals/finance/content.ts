@@ -1,3 +1,6 @@
+import northMeridianConcept from '../../assets/concepts/north-meridian-advisors.jpg';
+import cedarPostConcept from '../../assets/concepts/cedar-post-retirement.jpg';
+import aldermanConcept from '../../assets/concepts/alderman-tax-partners.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -229,5 +232,71 @@ export const content: VerticalContent = {
     builtFor: { lead: 'Built For ', highlight: 'Advisory Firms' },
     builtForSubtitle:
       'Stop cobbling together different tools. Get everything you need in one platform designed for firms like yours.'
+  },
+  portfolio: {
+    title: 'Portfolio - Team Riley Finance',
+    description: 'Design concepts for advisory firms: clear, compliant websites that explain the work',
+    header: {
+      heading: { lead: '', highlight: 'Websites That Explain', trail: ' The Work' },
+      subtitle:
+        'Design concepts for advisory firms. These are our own designs, not client sites, and every card says so.'
+    },
+    sections: [
+      {
+        id: 'advisory',
+        color: 'primary',
+        icon: 'line-chart',
+        pill: 'Advisory & Wealth',
+        heading: 'RIAs & Wealth Management',
+        intro:
+          'Concepts for fee-only firms: what you charge, what a client gets for it, and who you serve, stated plainly and without performance claims.',
+        carousel: false,
+        projects: [
+          {
+            name: 'North Meridian Advisors',
+            badge: 'Registered Investment Advisor',
+            image: northMeridianConcept,
+            imageAlt: 'North Meridian Advisors concept homepage for a fee-only RIA',
+            description:
+              'A concept for a fee-only RIA: the fiduciary standard in writing, fees on the homepage, and an introductory call as the only ask. No returns, no testimonials.',
+            tags: ['Concept Design', 'Fee Transparency', 'Meeting Booking'],
+            concept: true
+          }
+        ]
+      },
+      {
+        id: 'planning',
+        color: 'secondary',
+        icon: 'piggy-bank',
+        pill: 'Planning & Tax',
+        heading: 'Retirement, Tax & Planning',
+        intro:
+          'Concepts built around the question a prospect actually arrives with, answered before they are asked to book anything.',
+        carousel: false,
+        projects: [
+          {
+            name: 'Cedar Post Retirement',
+            badge: 'Retirement Planning',
+            image: cedarPostConcept,
+            imageAlt: 'Cedar Post Retirement concept homepage for retirement planning',
+            description:
+              'A concept built on one question: can I retire? Social Security timing, taxes and healthcare framed as the decisions they are, with a checkup as the entry point.',
+            tags: ['Concept Design', 'Question-Led Homepage', 'Checkup Offer'],
+            concept: true
+          },
+          {
+            name: 'Alderman Tax Partners',
+            badge: 'Tax & Accounting',
+            image: aldermanConcept,
+            imageAlt: 'Alderman Tax Partners concept homepage for business tax planning',
+            description:
+              'A concept for an owner-focused tax practice: quarterly planning over April surprises, flat monthly pricing, and a scheduling call instead of a contact form.',
+            tags: ['Concept Design', 'Flat Monthly Pricing', 'Planning Calls'],
+            concept: true
+          }
+        ]
+      }
+    ],
+    reviews: []
   }
 };

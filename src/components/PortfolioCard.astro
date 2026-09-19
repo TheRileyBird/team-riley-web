@@ -1,0 +1,103 @@
+---
+/**
+ * One portfolio card. Extracted from portfolio.astro, which hand-wrote this markup
+ * twelve times and had already drifted between copies (mismatched alt text, a
+ * missing hover state).
+ *
+ * The whole card is clickable: the "View Live Site" link stretches over it with an
+ * ::after overlay, so there is still exactly one real link for keyboard and screen
+ * reader users.
+ *
+ * `concept: true` marks work that is not a client project. It shows a "Concept
+ * project" label and drops the live-site link, because a concept has no live site
+ * and must never read as a client reference. A dist test asserts every non-client
+ * card carries the label.
+ */
+import { ExternalLink } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import type { PortfolioProject } from '../verticals/content/types';
+
+interface Props {
+  project: PortfolioProject;
+  /** Section palette. Matches the section heading and the carousel arrows. */
+  color?: 'primary' | 'secondary' | 'accent';
+}
+
+const { project, color = 'primary' } = Astro.props;
+
+const palette = {
+  primary: {
+    card: 'bg-primary-50/50 hover:border-primary-400',
+    badge: 'bg-primary-600',
+    tag: 'bg-primary-100 text-primary-700',
+    link: 'text-primary-600 group-hover:text-primary-700 focus-visible:after:ring-primary-500'
+  },
+  secondary: {
+    card: 'bg-secondary-300/[0.08] hover:border-secondary-400',
+    badge: 'bg-secondary-500',
+    tag: 'bg-secondary-300/30 text-secondary-700',
+    link: 'text-secondary-600 group-hover:text-secondary-700 focus-visible:after:ring-secondary-500'
+  },
+  accent: {
+    card: 'bg-accent-50/50 hover:border-accent-400',
+    badge: 'bg-accent-600',
+    tag: 'bg-accent-100 text-accent-700',
+    link: 'text-accent-600 group-hover:text-accent-700 focus-visible:after:ring-accent-500'
+  }
+}[color];
+---
+
+<div
+  class:list={[
+    'group relative overflow-hidden rounded-2xl border border-gray-200 transition-all duration-300 hover:shadow-large hover:-translate-y-1.5',
+    palette.card
+  ]}
+>
+  <div class="relative overflow-hidden aspect-video">
+    <Image
+      src={project.image}
+      alt={project.imageAlt}
+      class="w-full h-full object-cover group-hover:brightness-[1.03] group-hover:saturate-[1.05] transition-[filter] duration-300"
+      style={project.imagePosition ? `object-position: ${project.imagePosition}` : undefined}
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-6">
+      <span class:list={['inline-block px-3 py-1 text-white text-sm font-semibold rounded-full mb-3', palette.badge]}>
+        {project.badge}
+      </span>
+      <h3 class="text-2xl leading-[1.65rem] font-bold text-white mb-2">{project.name}</h3>
+    </div>
+    {project.concept && (
+      <span
+        class="absolute right-4 top-4 rounded-full bg-gray-900/85 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
+        data-concept-label
+      >
+        Concept project
+      </span>
+    )}
+  </div>
+  <div class="p-6">
+    <p class="text-gray-700 mb-4">{project.description}</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      {project.tags.map((tag) => (
+        <span class:list={['px-3 py-1 text-sm rounded-full', palette.tag]}>{tag}</span>
+      ))}
+    </div>
+    {project.href ? (
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={[
+          "inline-flex items-center gap-2 font-semibold transition-colors after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:outline-none focus-visible:after:ring-2",
+          palette.link
+        ]}
+      >
+        View Live Site
+        <ExternalLink class="w-4 h-4" />
+      </a>
+    ) : (
+      <p class="text-sm font-semibold text-gray-500">Concept design, not a client project</p>
+    )}
+  </div>
+</div>

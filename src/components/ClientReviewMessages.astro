@@ -21,7 +21,8 @@ const positionedReviews = reviews.map((review, index) => ({
 }));
 ---
 
-<div class="client-review-overlay" aria-label="Client review messages">
+{positionedReviews.length > 0 && (
+<div class="client-review-overlay" aria-label="Client review messages" data-client-review>
   {positionedReviews.map((review, index) => (
     <article
       class:list={[
@@ -35,6 +36,7 @@ const positionedReviews = reviews.map((review, index) => ({
     </article>
   ))}
 </div>
+)}
 
 <script>
   const revealFloatingReviewMessages = () => {

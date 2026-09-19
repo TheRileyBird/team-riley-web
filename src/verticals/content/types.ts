@@ -67,6 +67,60 @@ export interface SitemapEntry {
   description: string;
 }
 
+/**
+ * One piece of work. `href` present = a live client site. `concept: true` = a design
+ * we made to show what we would build, with no client behind it: the card labels it
+ * and drops the live link, so it can never read as a client reference (FTC rules on
+ * endorsements, and the bar/SEC advertising rules in law and finance).
+ */
+export interface PortfolioProject {
+  name: string;
+  badge: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  /** CSS object-position, e.g. "50% 35%". */
+  imagePosition?: string;
+  description: string;
+  tags: string[];
+  href?: string;
+  concept?: true;
+}
+
+export interface PortfolioSection {
+  /** Anchor id; the footer and sitemap link to it. */
+  id: string;
+  color: 'primary' | 'secondary' | 'accent';
+  /** Lucide icon name, resolved in portfolio.astro. */
+  icon: string;
+  pill: string;
+  heading: string;
+  intro: string;
+  /** true = auto-advancing carousel (needs 4+ cards); false = plain grid. */
+  carousel: boolean;
+  projects: PortfolioProject[];
+}
+
+/** The full-width highlight panel under the sections. Omit to hide it. */
+export interface PortfolioFeature {
+  sectionId: string;
+  sectionHeading: string;
+  sectionIntro: string;
+  eyebrow: string;
+  name: string;
+  subtitle: string;
+  paragraphs: string[];
+  tags: string[];
+  image: ImageMetadata;
+  imageAlt: string;
+  href?: string;
+}
+
+/** A short client quote shown floating beside a portfolio section. */
+export interface ClientReview {
+  client: string;
+  text: string;
+}
+
 export interface VerticalContent {
   /** Plain-language name of the market's customer, e.g. "health and wellness businesses". */
   audience: string;
@@ -179,5 +233,17 @@ export interface VerticalContent {
     crmBody: string;
     builtFor: Highlighted;
     builtForSubtitle: string;
+  };
+  portfolio: {
+    title: string;
+    description: string;
+    header: { heading: Highlighted; subtitle: string };
+    sections: PortfolioSection[];
+    feature?: PortfolioFeature;
+    /**
+     * Real quotes from real clients of THIS market. Empty renders nothing: a market
+     * without its own clients never borrows another market's praise.
+     */
+    reviews: ClientReview[];
   };
 }

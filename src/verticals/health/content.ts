@@ -8,6 +8,19 @@ import graceSite from '../../assets/sites/grace.png';
 import life2healthSite from '../../assets/sites/life2health.png';
 import lovemoreSite from '../../assets/sites/lovemore.png';
 import nazarethSite from '../../assets/sites/nazareth.png';
+import dsmMdOffice from '../../assets/images/dsm-md-office.jpg';
+import sleepLab from '../../assets/images/sleep-lab.jpg';
+import virtualExercise from '../../assets/images/virtual-exercise.jpg';
+import supportivTreatment from '../../assets/images/supportiv-treatment.jpg';
+import lovemoreYoga from '../../assets/images/lovemore-yoga.jpg';
+import graceMidwiferyBirth from '../../assets/images/grace-midwifery-birth.jpg';
+import manHiking from '../../assets/images/man-hiking.jpg';
+import domLukeCoaching from '../../assets/images/dom-luke-coaching.jpg';
+import lovittReviewPoster from '../../assets/images/lovitt-review-poster.png';
+import joyWithinBirthMaternity from '../../assets/images/joy-within-birth-maternity.jpg';
+import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
+import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
+import cfcCardSite from '../../assets/sites/cfc.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -256,5 +269,235 @@ export const content: VerticalContent = {
     builtFor: { lead: 'Built For ', highlight: 'Health & Wellness' },
     builtForSubtitle:
       'Stop cobbling together different tools. Get everything you need in one platform designed for practitioners like you.'
+  },
+  portfolio: {
+    title: 'Portfolio - Team Riley',
+    description: 'View our portfolio of health and wellness websites designed to convert visitors into clients',
+    header: {
+      heading: { lead: '', highlight: 'Healthy Websites', trail: ' That Drive Results' },
+      subtitle: 'Explore our portfolio of custom-designed websites built for health and wellness businesses like yours.'
+    },
+    sections: [
+      {
+        id: 'medical',
+        color: 'primary',
+        icon: 'stethoscope',
+        pill: 'Medical & Clinical',
+        heading: 'Healthcare Providers',
+        intro: 'Websites designed for clinical practices, health-adjacent brands, and authority-driven firms that need trust, clarity, and conversion built in.',
+        carousel: true,
+        projects: [
+          {
+            image: genesis360Hvac,
+            imageAlt: 'Genesis360 AeroGuard unit fogging an HVAC evaporator coil',
+            imagePosition: '50% 35%',
+            badge: 'Environmental Health',
+            name: 'Genesis360',
+            description: 'Automated dry fog disinfection systems paired with an EPA-registered botanical disinfectant, built for barns, gyms, and medical spaces.',
+            tags: [
+              'Product Showcase',
+              'Industry Pages',
+              'Lead Generation'
+            ],
+            href: 'https://genesis360.com/'
+          },
+          {
+            image: cfcCardSite,
+            imageAlt: 'CFC Skincare website',
+            imagePosition: '50% 45%',
+            badge: 'Clinical Skincare',
+            name: 'CFC Skincare',
+            description: 'A nurse practitioner-founded skincare system that bridges clinical efficacy and clean beauty with a fast, results-focused routine.',
+            tags: [
+              'Clean Beauty',
+              'Clinical Positioning',
+              'Product Sales'
+            ],
+            href: 'https://www.cfcskincare.shop/'
+          },
+          {
+            image: dsmMdOffice,
+            imageAlt: 'Dental sleep medicine practice',
+            badge: 'Dental Sleep Medicine',
+            name: 'DSM-MD',
+            description: 'Specialized dental sleep medicine website focused on diagnosing and treating sleep-related breathing disorders with custom oral appliances.',
+            tags: [
+              'Patient Education',
+              'Online Booking',
+              'Sleep Assessments'
+            ],
+            href: 'https://dsm-md.com/'
+          },
+          {
+            image: sleepLab,
+            imageAlt: 'Sleep disorders clinic',
+            badge: 'Sleep Clinic',
+            name: 'Sleep Labs',
+            description: 'Comprehensive sleep disorders clinic website featuring diagnostic services, treatment options, and evidence-based medical solutions.',
+            tags: [
+              'Sleep Studies',
+              'Medical Solutions',
+              'Patient Portal'
+            ],
+            href: 'https://sleeplabs.net/'
+          },
+          {
+            image: accbpAssessment,
+            imageAlt: 'Building scientist running a home wellness assessment with thermal imaging',
+            imagePosition: '50% 30%',
+            badge: 'Healthy Homes',
+            name: 'ACC Building Performance',
+            description: 'Building science consulting that diagnoses mold, moisture, air quality, and HVAC problems with in-home wellness assessments.',
+            tags: [
+              'Home Assessments',
+              'Service Pages',
+              'Online Booking'
+            ],
+            href: 'https://www.accbp.com/'
+          }
+        ]
+      },
+      {
+        id: 'physical',
+        color: 'secondary',
+        icon: 'dumbbell',
+        pill: 'Physical Wellness',
+        heading: 'Fitness & Body Health',
+        intro: 'Websites for fitness centers, IV therapy clinics, and physical wellness providers that energize and convert.',
+        carousel: false,
+        projects: [
+          {
+            image: virtualExercise,
+            imageAlt: 'Virtual exercise program',
+            badge: 'Virtual Fitness',
+            name: 'Lovitt Life',
+            description: 'A dynamic virtual exercise platform designed specifically for men, featuring personalized workout programs and online coaching.',
+            tags: [
+              'Video Training',
+              'Membership',
+              'Progress Tracking'
+            ],
+            href: 'https://lovittlife.com/'
+          },
+          {
+            image: supportivTreatment,
+            imageAlt: 'IV therapy and wellness services',
+            imagePosition: '50% 15%',
+            badge: 'IV Therapy',
+            name: 'SupportIV',
+            description: 'IV vitamin therapy and beauty services clinic featuring treatment catalogs, online booking, and wellness packages.',
+            tags: [
+              'IV Treatments',
+              'Beauty Services',
+              'Online Booking'
+            ],
+            href: 'https://supportivwellness.com/'
+          },
+          {
+            image: lovemoreYoga,
+            imageAlt: 'Yoga class and wellness center',
+            imagePosition: '50% 55%',
+            badge: 'Yoga & Wellness',
+            name: 'Love More Yoga',
+            description: 'A serene yoga and wellness center website featuring class schedules, instructor profiles, and mindful living resources.',
+            tags: [
+              'Class Schedules',
+              'Memberships',
+              'Wellness Blog'
+            ],
+            href: 'https://lovemoremcc.com/'
+          }
+        ]
+      },
+      {
+        id: 'holistic',
+        color: 'accent',
+        icon: 'sparkles',
+        pill: 'Holistic & Emotional',
+        heading: 'Mind, Body & Spirit',
+        intro: 'Calming, thoughtfully designed websites for wellness coaches, doulas, and holistic health practitioners.',
+        carousel: true,
+        projects: [
+          {
+            image: joyWithinBirthMaternity,
+            imageAlt: 'Expectant mother cradling her belly in a summer field',
+            imagePosition: '50% 40%',
+            badge: 'Childbirth Education',
+            name: 'Joy Within Birth',
+            description: 'Faith-centered natural childbirth course led by a second-generation midwife, with a self-paced curriculum and a private community.',
+            tags: [
+              'Online Course',
+              'Course Enrollment',
+              'Free Resources'
+            ],
+            href: 'https://www.joywithinbirth.com/'
+          },
+          {
+            image: graceMidwiferyBirth,
+            imageAlt: 'Midwives with a new mother holding her newborn after a home birth',
+            imagePosition: '50% 18%',
+            badge: 'Doula Services',
+            name: 'Grace Midwifery Collective',
+            description: 'Compassionate doula and midwifery website providing birth support information, service packages, and client testimonials.',
+            tags: [
+              'Birth Support',
+              'Service Packages',
+              'Client Stories'
+            ],
+            href: 'https://gracemidwiferycollective.com/'
+          },
+          {
+            image: domLukeCoaching,
+            imageAlt: 'Holistic business coaching',
+            imagePosition: '50% 45%',
+            badge: 'Holistic Business Coach',
+            name: 'Dom Luke',
+            description: 'Holistic business coaching website integrating mindfulness and wellness principles with entrepreneurial success strategies.',
+            tags: [
+              'Business Strategy',
+              'Mindful Leadership',
+              '1-on-1 Coaching'
+            ],
+            href: 'https://domluke.com/'
+          },
+          {
+            image: manHiking,
+            imageAlt: 'Men\'s coaching and development',
+            badge: 'Men\'s Coaching',
+            name: 'Masculine Confidence Framework',
+            description: 'Empowering men\'s coaching website focused on confidence building, personal development, and transformational programs.',
+            tags: [
+              'Coaching Programs',
+              'Personal Growth',
+              'Community'
+            ],
+            href: 'https://masculineconfidenceframework.com/'
+          }
+        ]
+      }
+    ],
+    feature: {
+      sectionId: 'medical-legal',
+      sectionHeading: 'Authority for High-Stakes Legal Work',
+      sectionIntro:
+        'A focused digital presence for firms whose work sits at the intersection of medicine, injury, and complex litigation.',
+      eyebrow: 'Legal Advocacy',
+      name: 'Nazareth Law Firm',
+      subtitle: 'Neil F. Nazareth, Principal Attorney',
+      paragraphs: [
+        'With over two decades of experience, Neil F. Nazareth has dedicated his career to representing victims of mesothelioma and maritime accidents.',
+        'Recognized annually as a Louisiana Super Lawyer since 2013, Neil has secured over $50 million in compensation for individual clients in complex asbestos and maritime litigation cases.'
+      ],
+      tags: ['Mesothelioma', 'Maritime Accidents', 'Asbestos Litigation', '$50M+ Recovered'],
+      image: nazarethSite,
+      imageAlt: 'Nazareth Law Firm website',
+      href: 'https://nazarethlawfirm.com/'
+    },
+    reviews: [
+      { client: 'CFC-Skincare', text: 'You are life changing 😂' },
+      { client: 'Grace Midwifery', text: 'It really looks good, thank you for making this so easy for us.' },
+      { client: 'DSM-MD', text: ' Everything looks amazing.' },
+      { client: 'Love More Yoga', text: 'Dude, the website looks so awesome. Great work.' }
+    ]
   }
 };
