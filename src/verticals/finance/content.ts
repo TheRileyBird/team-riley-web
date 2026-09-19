@@ -29,6 +29,7 @@ import type { VerticalContent } from '../content/types';
  *    nothing here can read as a client reference.
  */
 export const content: VerticalContent = {
+  furniture: { iconTile: 'from-accent-500 to-accent-600', badge: 'from-accent-600 to-accent-700' },
   audience: 'financial advisors',
   logo: teamRileyLogo,
   favicon,

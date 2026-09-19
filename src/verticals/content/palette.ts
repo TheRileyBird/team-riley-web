@@ -51,6 +51,7 @@ export const DEFAULT_PALETTE: Palette = {
   // the primary scale because they are near-black with only a hint of the brand hue
   // — health's are Tailwind's slate 900/950, which is why every market's footer was
   // the same blue-black before these existed.
+  '--c-ink-800': '30 41 59',
   '--c-ink-900': '15 23 42',
   '--c-ink-950': '2 6 23',
   // The three stops of the "Unlimited Updates" infinity animation, which cycles

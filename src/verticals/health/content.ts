@@ -39,6 +39,7 @@ import type { VerticalContent } from '../content/types';
  * the page it came from, so the built health site is unchanged by the extraction.
  */
 export const content: VerticalContent = {
+  furniture: { iconTile: 'from-primary-600 to-primary-700', badge: 'from-primary-700 to-primary-800' },
   audience: 'health and wellness businesses',
   logo: teamRileyLogo,
   favicon,

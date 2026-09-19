@@ -1,19 +1,19 @@
 import type { ThemeOverrides } from '../content/theme';
 
-/** Evergreen & Gold: evergreen primary, brass accent. The warm half of the metal split that keeps finance and law apart. Worst white-text contrast on a 600/700 shade: 5.1:1. */
+/** Money Green & Gold: a classic money green rather than the dark teal it started as, so the lighter steps read green instead of grey-teal, with the brass accent kept. Worst white-text contrast on a 600/700 shade: 4.5:1. */
 export const theme: ThemeOverrides = {
-  '--c-primary-50': '236 243 242',
-  '--c-primary-100': '217 230 229',
-  '--c-primary-200': '199 218 216',
-  '--c-primary-300': '133 174 170',
-  '--c-primary-400': '76 136 131',
-  '--c-primary-500': '20 99 92',
-  '--c-primary-600': '17 83 77',
-  '--c-primary-700': '14 67 63',
-  '--c-primary-800': '11 53 50',
-  '--c-primary-900': '8 42 39',
-  '--c-primary-950': '6 28 26',
-  '--c-primary-1000': '4 18 17',
+  '--c-primary-50': '236 244 241',
+  '--c-primary-100': '218 234 226',
+  '--c-primary-200': '199 223 212',
+  '--c-primary-300': '134 185 161',
+  '--c-primary-400': '79 153 117',
+  '--c-primary-500': '23 121 74',
+  '--c-primary-600': '19 102 62',
+  '--c-primary-700': '16 82 50',
+  '--c-primary-800': '12 65 40',
+  '--c-primary-900': '10 51 31',
+  '--c-primary-950': '6 34 21',
+  '--c-primary-1000': '4 22 13',
   '--c-accent-50': '248 245 239',
   '--c-accent-100': '241 234 223',
   '--c-accent-200': '234 224 206',
@@ -22,23 +22,23 @@ export const theme: ThemeOverrides = {
   '--c-accent-500': '166 124 52',
   '--c-accent-600': '139 104 44',
   '--c-accent-700': '113 84 35',
-  '--c-secondary-300': '154 186 180',
-  '--c-secondary-400': '107 154 146',
-  '--c-secondary-500': '60 122 111',
-  '--c-secondary-600': '50 102 93',
-  '--c-secondary-700': '41 83 75',
-  '--c-ink-900': '11 33 40',
-  '--c-ink-950': '5 14 17',
+  '--c-secondary-300': '150 206 178',
+  '--c-secondary-400': '101 183 142',
+  '--c-secondary-500': '53 160 106',
+  '--c-secondary-600': '45 134 89',
+  '--c-secondary-700': '36 109 72',
+  '--c-ink-800': '24 76 72',
+  '--c-ink-900': '12 38 36',
+  '--c-ink-950': '5 16 15',
   '--c-infinity-1': '187 155 101',
   '--c-infinity-2': '166 124 52',
   '--c-infinity-3': '113 84 35',
-  '--c-hero-line': '44 115 108',
-  '--c-hero-edge-left': '133 174 170',
+  '--c-hero-line': '46 134 92',
+  '--c-hero-edge-left': '134 185 161',
   '--c-hero-edge-right': '209 187 149',
-  // Headline gradient: primary-500, accent-500, secondary-500 instead of the default primary-800 start,
-  // which in this palette is near-black (16.5:1 on white for law, 13.4:1 for finance)
-  // and made the animated text read as flat black.
-  '--c-headline-1': '20 99 92',
+  // Headline gradient: all golds. Green stops made the animated text read as another
+  // green heading rather than the site's warm accent. Contrast on white 5.3 / 3.8 / 3.1.
+  '--c-headline-1': '138 101 41',
   '--c-headline-2': '166 124 52',
-  '--c-headline-3': '60 122 111'
+  '--c-headline-3': '185 138 47'
 };

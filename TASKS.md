@@ -159,6 +159,19 @@ unchecked task unless you are starting it.
   because at background-size 300% only a third of the gradient is on screen at a time, so most frames still landed on a grey
   stop. All three stops are now saturated blues (chroma 138-160, contrast 6.1 / 3.4 / 4.9 on white). Silver remains the site's
   accent - logo, buttons, dark surfaces - so law still reads navy-and-silver overall while the headline carries blue.
+- [x] Finance animated headline gradient should be golds and yellows, not green
+  Done 2026-09-19: All three headline stops are golds now (5.3 / 3.8 / 3.1 on white).
+- [x] Finance: the numbered step cards in the "We build the system, then keep it moving" section should be more green than blue
+  Done 2026-09-19: Those cards were Tailwind slate (blue-tinted grey). Added an --c-ink-800 token so they follow the market:
+  health keeps the exact old value (30 41 59 = gray-800), finance is dark green, law dark navy.
+- [x] Finance: the icon tile backgrounds in the Remarkable Features section could be gold
+  Done 2026-09-19: Added a content.furniture block (iconTile, badge) so this is a per-market brand call rather than a
+  hardcoded primary; finance uses accent gold, health and law keep primary.
+- [x] Finance: the "Included Forever" pill above the infinity symbol could be gold
+  Done 2026-09-19: Same furniture block; the pill is gold on finance. The infinity itself was already gold.
+- [x] Finance palette: hint at a more typical money green instead of only the very dark green, and include some lighter greens
+  Done 2026-09-19: Primary moved from #14635c (dark teal-green) to #17794a, a money green, with a lighter green secondary
+  (#35a06a). The lighter scale steps now read green rather than grey-teal - primary-300 is 134 185 161.
 
 ## Notes
 

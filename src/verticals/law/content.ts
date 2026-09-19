@@ -28,6 +28,7 @@ import type { VerticalContent } from '../content/types';
  *  - Say what the work is, not what it will win.
  */
 export const content: VerticalContent = {
+  furniture: { iconTile: 'from-primary-600 to-primary-700', badge: 'from-primary-700 to-primary-800' },
   audience: 'law firms',
   logo: teamRileyLogo,
   favicon,

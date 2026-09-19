@@ -38,6 +38,7 @@ export default {
           700: 'rgb(var(--c-secondary-700) / <alpha-value>)'
         },
         ink: {
+          800: 'rgb(var(--c-ink-800) / <alpha-value>)',
           900: 'rgb(var(--c-ink-900) / <alpha-value>)',
           950: 'rgb(var(--c-ink-950) / <alpha-value>)'
         },

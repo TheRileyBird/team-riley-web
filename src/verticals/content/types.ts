@@ -131,7 +131,20 @@ export interface ClientReview {
   text: string;
 }
 
+/**
+ * Small pieces of chrome whose colour is a brand call rather than a layout one:
+ * which scale the feature icon tiles and the "Included Forever" badge draw from.
+ * Tailwind gradient class pairs, so they must be written out in full for the
+ * scanner to keep them.
+ */
+export interface Furniture {
+  iconTile: string;
+  badge: string;
+}
+
 export interface VerticalContent {
+  /** Colour of the small chrome pieces; see Furniture. */
+  furniture: Furniture;
   /** Plain-language name of the market's customer, e.g. "health and wellness businesses". */
   audience: string;
   /** The TR mark in this market's colors; health's is the original blue. */

@@ -27,6 +27,7 @@ export const theme: ThemeOverrides = {
   '--c-secondary-500': '74 95 122',
   '--c-secondary-600': '62 80 102',
   '--c-secondary-700': '50 65 83',
+  '--c-ink-800': '28 48 84',
   '--c-ink-900': '14 24 42',
   '--c-ink-950': '6 10 18',
   '--c-infinity-1': '143 151 162',
