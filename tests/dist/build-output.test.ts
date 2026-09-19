@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { readdirSync } from 'node:fs';
 import { sites, VERTICAL_IDS } from '../../src/verticals/index';
+import { content } from '../../src/verticals/content/loader';
 import { attributeValues, distUnderTest, htmlPages } from './helpers';
 
 const { vertical, site, dir, startedAt } = distUnderTest();
@@ -87,6 +89,16 @@ describe(`${vertical} build in ${dir}/`, () => {
       expect(form!.html, `${path}: form is missing the hidden vertical field`).toContain(
         `<input type="hidden" name="vertical" value="${vertical}"`
       );
+    }
+  });
+
+  it('ships only this market hero clips', () => {
+    const assets = readdirSync(join(dir, '_astro'));
+    const videos = assets.filter((file) => file.endsWith('.mp4'));
+    expect(videos.length, `videos in ${dir}/_astro`).toBe(content[vertical].home.hero.clips.length);
+    for (const other of VERTICAL_IDS.filter((id) => id !== vertical)) {
+      const strays = videos.filter((file) => file.startsWith(`${other}-`));
+      expect(strays, `${other} footage in the ${vertical} build`).toEqual([]);
     }
   });
 });

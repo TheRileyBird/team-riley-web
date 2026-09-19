@@ -6,6 +6,11 @@ import lawPlaceholder1 from '../../assets/placeholders/law-1.jpg';
 import lawPlaceholder2 from '../../assets/placeholders/law-2.jpg';
 import lawPlaceholder3 from '../../assets/placeholders/law-3.jpg';
 import lawPlaceholder4 from '../../assets/placeholders/law-4.jpg';
+import lawSigning from '../../assets/videos/law-signing-contract.mp4';
+import lawDocuments from '../../assets/videos/law-reviewing-documents.mp4';
+import lawHandshake from '../../assets/videos/law-handshake.mp4';
+import lawBoardroom from '../../assets/videos/law-boardroom-presentation.mp4';
+import lawPoster from '../../assets/videos/law-poster.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -43,6 +48,13 @@ export const content: VerticalContent = {
     description:
       'Websites, branding and marketing built for law firms, with bar advertising rules in mind.',
     hero: {
+      clips: [
+        { src: lawSigning },
+        { src: lawDocuments },
+        { src: lawHandshake },
+        { src: lawBoardroom }
+      ],
+      poster: lawPoster,
       eyebrow: 'Built For Law Firms',
       heading: { lead: 'Better brands. Better websites. ', highlight: 'More signed clients.' },
       subtitle:

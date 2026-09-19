@@ -4,6 +4,11 @@ const { hero, visibility, problem, process, features, clientLogos, clientLogosLa
 // The gallery is two staggered columns; fewer than six screenshots would visibly
 // repeat, so a market without enough work shows the copy full-width instead.
 const showGallery = showcase.length >= 6;
+// Footage when the market has it, the shader when it does not. The two treatments
+// need opposite text colors, so the hero switches palette rather than washing the
+// video out until dark text reads on it.
+const heroClips = hero.clips ?? [];
+const hasHeroVideo = heroClips.length > 0 && Boolean(hero.poster);
 const galleryColumns = showGallery
   ? [showcase.filter((_, index) => index % 2 === 0), showcase.filter((_, index) => index % 2 === 1)]
   : [];
@@ -13,7 +18,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PricingSection from '../components/PricingSection.astro';
-import ShaderBackground from '@/components/ui/ShaderBackground.astro';
+import HeroVideo from '../components/HeroVideo.astro';
 import { Image } from 'astro:assets';
 import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Rocket, DollarSign } from '@lucide/astro';
 ---
@@ -22,28 +27,66 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
   <Navigation />
 
   <!-- Hero Section -->
-  <section data-no-reveal class="relative min-h-[680px] overflow-hidden bg-white pt-28 pb-20 md:min-h-[760px] md:pt-36 md:pb-32 lg:bg-slate-50">
-    <div class="hidden lg:block">
-      <ShaderBackground />
-    </div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.92)_42%,rgb(var(--c-primary-100)_/_0.6)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_34%,rgb(var(--c-primary-100)_/_0.74)_70%,rgb(var(--c-secondary-300)_/_0.5)_100%)] lg:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
-    <div class="absolute -left-36 top-12 hidden h-96 w-96 rounded-full bg-primary-300/45 blur-3xl md:block lg:hidden"></div>
-    <div class="absolute -right-36 bottom-0 hidden h-[28rem] w-[28rem] rounded-full bg-secondary-300/35 blur-3xl md:block lg:hidden"></div>
-    <div class="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(135deg,rgb(var(--c-primary-100)_/_0.88),rgba(255,255,255,0.7)_48%,rgb(var(--c-accent-100)_/_0.6))] md:hidden"></div>
-    <div class="absolute -left-20 top-28 h-56 w-56 rounded-full bg-primary-200/45 blur-3xl md:hidden"></div>
-    <div class="absolute -right-24 bottom-16 h-64 w-64 rounded-full bg-accent-200/55 blur-3xl md:hidden"></div>
+  <section
+    data-no-reveal
+    class:list={[
+      'relative min-h-[680px] overflow-hidden pt-28 pb-20 md:min-h-[760px] md:pt-36 md:pb-32',
+      hasHeroVideo ? 'bg-gray-950' : 'bg-white lg:bg-slate-50'
+    ]}
+  >
+    {hasHeroVideo ? (
+      <HeroVideo
+        clips={heroClips}
+        poster={hero.poster!}
+        overlayClass="bg-[linear-gradient(180deg,rgb(var(--c-primary-1000)_/_0.78)_0%,rgb(var(--c-primary-900)_/_0.62)_45%,rgb(var(--c-primary-1000)_/_0.82)_100%)]"
+      />
+    ) : (
+      <Fragment>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.92)_42%,rgb(var(--c-primary-100)_/_0.6)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_34%,rgb(var(--c-primary-100)_/_0.74)_70%,rgb(var(--c-secondary-300)_/_0.5)_100%)] lg:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.86)_30%,rgba(255,255,255,0.18)_64%,rgba(255,255,255,0)_100%)]"></div>
+        <div class="absolute -left-36 top-12 hidden h-96 w-96 rounded-full bg-primary-300/45 blur-3xl md:block lg:hidden"></div>
+        <div class="absolute -right-36 bottom-0 hidden h-[28rem] w-[28rem] rounded-full bg-secondary-300/35 blur-3xl md:block lg:hidden"></div>
+        <div class="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(135deg,rgb(var(--c-primary-100)_/_0.88),rgba(255,255,255,0.7)_48%,rgb(var(--c-accent-100)_/_0.6))] md:hidden"></div>
+        <div class="absolute -left-20 top-28 h-56 w-56 rounded-full bg-primary-200/45 blur-3xl md:hidden"></div>
+        <div class="absolute -right-24 bottom-16 h-64 w-64 rounded-full bg-accent-200/55 blur-3xl md:hidden"></div>
+      </Fragment>
+    )}
 
     <div class="relative z-10 mx-auto flex min-h-[520px] max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 md:min-h-[560px] lg:px-8">
-      <div class="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/90 px-4 py-2 shadow-soft backdrop-blur-md">
-        <span class="text-xs font-semibold uppercase tracking-wider leading-snug text-primary-800 sm:text-sm">{hero.eyebrow}</span>
+      <div
+        class:list={[
+          'inline-flex items-center gap-2 rounded-full px-4 py-2 shadow-soft backdrop-blur-md',
+          hasHeroVideo ? 'border border-white/25 bg-white/10' : 'border border-primary-200 bg-white/90'
+        ]}
+      >
+        <span
+          class:list={[
+            'text-xs font-semibold uppercase tracking-wider leading-snug sm:text-sm',
+            hasHeroVideo ? 'text-white' : 'text-primary-800'
+          ]}
+        >{hero.eyebrow}</span>
       </div>
 
-      <h1 class="mt-7 text-balance text-5xl uppercase font-bold leading-[0.95] text-gray-950 sm:text-6xl md:mt-8 lg:text-7xl xl:text-8xl">
+      <h1
+        class:list={[
+          'mt-7 text-balance text-5xl uppercase font-bold leading-[0.95] sm:text-6xl md:mt-8 lg:text-7xl xl:text-8xl',
+          hasHeroVideo ? 'text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.45)]' : 'text-gray-950'
+        ]}
+      >
         <span>{hero.heading.lead}</span>
-        <span class="animated-gradient-text block md:inline">{hero.heading.highlight}</span>
+        <span
+          class:list={[
+            'block md:inline',
+            hasHeroVideo ? 'animated-gradient-text-bright' : 'animated-gradient-text'
+          ]}
+        >{hero.heading.highlight}</span>
       </h1>
 
-      <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-slate-600 md:text-xl">
+      <p
+        class:list={[
+          'mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed md:text-xl',
+          hasHeroVideo ? 'text-gray-100' : 'text-slate-600'
+        ]}
+      >
         {hero.subtitle}
       </p>
 

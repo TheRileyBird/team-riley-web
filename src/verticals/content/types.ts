@@ -37,6 +37,16 @@ export interface ShowcaseImage {
   alt: string;
 }
 
+/**
+ * One shot in the homepage hero reel. `src` is an imported .mp4 (a URL string after
+ * Astro processes it), so only the market being built ships its own footage.
+ */
+export interface HeroClip {
+  src: string;
+  /** CSS object-position when the subject is off-centre, e.g. "50% 30%". */
+  objectPosition?: string;
+}
+
 /** A client logo in the homepage marquee. Empty list hides the whole strip. */
 export interface ClientLogo {
   name: string;
@@ -143,6 +153,13 @@ export interface VerticalContent {
       eyebrow: string;
       heading: Highlighted;
       subtitle: string;
+      /**
+       * Hero footage, in order. Two or more clips crossfade like a commercial; an
+       * empty list falls back to the shader background.
+       */
+      clips: HeroClip[];
+      /** First frame, shown before any video is ready. Required when clips exist. */
+      poster?: ImageMetadata;
     };
     visibility: {
       eyebrow: string;

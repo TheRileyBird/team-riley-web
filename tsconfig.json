@@ -3,7 +3,18 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ],
+      "@active/content": [
+        "verticals/health/content.ts"
+      ],
+      "@active/theme": [
+        "verticals/health/theme.ts"
+      ],
+      "@active/pricing": [
+        "verticals/health/pricing.ts"
+      ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

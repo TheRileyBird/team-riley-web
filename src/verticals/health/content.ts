@@ -21,6 +21,11 @@ import joyWithinBirthMaternity from '../../assets/images/joy-within-birth-matern
 import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
 import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
 import cfcCardSite from '../../assets/sites/cfc.jpg';
+import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
+import healthMeditation from '../../assets/videos/health-meditation-sunset.mp4';
+import healthGroupYoga from '../../assets/videos/health-group-yoga.mp4';
+import healthDoctor from '../../assets/videos/health-doctor-visit.mp4';
+import healthPoster from '../../assets/videos/health-poster.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -52,6 +57,13 @@ export const content: VerticalContent = {
     description:
       'Team Riley Web - Digital Health For Your Business',
     hero: {
+      clips: [
+        { src: healthYoga },
+        { src: healthDoctor },
+        { src: healthGroupYoga },
+        { src: healthMeditation }
+      ],
+      poster: healthPoster,
       eyebrow: 'Digital Health For Your Business',
       heading: { lead: 'Better brands. Better websites. ', highlight: 'More clients.' },
       subtitle:

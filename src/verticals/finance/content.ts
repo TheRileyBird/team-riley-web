@@ -5,6 +5,11 @@ import financePlaceholder1 from '../../assets/placeholders/finance-1.jpg';
 import financePlaceholder2 from '../../assets/placeholders/finance-2.jpg';
 import financePlaceholder3 from '../../assets/placeholders/finance-3.jpg';
 import financePlaceholder4 from '../../assets/placeholders/finance-4.jpg';
+import financeGreeting from '../../assets/videos/finance-greeting-clients.mp4';
+import financeDesk from '../../assets/videos/finance-advisor-desk.mp4';
+import financeNumbers from '../../assets/videos/finance-explaining-numbers.mp4';
+import financeMeeting from '../../assets/videos/finance-client-meeting.mp4';
+import financePoster from '../../assets/videos/finance-poster.jpg';
 import type { VerticalContent } from '../content/types';
 
 /**
@@ -44,6 +49,13 @@ export const content: VerticalContent = {
     description:
       'Websites, branding and marketing for advisory firms, built with the SEC Marketing Rule in mind.',
     hero: {
+      clips: [
+        { src: financeGreeting },
+        { src: financeDesk },
+        { src: financeNumbers },
+        { src: financeMeeting }
+      ],
+      poster: financePoster,
       eyebrow: 'Built For Financial Advisors',
       heading: { lead: 'Better brands. Better websites. ', highlight: 'More qualified prospects.' },
       subtitle:

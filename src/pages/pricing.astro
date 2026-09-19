@@ -3,6 +3,7 @@ import { content, services, site } from '../verticals/active';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
+import ShaderBackground from '@/components/ui/ShaderBackground.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from '../components/PricingSection.astro';
 import ServiceColumnSection from '../components/ServiceColumnSection.astro';
@@ -418,11 +419,25 @@ const faqSections = [
 <BaseLayout title={`Pricing - ${site.brandName}`} description="Simple, transparent pricing for professional web design and development services">
   <Navigation />
 
-  <PageHeader
-    badge="Simple Pricing"
-    title='<span class="animated-gradient-text">Zero</span> <span class="text-gray-900">Friction</span>'
-    subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
-  />
+  {/*
+    The animated shader lives here now: the homepage hero carries market footage,
+    and this page is where a visitor lingers, comparing plans. Desktop only — it is
+    a WebGL canvas, and phones pay for it in battery for a background.
+  */}
+  <div class="relative isolate overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+    <div class="pointer-events-none absolute inset-0 hidden lg:block">
+      <ShaderBackground />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.97)_0%,rgba(255,255,255,0.88)_38%,rgba(255,255,255,0.35)_72%,rgba(255,255,255,0)_100%)]"></div>
+    </div>
+    <div class="relative">
+      <PageHeader
+        transparent
+        badge="Simple Pricing"
+        title='<span class="animated-gradient-text">Zero</span> <span class="text-gray-900">Friction</span>'
+        subtitle="All plans include unlimited updates, ongoing support, and no hidden fees. Cancel anytime."
+      />
+    </div>
+  </div>
 
   <!-- Pricing Section -->
   <PricingSection showHeader={false} />

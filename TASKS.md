@@ -65,3 +65,16 @@ unchecked task unless you are starting it.
   (src/assets/placeholders/), and filled each showcase: law = Nazareth + 3 concepts + 4 placeholders, finance = 3 concepts
   + 4 placeholders. Layout is unchanged; the placeholders are deliberately generic (no firm name, no readable copy) so they
   cannot read as client work, and their alt text says placeholder. Drop them as real sites ship.
+- [x] Home hero: use video like the Secure Logic home hero - multiple relevant clips per market that reflect that vertical and feel like a nice commercial
+  Done 2026-09-19: New HeroVideo.astro, modelled on Secure Logic's hero: stacked <video> layers that crossfade, each clip
+  holding for its own duration so none loops on screen, next clip warmed one ahead, paused on a hidden tab, and still on
+  prefers-reduced-motion. 4 clips per market sourced from Mixkit (free commercial license), trimmed to 8s / 720p / no audio,
+  ~350KB each: law = contract signing, documents, handshake, boardroom; finance = greeting clients, advisor desk,
+  explaining numbers, client meeting; health = yoga deck, doctor visit, group yoga, meditation. Hero switches to a dark
+  overlay with white type when footage exists, and falls back to the shader when a market has no clips. Also fixed: all
+  three markets' videos were landing in every build (35MB of _astro), so @active/* aliases now bundle only the market
+  being built; a dist test enforces it.
+- [x] Move the shader hero background to the pricing page (keep the shader, just relocate it)
+  Done 2026-09-19: ShaderBackground moved off the homepage hero (which now carries footage) to the /pricing page header,
+  desktop only. PageHeader gained a `transparent` prop so the shader shows through instead of being covered by the
+  header's own gradient.

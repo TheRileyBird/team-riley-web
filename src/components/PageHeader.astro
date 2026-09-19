@@ -1,5 +1,7 @@
 ---
 interface Props {
+  /** true = no background of its own, so whatever sits behind it shows through. */
+  transparent?: boolean;
   badge?: string;
   title: string;
   subtitle: string;
@@ -8,6 +10,7 @@ interface Props {
 }
 
 const {
+  transparent = false,
   badge,
   title,
   subtitle,
@@ -18,7 +21,12 @@ const {
 import { ArrowRight } from '@lucide/astro';
 ---
 
-<section class="relative pt-20 pb-12 md:pt-24 md:pb-16 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+<section
+  class:list={[
+    'relative pt-20 pb-12 md:pt-24 md:pb-16 overflow-hidden',
+    transparent ? 'bg-transparent' : 'bg-gradient-to-b from-blue-50 to-white'
+  ]}
+>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto text-center space-y-6">
       {badge && (

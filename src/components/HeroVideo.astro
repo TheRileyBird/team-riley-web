@@ -1,0 +1,148 @@
+---
+/**
+ * Crossfading hero footage: several short clips that dissolve into each other, the
+ * way a commercial cuts between shots.
+ *
+ *   slide 0  poster + preload="auto"   paints before any video is ready
+ *   slide n  preload="none"            warmed one ahead of its turn
+ *
+ * Each clip holds for its own duration (minus the crossfade) rather than a fixed
+ * interval, so a short clip never loops visibly on screen and a long one is cut at
+ * a sensible point. With prefers-reduced-motion the first frame stays put and
+ * nothing plays or rotates.
+ *
+ * Markets without footage don't render this at all — the homepage falls back to the
+ * shader background (see index.astro).
+ */
+import { Image } from 'astro:assets';
+import type { HeroClip } from '../verticals/content/types';
+
+interface Props {
+  clips: HeroClip[];
+  poster: ImageMetadata;
+  /** Tailwind classes for the tint over the footage; keeps hero text readable. */
+  overlayClass?: string;
+}
+
+const { clips, poster, overlayClass = 'bg-gray-950/55' } = Astro.props;
+---
+
+<div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+  {clips.map((clip, index) => (
+    <video
+      class:list={[
+        'absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out',
+        index === 0 ? 'opacity-100' : 'opacity-0'
+      ]}
+      style={clip.objectPosition ? `object-position: ${clip.objectPosition}` : undefined}
+      src={clip.src}
+      poster={index === 0 ? poster.src : undefined}
+      autoplay={index === 0}
+      muted
+      loop
+      playsinline
+      preload={index === 0 ? 'auto' : 'none'}
+      data-hero-slide={index}
+    ></video>
+  ))}
+  <div class:list={['absolute inset-0', overlayClass]}></div>
+</div>
+
+{/* Paints while JS boots and is all a reduced-motion or no-JS visitor ever sees. */}
+<noscript>
+  <div class="absolute inset-0">
+    <Image src={poster} alt="" class="h-full w-full object-cover" />
+    <div class:list={['absolute inset-0', overlayClass]}></div>
+  </div>
+</noscript>
+
+<script>
+  const CROSSFADE_MS = 1000;
+  const MAX_HOLD_MS = 7000;
+  const MIN_HOLD_MS = 2500;
+
+  const slides = [...document.querySelectorAll<HTMLVideoElement>('[data-hero-slide]')].sort(
+    (a, b) => Number(a.dataset.heroSlide) - Number(b.dataset.heroSlide)
+  );
+
+  if (slides.length > 1) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let timer = 0;
+
+    /** A clip holds for its own length, less the crossfade, so it never loops on screen. */
+    const holdFor = (slide: HTMLVideoElement) => {
+      const seconds = slide.duration;
+      if (!Number.isFinite(seconds) || seconds <= 0) return MAX_HOLD_MS;
+      return Math.max(MIN_HOLD_MS, Math.min(MAX_HOLD_MS, seconds * 1000 - CROSSFADE_MS));
+    };
+
+    const show = (index: number) => {
+      current = index;
+      slides.forEach((slide, position) => {
+        const selected = position === index;
+        slide.classList.toggle('opacity-100', selected);
+        slide.classList.toggle('opacity-0', !selected);
+        if (selected) {
+          // Restart each appearance: resumed mid-clip, a short one hits its loop
+          // point on screen, which reads as a hard cut.
+          slide.currentTime = 0;
+          slide.play().catch(() => {});
+        }
+      });
+
+      // Warm the next clip so its first frame is decoded before the crossfade.
+      const upcoming = slides[(index + 1) % slides.length];
+      if (upcoming && upcoming.preload !== 'auto') {
+        upcoming.preload = 'auto';
+        upcoming.load();
+      }
+
+      window.setTimeout(() => {
+        slides.forEach((slide, position) => {
+          if (position !== current && !slide.paused) slide.pause();
+        });
+      }, CROSSFADE_MS);
+
+      schedule();
+    };
+
+    function schedule() {
+      window.clearTimeout(timer);
+      const slide = slides[current]!;
+      const advance = () => show((current + 1) % slides.length);
+
+      // Duration is unknown until metadata lands; measure again when it does, minus
+      // the time already spent on screen, so a late answer cannot overshoot.
+      if (!Number.isFinite(slide.duration)) {
+        const shownAt = Date.now();
+        slide.addEventListener(
+          'loadedmetadata',
+          () => {
+            if (slides[current] !== slide) return;
+            window.clearTimeout(timer);
+            timer = window.setTimeout(advance, Math.max(holdFor(slide) - (Date.now() - shownAt), 800));
+          },
+          { once: true }
+        );
+      }
+      timer = window.setTimeout(advance, holdFor(slide));
+    }
+
+    const stop = () => {
+      window.clearTimeout(timer);
+      slides.forEach((slide) => slide.pause());
+    };
+
+    const start = () => {
+      if (reducedMotion.matches) return stop();
+      slides[current]?.play().catch(() => {});
+      schedule();
+    };
+
+    reducedMotion.addEventListener('change', start);
+    // A hidden tab keeps firing timers and burns battery decoding video nobody sees.
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+    start();
+  }
+</script>

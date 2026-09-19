@@ -1,5 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { fileURLToPath as pathFromUrl } from 'node:url';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import alpinejs from '@astrojs/alpinejs';
@@ -89,6 +90,18 @@ export default defineConfig({
   // One cache per market. Shared, the three dev servers race each other writing
   // .astro/data-store.json and two of the three fail to start.
   cacheDir: `./.astro/${verticalId}`,
+  vite: {
+    resolve: {
+      // src/verticals/active.ts imports @active/*; pointing the alias at this
+      // market's files keeps the other markets — and their hero videos — out of
+      // the bundle entirely.
+      alias: {
+        '@active/content': pathFromUrl(new URL(`./src/verticals/${verticalId}/content.ts`, import.meta.url)),
+        '@active/theme': pathFromUrl(new URL(`./src/verticals/${verticalId}/theme.ts`, import.meta.url)),
+        '@active/pricing': pathFromUrl(new URL(`./src/verticals/${verticalId}/pricing.ts`, import.meta.url)),
+      },
+    },
+  },
   integrations: [
     tailwind(),
     alpinejs(),
