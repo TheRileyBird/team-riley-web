@@ -1,35 +1,8 @@
 /*
- * Brand palette as RGB channels. Health's values are the default; law and finance
- * override them per build (see BaseLayout and each market's theme). Channels, not
- * hex, because Tailwind composes them with alpha: rgb(var(--c-primary-300) / 0.45).
+ * The brand palette lives in src/verticals/content/palette.ts, not here: the hero
+ * shader needs the same colors as GLSL floats, and one source of truth beats two.
+ * BaseLayout emits it as :root variables on every page.
  */
-:root {
-  --c-primary-50: 239 246 255;
-  --c-primary-100: 219 234 254;
-  --c-primary-200: 191 219 254;
-  --c-primary-300: 147 197 253;
-  --c-primary-400: 96 165 250;
-  --c-primary-500: 59 130 246;
-  --c-primary-600: 37 99 235;
-  --c-primary-700: 29 78 216;
-  --c-primary-800: 30 64 175;
-  --c-primary-900: 30 58 138;
-  --c-primary-950: 23 37 84;
-  --c-primary-1000: 13 21 42;
-  --c-accent-50: 236 254 255;
-  --c-accent-100: 207 250 254;
-  --c-accent-200: 103 232 249;
-  --c-accent-300: 34 211 238;
-  --c-accent-400: 6 182 212;
-  --c-accent-500: 8 145 178;
-  --c-accent-600: 14 116 144;
-  --c-accent-700: 21 94 117;
-  --c-secondary-300: 193 171 251;
-  --c-secondary-400: 167 139 250;
-  --c-secondary-500: 139 92 246;
-  --c-secondary-600: 124 58 237;
-  --c-secondary-700: 109 40 217;
-}
 
 /* Alpine.js x-cloak - Hide elements until Alpine is ready */
 [x-cloak] {

@@ -1,5 +1,25 @@
+---
+/**
+ * The homepage hero's animated plasma background (WebGL).
+ *
+ * Its colors come from the active market's palette, not from constants in the
+ * shader: GLSL cannot read CSS variables, so the three colors ride in on data
+ * attributes and are substituted into the fragment shader before it compiles.
+ * Without this the law and finance heroes kept health's blue.
+ */
+import { palette } from '../../verticals/active';
+import { glslColor } from '../../verticals/content/palette';
+
+const lineColor = glslColor(palette, '--c-hero-line');
+const edgeLeftColor = glslColor(palette, '--c-hero-edge-left');
+const edgeRightColor = glslColor(palette, '--c-hero-edge-right');
+---
+
 <canvas
   data-shader-background
+  data-line-color={lineColor}
+  data-edge-left-color={edgeLeftColor}
+  data-edge-right-color={edgeRightColor}
   aria-hidden="true"
   class="absolute inset-0 h-full w-full"
 ></canvas>
@@ -26,7 +46,7 @@
     const float minorLineFrequency = 1.0;
     const vec4 gridColor = vec4(0.5);
     const float scale = 5.0;
-    const vec4 lineColor = vec4(0.08, 0.32, 1.0, 1.0);
+    const vec4 lineColor = vec4(LINE_COLOR, 1.0);
     const float minLineWidth = 0.01;
     const float maxLineWidth = 0.1;
     const float lineSpeed = 1.0 * overallSpeed;
@@ -78,8 +98,8 @@
 
       vec4 lines = vec4(0.0);
       vec4 centerColor = vec4(1.0, 1.0, 1.0, 1.0);
-      vec4 edgeColorLeft = vec4(0.5, 0.82, 1.0, 1.0);
-      vec4 edgeColorRight = vec4(0.72, 0.52, 1.0, 1.0);
+      vec4 edgeColorLeft = vec4(EDGE_LEFT_COLOR, 1.0);
+      vec4 edgeColorRight = vec4(EDGE_RIGHT_COLOR, 1.0);
       vec4 edgeColor = mix(edgeColorLeft, edgeColorRight, uv.x);
 
       for(int l = 0; l < linesPerGroup; l++) {
@@ -129,9 +149,35 @@
     return shader;
   };
 
-  const initShaderProgram = (gl: WebGLRenderingContext) => {
+  /**
+   * The market's colors, from the canvas data attributes, substituted into the
+   * shader before compiling. A missing or malformed value falls back to the health
+   * blues rather than compiling a broken shader (which would render nothing).
+   */
+  const FALLBACK = {
+    LINE_COLOR: '0.078, 0.322, 1.000',
+    EDGE_LEFT_COLOR: '0.502, 0.820, 1.000',
+    EDGE_RIGHT_COLOR: '0.722, 0.522, 1.000'
+  };
+  const GLSL_COLOR = /^\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*$/;
+
+  const colorizeFragmentSource = (canvas: HTMLCanvasElement) => {
+    const values = {
+      LINE_COLOR: canvas.dataset.lineColor,
+      EDGE_LEFT_COLOR: canvas.dataset.edgeLeftColor,
+      EDGE_RIGHT_COLOR: canvas.dataset.edgeRightColor
+    };
+    let source = fragmentSource;
+    for (const [token, fallback] of Object.entries(FALLBACK)) {
+      const value = values[token as keyof typeof values];
+      source = source.replace(token, value && GLSL_COLOR.test(value) ? value.trim() : fallback);
+    }
+    return source;
+  };
+
+  const initShaderProgram = (gl: WebGLRenderingContext, canvas: HTMLCanvasElement) => {
     const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vertexSource);
-    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fragmentSource);
+    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, colorizeFragmentSource(canvas));
 
     if (!vertexShader || !fragmentShader) return null;
 
@@ -159,7 +205,7 @@
       return;
     }
 
-    const shaderProgram = initShaderProgram(gl);
+    const shaderProgram = initShaderProgram(gl, canvas);
     const positionBuffer = gl.createBuffer();
 
     if (!shaderProgram || !positionBuffer) return;

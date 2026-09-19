@@ -18,7 +18,8 @@ import { content as financeContent } from './finance/content';
 import { theme as healthTheme } from './health/theme';
 import { theme as lawTheme } from './law/theme';
 import { theme as financeTheme } from './finance/theme';
-import { themeCss, type ThemeOverrides } from './content/theme';
+import { paletteCss, paletteFor } from './content/palette';
+import type { ThemeOverrides } from './content/theme';
 import { priceOverrides as healthPrices } from './health/pricing';
 import { priceOverrides as lawPrices } from './law/pricing';
 import { priceOverrides as financePrices } from './finance/pricing';
@@ -41,8 +42,11 @@ const themeById: Record<string, ThemeOverrides> = {
   finance: financeTheme
 };
 
-/** Inline <style> text overriding the default palette, or '' for the defaults. */
-export const themeStyle = themeCss(themeById[verticalId]!);
+/** This market's resolved palette, for CSS (themeStyle) and for the hero shader. */
+export const palette = paletteFor(themeById[verticalId]!);
+
+/** Inline <style> text declaring the palette for this market. */
+export const themeStyle = paletteCss(palette);
 
 const pricesById: Record<string, PriceOverride[]> = {
   health: healthPrices,

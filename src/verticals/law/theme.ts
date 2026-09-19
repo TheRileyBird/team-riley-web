@@ -32,5 +32,10 @@ export const theme: ThemeOverrides = {
   '--c-secondary-400': '117 133 154',
   '--c-secondary-500': '74 95 122',
   '--c-secondary-600': '62 80 102',
-  '--c-secondary-700': '50 65 83'
+  '--c-secondary-700': '50 65 83',
+  // Hero shader: a vivid primary for the plasma lines, fading from light
+  // primary on the left to the accent on the right.
+  '--c-hero-line': '53 78 115',
+  '--c-hero-edge-left': '139 153 174',
+  '--c-hero-edge-right': '209 187 149'
 };

@@ -8,16 +8,4 @@
  */
 export type ThemeOverrides = Record<string, string>;
 
-/**
- * `:root:root { ... }` text for the overrides, or '' when a market uses the defaults.
- *
- * The doubled selector is deliberate. Astro injects the global stylesheet link after
- * this inline <style>, so a plain `:root` here loses the tie on source order and the
- * market palette silently does nothing. `:root:root` outranks it by specificity, so
- * the order stops mattering.
- */
-export function themeCss(overrides: ThemeOverrides): string {
-  const entries = Object.entries(overrides);
-  if (entries.length === 0) return '';
-  return `:root:root{${entries.map(([name, value]) => `${name}:${value}`).join(';')}}`;
-}
+/** Overrides are merged into the default palette; see ./palette.ts. */

@@ -52,3 +52,10 @@ unchecked task unless you are starting it.
   Done 2026-09-18: The tint is on the whole card, not just the body, so cards stretched to match their row's height have no white gap. Final tints after user tuning: blue bg-primary-50/50, purple bg-secondary-300/[0.08] (the purple equivalent, since there is no secondary-50), teal bg-accent-50/50. Tag pills: bg-primary-100, bg-secondary-300/30, bg-accent-100 (a darker variant was tried, then reverted at the user.s request).
 - [x] Card hover sometimes doesn't work, e.g. Genesis360 and CFC once they slide in
   Done 2026-09-18: Root cause: the carousel's cloned card set (used for the seamless loop) had `inert`, which also blocks pointer events. When the loop wraps, Genesis360/CFC are on screen as clones, so hover and the card link did nothing. Removed `inert`; the clone keeps aria-hidden, and the script sets tabindex=-1 on its links so keyboard users still reach each card once. Verified in Chrome: at the wrap point, ACC/Genesis360/CFC all hit-test to their own cards.
+- [x] Home page hero animated backgrounds need to use each market's palette colors (law and finance heroes still show health colors)
+  Done 2026-09-19: The hero background is a WebGL shader, so its colors were GLSL constants that the CSS-variable
+  work could not reach. The palette moved to src/verticals/content/palette.ts (one source of truth for CSS and code),
+  gained three hero tokens (--c-hero-line, --c-hero-edge-left, --c-hero-edge-right), and ShaderBackground now takes
+  them as data attributes and substitutes them into the fragment shader before compiling, falling back to the health
+  blues if a value is missing or malformed. Law renders navy to brass, finance evergreen to sand, health unchanged.
+  Verified in headless Chrome with WebGL on. The aurora overlays and blur glows already followed the palette.
