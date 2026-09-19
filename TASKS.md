@@ -87,3 +87,11 @@ unchecked task unless you are starting it.
   palette entirely - mapped them onto palette classes by exact hex first, so health is pixel-identical except one icon tile.
   Also fixed gradient headings losing contrast on dark bands (SectionHeader and ServiceColumnSection now use the bright
   variant when dark). Known remaining: the GoHighLevel chat bubble is blue on all three; that is styled in GHL, not here.
+- [x] On all sites: too little space above and below (per the orange circle annotations in the screenshot) - increase the top and bottom spacing
+  Done 2026-09-19: Clarified in conversation: more space at the top of the page, less between the "Zero Friction" header and
+  the pricing cards. The nav is fixed and 4rem tall, so PageHeader's pt-24 left only ~2rem of visible air; it is now
+  pt-28 md:pt-36. Its bottom pad dropped to pb-6 md:pb-8 and PricingSection's top to pt-8 md:pt-10, cutting the header-to-cards
+  gap from ~144px to ~72px. Both are shared, so all three sites change. Portfolio's first section gained pt-12 md:pt-16,
+  which the old large header padding had been standing in for.
+  Note: the annotated screenshot arrived as a generic PNG file icon again (third time). When an annotation matters, paste the
+  image into the chat rather than attaching it, or point at the element by name.

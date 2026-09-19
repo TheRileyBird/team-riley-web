@@ -23,7 +23,11 @@ import { ArrowRight } from '@lucide/astro';
 
 <section
   class:list={[
-    'relative pt-20 pb-12 md:pt-24 md:pb-16 overflow-hidden',
+    // The nav is fixed and 4rem tall, so the top padding pays for that before any
+    // air shows: pt-24 left ~2rem of visible space above the badge. The bottom is
+    // deliberately tight because what follows (pricing cards, portfolio sections)
+    // brings its own top padding.
+    'relative pt-28 pb-6 md:pt-36 md:pb-8 overflow-hidden',
     transparent ? 'bg-transparent' : 'bg-gradient-to-b from-primary-50 to-white'
   ]}
 >
