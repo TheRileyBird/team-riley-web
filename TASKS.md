@@ -139,6 +139,11 @@ unchecked task unless you are starting it.
   Done 2026-09-19: Health was still using the old blue "plus" tile from public/favicon.png while law and finance already used
   their TR+ marks. All three favicons are now generated from that market's logo, trimmed and re-centred so the mark fills the
   square (it was floating small inside its padding at tab size). public/favicon.png is now unreferenced and can be deleted.
+- [x] Home hero eyebrow text: "Built For Law Firms" and the finance equivalent are flat - make them catchier, like the health version
+  Done 2026-09-19: Law reads "Marketing That Passes The Bar", finance "Marketing That Compounds"; health keeps "Digital Health
+  For Your Business". Worth watching: "passes the bar" sits near the compliance claim we deliberately avoid making elsewhere
+  ("built with bar advertising rules in mind", never a guarantee). It reads as wordplay in a four-word eyebrow, but if a firm
+  ever reads it as a promise, swap to "Digital Counsel For Your Firm".
 
 ## Notes
 

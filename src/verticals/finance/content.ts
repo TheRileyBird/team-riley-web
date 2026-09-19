@@ -64,7 +64,7 @@ export const content: VerticalContent = {
         { src: financeMeeting }
       ],
       poster: financePoster,
-      eyebrow: 'Built For Financial Advisors',
+      eyebrow: 'Marketing That Compounds',
       heading: { lead: 'Better brands. Better websites. ', highlight: 'More clients.' },
       subtitle:
         'A website and marketing system that explains what you do and who you do it for, built with the SEC Marketing Rule in mind.'

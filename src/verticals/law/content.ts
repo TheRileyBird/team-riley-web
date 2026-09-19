@@ -63,7 +63,7 @@ export const content: VerticalContent = {
         { src: lawCourtroom }
       ],
       poster: lawPoster,
-      eyebrow: 'Built For Law Firms',
+      eyebrow: 'Marketing That Passes The Bar',
       heading: { lead: 'Better brands. Better websites. ', highlight: 'More clients.' },
       subtitle:
         'A website and marketing system that earns trust before the first call, built with your state bar’s advertising rules in mind.'
