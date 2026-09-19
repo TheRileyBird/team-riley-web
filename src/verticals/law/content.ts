@@ -12,9 +12,9 @@ import lawHandshake from '../../assets/videos/law-handshake.mp4';
 import lawBoardroom from '../../assets/videos/law-boardroom-presentation.mp4';
 import lawCourtroom from '../../assets/videos/law-courtroom.mp4';
 import lawPoster from '../../assets/videos/law-poster.jpg';
-import teamRileyLogo from '../../assets/images/team-riley-logo-law.png';
-import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-law-on-dark.png';
-import favicon from '../../assets/images/favicon-law.png';
+import teamRileyLogo from '../../assets/images/team-riley-logo-law-steel.png';
+import teamRileyLogoOnDark from '../../assets/images/team-riley-logo-law-steel-on-dark.png';
+import favicon from '../../assets/images/favicon-law-steel.png';
 import type { VerticalContent } from '../content/types';
 
 /**

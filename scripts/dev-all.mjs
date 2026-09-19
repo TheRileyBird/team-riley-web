@@ -9,6 +9,12 @@
  * renders those utilities as no-ops — dark sections lose their background and white
  * text lands on white. The build is unaffected, which makes it look like a cache bug.
  *
+ * Regenerating an image in place will NOT reach a browser that has already loaded
+ * it: Astro serves dev images from /_image?href=<source path>, that URL does not
+ * change when the file's bytes do, and the endpoint sets a one-year cache header
+ * that a vite server header cannot override. Rename the file instead — production
+ * is unaffected, since those filenames are content-hashed.
+ *
  * Ctrl-C stops all three. Each gets its own Astro cache (see astro.config.mjs), and
  * they start a few seconds apart: Astro writes .astro/types.d.ts at startup, and
  * three processes doing that at the same instant makes two of them die with
