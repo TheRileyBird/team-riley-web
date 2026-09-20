@@ -2,6 +2,13 @@
 interface Props {
   /** true = no background of its own, so whatever sits behind it shows through. */
   transparent?: boolean;
+  /**
+   * What comes next. 'section' is a light section that brings its own top padding,
+   * so the header stays tight. 'dark-band' is a dark section starting hard against
+   * the header: its padding is inside the dark area and buys the light side nothing,
+   * so the header has to pay for its own bottom air.
+   */
+  follows?: 'section' | 'dark-band';
   badge?: string;
   title: string;
   subtitle: string;
@@ -11,6 +18,7 @@ interface Props {
 
 const {
   transparent = false,
+  follows = 'section',
   badge,
   title,
   subtitle,
@@ -24,10 +32,12 @@ import { ArrowRight } from '@lucide/astro';
 <section
   class:list={[
     // The nav is fixed and 4rem tall, so the top padding pays for that before any
-    // air shows: pt-24 left ~2rem of visible space above the badge. The bottom is
-    // deliberately tight because what follows (pricing cards, portfolio sections)
-    // brings its own top padding.
-    'relative pt-28 pb-6 md:pt-36 md:pb-8 overflow-hidden',
+    // air shows: pt-28 leaves 48px above the badge, md:pt-36 leaves 80px. The bottom
+    // is deliberately tight because what follows (pricing cards, portfolio sections)
+    // brings its own top padding — except before a dark band, where the bottom has to
+    // match the visible top on its own or the block sits high in its own space.
+    'relative pt-28 md:pt-36 overflow-hidden',
+    follows === 'dark-band' ? 'pb-12 md:pb-20' : 'pb-6 md:pb-8',
     transparent ? 'bg-transparent' : 'bg-gradient-to-b from-primary-50 to-white'
   ]}
 >

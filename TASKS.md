@@ -191,6 +191,8 @@ unchecked task unless you are starting it.
   Done 2026-09-19: the tiles rendered `segment.icon`, a Lucide *name*, straight into <Icon />, so the browser got an unknown <syringe> element and drew nothing. The resolving map already existed a few lines up; the tiles now go through it and an unknown name throws at build. All three markets were affected.
 - [x] Can't see the check icons on the Fractional CTO pricing card - the checkmarks disappear against the dark card background
   Done 2026-09-19: the checks are `text-accent-200`, and the Tailwind accent map had no 200 step, so the utility was dropped and the icons inherited the body's dark grey. Audited every colour-step class in src against the config: accent-200 (15 uses) and gray-950 (15) were both missing. Added both; that also restores the Fractional CTO card's gradient and the dark fades over the homepage gallery, which now use ink-950 so they follow each market.
+- [x] On the About page, the space below the 'Health is Our Mission' header block (under the two CTA buttons, before the dark Meet The Team section) should be larger and more balanced
+  Done 2026-09-19: PageHeader keeps a tight bottom because the section after it normally brings its own top padding. Before a dark band that padding is inside the dark area, so the light side got nothing: 80px above the badge against 32px below the buttons. A `follows="dark-band"` prop pays for the header's own bottom air, now 80/80. Contact and Platform had the identical pattern and take the same prop.
 
 ## Notes
 
