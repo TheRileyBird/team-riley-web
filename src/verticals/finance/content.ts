@@ -30,7 +30,9 @@ import type { VerticalContent } from '../content/types';
  *    nothing here can read as a client reference.
  */
 export const content: VerticalContent = {
-  furniture: { iconTile: 'from-accent-500 to-accent-600', badge: 'from-accent-600 to-accent-700' },
+  // Green tiles, brass badge. The tiles were brass too, which put six copies of the
+  // CTA's fill in one viewport and left nothing for the CTA to be.
+  furniture: { iconTile: 'from-primary-600 to-primary-700', badge: 'from-accent-600 to-accent-700' },
   audience: 'financial advisors',
   logo: teamRileyLogo,
   favicon,

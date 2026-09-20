@@ -36,21 +36,23 @@ export const theme: ThemeOverrides = {
   '--c-hero-line': '53 78 115',
   '--c-hero-edge-left': '139 153 174',
   '--c-hero-edge-right': '178 184 191',
-  // Headline gradient: primary-400, accent-500, secondary-400 instead of the default primary-800 start,
-  // which in this palette is near-black (16.5:1 on white for law, 13.4:1 for finance)
-  // and made the animated text read as flat black.
-  // All three stops are saturated blues (chroma 150+). Earlier versions mixed navy
-  // with steel: a static frame then landed on a near-grey and the animation read as
-  // muted, because at 300% background-size only a third of the gradient is visible
-  // at a time. Silver stays the site's accent; the headline carries the blue.
-  // Contrast on white: 6.1 / 3.4 / 4.9.
-  '--c-headline-1': '31 95 191',
-  '--c-headline-2': '74 140 224',
-  '--c-headline-3': '58 111 196',
-  // Button fill: brushed steel, the site's silver. The sapphire that fixed the
-  // contrast problem read as a generic tech blue against a navy-and-silver brand.
-  // White text holds at 4.6:1 on the light stop and 7.4:1 on the dark one; the fill
-  // sits at 4.3:1 against the hero video and 4.6:1 against a white section.
-  '--c-cta-1': '107 118 132',
-  '--c-cta-2': '73 80 90'
+  // Headline gradient: navy, slate, steel. The saturated sapphire this replaces read
+  // as a technology company rather than a firm. Contrast on white 10.0 / 6.2 / 5.6,
+  // so every frame of the animation clears AA. The trade is deliberate: at 300%
+  // background-size only a third of the gradient shows at once, so quieter stops
+  // mean quieter motion.
+  '--c-headline-1': '31 58 99',
+  '--c-headline-2': '74 95 122',
+  '--c-headline-3': '90 99 111',
+  // Button fill: navy into slate, with a steel hairline drawing the edge.
+  //
+  // Measured against the real hero: the backdrop beside the CTA row is rgb(44 43 49),
+  // and navy alone sits at 1.23:1 against it, so the button sinks into the video —
+  // the complaint that produced the steel one. Slate is 2.14:1, still under the 3:1
+  // guidance for a UI boundary. So the fill is navy and a steel hairline carries the
+  // separation at 3.04:1 — drawn by a law-scoped rule in global.css, because an edge
+  // colour is not a palette token and only this market needs one.
+  // White label: 11.4:1 on navy, 6.5:1 on slate.
+  '--c-cta-1': '31 58 99',
+  '--c-cta-2': '74 95 122'
 };
