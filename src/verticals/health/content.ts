@@ -24,9 +24,10 @@ import joyWithinBirthMaternity from '../../assets/images/joy-within-birth-matern
 import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
 import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
 import cfcCardSite from '../../assets/sites/cfc.jpg';
-import healthDoctor from '../../assets/videos/health-doctor-patient.mp4';
-import healthInjector from '../../assets/videos/health-injector.mp4';
-import healthScanReview from '../../assets/videos/health-scan-review.mp4';
+import healthExam from '../../assets/videos/health-exam.mp4';
+import healthUltrasound from '../../assets/videos/health-ultrasound.mp4';
+import healthInjectionPrep from '../../assets/videos/health-injection-prep.mp4';
+import healthSurgery from '../../assets/videos/health-surgery.mp4';
 import healthPharmacist from '../../assets/videos/health-pharmacist.mp4';
 import healthTrainer from '../../assets/videos/health-personal-trainer.mp4';
 import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
@@ -67,12 +68,14 @@ export const content: VerticalContent = {
     description:
       'Team Riley Web - Digital Health For Your Business',
     hero: {
-      // Clinical first, then the room gets warmer: the trainer and the yoga deck close
-      // the loop so it does not read as four minutes inside a hospital.
+      // One clip per kind of business the site sells to — exam room, maternity,
+      // injectables, surgical, pharmacy, training, studio — and the order warms up as
+      // it goes, so the loop does not read as a minute inside a hospital.
       clips: [
-        { src: healthDoctor },
-        { src: healthInjector },
-        { src: healthScanReview },
+        { src: healthExam },
+        { src: healthUltrasound },
+        { src: healthInjectionPrep },
+        { src: healthSurgery },
         { src: healthPharmacist },
         { src: healthTrainer },
         { src: healthYoga }
