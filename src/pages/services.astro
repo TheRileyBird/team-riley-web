@@ -75,7 +75,18 @@ const services = [
   'Unlimited Updates',
 ];
 
-const businessTypes = pageContent.segments;
+/*
+ * The tiles used to render `segment.icon` — a Lucide *name* — straight into
+ * <Icon />, so the browser got an unknown <syringe> element and every tile showed
+ * an empty gradient square. The map above already existed; the tiles just never
+ * went through it. Throwing on an unknown name keeps the next typo a build
+ * failure rather than eight blank squares.
+ */
+const businessTypes = pageContent.segments.map((segment) => {
+  const Icon = segmentIcons[segment.icon];
+  if (!Icon) throw new Error(`Unknown segment icon "${segment.icon}" for "${segment.label}".`);
+  return { ...segment, Icon };
+});
 
 ---
 
@@ -328,7 +339,7 @@ const businessTypes = pageContent.segments;
         <div class="grid md:grid-cols-2 md:divide-x divide-gray-200">
           <div class="divide-y divide-gray-200">
             {businessTypes.slice(0, 4).map((type) => {
-              const Icon = type.icon;
+              const Icon = type.Icon;
               return (
               <div class="group relative p-6 md:p-7 transition-colors duration-300 hover:bg-primary-50/80">
                 <div class="flex gap-4">
@@ -345,7 +356,7 @@ const businessTypes = pageContent.segments;
           </div>
           <div class="divide-y divide-gray-200 border-t border-gray-200 md:border-t-0">
             {businessTypes.slice(4).map((type) => {
-              const Icon = type.icon;
+              const Icon = type.Icon;
               return (
               <div class="group relative p-6 md:p-7 transition-colors duration-300 hover:bg-primary-50/80">
                 <div class="flex gap-4">

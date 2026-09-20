@@ -24,6 +24,7 @@ export default {
         accent: {
           50: 'rgb(var(--c-accent-50) / <alpha-value>)',
           100: 'rgb(var(--c-accent-100) / <alpha-value>)',
+          200: 'rgb(var(--c-accent-200) / <alpha-value>)',
           300: 'rgb(var(--c-accent-300) / <alpha-value>)',
           400: 'rgb(var(--c-accent-400) / <alpha-value>)',
           500: 'rgb(var(--c-accent-500) / <alpha-value>)',
@@ -53,6 +54,7 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
+          950: '#020617',
         },
       },
       fontFamily: {

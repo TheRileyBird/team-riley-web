@@ -187,8 +187,10 @@ unchecked task unless you are starting it.
   Done 2026-09-19: brushed steel (107 118 132 → 73 80 90), the site's silver, instead of sapphire. White text 4.6:1, fill 4.3:1 against the hero and 4.6:1 against a white section.
 - [x] Add life2health.net to the finance website - they are a real client of mine
   Done 2026-09-19: they are an insurance agency, so they landed in an Insurance & Benefits portfolio section (the footer and sitemap already linked /portfolio#insurance at nothing), in the homepage logo strip, which finance had been hiding for want of a client, and at the head of the homepage gallery in place of a placeholder. Portfolio copy no longer says everything on the page is a concept. Also fixed health's logo link, which pointed at life2health.com — a dead domain.
-- [ ] Fix the icons on the health /services page - the audience segment tiles (Med Spa, Therapy Practice, Chiropractic Clinic, etc.) render as empty gradient squares with no icon in them
-- [ ] Can't see the check icons on the Fractional CTO pricing card - the checkmarks disappear against the dark card background
+- [x] Fix the icons on the health /services page - the audience segment tiles (Med Spa, Therapy Practice, Chiropractic Clinic, etc.) render as empty gradient squares with no icon in them
+  Done 2026-09-19: the tiles rendered `segment.icon`, a Lucide *name*, straight into <Icon />, so the browser got an unknown <syringe> element and drew nothing. The resolving map already existed a few lines up; the tiles now go through it and an unknown name throws at build. All three markets were affected.
+- [x] Can't see the check icons on the Fractional CTO pricing card - the checkmarks disappear against the dark card background
+  Done 2026-09-19: the checks are `text-accent-200`, and the Tailwind accent map had no 200 step, so the utility was dropped and the icons inherited the body's dark grey. Audited every colour-step class in src against the config: accent-200 (15 uses) and gray-950 (15) were both missing. Added both; that also restores the Fractional CTO card's gradient and the dark fades over the homepage gallery, which now use ink-950 so they follow each market.
 
 ## Notes
 
