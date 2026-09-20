@@ -185,6 +185,10 @@ unchecked task unless you are starting it.
   Done 2026-09-19: the ring was ring-gray-900, and this repo's gray scale is Tailwind slate, so #0f172a sat blue-black on a dark green section. Now ring-ink-950; the step line track and the card borders were the same slate leak and are now white/10.
 - [x] Team Riley Law: the buttons are too blue now
   Done 2026-09-19: brushed steel (107 118 132 → 73 80 90), the site's silver, instead of sapphire. White text 4.6:1, fill 4.3:1 against the hero and 4.6:1 against a white section.
+- [x] Add life2health.net to the finance website - they are a real client of mine
+  Done 2026-09-19: they are an insurance agency, so they landed in an Insurance & Benefits portfolio section (the footer and sitemap already linked /portfolio#insurance at nothing), in the homepage logo strip, which finance had been hiding for want of a client, and at the head of the homepage gallery in place of a placeholder. Portfolio copy no longer says everything on the page is a concept. Also fixed health's logo link, which pointed at life2health.com — a dead domain.
+- [ ] Fix the icons on the health /services page - the audience segment tiles (Med Spa, Therapy Practice, Chiropractic Clinic, etc.) render as empty gradient squares with no icon in them
+- [ ] Can't see the check icons on the Fractional CTO pricing card - the checkmarks disappear against the dark card background
 
 ## Notes
 

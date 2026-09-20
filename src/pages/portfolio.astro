@@ -23,7 +23,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import Footer from '../components/Footer.astro';
 import {
   ExternalLink, Smartphone, Zap, Globe, Stethoscope, Dumbbell, Sparkles, Scale,
-  Gavel, Users, LineChart, PiggyBank
+  Gavel, Users, LineChart, PiggyBank, ShieldCheck
 } from '@lucide/astro';
 import { Image } from 'astro:assets';
 
@@ -36,7 +36,8 @@ const sectionIcons: Record<string, typeof Scale> = {
   gavel: Gavel,
   users: Users,
   'line-chart': LineChart,
-  'piggy-bank': PiggyBank
+  'piggy-bank': PiggyBank,
+  shield: ShieldCheck
 };
 
 const sectionStyles = {

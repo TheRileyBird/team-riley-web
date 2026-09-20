@@ -1,6 +1,7 @@
 import northMeridianConcept from '../../assets/concepts/north-meridian-advisors.jpg';
 import cedarPostConcept from '../../assets/concepts/cedar-post-retirement.jpg';
 import aldermanConcept from '../../assets/concepts/alderman-tax-partners.jpg';
+import life2healthSite from '../../assets/sites/life2health.png';
 import financePlaceholder1 from '../../assets/placeholders/finance-1.jpg';
 import financePlaceholder2 from '../../assets/placeholders/finance-2.jpg';
 import financePlaceholder3 from '../../assets/placeholders/finance-3.jpg';
@@ -119,16 +120,18 @@ export const content: VerticalContent = {
     // placeholders are deliberately generic wireframes: no firm name, nothing that
     // could read as client work.
     showcase: [
+      { src: life2healthSite, alt: 'Life 2 Health insurance agency website' },
       { src: northMeridianConcept, alt: 'North Meridian Advisors concept homepage' },
       { src: financePlaceholder1, alt: 'Placeholder layout for advisory work in progress' },
       { src: cedarPostConcept, alt: 'Cedar Post Retirement concept homepage' },
       { src: financePlaceholder2, alt: 'Placeholder layout for advisory work in progress' },
       { src: aldermanConcept, alt: 'Alderman Tax Partners concept homepage' },
-      { src: financePlaceholder3, alt: 'Placeholder layout for advisory work in progress' },
-      { src: financePlaceholder4, alt: 'Placeholder layout for advisory work in progress' }
+      { src: financePlaceholder3, alt: 'Placeholder layout for advisory work in progress' }
     ],
-    clientLogosLabel: '',
-    clientLogos: [],
+    clientLogosLabel: 'Client work we build and manage',
+    clientLogos: [
+      { name: 'Life 2 Health', src: '/images/logos/life2health.png', href: 'https://life2health.net' }
+    ],
     features: {
       heading: { lead: '', highlight: 'Remarkable', trail: ' Features' },
       subtitle: 'We build advisory brands that explain themselves clearly.',
@@ -270,11 +273,11 @@ export const content: VerticalContent = {
   },
   portfolio: {
     title: 'Portfolio - Team Riley Finance',
-    description: 'Design concepts for advisory firms: clear, compliant websites that explain the work',
+    description: 'Client work and design concepts for advisory firms: clear, compliant websites that explain the work',
     header: {
       heading: { lead: '', highlight: 'Websites That Explain', trail: ' The Work' },
       subtitle:
-        'Design concepts for advisory firms. These are our own designs, not client sites, and every card says so.'
+        'Client work and design concepts for advisory firms. The concepts are our own designs rather than client sites, and every one of those cards says so.'
     },
     sections: [
       {
@@ -328,6 +331,29 @@ export const content: VerticalContent = {
               'A concept for an owner-focused tax practice: quarterly planning over April surprises, flat monthly pricing, and a scheduling call instead of a contact form.',
             tags: ['Concept Design', 'Flat Monthly Pricing', 'Planning Calls'],
             concept: true
+          }
+        ]
+      },
+      {
+        id: 'insurance',
+        color: 'accent',
+        icon: 'shield',
+        pill: 'Insurance & Benefits',
+        heading: 'Insurance & Benefits',
+        intro:
+          'Agencies whose work is making a shelf of complicated products legible, so the person reading knows which conversation to ask for.',
+        carousel: false,
+        projects: [
+          {
+            name: 'Life 2 Health',
+            badge: 'Insurance Agency',
+            image: life2healthSite,
+            imageAlt: 'Life 2 Health insurance agency homepage',
+            imagePosition: '50% 0%',
+            description:
+              'An independently owned agency representing several A-rated carriers. The site sorts life, health and specialty cover into plain choices and puts a licensed agent, not a quote form, at the end of every path.',
+            tags: ['Insurance Agency', 'Plan Comparison', 'Agent Contact'],
+            href: 'https://life2health.net'
           }
         ]
       }

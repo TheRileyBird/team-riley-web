@@ -137,7 +137,7 @@ export const content: VerticalContent = {
     ],
     clientLogosLabel: 'Trusted by Hundreds of Smart Business Owners',
     clientLogos: [
-      { name: 'Life2Health', src: '/images/logos/life2health.png', href: 'https://life2health.com' },
+      { name: 'Life 2 Health', src: '/images/logos/life2health.png', href: 'https://life2health.net' },
       { name: 'DOM', src: '/images/logos/dom.gif', href: 'https://domluke.com/' },
       { name: 'DSM MD', src: '/images/logos/dsm-md.webp', href: 'https://dsmmd.com' },
       {
