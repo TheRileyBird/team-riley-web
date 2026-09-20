@@ -193,6 +193,8 @@ unchecked task unless you are starting it.
   Done 2026-09-19: the checks are `text-accent-200`, and the Tailwind accent map had no 200 step, so the utility was dropped and the icons inherited the body's dark grey. Audited every colour-step class in src against the config: accent-200 (15 uses) and gray-950 (15) were both missing. Added both; that also restores the Fractional CTO card's gradient and the dark fades over the homepage gallery, which now use ink-950 so they follow each market.
 - [x] On the About page, the space below the 'Health is Our Mission' header block (under the two CTA buttons, before the dark Meet The Team section) should be larger and more balanced
   Done 2026-09-19: PageHeader keeps a tight bottom because the section after it normally brings its own top padding. Before a dark band that padding is inside the dark area, so the light side got nothing: 80px above the badge against 32px below the buttons. A `follows="dark-band"` prop pays for the header's own bottom air, now 80/80. Contact and Platform had the identical pattern and take the same prop.
+- [x] Same on the contact pages - more space below the hero for balance
+  Done 2026-09-19: already covered by the About fix in 427b68bc — Contact and Platform hit the same dark-band pattern and took the same prop in that commit. Verified on the built law contact page: 80px above the badge, 80px below the subtitle. The screenshot behind this task came from a dev server started before that change.
 
 ## Notes
 
