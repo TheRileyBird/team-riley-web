@@ -24,7 +24,7 @@ import joyWithinBirthMaternity from '../../assets/images/joy-within-birth-matern
 import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
 import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
 import cfcCardSite from '../../assets/sites/cfc.jpg';
-import healthDoctor from '../../assets/videos/health-doctor-office.mp4';
+import healthDoctor from '../../assets/videos/health-doctor-patient.mp4';
 import healthInjector from '../../assets/videos/health-injector.mp4';
 import healthScanReview from '../../assets/videos/health-scan-review.mp4';
 import healthPharmacist from '../../assets/videos/health-pharmacist.mp4';
