@@ -24,11 +24,10 @@ import joyWithinBirthMaternity from '../../assets/images/joy-within-birth-matern
 import genesis360Hvac from '../../assets/images/genesis360-aeroguard-hvac.jpg';
 import accbpAssessment from '../../assets/images/accbp-assessment.jpg';
 import cfcCardSite from '../../assets/sites/cfc.jpg';
-import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
-import healthMedSpa from '../../assets/videos/health-med-spa.mp4';
-import healthMassage from '../../assets/videos/health-massage-therapy.mp4';
-import healthSkin from '../../assets/videos/health-skin-treatment.mp4';
-import healthMeditation from '../../assets/videos/health-meditation-ridge.mp4';
+import healthDoctor from '../../assets/videos/health-doctor-office.mp4';
+import healthInjector from '../../assets/videos/health-injector.mp4';
+import healthScanReview from '../../assets/videos/health-scan-review.mp4';
+import healthPharmacist from '../../assets/videos/health-pharmacist.mp4';
 import healthPoster from '../../assets/videos/health-poster.jpg';
 import teamRileyLogo from '../../assets/images/team-riley-logo-gradient.png';
 import favicon from '../../assets/images/favicon-health.png';
@@ -67,11 +66,10 @@ export const content: VerticalContent = {
       'Team Riley Web - Digital Health For Your Business',
     hero: {
       clips: [
-        { src: healthYoga },
-        { src: healthMassage },
-        { src: healthMedSpa },
-        { src: healthSkin },
-        { src: healthMeditation }
+        { src: healthDoctor },
+        { src: healthInjector },
+        { src: healthScanReview },
+        { src: healthPharmacist }
       ],
       poster: healthPoster,
       eyebrow: 'Digital Health For Your Business',

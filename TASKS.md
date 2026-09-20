@@ -195,6 +195,8 @@ unchecked task unless you are starting it.
   Done 2026-09-19: PageHeader keeps a tight bottom because the section after it normally brings its own top padding. Before a dark band that padding is inside the dark area, so the light side got nothing: 80px above the badge against 32px below the buttons. A `follows="dark-band"` prop pays for the header's own bottom air, now 80/80. Contact and Platform had the identical pattern and take the same prop.
 - [x] Same on the contact pages - more space below the hero for balance
   Done 2026-09-19: already covered by the About fix in 427b68bc — Contact and Platform hit the same dark-band pattern and took the same prop in that commit. Verified on the built law contact page: 80px above the badge, 80px below the subtitle. The screenshot behind this task came from a dev server started before that change.
+- [x] Team Riley Health home hero videos: use a doctor, a med spa injector, some sort of inspector inspecting health/hospital, and a pharmacist sorting pills
+  Done 2026-09-19: four clips, in that order — a doctor at a clinic workstation, a cosmetician drawing injectables beside a client, a clinician holding an MRI film up to read it (closest thing to an inspector in the free libraries), and a hand writing a prescription across blister packs. The wellness reel (yoga, massage, med spa, skin treatment, meditation) is out; those files are still in src/assets/videos, unimported, so putting any of them back is one line.
 
 ## Notes
 
