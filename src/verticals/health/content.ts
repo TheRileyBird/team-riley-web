@@ -28,6 +28,8 @@ import healthDoctor from '../../assets/videos/health-doctor-office.mp4';
 import healthInjector from '../../assets/videos/health-injector.mp4';
 import healthScanReview from '../../assets/videos/health-scan-review.mp4';
 import healthPharmacist from '../../assets/videos/health-pharmacist.mp4';
+import healthTrainer from '../../assets/videos/health-personal-trainer.mp4';
+import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
 import healthPoster from '../../assets/videos/health-poster.jpg';
 import teamRileyLogo from '../../assets/images/team-riley-logo-gradient.png';
 import favicon from '../../assets/images/favicon-health.png';
@@ -65,11 +67,15 @@ export const content: VerticalContent = {
     description:
       'Team Riley Web - Digital Health For Your Business',
     hero: {
+      // Clinical first, then the room gets warmer: the trainer and the yoga deck close
+      // the loop so it does not read as four minutes inside a hospital.
       clips: [
         { src: healthDoctor },
         { src: healthInjector },
         { src: healthScanReview },
-        { src: healthPharmacist }
+        { src: healthPharmacist },
+        { src: healthTrainer },
+        { src: healthYoga }
       ],
       poster: healthPoster,
       eyebrow: 'Digital Health For Your Business',

@@ -197,6 +197,10 @@ unchecked task unless you are starting it.
   Done 2026-09-19: already covered by the About fix in 427b68bc — Contact and Platform hit the same dark-band pattern and took the same prop in that commit. Verified on the built law contact page: 80px above the badge, 80px below the subtitle. The screenshot behind this task came from a dev server started before that change.
 - [x] Team Riley Health home hero videos: use a doctor, a med spa injector, some sort of inspector inspecting health/hospital, and a pharmacist sorting pills
   Done 2026-09-19: four clips, in that order — a doctor at a clinic workstation, a cosmetician drawing injectables beside a client, a clinician holding an MRI film up to read it (closest thing to an inspector in the free libraries), and a hand writing a prescription across blister packs. The wellness reel (yoga, massage, med spa, skin treatment, meditation) is out; those files are still in src/assets/videos, unimported, so putting any of them back is one line.
+- [x] Add the yoga video back to the health home hero, positioned towards the end of the reel
+  Done 2026-09-20: health-yoga-deck.mp4 was still on disk from the earlier reel, so it went straight back in as the closing clip.
+- [x] Add a personal trainer helping someone work out to the health home hero reel
+  Done 2026-09-20: a trainer kneeling beside a client correcting their form in a bright studio — a coaching shot, not the solo-exercise clip that was rejected before. Sits fifth, just before the yoga deck. Both tasks landed in one edit since they are the same reel.
 
 ## Notes
 
