@@ -56,6 +56,10 @@ export const DEFAULT_PALETTE: Palette = {
   // Button label. A market whose CTA fill is light enough that white text fails AA on
   // it (finance's gold sits at 2.8:1 under white) overrides this with its ink.
   '--c-cta-text': '255 255 255',
+  // The colour of a loss. The "what you lose" lists marked their items with the
+  // secondary scale, which is violet on health and green on finance — a green cross
+  // beside a failure reads as approval. Each market sets a red that belongs to it.
+  '--c-negative': '190 46 46',
   // Dark surfaces: the footer and the alternating dark service bands. Separate from
   // the primary scale because they are near-black with only a hint of the brand hue
   // — health's are Tailwind's slate 900/950, which is why every market's footer was

@@ -47,7 +47,7 @@ export const content: VerticalContent = {
       'We help advisory firms present themselves online with the clarity and care their clients expect, and with the SEC Marketing Rule in mind.',
     industriesHeading: 'Firms We Work With',
     industries: [
-      { label: 'Registered Investment Advisors', href: '/services' },
+      { label: 'Investment Advisors', href: '/services' },
       { label: 'Wealth Management', href: '/services' },
       { label: 'Retirement Planning', href: '/services' },
       { label: 'Tax & Accounting', href: '/services' },

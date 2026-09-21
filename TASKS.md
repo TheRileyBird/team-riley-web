@@ -201,26 +201,42 @@ unchecked task unless you are starting it.
   Done 2026-09-20: health-yoga-deck.mp4 was still on disk from the earlier reel, so it went straight back in as the closing clip.
 - [x] Add a personal trainer helping someone work out to the health home hero reel
   Done 2026-09-20: a trainer kneeling beside a client correcting their form in a bright studio — a coaching shot, not the solo-exercise clip that was rejected before. Sits fifth, just before the yoga deck. Both tasks landed in one edit since they are the same reel.
-- [ ] Finance: the gold button gets too dark - the gradient towards the right doesn't feel right, maybe the gradient belongs in the middle; it just needs to feel better
-- [ ] Finance home hero: the animated text shouldn't be white, it should have more gold - white blends in and doesn't stand out against the other items
-- [ ] Finance: the green in the animated 'Team Riley' text is sometimes too bright - tone the brightest green down a little
-- [ ] Finance: all eyebrows should be gold - home hero 'Managed For You', the problem section, the solution section, and every eyebrow on services
+- [x] Finance: the gold button gets too dark - the gradient towards the right doesn't feel right, maybe the gradient belongs in the middle; it just needs to feel better
+  Done 2026-09-21: the highlight moved to the middle: accent-500 at both ends with the lighter gold at 48%, so it reads as brushed brass catching light instead of fading into a dark corner.
+- [x] Finance home hero: the animated text shouldn't be white, it should have more gold - white blends in and doesn't stand out against the other items
+  Done 2026-09-21: the bright hero variant was accent/white/accent; the white stop is gone and all four stops are gold now.
+- [x] Finance: the green in the animated 'Team Riley' text is sometimes too bright - tone the brightest green down a little
+  Done 2026-09-21: the wordmark cycles through secondary-500, the brightest green on the site; finance now uses secondary-600 for that stop. Scoped inside Navigation so health and law keep theirs.
+- [x] Finance: all eyebrows should be gold - home hero 'Managed For You', the problem section, the solution section, and every eyebrow on services
+  Done 2026-09-21: every eyebrow shares the border-l-4 pattern, so one scoped rule covers all of them: gold rule, gold label, in both the dark-band and light-section variants.
 - [x] Law and finance: hide the portfolio page and the portfolio nav link for now - not enough clients to communicate it
   Done 2026-09-21: /portfolio is now a health-only injected route, the same mechanism the Digital Health Audit page uses. Law and finance lose the page, the nav link (desktop and mobile), the sitemap row, the 404 link, and the footer industry links now point at /services. The hero and services 'View Our Work' CTAs become 'Get Started' on those markets, and the about page's secondary CTA becomes 'See Our Services'.
 - [x] Law and finance: hide the 'client work we build and manage' logo strip on the home hero for now
   Done 2026-09-21: clientLogos emptied on both markets, which the existing conditional already honours — the strip renders nothing rather than an empty band. Note this removes Life 2 Health from the finance site entirely, since the portfolio went too.
-- [ ] Finance: make the Fractional CTO card gold instead of dark green - that gradient needs to feel gold, no green
-- [ ] Finance footer: take 'Registered' out of 'Registered Investment Advisors' - it and 'Wealth Management' wrap onto two lines; the column may need more space and the bullet point looks funky
-- [ ] Finance footer: the gray could look better, it almost looks slightly blue
-- [ ] Finance services: the X icons should be more of a red - whatever feels right with this color palette
-- [ ] Finance: no gradient should be green and gold - make them gold-only gradients (the 'We Know Advisory Firms' icons, 'We Got You Covered', 'Better Websites For Advisory Firms', and the contact page)
-- [ ] Finance: the social media icon under 'Marketing That Drives Results' is purple - put it in the finance palette
-- [ ] Finance pricing: the background should feel more colored - a little darker gold on the right and green on the left
-- [ ] Finance pricing: the 'what's included' cards feel a little blue, which is off-brand
-- [ ] Finance about: make 'Meet The Team' a gold gradient, no green
-- [ ] Finance about: make the team subtitles gold - Founder, Lead Developer, Marketing Director, The Visionary
-- [ ] All three sites: reduce the space between the team member names and their subtitles on the about page
-- [ ] Finance: make the 'Fast Turnaround' icon gold
+- [x] Finance: make the Fractional CTO card gold instead of dark green - that gradient needs to feel gold, no green
+  Done 2026-09-21: the card was gray-950 through primary-950 to accent-700; it is now a brass ramp.
+- [x] Finance footer: take 'Registered' out of 'Registered Investment Advisors' - it and 'Wealth Management' wrap onto two lines; the column may need more space and the bullet point looks funky
+  Done 2026-09-21: label is now 'Investment Advisors'. The column width and bullet alignment still want a look once you see it.
+- [x] Finance footer: the gray could look better, it almost looks slightly blue
+  Done 2026-09-21: the footer greys were Tailwind slate, which carries a blue bias; finance gets warm neutrals instead.
+- [x] Finance services: the X icons should be more of a red - whatever feels right with this color palette
+  Done 2026-09-21: the loss lists marked items with secondary-600 - violet on health, green on finance, so a failure was marked with a green cross. New --c-negative token per market: a warm brick red on finance, a deep red on law.
+- [x] Finance: no gradient should be green and gold - make them gold-only gradients (the 'We Know Advisory Firms' icons, 'We Got You Covered', 'Better Websites For Advisory Firms', and the contact page)
+  Done 2026-09-21: six distinct green+gold class combinations across services, pricing, platform, about and contact, all now a single brass ramp. The Fast Turnaround icon was one of them.
+- [x] Finance: the social media icon under 'Marketing That Drives Results' is purple - put it in the finance palette
+  Done 2026-09-21: it carried Tailwind's violet, which belongs to no market; gold on finance, health keeps violet.
+- [x] Finance pricing: the background should feel more colored - a little darker gold on the right and green on the left
+  Done 2026-09-21: the band ran primary-50 to white; it now runs green on the left into gold on the right.
+- [x] Finance pricing: the 'what's included' cards feel a little blue, which is off-brand
+  Done 2026-09-21: that panel sat on slate-50 with slate borders; it now uses the market's own tinted white and border.
+- [x] Finance about: make 'Meet The Team' a gold gradient, no green
+  Done 2026-09-21: it draws from the headline tokens, which are already all brass after yesterday's change.
+- [x] Finance about: make the team subtitles gold - Founder, Lead Developer, Marketing Director, The Visionary
+  Done 2026-09-21: marked with data-role and coloured gold on finance.
+- [x] All three sites: reduce the space between the team member names and their subtitles on the about page
+  Done 2026-09-21: name margin 4px to 2px, role margin 12px to 8px, on all three sites as asked.
+- [x] Finance: make the 'Fast Turnaround' icon gold
+  Done 2026-09-21: it used from-accent-500 to-primary-700, so the gold-only gradient rule covered it.
 - [ ] Law home hero: remove the gray border around the buttons and get a slightly deeper blue into that gradient
 - [ ] Law: the whole site reads black and white - it needs to feel like steel, not grayscale. Decide the direction: either Apple-like (whites, blacks, grays with blue accents) or more blue with silver accents, and think critically about it design-wise
 - [ ] Law: the eyebrows (the problem section, 'record') feel black and white - they need colour

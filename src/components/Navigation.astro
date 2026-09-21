@@ -102,6 +102,14 @@ const isActive = (path: string) => {
   .animated-gradient-text {
     background: linear-gradient(90deg, rgb(var(--c-primary-800)), rgb(var(--c-accent-500)), rgb(var(--c-secondary-500)), rgb(var(--c-primary-800)));
     background-size: 300% 100%;
+  }
+
+  /* Finance's secondary-500 is the brightest green on the site, and the wordmark
+     cycles through it every few seconds. One step down keeps the movement without
+     the flash. */
+  :global(html[data-vertical="finance"]) .animated-gradient-text {
+    background: linear-gradient(90deg, rgb(var(--c-primary-800)), rgb(var(--c-accent-500)), rgb(var(--c-secondary-600)), rgb(var(--c-primary-800)));
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

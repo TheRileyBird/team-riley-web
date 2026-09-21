@@ -54,5 +54,7 @@ export const theme: ThemeOverrides = {
   // colour is not a palette token and only this market needs one.
   // White label: 11.4:1 on navy, 6.5:1 on slate.
   '--c-cta-1': '31 58 99',
-  '--c-cta-2': '74 95 122'
+  '--c-cta-2': '74 95 122',
+  // A deep red that sits with navy rather than shouting over it.
+  '--c-negative': '178 40 44'
 };

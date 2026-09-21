@@ -48,5 +48,7 @@ export const theme: ThemeOverrides = {
   // light stop, 5.1:1 on the dark one. Against the hero video the fill sits at 7.2:1.
   '--c-cta-1': '191 148 74',
   '--c-cta-2': '139 104 44',
-  '--c-cta-text': '5 16 15'
+  '--c-cta-text': '5 16 15',
+  // A warm brick red, so the loss marks sit in the same family as the brass.
+  '--c-negative': '176 58 42'
 };

@@ -922,3 +922,122 @@ html[data-vertical="law"] .animated-gradient-bg,
 html[data-vertical="finance"] .animated-gradient-bg {
   animation-duration: 16s;
 }
+
+
+/* ── Finance: gold leads, green grounds ──────────────────────────────────────
+ * The review was consistent: anything that mixed green into gold muddied both,
+ * and white in the hero headline disappeared against the video. So on finance
+ * every gradient is either gold or green, never a blend, and the gold carries
+ * the accents.
+ */
+
+/* The button ran light-to-dark left to right and died in the corner. Now the
+   highlight sits in the middle, like a brushed-brass face catching light. */
+html[data-vertical="finance"] .btn-primary {
+  background: linear-gradient(
+    100deg,
+    rgb(var(--c-accent-500)) 0%,
+    rgb(var(--c-cta-1)) 48%,
+    rgb(var(--c-accent-500)) 100%
+  );
+}
+
+/* Hero headline: gold end to end. The white stop it replaces was the brightest
+   thing in the frame and read as plain white text. */
+html[data-vertical="finance"] .animated-gradient-text-bright {
+  background-image: linear-gradient(
+    90deg,
+    rgb(var(--c-accent-300)),
+    rgb(var(--c-accent-200)),
+    rgb(var(--c-accent-400)),
+    rgb(var(--c-accent-300))
+  );
+  background-size: 300% 100%;
+}
+
+/* Eyebrows: gold on both the dark bands and the light sections. */
+html[data-vertical="finance"] .border-l-4 {
+  border-color: rgb(var(--c-accent-500));
+}
+
+html[data-vertical="finance"] .border-l-4 .text-primary-300 {
+  color: rgb(var(--c-accent-300));
+}
+
+html[data-vertical="finance"] .border-l-4 .text-primary-700,
+html[data-vertical="finance"] .border-l-4 .text-primary-800 {
+  color: rgb(var(--c-accent-700));
+}
+
+/* Every green-and-gold gradient, turned to gold. These are the icon tiles and
+   rules across services, pricing, platform, about and contact. */
+html[data-vertical="finance"] .from-primary-600.via-accent-500.to-secondary-500,
+html[data-vertical="finance"] .from-primary-600.via-accent-400.to-secondary-500,
+html[data-vertical="finance"] .from-primary-600.to-accent-500,
+html[data-vertical="finance"] .from-accent-500.to-primary-700,
+html[data-vertical="finance"] .from-accent-400.to-primary-600,
+html[data-vertical="finance"] .from-secondary-700.to-accent-500 {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(var(--c-accent-400)),
+    rgb(var(--c-accent-600))
+  );
+}
+
+/* The Fractional CTO card was near-black green. Gold, with the ink only as a
+   base for the gradient to lift off. */
+html[data-vertical="finance"] .from-gray-950.via-primary-950.to-accent-700 {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(var(--c-accent-700)),
+    rgb(var(--c-accent-500)) 55%,
+    rgb(var(--c-accent-400))
+  );
+}
+
+/* The social-media card carried Tailwind's violet, which belongs to no market. */
+html[data-vertical="finance"] .from-violet-600.to-purple-700 {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(var(--c-accent-400)),
+    rgb(var(--c-accent-600))
+  );
+}
+
+/* A loss marked with a green cross reads as approval. */
+html[data-vertical="finance"] [data-loss],
+html[data-vertical="law"] [data-loss] {
+  color: rgb(var(--c-negative));
+}
+
+/* Pricing: green on the left, gold on the right, so the band carries the brand
+   instead of fading to white. */
+html[data-vertical="finance"] .from-primary-50\/80.to-white {
+  background-image: linear-gradient(
+    105deg,
+    rgb(var(--c-primary-100)) 0%,
+    rgb(var(--c-primary-50)) 38%,
+    rgb(var(--c-accent-50)) 72%,
+    rgb(var(--c-accent-100)) 100%
+  );
+}
+
+/* The "all plans include" panel sat on slate, which is a blue-grey. */
+html[data-vertical="finance"] .bg-gray-50.border-gray-200 {
+  background-color: rgb(var(--c-primary-50));
+  border-color: rgb(var(--c-primary-200));
+}
+
+/* Team roles in gold, matching the eyebrows. */
+html[data-vertical="finance"] [data-role] {
+  color: rgb(var(--c-accent-300));
+}
+
+/* The footer's greys are Tailwind slate, which leans blue under a green brand. */
+html[data-vertical="finance"] footer .text-gray-400 {
+  color: #b3b0a8;
+}
+
+html[data-vertical="finance"] footer .text-gray-500 {
+  color: #9c9992;
+}
