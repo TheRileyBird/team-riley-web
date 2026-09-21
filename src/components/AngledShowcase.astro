@@ -15,8 +15,9 @@
  * the repeat.
  *
  * The tilt costs geometry: rotating a full-width block leaves triangular gaps at the
- * corners, so the field is over-sized and pushed out past the frame, and the section
- * clips it.
+ * corners, so the field is over-sized and pushed out past the frame. A mask fades all
+ * four edges to nothing, so the rows dissolve instead of being sliced off at an angle
+ * and the frame itself stays a clean edge.
  */
 import { Image } from 'astro:assets';
 import type { ShowcaseImage } from '../verticals/content/types';
@@ -29,9 +30,10 @@ interface Props {
 
 const { images, angle = -8 } = Astro.props;
 
-// Three rows, dealt round-robin so neighbouring screenshots are never the same pair.
-const rows = [0, 1, 2].map((row) => images.filter((_, index) => index % 3 === row));
-const speeds = ['58s', '74s', '66s'];
+// Two rows, dealt alternately so neighbouring screenshots are never the same pair.
+// Three rows moved in three directions at once and read as busy rather than calm.
+const rows = [0, 1].map((row) => images.filter((_, index) => index % 2 === row));
+const speeds = ['64s', '78s'];
 ---
 
 <div class="angled-showcase" style={`--angle: ${angle}deg`} aria-hidden="true">
@@ -67,6 +69,10 @@ const speeds = ['58s', '74s', '66s'];
     gap: clamp(0.75rem, 1.6vw, 1.5rem);
     transform: rotate(var(--angle));
     pointer-events: none;
+    /* Dissolve at every edge: a rotated row cut by the frame shows a diagonal
+       stub, which reads as a mistake. */
+    mask-image: radial-gradient(120% 95% at 50% 50%, #000 42%, transparent 88%);
+    -webkit-mask-image: radial-gradient(120% 95% at 50% 50%, #000 42%, transparent 88%);
   }
 
   .angled-row {
