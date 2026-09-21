@@ -271,8 +271,16 @@ unchecked task unless you are starting it.
   Done 2026-09-21: my own regression. Tailwind renders ring-2 as part of the same box-shadow property, and the featured card carries ring-2 and shadow-large together — so the law/finance shadow override from the finish pass replaced the whole box-shadow and erased the ring. Health still had its ring because it has no override, which is exactly what the two screenshots showed. The scoped shadows now compose --tw-ring-offset-shadow and --tw-ring-shadow first, the way Tailwind does.
 - [x] Portfolio needs to stay live on health
   Done 2026-09-21: no change needed — it never left health. Verified against the live site: /portfolio returns 200 with all 24 project cards and the medical/physical/holistic sections, the nav link is on every page, the footer industry links still point at its anchors, and it is in the sitemap. The health-only route was the mechanism used to remove it from law and finance, which is exactly what keeps it on health.
+- [ ] Blend the line where the gallery meets the copy in the /services hero better, and slow the animation down
 
 ## Notes
+
+- **Restart `npm run dev:all` after changing `src/verticals/sites.json` too.** Market-only pages
+  are added with Astro's `injectRoute` during `astro:config:setup`, which runs once when the dev
+  server starts. A page moved into (or out of) a market's `pages` list therefore 404s on a running
+  dev server while building and serving correctly everywhere else — on 2026-09-21 `/portfolio`
+  404'd on localhost:4321 minutes after the live health site served it with all 24 cards. A fresh
+  dev server on another port returned 200 immediately.
 
 - **Restart `npm run dev:all` after editing `tailwind.config.mjs` or `astro.config.mjs`.** A running dev server does not pick up
   a new Tailwind color family, so utilities using it silently do nothing: on 2026-09-19 the pricing page's dark service bands
