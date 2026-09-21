@@ -43,11 +43,11 @@ export const content: VerticalContent = {
       'We help law firms look as credible online as they are in the room, with websites and marketing built around how clients actually choose an attorney.',
     industriesHeading: 'Firms We Work With',
     industries: [
-      { label: 'Personal Injury', href: '/portfolio#litigation' },
-      { label: 'Family Law', href: '/portfolio#family' },
-      { label: 'Estate Planning', href: '/portfolio#estate' },
-      { label: 'Criminal Defense', href: '/portfolio#litigation' },
-      { label: 'Business & Employment', href: '/portfolio#business' }
+      { label: 'Personal Injury', href: '/services' },
+      { label: 'Family Law', href: '/services' },
+      { label: 'Estate Planning', href: '/services' },
+      { label: 'Criminal Defense', href: '/services' },
+      { label: 'Business & Employment', href: '/services' }
     ],
     copyrightHolder: 'Team Riley Law'
   },
@@ -128,10 +128,8 @@ export const content: VerticalContent = {
       { src: lawPlaceholder3, alt: 'Placeholder layout for law firm work in progress' },
       { src: lawPlaceholder4, alt: 'Placeholder layout for law firm work in progress' }
     ],
-    clientLogosLabel: 'Trusted by firm owners and solo attorneys',
-    clientLogos: [
-      { name: 'Nazareth Law', src: '/images/logos/nazareth.png', href: 'https://nazarethlaw.com' }
-    ],
+    clientLogosLabel: '',
+    clientLogos: [],
     features: {
       heading: { lead: '', highlight: 'Remarkable', trail: ' Features' },
       subtitle: 'We build firm brands that earn trust before the first call.',
@@ -253,11 +251,7 @@ export const content: VerticalContent = {
   sitemap: {
     homeDescription: 'Professional web design for law firms',
     portfolioDescription: 'View our law firm website work',
-    portfolioCategories: [
-      { title: 'Litigation', url: '/portfolio#litigation', description: 'Personal injury and criminal defense websites' },
-      { title: 'Family & Estate', url: '/portfolio#family', description: 'Family law and estate planning websites' },
-      { title: 'Business & Transactional', url: '/portfolio#business', description: 'Business and employment law websites' }
-    ]
+    portfolioCategories: []
   },
   platform: {
     description: 'Complete CRM and intake automation platform built for law firms',

@@ -1,5 +1,9 @@
 ---
-import { content } from '../verticals/active';
+import { content, site } from '../verticals/active';
+import { hasPage } from '../verticals/index';
+// /portfolio is health-only for now, so the CTA that points at it becomes the
+// booking action on the markets that do not publish one.
+const showPortfolio = hasPage(site, '/portfolio');
 const { hero, visibility, problem, process, features, clientLogos, clientLogosLabel, showcase } = content.home;
 // The gallery is two staggered columns; fewer than six screenshots would visibly
 // repeat, so a market without enough work shows the copy full-width instead.
@@ -94,8 +98,8 @@ import { ArrowRight, CheckCircle2, XCircle, Zap, Smartphone, Palette, Globe, Roc
       </p>
 
       <div class="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row md:mt-10 md:gap-4">
-        <a href="/portfolio" class="btn btn-primary btn-lg">
-          View Our Work
+        <a href={showPortfolio ? "/portfolio" : "/#book-a-call"} data-booking-modal-open={showPortfolio ? undefined : true} class="btn btn-primary btn-lg">
+          {showPortfolio ? 'View Our Work' : 'Get Started'}
           <ArrowRight class="w-5 h-5" />
         </a>
         <a href="/pricing" class="btn btn-secondary btn-lg">

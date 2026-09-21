@@ -1,5 +1,6 @@
 ---
 import { content, site } from '../verticals/active';
+import { hasPage } from '../verticals/index';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
@@ -10,7 +11,10 @@ const pages = [
   { title: 'About Us', url: '/about', description: 'Learn about our team and mission' },
   { title: 'Services', url: '/services', description: 'Complete digital solutions for your business' },
   { title: 'Pricing', url: '/pricing', description: 'Simple, transparent pricing plans' },
-  { title: 'Portfolio', url: '/portfolio', description: content.sitemap.portfolioDescription },
+  // Only the markets that publish a portfolio list one.
+  ...(hasPage(site, '/portfolio')
+    ? [{ title: 'Portfolio', url: '/portfolio', description: content.sitemap.portfolioDescription }]
+    : []),
   { title: 'Contact', url: '/contact', description: 'Get in touch with our team' },
   { title: 'Privacy Policy', url: '/privacy-policy', description: 'Our data protection practices' },
   { title: 'Terms of Service', url: '/terms-of-service', description: 'Terms and conditions for our services' },

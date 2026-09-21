@@ -47,11 +47,11 @@ export const content: VerticalContent = {
       'We help advisory firms present themselves online with the clarity and care their clients expect, and with the SEC Marketing Rule in mind.',
     industriesHeading: 'Firms We Work With',
     industries: [
-      { label: 'Registered Investment Advisors', href: '/portfolio#advisory' },
-      { label: 'Wealth Management', href: '/portfolio#advisory' },
-      { label: 'Retirement Planning', href: '/portfolio#planning' },
-      { label: 'Tax & Accounting', href: '/portfolio#planning' },
-      { label: 'Insurance & Benefits', href: '/portfolio#insurance' }
+      { label: 'Registered Investment Advisors', href: '/services' },
+      { label: 'Wealth Management', href: '/services' },
+      { label: 'Retirement Planning', href: '/services' },
+      { label: 'Tax & Accounting', href: '/services' },
+      { label: 'Insurance & Benefits', href: '/services' }
     ],
     copyrightHolder: 'Team Riley Finance'
   },
@@ -130,10 +130,8 @@ export const content: VerticalContent = {
       { src: aldermanConcept, alt: 'Alderman Tax Partners concept homepage' },
       { src: financePlaceholder3, alt: 'Placeholder layout for advisory work in progress' }
     ],
-    clientLogosLabel: 'Client work we build and manage',
-    clientLogos: [
-      { name: 'Life 2 Health', src: '/images/logos/life2health.png', href: 'https://life2health.net' }
-    ],
+    clientLogosLabel: '',
+    clientLogos: [],
     features: {
       heading: { lead: '', highlight: 'Remarkable', trail: ' Features' },
       subtitle: 'We build advisory brands that explain themselves clearly.',
@@ -255,11 +253,7 @@ export const content: VerticalContent = {
   sitemap: {
     homeDescription: 'Professional web design for financial advisors',
     portfolioDescription: 'View our advisory firm concept work',
-    portfolioCategories: [
-      { title: 'Advisory & Wealth', url: '/portfolio#advisory', description: 'RIA and wealth management concepts' },
-      { title: 'Planning & Tax', url: '/portfolio#planning', description: 'Retirement, tax and planning concepts' },
-      { title: 'Insurance & Benefits', url: '/portfolio#insurance', description: 'Insurance and benefits concepts' }
-    ]
+    portfolioCategories: []
   },
   platform: {
     description: 'Complete CRM and marketing automation platform built for advisory firms',

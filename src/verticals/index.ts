@@ -70,3 +70,12 @@ export function resolveVerticalId(raw: string | undefined): VerticalId {
 export function sitemapExcludedPaths(site: VerticalSite): string[] {
   return site.pages.filter((page) => !page.inSitemap).map((page) => `${page.pattern.replace(/\/$/, '')}/`);
 }
+
+/**
+ * Does this market publish the given route? `/portfolio` is health-only for now:
+ * law and finance have too little client work to fill a portfolio page, so the link,
+ * the CTAs that point at it and its footer entries all disappear for them.
+ */
+export function hasPage(site: VerticalSite, pattern: string): boolean {
+  return site.pages.some((page) => page.pattern === pattern);
+}

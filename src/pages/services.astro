@@ -7,7 +7,11 @@ import PricingSection from "../components/PricingSection.astro";
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import type { ServicesCardIcon } from '../data/services';
-import { content, services as pricedServices } from '../verticals/active';
+import { content, services as pricedServices, site } from '../verticals/active';
+import { hasPage } from '../verticals/index';
+// /portfolio is health-only for now, so the CTA that points at it becomes the
+// booking action on the markets that do not publish one.
+const showPortfolio = hasPage(site, '/portfolio');
 import { Rocket, Smartphone, Zap, Globe, Palette, Code, LineChart, Shield, Bot, ArrowRight, Sparkles, TrendingUp, Users, CheckCircle2, ShieldCheck, XCircle, Syringe, Bone, Dumbbell, HeartPulse, Brain, WalletCards, Flower2, SmilePlus, Gavel, Scroll, Briefcase, Plane, Building2, Scale, Gem, PiggyBank, Calculator, UserRound } from '@lucide/astro';
 
 // The marketing grid reads src/data/services.ts, so a renamed, repriced or retired
@@ -586,8 +590,8 @@ const businessTypes = pageContent.segments.map((segment) => {
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
-        <a href="/portfolio" class="btn btn-primary btn-lg">
-          View Our Work
+        <a href={showPortfolio ? "/portfolio" : "/#book-a-call"} data-booking-modal-open={showPortfolio ? undefined : true} class="btn btn-primary btn-lg">
+          {showPortfolio ? 'View Our Work' : 'Get Started'}
           <ArrowRight class="w-5 h-5" />
         </a>
         <a href="/pricing" class="btn btn-secondary btn-lg">

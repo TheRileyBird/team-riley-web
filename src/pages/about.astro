@@ -1,5 +1,9 @@
 ---
-import { content } from '../verticals/active';
+import { content, site } from '../verticals/active';
+import { hasPage } from '../verticals/index';
+// No portfolio on law and finance yet, so the secondary CTA points at the work
+// they can actually see: what we do.
+const showPortfolio = hasPage(site, '/portfolio');
 const about = content.about;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
@@ -21,7 +25,9 @@ import familyImage from '../assets/images/family-2.jpg';
     title={`${about.header.heading.lead}<span class="animated-gradient-text">${about.header.heading.highlight}</span>${about.header.heading.trail ?? ''}`}
     subtitle={about.header.subtitle}
     primaryCTA={{ text: 'Get Started', href: '/#book-a-call' }}
-    secondaryCTA={{ text: 'View Our Work', href: '/portfolio' }}
+    secondaryCTA={showPortfolio
+      ? { text: 'View Our Work', href: '/portfolio' }
+      : { text: 'See Our Services', href: '/services' }}
     follows="dark-band"
   />
 

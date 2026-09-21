@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { content } from '../../src/verticals/content/loader';
+import { hasPage, sites } from '../../src/verticals/index';
 import { distUnderTest, htmlPages } from './helpers';
 
 const { vertical, dir } = distUnderTest();
@@ -13,12 +14,19 @@ const marketContent = content[vertical];
  * references are what the FTC's rule on fake reviews prohibits, and what bar and
  * SEC advertising rules make expensive.
  */
+const publishesPortfolio = hasPage(sites[vertical], '/portfolio');
+
 describe(`${vertical} proof is honest`, () => {
-  it('built a portfolio page', () => {
-    expect(portfolio, 'no /portfolio/ page').toBeDefined();
+  /*
+   * Only health publishes a portfolio right now. Law and finance have too little
+   * client work to fill one, so the page, its nav link and its footer entries are
+   * all absent — and the concept-labelling rules below have nothing to check.
+   */
+  it('publishes a portfolio page only when this market has one', () => {
+    expect(Boolean(portfolio)).toBe(publishesPortfolio);
   });
 
-  it('labels every concept project and gives it no live-site link', () => {
+  it.skipIf(!publishesPortfolio)('labels every concept project and gives it no live-site link', () => {
     const concepts = marketContent.portfolio.sections.flatMap((section) =>
       section.projects.filter((project) => project.concept)
     );

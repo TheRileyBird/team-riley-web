@@ -5,6 +5,11 @@
     "launchReady": true,
     "pages": [
       {
+        "pattern": "/portfolio",
+        "entrypoint": "./src/verticals/health/pages/portfolio.astro",
+        "inSitemap": true
+      },
+      {
         "pattern": "/digital-health-audit",
         "entrypoint": "./src/verticals/health/pages/digital-health-audit.astro",
         "inSitemap": false
