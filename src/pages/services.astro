@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PricingSection from "../components/PricingSection.astro";
+import AngledShowcase from '../components/AngledShowcase.astro';
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import type { ServicesCardIcon } from '../data/services';
@@ -104,29 +105,12 @@ const businessTypes = pageContent.segments.map((segment) => {
       <div class="absolute bottom-10 left-16 w-80 h-80 bg-accent-400 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="portfolio-scroll-gallery order-2 relative w-full max-w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
+    <!-- The services gallery drifts on its own tilt; the homepage's slides on scroll.
+         Two pages, two treatments, same screenshots. -->
+    <div class="order-2 relative w-full max-w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44vw] h-[460px] md:h-[560px] lg:h-full overflow-hidden mt-12 lg:mt-0 lg:order-none">
       <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white lg:from-primary-50 to-transparent z-10"></div>
       <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-50 to-transparent z-10"></div>
-      {showShowcase && (
-        <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 px-4 sm:px-6 md:p-3 -mt-10">
-          {showcaseColumns.map((column, columnIndex) => (
-            <div
-              class:list={[
-                'portfolio-scroll-column space-y-4 md:space-y-5',
-                columnIndex === 0 ? 'portfolio-scroll-column-up' : 'portfolio-scroll-column-down pt-16'
-              ]}
-            >
-              {column.map((shot) => (
-                <Image
-                  src={shot.src}
-                  alt={shot.alt}
-                  class="aspect-video w-full rounded-xl object-cover object-top shadow-xl"
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
+      {showShowcase && <AngledShowcase images={showcase} />}
     </div>
 
     <div class="relative order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,0 +1,114 @@
+---
+/**
+ * The services hero gallery: rows of site screenshots drifting sideways on a tilt.
+ *
+ * The homepage already has a showcase, and it earns its keep there — two columns
+ * that slide against each other as you scroll. Repeating it here made the two pages
+ * feel like the same page twice, so this one is deliberately the opposite: it moves
+ * on its own rather than waiting for a scroll, and the whole field is rotated so the
+ * rows read as a moving surface instead of a list.
+ *
+ * How the loop is seamless: each row renders its screenshots twice and travels
+ * exactly -50% of its own width, so the moment the first copy leaves the frame the
+ * second is sitting precisely where it started. The rows run at different speeds and
+ * opposite directions, which keeps the eye from locking onto one row and noticing
+ * the repeat.
+ *
+ * The tilt costs geometry: rotating a full-width block leaves triangular gaps at the
+ * corners, so the field is over-sized and pushed out past the frame, and the section
+ * clips it.
+ */
+import { Image } from 'astro:assets';
+import type { ShowcaseImage } from '../verticals/content/types';
+
+interface Props {
+  images: ShowcaseImage[];
+  /** Degrees of tilt. Negative lifts the right-hand side. */
+  angle?: number;
+}
+
+const { images, angle = -8 } = Astro.props;
+
+// Three rows, dealt round-robin so neighbouring screenshots are never the same pair.
+const rows = [0, 1, 2].map((row) => images.filter((_, index) => index % 3 === row));
+const speeds = ['58s', '74s', '66s'];
+---
+
+<div class="angled-showcase" style={`--angle: ${angle}deg`} aria-hidden="true">
+  {rows.map((row, index) => (
+    <div class:list={['angled-row', index % 2 === 1 && 'angled-row-reverse']} style={`--duration: ${speeds[index]}`}>
+      {/* Rendered twice: the second copy is what the first one loops into. */}
+      {[0, 1].map(() => (
+        <div class="angled-track">
+          {row.map((shot) => (
+            <Image
+              src={shot.src}
+              alt=""
+              widths={[420, 640]}
+              sizes="420px"
+              class="angled-shot"
+              loading="lazy"
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
+
+<style>
+  .angled-showcase {
+    position: absolute;
+    /* Oversized and offset: a rotated rectangle does not cover its own frame. */
+    inset: -18% -26%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(0.75rem, 1.6vw, 1.5rem);
+    transform: rotate(var(--angle));
+    pointer-events: none;
+  }
+
+  .angled-row {
+    display: flex;
+    width: max-content;
+    gap: clamp(0.75rem, 1.6vw, 1.5rem);
+    animation: angled-drift var(--duration) linear infinite;
+  }
+
+  .angled-row-reverse {
+    animation-direction: reverse;
+  }
+
+  .angled-track {
+    display: flex;
+    gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  }
+
+  .angled-shot {
+    width: clamp(220px, 24vw, 420px);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 0.75rem;
+    box-shadow: 0 18px 40px -22px rgba(15, 23, 42, 0.55);
+  }
+
+  @keyframes angled-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      /* Half the row is one full copy of the screenshots. */
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  /* Motion is the whole idea here, so with reduced motion the rows simply hold
+     still rather than falling back to something jumpier. */
+  @media (prefers-reduced-motion: reduce) {
+    .angled-row {
+      animation: none;
+    }
+  }
+</style>

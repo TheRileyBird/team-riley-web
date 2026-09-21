@@ -265,7 +265,8 @@ unchecked task unless you are starting it.
   Done 2026-09-21: the shader's line colour is a bright blue now and its edges fade to silver.
 - [x] Team Riley Health feels too clinical: move the yoga video to second in the hero reel and drop the surgery clip
   Done 2026-09-21: six clips now — exam, yoga, ultrasound, injectables, pharmacy, trainer. The yoga deck moving to second means the reel turns warm before anyone reads it as a hospital site, which was the actual complaint; surgery is gone from disk.
-- [ ] Services page: make the website screenshot gallery different from the homepage one - maybe angled about 45 degrees, and moving automatically rather than scroll-based
+- [x] Services page: make the website screenshot gallery different from the homepage one - maybe angled about 45 degrees, and moving automatically rather than scroll-based
+  Done 2026-09-21: new AngledShowcase component — three rows of screenshots drifting sideways at different speeds and directions, on an 8 degree tilt. Not 45: at that angle the shots read as a diagonal stack rather than a moving surface, and the corner gaps get large enough to need a much bigger overdraw. Each row renders its images twice and travels exactly -50%, so the loop is seamless. Rows hold still under prefers-reduced-motion. The homepage keeps its scroll-driven version.
 
 ## Notes
 
