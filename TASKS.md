@@ -267,6 +267,8 @@ unchecked task unless you are starting it.
   Done 2026-09-21: six clips now — exam, yoga, ultrasound, injectables, pharmacy, trainer. The yoga deck moving to second means the reel turns warm before anyone reads it as a hospital site, which was the actual complaint; surgery is gone from disk.
 - [x] Services page: make the website screenshot gallery different from the homepage one - maybe angled about 45 degrees, and moving automatically rather than scroll-based
   Done 2026-09-21: new AngledShowcase component — three rows of screenshots drifting sideways at different speeds and directions, on an 8 degree tilt. Not 45: at that angle the shots read as a diagonal stack rather than a moving surface, and the corner gaps get large enough to need a much bigger overdraw. Each row renders its images twice and travels exactly -50%, so the loop is seamless. Rows hold still under prefers-reduced-motion. The homepage keeps its scroll-driven version.
+- [x] The gold/featured pricing card needs a border like the other cards - on health and law
+  Done 2026-09-21: my own regression. Tailwind renders ring-2 as part of the same box-shadow property, and the featured card carries ring-2 and shadow-large together — so the law/finance shadow override from the finish pass replaced the whole box-shadow and erased the ring. Health still had its ring because it has no override, which is exactly what the two screenshots showed. The scoped shadows now compose --tw-ring-offset-shadow and --tw-ring-shadow first, the way Tailwind does.
 
 ## Notes
 

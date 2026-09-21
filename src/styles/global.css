@@ -843,15 +843,23 @@ html[data-vertical="finance"] .border-gray-200 {
 }
 
 /* Shadows: tighter and less glossy. The shared ones spread far and read retail. */
+/* The ring variables come first for a reason: Tailwind renders `ring-2` as part of
+   the same box-shadow, so setting box-shadow outright here silently erased the ring
+   on any element carrying both — which is what happened to the featured pricing
+   card. Composing them the way Tailwind does keeps the ring. */
 html[data-vertical="law"] .shadow-large,
 html[data-vertical="finance"] .shadow-large {
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+              var(--tw-ring-shadow, 0 0 #0000),
+              0 1px 2px rgba(15, 23, 42, 0.06),
               0 10px 24px -12px rgba(15, 23, 42, 0.3);
 }
 
 html[data-vertical="law"] .shadow-medium,
 html[data-vertical="finance"] .shadow-medium {
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05),
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+              var(--tw-ring-shadow, 0 0 #0000),
+              0 1px 2px rgba(15, 23, 42, 0.05),
               0 6px 14px -8px rgba(15, 23, 42, 0.22);
 }
 
