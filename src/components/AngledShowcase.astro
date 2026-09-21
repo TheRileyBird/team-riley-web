@@ -33,7 +33,7 @@ const { images, angle = -8 } = Astro.props;
 // Two rows, dealt alternately so neighbouring screenshots are never the same pair.
 // Three rows moved in three directions at once and read as busy rather than calm.
 const rows = [0, 1].map((row) => images.filter((_, index) => index % 2 === row));
-const speeds = ['64s', '78s'];
+const speeds = ['112s', '134s'];
 ---
 
 <div class="angled-showcase" style={`--angle: ${angle}deg`} aria-hidden="true">
@@ -69,10 +69,22 @@ const speeds = ['64s', '78s'];
     gap: clamp(0.75rem, 1.6vw, 1.5rem);
     transform: rotate(var(--angle));
     pointer-events: none;
-    /* Dissolve at every edge: a rotated row cut by the frame shows a diagonal
-       stub, which reads as a mistake. */
-    mask-image: radial-gradient(120% 95% at 50% 50%, #000 42%, transparent 88%);
-    -webkit-mask-image: radial-gradient(120% 95% at 50% 50%, #000 42%, transparent 88%);
+    /*
+     * Two masks, intersected. The linear one dissolves the left side long before the
+     * frame ends, so the gallery meets the copy on a gradient instead of an edge; the
+     * radial one softens the other three sides, because a rotated row cut by its frame
+     * shows a diagonal stub.
+     *
+     * This is why nothing paints a background here any more: a solid fade over a
+     * section that is itself a gradient meets it in a straight line, which is exactly
+     * the seam this replaces.
+     */
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%),
+                radial-gradient(135% 105% at 58% 50%, #000 48%, transparent 94%);
+    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 18%, #000 38%),
+                        radial-gradient(135% 105% at 58% 50%, #000 48%, transparent 94%);
+    -webkit-mask-composite: source-in;
   }
 
   .angled-row {

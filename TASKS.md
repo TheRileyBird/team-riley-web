@@ -271,7 +271,8 @@ unchecked task unless you are starting it.
   Done 2026-09-21: my own regression. Tailwind renders ring-2 as part of the same box-shadow property, and the featured card carries ring-2 and shadow-large together — so the law/finance shadow override from the finish pass replaced the whole box-shadow and erased the ring. Health still had its ring because it has no override, which is exactly what the two screenshots showed. The scoped shadows now compose --tw-ring-offset-shadow and --tw-ring-shadow first, the way Tailwind does.
 - [x] Portfolio needs to stay live on health
   Done 2026-09-21: no change needed — it never left health. Verified against the live site: /portfolio returns 200 with all 24 project cards and the medical/physical/holistic sections, the nav link is on every page, the footer industry links still point at its anchors, and it is in the sitemap. The health-only route was the mechanism used to remove it from law and finance, which is exactly what keeps it on health.
-- [ ] Blend the line where the gallery meets the copy in the /services hero better, and slow the animation down
+- [x] Blend the line where the gallery meets the copy in the /services hero better, and slow the animation down
+  Done 2026-09-21: the line was self-inflicted. The fade overlays I added painted solid ink-950 while the section behind them is a diagonal gradient, so the two shades met in a straight vertical edge down the whole hero. They are gone; the blending is now two intersected masks on the gallery itself — a linear one that dissolves the left side long before the frame ends, and a radial one for the other three edges — so nothing paints a background and there is no edge to see. Drift slowed from 64s/78s to 112s/134s.
 
 ## Notes
 
