@@ -250,6 +250,8 @@ unchecked task unless you are starting it.
 - [ ] Law: the 'We Know Law Firms' animated text should feel blue
 - [ ] Law: the section icons are okay but could use more colour - right now it looks like a black and white site or a colour filter
 - [ ] Law pricing: bring some blue into the Zero Friction animated shader background, maybe in the lines
+- [x] Team Riley Health feels too clinical: move the yoga video to second in the hero reel and drop the surgery clip
+  Done 2026-09-21: six clips now — exam, yoga, ultrasound, injectables, pharmacy, trainer. The yoga deck moving to second means the reel turns warm before anyone reads it as a hospital site, which was the actual complaint; surgery is gone from disk.
 
 ## Notes
 

@@ -27,7 +27,6 @@ import cfcCardSite from '../../assets/sites/cfc.jpg';
 import healthExam from '../../assets/videos/health-exam.mp4';
 import healthUltrasound from '../../assets/videos/health-ultrasound.mp4';
 import healthInjectionPrep from '../../assets/videos/health-injection-prep.mp4';
-import healthSurgery from '../../assets/videos/health-surgery.mp4';
 import healthPharmacist from '../../assets/videos/health-pharmacist.mp4';
 import healthTrainer from '../../assets/videos/health-personal-trainer.mp4';
 import healthYoga from '../../assets/videos/health-yoga-deck.mp4';
@@ -68,17 +67,16 @@ export const content: VerticalContent = {
     description:
       'Team Riley Web - Digital Health For Your Business',
     hero: {
-      // One clip per kind of business the site sells to — exam room, maternity,
-      // injectables, surgical, pharmacy, training, studio — and the order warms up as
-      // it goes, so the loop does not read as a minute inside a hospital.
+      // One clip per kind of business the site sells to. The yoga deck sits second
+      // rather than last so the reel turns warm before anyone decides this is a
+      // hospital site, and there is no surgery in it at all.
       clips: [
         { src: healthExam },
+        { src: healthYoga },
         { src: healthUltrasound },
         { src: healthInjectionPrep },
-        { src: healthSurgery },
         { src: healthPharmacist },
-        { src: healthTrainer },
-        { src: healthYoga }
+        { src: healthTrainer }
       ],
       poster: healthPoster,
       eyebrow: 'Digital Health For Your Business',
