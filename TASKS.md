@@ -237,21 +237,35 @@ unchecked task unless you are starting it.
   Done 2026-09-21: name margin 4px to 2px, role margin 12px to 8px, on all three sites as asked.
 - [x] Finance: make the 'Fast Turnaround' icon gold
   Done 2026-09-21: it used from-accent-500 to-primary-700, so the gold-only gradient rule covered it.
-- [ ] Law home hero: remove the gray border around the buttons and get a slightly deeper blue into that gradient
-- [ ] Law: the whole site reads black and white - it needs to feel like steel, not grayscale. Decide the direction: either Apple-like (whites, blacks, grays with blue accents) or more blue with silver accents, and think critically about it design-wise
-- [ ] Law: the eyebrows (the problem section, 'record') feel black and white - they need colour
-- [ ] Law: make the animated gradient background more of a deep blue - really leaning into blue and silver
-- [ ] Law: 'Your firm loses when it's' icons can be red that matches the brand
-- [ ] Law solution section: the eyebrow doesn't stand out - give it more of a gray background with blue text
-- [ ] Law: give the infinity icon a hint of blue - maybe a ghosted slightly transparent background with the silver floating on top, and some white in the silver so it reads as silver steel
-- [ ] Law pricing: make the MOST POPULAR badge blue - this is the core function, it should feel bright
-- [ ] Law footer: it feels black and white, use blue
-- [ ] Law: use blue icons in the 'Does this place feel trustworthy?' section
-- [ ] Law: the 'We Know Law Firms' animated text should feel blue
-- [ ] Law: the section icons are okay but could use more colour - right now it looks like a black and white site or a colour filter
-- [ ] Law pricing: bring some blue into the Zero Friction animated shader background, maybe in the lines
+- [x] Law home hero: remove the gray border around the buttons and get a slightly deeper blue into that gradient
+  Done 2026-09-21: border gone, fill now primary-500 into primary-700. Worth knowing: the steel hairline was doing real work — against the hero video the navy fill measures 2.2:1, up from 1.2:1 but still under the 3:1 you want for a boundary. The drop shadow carries the rest. Say the word if it reads soft.
+- [x] Law: the whole site reads black and white - it needs to feel like steel, not grayscale. Decide the direction: either Apple-like (whites, blacks, grays with blue accents) or more blue with silver accents, and think critically about it design-wise
+  Done 2026-09-21: blue-led with silver accents. The cause was the palette, not the components: primary-400 was 85 105 136 and primary-300 was 139 153 174, both a few points off neutral, so every mid-tone element inherited grey no matter what it was told. The ramp now carries real chroma at 300-500. Apple-like was the wrong fit — that look needs the layout to carry it, and this page has cards, gradients and bands that would read empty rather than restrained.
+- [x] Law: the eyebrows (the problem section, 'record') feel black and white - they need colour
+  Done 2026-09-21: they take primary-300, which is now a real blue.
+- [x] Law: make the animated gradient background more of a deep blue - really leaning into blue and silver
+  Done 2026-09-21: the aurora was dimmed to 0.4 opacity in an earlier pass, which turned it to grey haze; back to 0.6 over a blue ramp.
+- [x] Law: 'Your firm loses when it's' icons can be red that matches the brand
+  Done 2026-09-21: the same --c-negative token finance got; law's is a deep red that sits with navy.
+- [x] Law solution section: the eyebrow doesn't stand out - give it more of a gray background with blue text
+  Done 2026-09-21: the navy wash it sat on vanished into the band behind it; it is a steel plate with blue type now.
+- [x] Law: give the infinity icon a hint of blue - maybe a ghosted slightly transparent background with the silver floating on top, and some white in the silver so it reads as silver steel
+  Done 2026-09-21: the three infinity stops are now silver-white, silver and blue, so the mark cycles silver over a blue hint.
+- [x] Law pricing: make the MOST POPULAR badge blue - this is the core function, it should feel bright
+  Done 2026-09-21: blue. It was Tailwind's yellow originally, then steel after the finish pass; now primary-500.
+- [x] Law footer: it feels black and white, use blue
+  Done 2026-09-21: the icon plates were slate-800 and the text slate-400/500; plates are navy now and the greys carry the brand's silver.
+- [x] Law: use blue icons in the 'Does this place feel trustworthy?' section
+  Done 2026-09-21: the accent-toned marks in that section now take primary-300.
+- [x] Law: the 'We Know Law Firms' animated text should feel blue
+  Done 2026-09-21: the headline stops are blue throughout, no grey stop: 8.5 / 3.7 / 5.7 on white.
+- [x] Law: the section icons are okay but could use more colour - right now it looks like a black and white site or a colour filter
+  Done 2026-09-21: the icon tiles mixed navy into steel, which lands on grey; they run blue to blue now.
+- [x] Law pricing: bring some blue into the Zero Friction animated shader background, maybe in the lines
+  Done 2026-09-21: the shader's line colour is a bright blue now and its edges fade to silver.
 - [x] Team Riley Health feels too clinical: move the yoga video to second in the hero reel and drop the surgery clip
   Done 2026-09-21: six clips now — exam, yoga, ultrasound, injectables, pharmacy, trainer. The yoga deck moving to second means the reel turns warm before anyone reads it as a hospital site, which was the actual complaint; surgery is gone from disk.
+- [ ] Services page: make the website screenshot gallery different from the homepage one - maybe angled about 45 degrees, and moving automatically rather than scroll-based
 
 ## Notes
 
