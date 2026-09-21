@@ -16,4 +16,7 @@
 # Verify after deploy: curl -I https://teamrileyweb.com/does-not-exist
 
 [build.environment]
-  NODE_VERSION = "18"
+  # 22, not 18: `npm run build` runs the unit tests before it builds, and vitest 4
+  # requires ^20 || ^22 || >=24, so every site failed on the first command with exit
+  # code 2. Astro 5 and Vite 6 are both happy on 22.
+  NODE_VERSION = "22"
